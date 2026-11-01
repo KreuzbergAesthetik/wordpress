@@ -1,0 +1,87 @@
+name: Zu IONOS übertragen
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: "Diese Version auf der öffentlichen Website veröffentlichen"
+        type: boolean
+        required: true
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ionos-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main' && inputs.publish
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    environment: ionos-production
+    steps:
+      - name: Freigegebenen Stand laden
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: PHP und JavaScript prüfen
+        shell: bash
+        run: |
+          set -euo pipefail
+          find . -name '*.php' -not -path './.git/*' -print0 | xargs -0 -r -n 1 php -l
+          node --check script.js
+          node --check day-cycle.js
+
+      - name: Übertragung vorbereiten
+        shell: bash
+        env:
+          IONOS_HOST: ${{ secrets.IONOS_HOST }}
+          IONOS_USER: ${{ secrets.IONOS_USER }}
+          IONOS_PASSWORD: ${{ secrets.IONOS_PASSWORD }}
+          IONOS_THEME_PATH: ${{ secrets.IONOS_THEME_PATH }}
+          IONOS_KNOWN_HOSTS: ${{ secrets.IONOS_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+          for key in IONOS_HOST IONOS_USER IONOS_PASSWORD IONOS_THEME_PATH IONOS_KNOWN_HOSTS; do
+            if [ -z "${!key}" ]; then
+              echo "::error::Zugang noch nicht eingerichtet: $key"
+              exit 1
+            fi
+          done
+          [[ "$IONOS_HOST" =~ ^[a-zA-Z0-9][a-zA-Z0-9.-]*$ ]] || exit 1
+          [[ "$IONOS_USER" =~ ^[a-zA-Z0-9][a-zA-Z0-9._-]*$ ]] || exit 1
+          [[ "$IONOS_THEME_PATH" =~ ^/[a-zA-Z0-9_./-]+/kreuzberg-aesthetik$ ]] || exit 1
+          [[ "$IONOS_THEME_PATH" != *"/../"* && "$IONOS_THEME_PATH" != *"/./"* ]] || exit 1
+          mkdir -p "$HOME/.ssh" "$RUNNER_TEMP/theme-package"
+          chmod 700 "$HOME/.ssh"
+          printf '%s\n' "$IONOS_KNOWN_HOSTS" > "$HOME/.ssh/known_hosts"
+          chmod 600 "$HOME/.ssh/known_hosts"
+          cp -- *.php *.css *.js "$RUNNER_TEMP/theme-package/"
+          cp -R -- assets inc "$RUNNER_TEMP/theme-package/"
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq lftp
+
+      - name: Theme per SFTP übertragen
+        shell: bash
+        env:
+          IONOS_HOST: ${{ secrets.IONOS_HOST }}
+          IONOS_USER: ${{ secrets.IONOS_USER }}
+          LFTP_PASSWORD: ${{ secrets.IONOS_PASSWORD }}
+          IONOS_THEME_PATH: ${{ secrets.IONOS_THEME_PATH }}
+        run: |
+          set -euo pipefail
+          lftp --env-password -u "$IONOS_USER" "sftp://$IONOS_HOST" <<EOF
+          set cmd:fail-exit yes
+          set net:max-retries 2
+          set net:timeout 25
+          set sftp:auto-confirm no
+          set sftp:connect-program "ssh -a -x -o StrictHostKeyChecking=yes"
+          cd "$IONOS_THEME_PATH"
+          mirror --reverse --verbose --parallel=1 --no-perms "$RUNNER_TEMP/theme-package" .
+          bye
+          EOF
+          printf '%s\n' "Theme-Dateien übertragen. Darstellung, Kontaktformular und Cache anschließend auf der Website prüfen." >> "$GITHUB_STEP_SUMMARY"
