@@ -89,7 +89,7 @@ function ka_contact_handler() {
 	$subject = 'Terminanfrage über die Website';
 	$body    = "Name: $first $last\nE-Mail: $email\n\n$msg\n\nDie Person hat der Verarbeitung ihrer Angaben zur Beantwortung der Anfrage zugestimmt.";
 	$headers = array( 'Content-Type: text/plain; charset=UTF-8', 'Reply-To: ' . $first . ' ' . $last . ' <' . $email . '>' );
-	$ok = wp_mail( ka_raw( 'email' ), $subject, $body, $headers );
+	$ok = wp_mail( KA_MAIL_TO, $subject, $body, $headers );
 	wp_safe_redirect( add_query_arg( 'ka', $ok ? 'sent' : 'error', $back ) . '#kontakt' );
 	exit;
 }
