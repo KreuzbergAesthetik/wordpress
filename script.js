@@ -345,3 +345,40 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
   window.addEventListener('scroll',req,{passive:true});
   window.addEventListener('resize',req);check();
 })();
+
+/* Seitenwechsel: kurze Sanduhr, die sich einmal schnell dreht */
+(function(){
+  var root=document.documentElement,busy=false,rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(root.classList.contains('pgt-on')){
+    try{sessionStorage.removeItem('ka_pgt')}catch(e){}
+    var off=function(){setTimeout(function(){root.classList.remove('pgt-on')},180)};
+    if(document.readyState==='complete')off();else window.addEventListener('load',off);
+  }
+  window.addEventListener('pageshow',function(e){if(e.persisted){root.classList.remove('pgt-on','pgt-spin');busy=false}});
+  function play(done){
+    if(rm){done();return}
+    root.classList.add('pgt-on','pgt-spin');
+    setTimeout(done,480);
+  }
+  document.addEventListener('click',function(e){
+    if(e.defaultPrevented||e.button||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||busy)return;
+    var a=e.target.closest&&e.target.closest('a[href]');
+    if(!a||(a.target&&a.target!=='_self')||a.hasAttribute('download'))return;
+    var h=a.getAttribute('href');
+    if(h.charAt(0)==='#'){
+      /* Vorschau: Ansichten per Adresszusatz */
+      var v=h.slice(1)||'home',cur=(location.hash||'#').slice(1)||'home';
+      if(v===cur||!document.querySelector('.kview[data-view="'+v+'"]'))return;
+      e.preventDefault();busy=true;
+      play(function(){location.hash=h==='#'?'':h;root.classList.remove('pgt-spin');setTimeout(function(){root.classList.remove('pgt-on');busy=false},60)});
+      return;
+    }
+    var u;try{u=new URL(a.href,location.href)}catch(x){return}
+    if(u.origin!==location.origin||!/^https?:$/.test(u.protocol))return;
+    if(u.pathname===location.pathname&&u.search===location.search)return;
+    if(/\/wp-(admin|login)|\.(pdf|zip)$/i.test(u.pathname))return;
+    e.preventDefault();busy=true;
+    try{sessionStorage.setItem('ka_pgt','1')}catch(x){}
+    play(function(){location.href=a.href});
+  });
+})();

@@ -3215,3 +3215,21 @@ svg.fillable path.fl{fill:currentColor;fill-opacity:.25;stroke:none;clip-path:in
 /* Pakete: Hinweis "Auswahl", "auf Anfrage" klein und grau */
 .pk-note,.pr.pr-note{font-weight:400!important;font-size:.82rem!important;color:#7a8594!important;font-family:Quicksand,"Segoe UI",system-ui,sans-serif!important}
 .pk-note{margin:.1rem 0 .5rem!important;text-align:left}
+
+/* Kontaktseite: Aktionsknöpfe wie auf der Startseite (E-Mail dunkel, WhatsApp weiß mit grünem Symbol) */
+.kon-page-btns .btn.hero-main{font-weight:700!important;border:1px solid #012265!important}
+.kon-page-btns .btn.hero-main{gap:.55rem!important;height:3rem;font-size:.98rem}
+.kon-page-btns .btn.hero-main:first-child{background:#012265!important;color:#fff!important;box-shadow:0 8px 18px rgba(1,34,101,.22)}
+.kon-page-btns .btn.hero-main:last-child{background:#fff!important;color:#012265!important}
+.kon-page-btns .btn.hero-main:last-child .ico{color:#004d17!important}
+.kon-page-btns .btn.hero-main .ico{width:1.2rem;height:1.2rem;flex:none}
+
+/* Seitenwechsel: Sanduhr dreht sich einmal schnell (Overlay über html::before/::after, gesteuert per Klasse pgt-on / pgt-spin) */
+html::before,html::after{content:"";position:fixed;z-index:99999;pointer-events:none;opacity:0;visibility:hidden;transition:opacity .28s ease,visibility 0s .28s}
+html::before{inset:0;background:var(--bg,#e6eefa)}
+:root:not([data-theme="dark"])::before{background:linear-gradient(180deg,#dae6f7 0%,#e6eefa 55%,#f5f8fd 100%)}
+html::after{left:50%;top:50%;width:36px;aspect-ratio:288/420;margin:-26px 0 0 -18px;background:var(--head,#012265);-webkit-mask:url(assets/hg-line.png) center/contain no-repeat;mask:url(assets/hg-line.png) center/contain no-repeat}
+html.pgt-on::before,html.pgt-on::after{opacity:1;visibility:visible;transition:opacity .16s ease}
+html.pgt-spin::after{animation:pgtspin .5s cubic-bezier(.55,0,.25,1) forwards}
+@keyframes pgtspin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){html::before,html::after{display:none}}
