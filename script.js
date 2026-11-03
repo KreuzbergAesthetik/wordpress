@@ -326,18 +326,18 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
   window.addEventListener('resize',function(){if(cur)place(cur)});
 })();
 
-/* Füllen der Linien-Icons und Sanduhr-Trenner: die Füllung steht an der Bildschirmmitte. Beim Hochscrollen schiebt sie sich von oben nach unten ins Symbol, beim Zurückscrollen leert es sich wieder */
+/* Füllen der Linien-Icons und Sanduhr-Trenner: die Füllung steht an der Bildschirmmitte. Beim Hochscrollen schiebt sie sich über einen längeren Scrollweg (dist) von oben nach unten ins Symbol, beim Zurückscrollen leert es sich wieder */
 (function(){
   var items=[].slice.call(document.querySelectorAll('svg.fillable,.div .hgi')).map(function(el){
     return{el:el,ref:el.matches('svg')?el.querySelector('path.fl'):el,p:-1};
   }),tick=false;
   function check(){
     tick=false;
-    var line=window.innerHeight*0.5;
+    var line=window.innerHeight*0.5,dist=Math.max(180,Math.min(340,window.innerHeight*0.38));
     items.forEach(function(it){
       var r=it.ref.getBoundingClientRect();
       if(!r.height)return;
-      var p=Math.round(Math.max(0,Math.min(1,(line-r.top)/r.height))*1000)/10;
+      var p=Math.round(Math.max(0,Math.min(1,(line-r.top)/dist))*1000)/10;
       if(p!==it.p){it.p=p;it.el.style.setProperty('--p',p)}
     });
   }
