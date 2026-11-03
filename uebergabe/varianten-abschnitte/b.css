@@ -1,0 +1,6 @@
+/* B: durchgehender Verlauf, Trennlinien mit Sanduhr, Kontakt als Band */
+body{background:linear-gradient(180deg,#e6eef9 0%,#f7f9fd 30%,#e4ecf8 55%,#f7f9fd 80%,#e6eef9 100%)!important}
+.home-page .divwrap{display:block!important;padding-top:1rem!important}
+.home-page .sum-lei,.home-page .sum-about,.home-page .sum-abl{background:transparent!important}
+.home-page .sum{padding-top:2.4rem!important}
+.home-page .sum-kon{margin-top:4rem!important;padding-top:4.2rem!important;background:linear-gradient(150deg,#22366f 0%,#122a66 50%,#012265 100%)!important}

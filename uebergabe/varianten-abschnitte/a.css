@@ -1,0 +1,7 @@
+/* A: vollbreite Bänder, abwechselnd */
+body{background:linear-gradient(180deg,#e9f0fa 0%,#f6f9fd 40%,#eaf1fa 100%)!important}
+.home-page .qk-sec{padding-bottom:3.5rem}
+.home-page .sum-lei{background:#ffffff!important}
+.home-page .sum-about{background:linear-gradient(180deg,#dfe9f7,#d2dff3)!important}
+.home-page .sum-abl{background:#ffffff!important}
+.home-page .sum-kon{background:linear-gradient(150deg,#22366f 0%,#122a66 50%,#012265 100%)!important}
