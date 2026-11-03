@@ -326,19 +326,20 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
   window.addEventListener('resize',function(){if(cur)place(cur)});
 })();
 
-/* Füllen der Linien-Icons und Sanduhr-Trenner beim ersten Scrollen (einmalig) */
+/* Füllen der Linien-Icons und Sanduhr-Trenner: jedes füllt sich einmal, sobald beim Scrollen die Bildschirmmitte erreicht ist */
 (function(){
-  var done=false;
-  function go(){
-    if(done||(window.pageYOffset||document.documentElement.scrollTop)<24)return;
-    done=true;
-    var els=[].slice.call(document.querySelectorAll('svg.fillable,.div .hgi')),vh=window.innerHeight,n=0;
-    els.forEach(function(el){
-      var r=el.getBoundingClientRect(),vis=r.bottom>0&&r.top<vh&&r.width>0;
-      el.style.setProperty('--fd',vis?Math.min(n++*0.09,0.8)+'s':'0s');
-      el.classList.add('is-filled');
+  var els=[].slice.call(document.querySelectorAll('svg.fillable,.div .hgi')),tick=false;
+  function check(){
+    tick=false;
+    var line=window.innerHeight*0.6;
+    els=els.filter(function(el){
+      var r=el.getBoundingClientRect();
+      if(r.width>0&&r.top+r.height/2<line){el.classList.add('is-filled');return false}
+      return true;
     });
-    window.removeEventListener('scroll',go);
+    if(!els.length)window.removeEventListener('scroll',req);
   }
-  window.addEventListener('scroll',go,{passive:true});go();
+  function req(){if(!tick){tick=true;requestAnimationFrame(check)}}
+  window.addEventListener('scroll',req,{passive:true});
+  window.addEventListener('resize',req);
 })();
