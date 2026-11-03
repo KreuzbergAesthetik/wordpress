@@ -328,7 +328,7 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
 
 /* Füllen der Linien-Icons und Sanduhr-Trenner: die Füllung steht an der Bildschirmmitte. Beim Hochscrollen schiebt sie sich über einen längeren Scrollweg (dist) von oben nach unten ins Symbol, beim Zurückscrollen leert es sich wieder */
 (function(){
-  var items=[].slice.call(document.querySelectorAll('svg.fillable,.div .hgi,.sum-about .tl li:not(:last-child) .node')).map(function(el){
+  var items=[].slice.call(document.querySelectorAll('svg.fillable,.div .hgi')).map(function(el){
     return{el:el,ref:el.matches('svg')?el.querySelector('path.fl'):el,p:-1};
   }),tick=false;
   function check(){
@@ -381,4 +381,19 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
     try{sessionStorage.setItem('ka_pgt','1')}catch(x){}
     play(function(){location.href=a.href});
   });
+})();
+
+/* Zeitstrahl-Schilder und Ablauf-Stationen: jedes Schild füllt sich auf einmal, von oben nach unten nacheinander */
+(function(){
+  var nodes=[].slice.call(document.querySelectorAll('.sum-about .tl li:not(:last-child) .node')),
+      steps=[].slice.call(document.querySelectorAll('#ablauf .steps li')),tick=false;
+  nodes.forEach(function(n,i){n.style.setProperty('--nd',(i*0.12)+'s')});
+  function check(){
+    tick=false;
+    var line=window.innerHeight*0.6;
+    nodes.forEach(function(n){var r=n.getBoundingClientRect();if(r.width)n.classList.toggle('nf-on',r.top+r.height/2<line)});
+    steps.forEach(function(li){var r=li.getBoundingClientRect();if(r.width)li.classList.toggle('st-hit',r.top+Math.min(40,r.height/2)<line)});
+  }
+  function req(){if(!tick){tick=true;requestAnimationFrame(check)}}
+  window.addEventListener('scroll',req,{passive:true});window.addEventListener('resize',req);check();
 })();
