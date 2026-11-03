@@ -3194,3 +3194,10 @@ footer .ft-home{display:inline-flex;justify-self:center}
 }
 /* Kontaktseite: Knöpfe mittig, zwei Spalten */
 .kon-page-btns{grid-template-columns:repeat(2,minmax(0,1fr))!important;width:100%!important;max-width:24rem!important;margin-left:auto!important;margin-right:auto!important}
+
+/* Füll-Animation: Linien-Icons und Sanduhren füllen sich einmal beim ersten Scrollen */
+svg.fillable path{fill:transparent;transition:fill .8s ease var(--fd,0s)}
+svg.fillable.is-filled path{fill:currentColor}
+.div .hgi{-webkit-mask:url(assets/hg-line.png) center/contain no-repeat,url(assets/hg-fill.png) center/0 0 no-repeat!important;mask:url(assets/hg-line.png) center/contain no-repeat,url(assets/hg-fill.png) center/0 0 no-repeat!important;transition:-webkit-mask-size .8s ease var(--fd,0s),mask-size .8s ease var(--fd,0s)}
+.div .hgi.is-filled{-webkit-mask-size:contain,contain!important;mask-size:contain,contain!important}
+@media (prefers-reduced-motion:reduce){svg.fillable path,.div .hgi{transition:none!important}}

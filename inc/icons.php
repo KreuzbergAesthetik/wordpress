@@ -38,7 +38,8 @@ function ka_icon_paths() {
 function ka_icon( $name, $class = 'ico' ) {
 	$p = ka_icon_paths();
 	$d = isset( $p[ $name ] ) ? $p[ $name ] : $p['sparkle'];
-	return '<svg class="' . esc_attr( $class ) . '" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="' . esc_attr( $d ) . '"/></svg>';
+	$fillable = in_array( $name, array( 'star', 'heart', 'people', 'person', 'leaf', 'drop', 'sparkle', 'hourglass', 'bubble' ), true ) ? ' fillable' : '';
+	return '<svg class="' . esc_attr( $class ) . $fillable . '" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="' . esc_attr( $d ) . '"/></svg>';
 }
 
 /** Icon-Name passend zu einem Begriff. */

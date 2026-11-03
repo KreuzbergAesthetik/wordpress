@@ -325,3 +325,20 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
   document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
   window.addEventListener('resize',function(){if(cur)place(cur)});
 })();
+
+/* Füllen der Linien-Icons und Sanduhr-Trenner beim ersten Scrollen (einmalig) */
+(function(){
+  var done=false;
+  function go(){
+    if(done||(window.pageYOffset||document.documentElement.scrollTop)<24)return;
+    done=true;
+    var els=[].slice.call(document.querySelectorAll('svg.fillable,.div .hgi')),vh=window.innerHeight,n=0;
+    els.forEach(function(el){
+      var r=el.getBoundingClientRect(),vis=r.bottom>0&&r.top<vh&&r.width>0;
+      el.style.setProperty('--fd',vis?Math.min(n++*0.09,0.8)+'s':'0s');
+      el.classList.add('is-filled');
+    });
+    window.removeEventListener('scroll',go);
+  }
+  window.addEventListener('scroll',go,{passive:true});go();
+})();
