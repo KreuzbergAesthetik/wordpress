@@ -326,20 +326,24 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
   window.addEventListener('resize',function(){if(cur)place(cur)});
 })();
 
-/* Füllen der Linien-Icons und Sanduhr-Trenner: jedes füllt sich einmal, sobald beim Scrollen die Bildschirmmitte erreicht ist */
+/* Füllen der Linien-Icons und Sanduhr-Trenner: die Füllung steht an der Bildschirmmitte und schiebt sich beim Hochscrollen von oben nach unten ins Symbol */
 (function(){
-  var els=[].slice.call(document.querySelectorAll('svg.fillable,.div .hgi')),tick=false;
+  var items=[].slice.call(document.querySelectorAll('svg.fillable,.div .hgi')).map(function(el){
+    return{el:el,ref:el.matches('svg')?el.querySelector('path.fl'):el,p:0};
+  }),tick=false;
   function check(){
     tick=false;
-    var line=window.innerHeight*0.6;
-    els=els.filter(function(el){
-      var r=el.getBoundingClientRect();
-      if(r.width>0&&r.top+r.height/2<line){el.classList.add('is-filled');return false}
-      return true;
+    var line=window.innerHeight*0.5;
+    items=items.filter(function(it){
+      var r=it.ref.getBoundingClientRect();
+      if(!r.height)return true;
+      var p=Math.max(0,Math.min(1,(line-r.top)/r.height));
+      if(p>it.p){it.p=p;it.el.style.setProperty('--p',(p*100).toFixed(1))}
+      return it.p<1;
     });
-    if(!els.length)window.removeEventListener('scroll',req);
+    if(!items.length){window.removeEventListener('scroll',req);window.removeEventListener('resize',req)}
   }
   function req(){if(!tick){tick=true;requestAnimationFrame(check)}}
   window.addEventListener('scroll',req,{passive:true});
-  window.addEventListener('resize',req);
+  window.addEventListener('resize',req);check();
 })();
