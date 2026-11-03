@@ -3230,6 +3230,9 @@ html::before{inset:0;background:var(--bg,#e6eefa)}
 :root:not([data-theme="dark"])::before{background:linear-gradient(180deg,#dae6f7 0%,#e6eefa 55%,#f5f8fd 100%)}
 html::after{left:50%;top:50%;width:36px;aspect-ratio:288/420;margin:-26px 0 0 -18px;background:var(--head,#012265);-webkit-mask:url(assets/hg-line.png) center/contain no-repeat;mask:url(assets/hg-line.png) center/contain no-repeat}
 html.pgt-on::before,html.pgt-on::after{opacity:1;visibility:visible;transition:opacity .16s ease}
-html.pgt-spin::after{animation:pgtspin .5s cubic-bezier(.55,0,.25,1) forwards}
-@keyframes pgtspin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+html.pgt-spin::after{animation:pgtspin .4s cubic-bezier(.55,0,.25,1) forwards}
+@keyframes pgtspin{from{transform:rotate(0)}to{transform:rotate(180deg)}}
 @media (prefers-reduced-motion:reduce){html::before,html::after{display:none}}
+
+/* Kontaktformular: Absende-Knopf mittig */
+#contact-form .full:has(>button[type=submit]){text-align:center}

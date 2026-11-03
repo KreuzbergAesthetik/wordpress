@@ -358,7 +358,7 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
   function play(done){
     if(rm){done();return}
     root.classList.add('pgt-on','pgt-spin');
-    setTimeout(done,480);
+    setTimeout(done,400);
   }
   document.addEventListener('click',function(e){
     if(e.defaultPrevented||e.button||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||busy)return;
