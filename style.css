@@ -2,7 +2,7 @@
 Theme Name: Kreuzberg Ästhetik
 Description: Website der Privatpraxis Kreuzberg Ästhetik
 Author: Kreuzberg Ästhetik
-Version: 1.2.3
+Version: 136
 Requires at least: 6.0
 Requires PHP: 7.4
 Text Domain: kreuzberg-aesthetik
@@ -2139,13 +2139,13 @@ details.all .grp.deep,.grp.deep{background:linear-gradient(135deg,#3b5a99 0%,#1a
 .home-page .sum-lei{background:linear-gradient(180deg,#ffffff,#f3f7fd);box-shadow:0 18px 44px rgba(1,34,101,.08);border:1px solid rgba(1,34,101,.06)}
 .home-page .sum-about{background:linear-gradient(160deg,#e3ecf9 0%,#d3e0f4 100%);border:1px solid rgba(255,255,255,.7)}
 .home-page .sum-abl{background:linear-gradient(180deg,#ffffff,#f3f7fd);box-shadow:0 18px 44px rgba(1,34,101,.08);border:1px solid rgba(1,34,101,.06)}
-.home-page .sum-kon{background:linear-gradient(150deg,#22366f 0%,#122a66 50%,#012265 100%);color:#fff}
-.home-page .sum-kon .eyebrow{color:#9fcaa9!important}
-.home-page .sum-kon h2,.home-page .sum-kon .intro p{color:#fff!important}
-.home-page .sum-kon .btn{background:#fff!important;color:#012265!important}
-.home-page .sum-kon .btn .ico{color:#004d17}
+.sum-kon{background:linear-gradient(150deg,#22366f 0%,#122a66 50%,#012265 100%);color:#fff}
+.sum-kon .eyebrow{color:#9fcaa9!important}
+.sum-kon h2,.sum-kon .intro p{color:#fff!important}
+.sum-kon .btn{background:#fff!important;color:#012265!important}
+.sum-kon .btn .ico{color:#004d17}
 .home-page .sum .eyebrow{display:inline-block;padding:.3rem .8rem;border-radius:999px;background:rgba(0,77,23,.08)}
-.home-page .sum-kon .eyebrow{background:rgba(255,255,255,.1)}
+.sum-kon .eyebrow{background:rgba(255,255,255,.1)}
 .home-page .sum-about .tl .node{background:#fff}
 .home-page .sum-abl .steps li{background:#fff}
 @media (max-width:700px){.home-page .sum{margin:1.6rem 12px 0;padding:2.2rem 1.1rem 2rem!important;border-radius:24px}}
@@ -2218,3 +2218,979 @@ details.all .grp.deep,.grp.deep{background:linear-gradient(135deg,#3b5a99 0%,#1a
 .lei-col>*{position:relative;z-index:1}
 .lei-col>.lei-ico{position:absolute!important;z-index:0;right:-18px;bottom:-22px;width:150px!important;height:150px!important;background:none!important;border-radius:0!important;color:rgba(1,34,101,.06)!important;pointer-events:none}
 .lei-col>.lei-ico .ico{width:150px!important;height:150px!important;stroke-width:1.1}
+.home-page .sum{max-width:none!important;margin:0!important;border-radius:0!important;border:0!important;box-shadow:none!important;padding:4.2rem 0 4rem!important}
+@media (max-width:700px){.home-page .sum{padding:3rem 0 2.8rem!important}}
+.home-page .sum>.wrap{max-width:1100px;margin-inline:auto}
+/* B: durchgehender Verlauf, Trennlinien mit Sanduhr, Kontakt als Band */
+body.home-page{background:linear-gradient(180deg,#e6eef9 0%,#f7f9fd 30%,#e4ecf8 55%,#f7f9fd 80%,#e6eef9 100%)!important}
+.home-page .divwrap{display:block!important;padding-top:1rem!important}
+.home-page .sum-lei,.home-page .sum-about,.home-page .sum-abl{background:transparent!important}
+.home-page .sum{padding-top:2.4rem!important}
+.sum-kon{margin-top:4rem!important;padding-top:4.2rem!important;background:linear-gradient(150deg,#22366f 0%,#122a66 50%,#012265 100%)!important}
+body.home-page .tint{display:none!important}
+
+/* v109: Nach dem einmaligen Einflug (spätere Besuche der Startseite) keine doppelte Begrüßung */
+body.head-done .hero-intro{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+body.head-done .home-page .hero-v5,body.head-done .hero-v5{margin-top:clamp(90px,12vh,140px)!important}
+
+/* v109: Kacheln nur bei echter Maus einfärben (am Handy blieb die angetippte Kachel dunkelblau) */
+@media (hover:none){
+ .qkc:hover,.qkc.qkc-1:hover{background:linear-gradient(160deg,#ffffff 0%,#eef3fb 60%,#dfe8f7 100%)!important;transform:none!important}
+ .qkc:hover .qkt{color:var(--head)!important}.qkc:hover .qkd{color:var(--muted)!important}.qkc:hover .qkm{color:var(--jade)!important}.qkc:hover .qkbg{color:rgba(1,34,101,.06)!important}
+}
+
+/* v109: Knöpfe in "Was ich für Dich tun kann" mittig */
+.lei-col>.btn{align-self:center!important;margin-top:auto}
+
+/* v109: Symbole in den Kontakt-Pillen oben wieder sichtbar */
+.hero-v5 .hero-pills .btn.hero-main .ico{display:inline-block!important;width:19px!important;height:19px!important}
+.hero-v5 .hero-pills .btn.hero-main .ico{color:#fff!important}
+.hero-v5 .hero-pills .btn.hero-main+.btn.hero-main .ico{color:#004d17!important}
+
+/* v109: Fußzeile – Impressum | Logo | Datenschutz */
+footer .wrap.ft3{display:grid!important;grid-template-columns:1fr auto 1fr;align-items:center;gap:1.2rem;text-align:center}
+footer .ft3 .ft-l{justify-self:end}footer .ft3 .ft-r{justify-self:start}
+footer .ft3 .footer-logo{width:56px!important;height:56px!important;margin:0!important}
+footer .ft3>span:last-child{margin-left:0!important;padding-left:0!important;flex-basis:auto!important}
+
+/* v109: Zeitstrahl auf der Startseite nur mit Überschriften, Linie endet am letzten Symbol, danach Punkte */
+.sum-about .tl li>span:last-child{display:none!important}
+.sum-about .tl li:last-child .node{width:68px!important;height:68px!important;margin-top:-10px}
+.sum-about .tl li:last-child .logo-w{width:46px!important;height:46px!important}
+.sum-about .tl li:last-child b{font-size:1.15em;color:var(--navy,#012265)}
+.sum-about .tl li:last-child{position:relative}
+.sum-about .tl li:last-child::before{content:"";position:absolute;inset:-14px -8px -14px -8px;border-radius:22px;background:#fff;box-shadow:0 16px 36px -10px rgba(1,34,101,.28);z-index:-1}
+.sum-about .tl{isolation:isolate}
+
+/* v109: "Dein Weg zur Behandlung" als Ablauf mit Verbindungslinie, Symbole als Wasserzeichen */
+.sum-abl .steps{position:relative;counter-reset:none}
+.sum-abl .steps li{position:relative;overflow:hidden;box-shadow:0 14px 32px -10px rgba(1,34,101,.22)!important}
+.sum-abl .steps li>*{position:relative;z-index:1}
+.sum-abl .steps .sico{position:absolute!important;z-index:0!important;right:-16px;bottom:-20px;top:auto!important;left:auto!important;width:auto!important;height:auto!important;background:none!important;box-shadow:none!important;color:rgba(1,34,101,.07)!important}
+.sum-abl .steps .sico .ico{width:110px!important;height:110px!important;stroke-width:1.1}
+@media (min-width:701px){
+ .sum-abl .steps{overflow:visible}
+ .sum-abl .steps li:not(:last-child)::after{content:"";position:absolute;z-index:2;top:50%;right:-1.2rem;width:1.2rem;height:2px;background:var(--line,#c9d4e6)}
+ .sum-abl .steps li{overflow:visible}
+ .sum-abl .steps li .sico{overflow:hidden;inset:0!important;border-radius:inherit;display:flex!important;align-items:flex-end;justify-content:flex-end}
+ .sum-abl .steps li .sico .ico{margin:0 -16px -20px 0}
+}
+@media (max-width:700px){
+ .sum-abl .steps{grid-template-columns:1fr!important;gap:.8rem!important;padding-left:30px}
+ .sum-abl .steps::before{content:"";position:absolute;left:11px;top:28px;bottom:28px;width:2px;background:var(--line,#c9d4e6)}
+ .sum-abl .steps li{overflow:visible}
+ .sum-abl .steps li::after{content:"";position:absolute;left:-25px;top:50%;width:12px;height:12px;margin-top:-6px;border-radius:50%;background:var(--navy,#012265);box-shadow:0 0 0 4px #eef3fb}
+ .sum-abl .steps li .sico{overflow:hidden;inset:0!important;border-radius:inherit;display:flex!important;align-items:flex-end;justify-content:flex-end}
+ .sum-abl .steps li .sico .ico{margin:0 -16px -20px 0}
+}
+@media (max-width:700px){
+ .sum-about .tl li:last-child .node{width:56px!important;height:56px!important;margin:0 0 0 -4px!important}
+ .sum-about .tl li:last-child .logo-w{width:38px!important;height:38px!important}
+ .sum-about .tl li:last-child::before{inset:-10px -6px -10px -14px}
+ .sum-about .tl li:last-child b{align-self:center}
+}
+
+/* v109: Handy im Querformat – Porträt und Text nebeneinander statt riesigem Porträt */
+@media (max-width:700px) and (orientation:landscape){
+ .home-page .hero-v5,.hero-v5{padding:1rem 18px 0!important;margin-top:0!important}
+ .hero-v5 .hero-copy{display:grid!important;grid-template-columns:38% 1fr;column-gap:22px;align-items:start;padding-top:0!important;margin-top:0!important}
+ .hero-v5 .hero-copy>*{grid-column:2}
+ .hero-v5 .hero-head{display:none!important}
+ .hero-v5 .hero-portrait{grid-column:1!important;grid-row:1/span 6;position:relative!important;inset:auto!important;top:auto!important;left:auto!important;width:100%!important;height:auto!important;transform:none!important;margin:0!important;align-self:stretch}
+ .hero-v5 .hero-portrait .hero-photo{position:relative!important;width:100%!important;height:auto!important;object-fit:contain!important}
+ .hero-v5 .hero-who{margin-top:0!important}
+ .hero-v5 .hero-vals li span{font-size:.72rem}
+}
+
+/* v110: "Dein Weg zur Behandlung" kompakter, auch am Handy vier Karten nebeneinander */
+.sum-abl .steps{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:1rem!important;max-width:820px;margin-inline:auto!important;padding-left:0!important}
+.sum-abl .steps::before{display:none!important}
+.sum-abl .steps li{padding:1rem 1rem .9rem!important;min-height:0!important;text-align:left}
+.sum-abl .steps li::before{font-size:2rem!important;line-height:1!important}
+.sum-abl .steps h3{font-size:1rem!important;line-height:1.3!important;margin:.3rem 0 0!important}
+.sum-abl .steps .sico .ico{width:80px!important;height:80px!important}
+.sum-abl .steps li:not(:last-child)::after{content:""!important;position:absolute!important;z-index:2;top:50%!important;left:auto!important;right:-1rem!important;width:1rem!important;height:2px!important;margin:0!important;border-radius:0!important;background:var(--line,#c9d4e6)!important;box-shadow:none!important}
+.sum-abl .steps li:last-child::after{display:none!important}
+@media (max-width:700px){
+ .sum-abl .steps{gap:.4rem!important}
+ .sum-abl .steps li{padding:.6rem .45rem .6rem!important;border-radius:14px!important}
+ .sum-abl .steps li::before{font-size:1.4rem!important}
+ .sum-abl .steps h3{font-size:.7rem!important;line-height:1.25!important;hyphens:auto;overflow-wrap:anywhere}
+ .sum-abl .steps .sico .ico{width:52px!important;height:52px!important;margin:0 -10px -12px 0!important}
+ .sum-abl .steps li:not(:last-child)::after{right:-.4rem!important;width:.4rem!important}
+}
+.sum-abl .steps li::before{position:static!important;display:block!important;margin:0 0 .35rem!important;transform:none!important}
+@media (max-width:700px){
+ .sum-abl .steps{gap:.35rem!important}
+ .sum-abl .steps li{padding:.55rem .4rem!important}
+ .sum-abl .steps h3{font-size:.66rem!important;overflow-wrap:normal!important;word-break:normal!important;-webkit-hyphens:auto;hyphens:auto}
+}
+@media (max-width:700px){.sum-abl .steps h3{font-size:.6rem!important;letter-spacing:-.01em}}
+
+/* v111: letzte Station als Rahmen, Name neben dem Kreis, Rahmen erscheint erst beim Erreichen */
+.sum-about .tl li:last-child{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:center!important;gap:.8rem;text-align:left!important}
+.sum-about .tl li:last-child b{max-width:6.2em;margin:0!important;line-height:1.25;text-align:left}
+.sum-about .tl li:last-child .node{margin:0!important;flex:none}
+.sum-about .tl li:last-child::before{inset:-12px -6px!important;background:#f3f6fc!important;border:1.5px solid rgba(1,34,101,.35);box-shadow:none!important;opacity:0;transform:scale(.96);transition:opacity .6s ease .15s,transform .6s ease .15s}
+.sum-about .tl li:last-child.hit::before{opacity:1;transform:none}
+.sum-about .tl li:last-child b{opacity:.0;transition:opacity .5s ease .2s}
+.sum-about .tl li:last-child.hit b{opacity:1}
+@media (min-width:701px){.sum-about .tl::after{left:calc(100% + 14px)!important}}
+@media (max-width:700px){.sum-about .tl li:last-child{justify-content:flex-start!important}.sum-about .tl li:last-child::before{inset:-10px -6px -10px -14px!important}}
+@media (min-width:701px){
+ .sum-about .tl li:last-child{align-items:flex-start!important}
+ .sum-about .tl li:last-child .node{margin-top:-10px!important}
+ .sum-about .tl li:last-child b{margin-top:2px!important}
+ .sum-about .tl li:last-child::before{inset:-22px -6px -22px -6px!important}
+ .sum-about .tl::before{right:calc(100% / var(--n,5) + 6px)!important}
+}
+@media (min-width:701px){.sum-about .tl li:last-child::before{top:-22px!important;bottom:auto!important;height:88px!important}}
+
+/* v112: Nummern als Wasserzeichen hinter dem Text, Beschriftung größer */
+.sum-abl .steps li{display:flex!important;flex-direction:column;justify-content:center;min-height:110px!important;padding:1.1rem 1rem!important}
+.sum-abl .steps li::before{position:absolute!important;z-index:0!important;left:.55rem!important;top:-.2rem!important;margin:0!important;font-size:5.2rem!important;line-height:1!important;color:rgba(1,34,101,.09)!important;pointer-events:none}
+.sum-abl .steps h3{font-size:1.2rem!important;line-height:1.25!important;margin:0!important;position:relative;z-index:1;-webkit-hyphens:manual;hyphens:manual}
+@media (max-width:700px){
+ .sum-abl .steps li{min-height:84px!important;padding:.6rem .45rem!important}
+ .sum-abl .steps li::before{font-size:3.4rem!important;left:.3rem!important;top:-.15rem!important}
+ .sum-abl .steps h3{font-size:.74rem!important;letter-spacing:0}
+}
+.sum-abl .steps li::before{color:rgba(1,34,101,.13)!important}
+
+/* v113: Zeitstrahl – Desktop: Name unter dem letzten Kreis in einer Zeile, Rahmen um Kreis + Name; Handy: mittig, Name in einer Zeile */
+@media (min-width:701px){
+ .sum-about .tl li:last-child{flex-direction:column!important;align-items:center!important;justify-content:flex-start!important;gap:.55rem!important;text-align:center!important}
+ .sum-about .tl li:last-child b{max-width:none!important;white-space:nowrap;text-align:center!important;margin-top:0!important}
+ .sum-about .tl li:last-child::before{top:-22px!important;height:auto!important;bottom:-12px!important;left:2px!important;right:2px!important}
+}
+@media (max-width:700px){
+ .sum-about .tl{max-width:310px!important;margin-inline:auto!important}
+ .sum-about .tl li b{max-width:15.5em}
+ .sum-about .tl li:last-child b{max-width:none!important;white-space:nowrap}
+ .sum-about .tl li:last-child::before{right:-14px!important}
+}
+@media (min-width:701px){.sum-about .tl li:last-child::before{left:-12px!important;right:-12px!important}}
+@media (max-width:700px){.sum-about .tl li:last-child{width:max-content!important;padding-right:14px}.sum-about .tl li:last-child::before{right:-6px!important}}
+
+/* v114: Kontaktknöpfe jeweils gleich breit */
+.hero-v5 .hero-pills{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem!important;max-width:30rem}
+.hero-v5 .hero-pills .btn{width:100%!important;justify-content:center!important;margin:0!important}
+.sum-contact{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem!important;max-width:38rem;margin-inline:auto!important}
+.sum-contact .btn{width:100%!important;justify-content:center!important;margin:0!important;padding-inline:.6rem!important}
+
+/* v115: Sanduhr im Seitenmenü größer und mittig */
+.side .side-top{position:relative;justify-content:center!important;padding:.4rem 0 .6rem}
+.side .wmk.wmk-side{width:76px!important;height:76px!important}
+.side .side-top .side-close{position:absolute;right:0;top:50%;transform:translateY(-50%)}
+
+/* v116: mehr Luft um den Praxisnamen im Startbereich */
+.hero-intro .hero-greeting{margin-bottom:.9rem!important}
+.hero-intro .hero-service{margin-top:1.8rem!important}
+@media (max-width:700px){.hero-intro .hero-greeting{margin-bottom:.7rem!important}.hero-intro .hero-service{margin-top:1.3rem!important}}
+
+/* v117: flachere Fußzeile */
+footer{margin-top:0!important;padding:.7rem 0 .7rem!important;border-top:0!important}
+footer .ft3 .footer-logo{width:40px!important;height:40px!important}
+footer .ft3{gap:1.4rem!important;font-size:.92rem}
+@media (max-width:700px){footer{padding:.6rem 0 4.4rem!important}}
+@media (max-width:700px){footer{padding:.6rem 0 .8rem!important}}
+@media (max-width:700px){footer .wrap.ft3{padding-right:64px!important;gap:1rem!important}}
+
+/* v118: Kontakt-Band kompakter */
+.sum-kon{padding:2.4rem 0 2.5rem!important}
+.sum-kon .intro{margin-bottom:1.2rem!important}
+.sum-kon .intro h2{margin-bottom:.4rem!important}
+.sum-kon .sum-more{margin-top:0!important}
+@media (max-width:700px){.sum-kon{padding:1.9rem 0 2rem!important}}
+.sum-kon{padding-top:1.9rem!important;margin-top:2rem!important}@media (max-width:700px){.sum-kon{padding-top:1.6rem!important;margin-top:1.6rem!important}}
+
+/* v119: Handy – "Dein Weg zur Behandlung" als Zeitstrahl, Karten abwechselnd links/rechts, Wörter in einer Zeile */
+@media (max-width:700px){
+ .sum-abl .steps{display:block!important;position:relative;max-width:360px;margin-inline:auto!important;padding:0!important}
+ .sum-abl .steps::before{content:""!important;display:block!important;position:absolute;left:50%;top:10px;bottom:10px;width:2px;margin-left:-1px;background:var(--line,#c9d4e6)}
+ .sum-abl .steps li{width:calc(50% - 20px)!important;min-height:86px!important;padding:.75rem .7rem!important;border-radius:16px!important;overflow:hidden!important}
+ .sum-abl .steps li:nth-child(odd){margin:0 auto 0 0!important}
+ .sum-abl .steps li:nth-child(even){margin:0 0 0 auto!important}
+ .sum-abl .steps li+li{margin-top:-38px!important}
+ .sum-abl .steps li::after{display:none!important}
+ .sum-abl .steps h3{font-size:.95rem!important;-webkit-hyphens:manual;hyphens:manual;overflow-wrap:normal!important;word-break:keep-all!important}
+ .sum-abl .steps li::before{font-size:3.6rem!important}
+ .sum-abl .steps .sico .ico{width:64px!important;height:64px!important}
+ .sum-abl .steps .tdot{display:none}
+}
+@media (max-width:700px){
+ .sum-abl .steps{--dot:#012265}
+ .sum-abl .steps li{position:relative;overflow:visible!important}
+ .sum-abl .steps li .sico{overflow:hidden;border-radius:16px}
+ .sum-abl .steps li:nth-child(odd)::after,.sum-abl .steps li:nth-child(even)::after{content:""!important;display:block!important;position:absolute!important;top:50%!important;width:10px!important;height:10px!important;margin-top:-5px!important;border-radius:50%!important;background:var(--navy,#012265)!important;box-shadow:0 0 0 4px #eef3fb!important;right:auto!important;left:auto!important}
+ .sum-abl .steps li:nth-child(odd)::after{right:-25px!important}
+ .sum-abl .steps li:nth-child(even)::after{left:-25px!important}
+}
+@media (max-width:700px){.sum-abl .steps li:nth-child(odd):not(:first-child),.sum-abl .steps li:nth-child(even){margin-top:-34px!important}}
+
+/* ===== v121 ===== */
+/* Startbereich Handy: Name zentriert, Sanduhr-Trenner statt grünem Strich */
+.hero-div{display:none!important}
+@media (max-width:700px){
+ .hero-v5 .hero-who{text-align:center!important}
+ .hero-v5 .hero-rule{display:none!important}
+ .hero-div{display:flex!important;margin:1.1rem auto 1.2rem!important;max-width:100%}
+}
+/* Werte ohne Kärtchen, feine senkrechte Trennlinien */
+.hero-vals li{background:none!important;border:0!important;box-shadow:none!important;border-radius:0!important}
+.hero-vals li+li{border-left:1px solid rgba(1,34,101,.18)!important}
+/* Trenner zwischen Kontakt-Pillen und Kacheln */
+.qk-div{padding-top:2.4rem!important;padding-bottom:0!important}
+.qk-div+.qk-sec{margin-top:1.8rem!important}
+@media (max-width:700px){.qk-div{padding-top:1.8rem!important}.qk-div+.qk-sec{margin-top:1.3rem!important}}
+/* Kacheln heller */
+.qkc,.qkc.qkc-1{background:linear-gradient(160deg,#ffffff 0%,#fbfcfe 60%,#f3f7fc 100%)!important}
+.qkc .qkbg,.qkc.qkc-1 .qkbg{color:rgba(1,34,101,.045)!important}
+/* Was ich für Dich tun kann: Knöpfe links */
+.lei-col>.btn{align-self:flex-start!important}
+/* Dein Weg zur Behandlung: Text mittig, Nummern kräftiger */
+.sum-abl .steps li{align-items:center!important;text-align:center!important}
+.sum-abl .steps h3{text-align:center!important;width:100%}
+.sum-abl .steps li::before{color:rgba(1,34,101,.2)!important}
+@media (max-width:700px){
+ .sum-abl .steps h3{font-size:calc((min(100vw - 36px, 360px) / 2 - 20px - 1.2rem) / 7.4)!important;line-height:1.25!important}
+ .sum-abl .steps li{padding:.75rem .6rem!important}
+}
+/* Übergang zum Kontakt-Band: keine Linie, Sanduhr sitzt auf der Kante (oben dunkelblau, unten hell) */
+.home-page .sum-abl{padding-bottom:2.2rem!important}
+.sum-kon{position:relative;margin-top:1.4rem!important;padding-top:2.6rem!important}
+.kon-hg{position:absolute;left:50%;top:0;width:22px;height:32px;transform:translate(-50%,-50%);pointer-events:none}
+.kon-hg .hgi{position:absolute;inset:0;width:100%!important;height:100%;opacity:1}
+.kon-hg .hg-top{color:#012265;clip-path:inset(0 0 50% 0)}
+.kon-hg .hg-bot{color:#eef3fb;clip-path:inset(50% 0 0 0)}
+/* Kontakt-Etikett grün wie bei den anderen */
+.sum-kon .eyebrow{background:#dfeae3!important;color:#004d17!important}
+/* Fußzeile: Impressum ganz links, Datenschutz ganz rechts, Logo mittig */
+footer .ft3 .ft-l{justify-self:start!important}
+footer .ft3 .ft-r{justify-self:end!important}
+/* Zeitstrahl Desktop: Rahmen transparent, Linie bis zum Kreis, Punkte direkt danach */
+.sum-about .tl li:last-child::before{background:transparent!important}
+@media (min-width:701px){
+ .sum-about .tl::before{right:calc(50% / var(--n,5))!important}
+ .sum-about .tl::after{left:calc(100% - 50% / var(--n,5) + 40px)!important}
+}
+/* Preisliste: einzelne Karten ohne gemeinsamen Rahmen, Überschrift mittig, Hinweis unter der Liste */
+#leistungen details.all{background:transparent!important;border:0!important;box-shadow:none!important;padding-inline:0!important}
+#leistungen details.all>summary{justify-content:center!important;text-align:center!important;margin-inline:auto}
+#leistungen .note-bottom{text-align:center;margin:1.6rem auto 0;max-width:46rem}
+@media (max-width:700px){.sum-about .tl li:last-child .node{margin-left:-4px!important}}
+/* Hintergrund: stärker changierender Verlauf (Blau, zartes Flieder, Weiß) */
+body.home-page{background:
+ radial-gradient(60% 40% at 85% 22%,rgba(196,186,235,.35),transparent 70%),
+ radial-gradient(55% 35% at 10% 48%,rgba(170,200,240,.45),transparent 70%),
+ radial-gradient(60% 40% at 90% 74%,rgba(205,195,238,.32),transparent 70%),
+ linear-gradient(180deg,#dfe9f8 0%,#f4f7fd 16%,#e6e8f7 32%,#f6f8fc 48%,#dde8f6 64%,#f2f0fa 80%,#e2eaf7 100%)!important}
+@media (max-width:700px){
+ .sum-abl .steps h3{font-size:calc((min(100vw - 36px, 360px) / 2 - 20px - 1.2rem) / 8.1)!important}
+ .hero-v5 .hero-who,.hero-v5 .hero-who .hero-name,.hero-v5 .hero-who .hero-sub{text-align:center!important;margin-inline:auto!important}
+}
+.sum-kon .intro .eyebrow,section.sum-kon p.eyebrow{background:#dfeae3!important;color:#004d17!important;-webkit-text-fill-color:#004d17}
+/* v122: changierender Verlauf nur in Blautönen (kein Flieder) */
+body.home-page{background:
+ radial-gradient(60% 40% at 85% 22%,rgba(150,185,235,.30),transparent 70%),
+ radial-gradient(55% 35% at 10% 48%,rgba(170,205,245,.45),transparent 70%),
+ radial-gradient(60% 40% at 90% 74%,rgba(140,180,232,.28),transparent 70%),
+ linear-gradient(180deg,#dbe7f8 0%,#f5f8fd 16%,#e1ebf9 32%,#f7f9fd 48%,#d8e5f6 64%,#f2f6fc 80%,#dde8f7 100%)!important}
+/* v122: Farbwechsel als weiche Querstreifen, nur Blautöne */
+body.home-page{background:linear-gradient(180deg,
+ #d9e6f8 0%,#f6f9fd 9%,#f6f9fd 13%,#dce8f8 21%,#cfdff4 25%,#f4f8fd 34%,#f4f8fd 39%,#d6e4f7 47%,#d6e4f7 51%,#f6f9fd 60%,#f6f9fd 65%,#d3e2f6 73%,#dbe7f8 78%,#f4f8fd 87%,#e3edf9 100%)!important}
+/* v123: Querstreifen synchron zu den Abschnitten – Abschnitte abwechselnd blau getönt, weiche Übergänge */
+body.home-page{background:#f5f8fd!important}
+.home-page .hero-only{background:linear-gradient(180deg,#d6e4f7 0%,#e2ecf9 55%,#f5f8fd 100%)}
+.home-page .sum-lei,.home-page .sum-abl{background:linear-gradient(180deg,rgba(214,228,247,0) 0%,#d9e6f8 16%,#d9e6f8 84%,rgba(214,228,247,0) 100%)!important}
+.home-page .sum-about{background:transparent!important}
+/* v123: aktueller Preis fett auf der Zeile der Behandlung, alter Preis klein darunter */
+.grp td.pr{vertical-align:top}
+.grp td.pr s{display:block;margin-top:.1rem;font-weight:500;line-height:1.2}
+.grp td.pr s{margin-right:0!important}
+/* v124: Streifen sanfter – lange, weiche Übergänge, etwas weniger Kontrast */
+.home-page .hero-only{background:linear-gradient(180deg,#dae6f7 0%,#e2ebf9 45%,#ebf1fb 70%,#f1f5fc 88%,#f5f8fd 100%)!important}
+.home-page .sum-lei,.home-page .sum-abl{background:linear-gradient(180deg,rgba(221,232,248,0) 0%,rgba(221,232,248,.35) 12%,rgba(221,232,248,.75) 28%,#dde8f8 45%,#dde8f8 55%,rgba(221,232,248,.75) 72%,rgba(221,232,248,.35) 88%,rgba(221,232,248,0) 100%)!important}
+/* v125: Desktop – Text näher ans Porträt, beide als Einheit mittig */
+@media (min-width:701px){
+ .home-page .hero-v5{max-width:1120px!important;margin-left:auto!important;margin-right:auto!important;padding-left:51%!important;padding-right:0!important}
+ .hero-v5 .hero-portrait{left:4%!important;width:50%!important}
+ .hero-v5 .hero-copy{max-width:31rem!important}
+}
+/* v126: Kacheln reinweiß; Handy: "Meine Philosophie" mittig */
+.qkc,.qkc.qkc-1{background:#ffffff!important}
+@media (hover:none){.qkc:hover,.qkc.qkc-1:hover{background:#ffffff!important}}
+@media (max-width:700px){.hero-v5 .hero-phil-h{text-align:center!important}}
+/* v127: Handy – Zeitstrahl weiter nach rechts gerückt (nach Manuels Vorlage) */
+@media (max-width:700px){
+ .sum-about .tl-wrap .tl,.sum-about .tl{max-width:none!important;margin-left:16.5%!important;margin-right:0!important}
+ .sum-about .tl li b{max-width:13.6em}
+}
+@media (max-width:700px){.sum-about .tl li{column-gap:10px!important}}
+/* letzter Kreis weiß, bis die Zeitleiste ihn erreicht */
+.sum-about .tl li:last-child:not(.hit) .node{background:#ffffff!important}
+@media (max-width:700px){.sum-about .tl li b{max-width:14.6em;align-self:center!important;margin:0!important;padding:0!important}}
+@media (max-width:700px){.sum-about .tl li b{grid-row:1 / span 2!important;grid-column:2!important}}
+/* v128: Ladeanzeige hellblau wie der Seitenhintergrund */
+.loader{background:linear-gradient(180deg,#dae6f7 0%,#e6eefa 55%,#f5f8fd 100%)!important}
+html{background:#e6eefa}
+
+/* v128: Handy – "Dein Weg zur Behandlung" nach Manuels Entwurf: größere Karten, Text mittig, große Nummer als Wasserzeichen über die ganze Kartenhöhe, Verbindungsstriche mit kleinem Punkt an der Mittellinie */
+@media (max-width:700px){
+ .sum-abl .steps{max-width:370px!important}
+ .sum-abl .steps::before{width:2px!important;margin-left:-1px!important;background:#c5d1e3!important;top:0!important;bottom:0!important}
+ .sum-abl .steps li{width:calc(50% - 20px)!important;min-height:84px!important;display:flex!important;flex-direction:column!important;justify-content:center!important;align-items:center!important;padding:.6rem .55rem!important;border-radius:18px!important;overflow:visible!important}
+ .sum-abl .steps li:nth-child(odd):not(:first-child),.sum-abl .steps li:nth-child(even){margin-top:-36px!important}
+ .sum-abl .steps li::before{position:absolute!important;left:.15rem!important;top:50%!important;transform:translateY(-50%)!important;font-size:6.2rem!important;line-height:1!important;color:rgba(1,34,101,.08)!important;z-index:0!important}
+ .sum-abl .steps li .sico{border-radius:18px}
+ .sum-abl .steps h3{position:relative;z-index:1}
+ .sum-abl .steps li:nth-child(odd)::after,.sum-abl .steps li:nth-child(even)::after{width:20px!important;height:10px!important;margin-top:-5px!important;border-radius:0!important;box-shadow:none!important;background:linear-gradient(#c5d1e3,#c5d1e3) center/100% 2px no-repeat!important}
+ .sum-abl .steps li:nth-child(odd)::after{right:-20px!important;background:radial-gradient(circle at calc(100% - 1px) 50%,#b3c2d8 3.5px,transparent 4.5px),linear-gradient(#c5d1e3,#c5d1e3) center/100% 2px no-repeat!important}
+ .sum-abl .steps li:nth-child(even)::after{left:-20px!important;background:radial-gradient(circle at 1px 50%,#b3c2d8 3.5px,transparent 4.5px),linear-gradient(#c5d1e3,#c5d1e3) center/100% 2px no-repeat!important}
+}
+/* v129: Rahmen um die letzte Station entfernt */
+.sum-about .tl li:last-child::before{display:none!important}
+/* v130: Nummern in den Karten "Dein Weg zur Behandlung" entfernt */
+.sum-abl .steps li::before{display:none!important}
+
+/* v130: Startbereich Desktop nach Manuels Vorlage */
+@media (min-width:701px){
+ .home-page .hero-v5{max-width:none!important;margin:0!important;padding-left:45vw!important;padding-right:14vw!important}
+ .hero-v5 .hero-copy{max-width:41vw!important}
+ .hero-v5 .hero-portrait{left:calc(8.5vw - 45vw)!important;width:49vw!important;top:-70px!important;bottom:auto!important;height:calc(49vw * 1.366)!important;transform:none!important;z-index:0;
+  -webkit-mask-image:linear-gradient(180deg,#000 50%,rgba(0,0,0,.5) 66%,transparent 84%),linear-gradient(90deg,#000 58%,rgba(0,0,0,.45) 74%,transparent 90%)!important;
+  mask-image:linear-gradient(180deg,#000 50%,rgba(0,0,0,.5) 66%,transparent 84%),linear-gradient(90deg,#000 58%,rgba(0,0,0,.45) 74%,transparent 90%)!important;-webkit-mask-composite:source-in;mask-composite:intersect}
+ .hero-v5 .hero-portrait .hero-photo{width:100%!important;height:100%!important;object-fit:contain!important;object-position:50% 0!important}
+ .hero-v5 .hero-copy>*:not(.hero-portrait){position:relative;z-index:1}
+ .hero-v5 .hero-who,.hero-v5 .hero-phil-h{text-align:center!important}
+ .hero-v5 .hero-rule{display:none!important}
+ .hero-div{display:flex!important;max-width:320px;margin:1.1rem auto 1.4rem!important}
+ .hero-v5 .hero-vals{justify-content:center;max-width:26rem;margin-inline:auto!important}
+ .hero-v5 .hero-pills{margin-inline:auto!important;max-width:24rem!important}
+}
+@media (min-width:701px){
+ .home-page .hero-v5{position:relative!important}
+ .hero-v5 .hero-copy{position:static!important}
+ .hero-v5 .hero-portrait{left:8.5vw!important}
+}
+@media (min-width:701px){
+ .home-page .hero-v5{padding-left:40vw!important;padding-top:100px!important}
+ .hero-v5 .hero-portrait{left:-0.5vw!important;top:-90px!important}
+ .hero-v5 .hero-pills{max-width:30rem!important}
+}
+@media (min-width:701px){
+ .hero-v5 .hero-portrait{-webkit-mask-image:linear-gradient(180deg,#000 48%,rgba(0,0,0,.45) 64%,rgba(0,0,0,.12) 74%,transparent 81%),linear-gradient(90deg,transparent 6%,#000 24%,#000 56%,rgba(0,0,0,.45) 72%,transparent 88%)!important;mask-image:linear-gradient(180deg,#000 48%,rgba(0,0,0,.45) 64%,rgba(0,0,0,.12) 74%,transparent 81%),linear-gradient(90deg,transparent 6%,#000 24%,#000 56%,rgba(0,0,0,.45) 72%,transparent 88%)!important}
+}
+
+/* ===== v132: Einheitliches Erscheinungsbild ===== */
+:root{--r-card:22px;--r-small:12px;--sh-card:0 18px 40px -12px rgba(1,34,101,.24),0 3px 10px rgba(1,34,101,.06);--bd-card:1px solid rgba(1,34,101,.08)}
+@media (max-width:700px){:root{--r-card:18px;--r-small:11px}}
+/* Karten: gleiche Rundung, gleicher Schatten, gleicher Rand */
+.qkc,.lei-col,.sum-abl .steps li,.steps li,article.grp,.check,.kview form,form.kform,article.legal-card,.kview img.portrait{border-radius:var(--r-card)!important}
+.qkc,.lei-col,.sum-abl .steps li,.steps li,article.grp,.check,.kview form,article.legal-card{box-shadow:var(--sh-card)!important;border:var(--bd-card)!important}
+article.grp.deep{border-color:transparent!important}
+.sum-abl .steps li .sico,.lei-col>.lei-ico{border-radius:var(--r-card)!important}
+/* kleine Elemente: Aufklapper, Eingabefelder */
+details.val,.faq details,.kview details:not(.all),.kview input:not([type=checkbox]):not([type=radio]),.kview textarea,.kview select{border-radius:var(--r-small)!important}
+/* Kleine Zeile über Überschriften: überall grüne Pille */
+.eyebrow{display:inline-block!important;padding:.3rem .8rem!important;border-radius:999px!important;background:rgba(0,77,23,.08)!important;color:#004d17!important;font-size:.94rem!important;letter-spacing:.17em!important}
+@media (max-width:700px){.eyebrow{font-size:.875rem!important}}
+.sum-kon .eyebrow{background:#dfeae3!important}
+/* Abschnittsüberschriften: überall mittig, gleiche Größe; Einleitung darunter mittig */
+.kview .intro{text-align:center!important}
+.kview .intro h2,.kview section h2:not(.hero-name){text-align:center!important}
+.kview .intro p{margin-left:auto!important;margin-right:auto!important;max-width:46rem}
+@media (max-width:700px){.kview .intro h2,.kview section h2:not(.hero-name){font-size:31px!important}}
+/* Zwischenüberschriften (Literata) einheitlich */
+.lei-col h3,.about-h,.tl-h,.chat-h,article.grp h3,.check h3,.kview .sub-sec h3:not(.chat-h){font-family:Literata,Georgia,serif!important;font-weight:400!important;font-size:24px!important;line-height:1.25!important}
+@media (max-width:700px){.lei-col h3,.about-h,.tl-h,.chat-h,article.grp h3,.check h3,.kview .sub-sec h3:not(.chat-h){font-size:22px!important}}
+/* Schritt-Titel: Startseite und Ablaufseite gleich */
+.kview .steps h3{font-family:Quicksand,"Segoe UI",system-ui,sans-serif!important;font-weight:700!important}
+.kview:not([data-view=home]) .steps h3{font-size:17px!important}
+/* Knöpfe: gleiche Schriftstärke */
+.btn{font-weight:700!important}
+.kview .sub-sec .steps h3,.kview section .steps h3{font-family:Quicksand,"Segoe UI",system-ui,sans-serif!important;font-weight:700!important}
+.hero-v5 .hero-pills .btn.hero-main{font-weight:700!important;border:1px solid #012265!important}
+.sum-contact .btn{font-size:14px!important}
+/* Über mich und Kontakt: zweispaltig – Etikett und Überschrift linksbündig wie der Text daneben */
+.kview[data-view=ueber-mich] h2,.kview[data-view=kontakt] h2,.kview[data-view=ueber-mich] .intro,.kview[data-view=kontakt] .intro{text-align:left!important}
+/* Ablaufseite: Schritte wie auf der Startseite – Symbol als Wasserzeichen, keine Nummer */
+.kview[data-view=ablauf] .steps li{position:relative;overflow:hidden}
+.kview[data-view=ablauf] .steps li::before{display:none!important}
+.kview[data-view=ablauf] .steps li>*{position:relative;z-index:1}
+.kview[data-view=ablauf] .steps .sico{position:absolute!important;z-index:0!important;right:-14px!important;bottom:-18px!important;top:auto!important;left:auto!important;background:none!important;box-shadow:none!important;color:rgba(1,34,101,.07)!important;width:auto!important;height:auto!important}
+.kview[data-view=ablauf] .steps .sico .ico{width:96px!important;height:96px!important;stroke-width:1.1}
+.kview[data-view=ueber-mich] section h2:not(.hero-name),.kview[data-view=kontakt] section h2:not(.hero-name){text-align:left!important}
+.kview[data-view=ablauf] .steps li{padding-top:1.3rem!important}
+/* v133: Kontakt-Band auf allen Seiten gleich */
+section.sum.sum-kon{max-width:none!important;border-radius:0!important;border:0!important;box-shadow:none!important;text-align:center;background:linear-gradient(150deg,#22366f 0%,#122a66 50%,#012265 100%)!important;color:#fff;margin-left:0!important;margin-right:0!important}
+section.sum.sum-kon>.wrap{max-width:1100px;margin-inline:auto}
+.sub .sum-kon{margin-top:4rem!important}
+.sum-kon .intro h2{text-align:center!important;color:#fff!important}
+/* schwebender WhatsApp-Knopf verschwindet, sobald Kontakt-Band oder Fußzeile sichtbar sind */
+.wa{transition:opacity .3s ease,transform .3s ease}
+body.kon-in .wa{opacity:0!important;pointer-events:none!important;transform:translateY(12px)}
+/* Fußzeile über die volle Breite, keine Einrückung rechts mehr */
+@media (max-width:700px){footer .wrap.ft3{padding-right:18px!important;padding-left:18px!important}}
+/* Startseite: Name und Unterzeile mittig in der Textspalte */
+.hero-v5 .hero-who .hero-name,.hero-v5 .hero-who .hero-sub{text-align:center!important}
+main.view:has(> .sum-kon:last-child){padding-bottom:0!important}
+/* Startbereich: Name/Unterzeile über die ganze Textspalte, damit die Mitte auf der Sanduhr liegt; Trenner mit Linien */
+.hero-v5 .hero-who{align-self:stretch!important;width:100%!important}
+.hero-v5 .hero-div{align-self:center!important;width:100%!important;max-width:340px!important}
+.hero-v5 .hero-who .hero-sub{margin-left:auto!important;margin-right:auto!important;max-width:100%!important;width:auto!important}
+
+/* ===== v134: Startbereich Desktop als festes Zwei-Spalten-Raster (Kopf immer auf Höhe des Textes) ===== */
+@media (min-width:701px){
+ .home-page .hero-v5{padding:0!important;margin:0 auto!important;max-width:1240px!important;width:calc(100% - 6vw)!important;position:relative!important}
+ .home-page .hero-v5 .hero-copy{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);column-gap:0;align-items:start;max-width:none!important;position:relative!important;padding-top:2.2rem!important}
+ .home-page .hero-v5 .hero-copy>*{grid-column:2;position:relative;z-index:1}
+ .home-page .hero-v5 .hero-head{display:none!important}
+ .home-page .hero-v5 .hero-portrait{grid-column:1!important;grid-row:1 / span 8!important;position:relative!important;inset:auto!important;left:auto!important;top:auto!important;bottom:auto!important;width:122%!important;height:auto!important;margin:-6% 0 0 -8%!important;transform:none!important;z-index:0!important;align-self:start!important}
+ .home-page .hero-v5 .hero-portrait .hero-photo{position:relative!important;display:block;width:100%!important;height:auto!important;object-fit:contain!important}
+ .home-page .hero-v5 .hero-who{margin-top:0!important}
+}
+/* Startseite: Schritte enger, Schrift größer */
+.sum-abl .steps li{min-height:0!important;padding:.85rem .8rem!important}
+@media (min-width:701px){.sum-abl .steps h3{font-size:1.4rem!important}.sum-abl .steps{max-width:760px!important}}
+@media (max-width:700px){
+ .sum-abl .steps li{min-height:62px!important;padding:.5rem .45rem!important}
+ .sum-abl .steps h3{font-size:calc((min(100vw - 36px, 370px) / 2 - 20px - .9rem) / 6.7)!important}
+ .sum-abl .steps li:nth-child(odd):not(:first-child),.sum-abl .steps li:nth-child(even){margin-top:-24px!important}
+}
+/* Hinweis: Erstgespräch und Behandlung am selben Tag möglich */
+.same-day{display:flex;align-items:center;justify-content:center;gap:.6rem;margin:1.1rem auto 0!important;font-size:.9rem;color:var(--muted,#52617b);text-align:center;max-width:34rem}
+.same-day .sd-mark{flex:none;width:30px;height:12px;border:1.5px dashed #2f7a46;border-top:0;border-radius:0 0 8px 8px}
+@media (min-width:701px){
+ .sum-abl .steps{position:relative;margin-bottom:2.1rem!important}
+ .sum-abl .steps li:nth-child(2)::before,.sum-abl .steps li:nth-child(3)::before{display:none!important}
+ .sum-abl .steps::after{content:"";position:absolute;left:calc(25% + .25rem);width:calc(50% - .5rem);bottom:-14px;height:10px;border:1.5px dashed #2f7a46;border-top:0;border-radius:0 0 10px 10px}
+}
+@media (max-width:700px){
+ .sum-abl .steps::after{content:"";position:absolute;left:50%;width:4px;margin-left:-2px;border-left:2px dashed #2f7a46;z-index:1}
+}
+@media (min-width:701px){
+ .home-page .hero-v5 .hero-portrait{grid-row:1 / span 8!important;align-self:stretch!important;height:auto!important;width:118%!important;margin:-4.5% 0 -110px -6%!important;overflow:hidden!important;
+  -webkit-mask-image:linear-gradient(180deg,#000 55%,rgba(0,0,0,.45) 75%,transparent 97%),linear-gradient(90deg,transparent 2%,#000 18%,#000 62%,rgba(0,0,0,.45) 78%,transparent 94%)!important;
+  mask-image:linear-gradient(180deg,#000 55%,rgba(0,0,0,.45) 75%,transparent 97%),linear-gradient(90deg,transparent 2%,#000 18%,#000 62%,rgba(0,0,0,.45) 78%,transparent 94%)!important}
+ .home-page .hero-v5 .hero-portrait .hero-photo{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:50% 0!important}
+}
+@media (max-width:700px){.pinned .qk-sec{padding-inline:0!important}.sum-abl .steps::after{display:none!important}}
+@media (min-width:701px){.sum-abl .steps li{padding:1.05rem 1rem!important}}
+
+/* v135: Klammer nur auf der Ablaufseite */
+.view-home .sum-abl .steps::after{display:none!important}
+@media (min-width:701px){
+ .view-process .steps{position:relative;margin-bottom:2.1rem!important}
+ .view-process .steps::after{content:"";position:absolute;left:calc(25% + .25rem);width:calc(50% - .5rem);bottom:-14px;height:10px;border:1.5px dashed #2f7a46;border-top:0;border-radius:0 0 10px 10px}
+}
+/* Kacheln wieder etwas größer */
+.sum-abl .steps li{padding:1.35rem 1.1rem!important}
+@media (min-width:701px){.sum-abl .steps{max-width:880px!important}}
+@media (max-width:700px){.sum-abl .steps li{min-height:76px!important;padding:.75rem .55rem!important}.sum-abl .steps li:nth-child(odd):not(:first-child),.sum-abl .steps li:nth-child(even){margin-top:-30px!important}}
+
+/* v135: Porträt Desktop – Kopfoberkante fest knapp über "Hi, ich bin Manuel." (Kopf beginnt bei 16,5 % der Bildhöhe) */
+@media (min-width:701px){
+ .home-page .hero-v5 .hero-copy{position:relative!important}
+ .home-page .hero-v5 .hero-portrait{position:absolute!important;grid-row:auto!important;left:-4%!important;top:2.2rem!important;width:56%!important;height:auto!important;margin:0!important;overflow:visible!important;
+  transform:translateY(calc(-16.5% - 14px))!important;
+  -webkit-mask-image:linear-gradient(180deg,#000 60%,rgba(0,0,0,.45) 76%,transparent 92%),linear-gradient(90deg,transparent 0%,#000 14%,#000 62%,rgba(0,0,0,.45) 78%,transparent 94%)!important;
+  mask-image:linear-gradient(180deg,#000 60%,rgba(0,0,0,.45) 76%,transparent 92%),linear-gradient(90deg,transparent 0%,#000 14%,#000 62%,rgba(0,0,0,.45) 78%,transparent 94%)!important}
+ .home-page .hero-v5 .hero-portrait .hero-photo{position:relative!important;inset:auto!important;width:100%!important;height:auto!important;object-fit:contain!important}
+ .home-page .hero-v5 .hero-copy{min-height:calc(53vw * 1.366 * .66)}
+}
+@media (min-width:701px){
+ .home-page .hero-v5 .hero-copy{display:flex!important;flex-direction:column!important;align-items:stretch!important;padding-left:50%!important;min-height:calc(min(1240px,94vw) * .56 * 1.366 * .62)!important}
+ .home-page .hero-v5 .hero-copy>*:not(.hero-portrait){grid-column:auto!important;width:100%!important}
+ .home-page .hero-v5 .hero-who,.home-page .hero-v5 .hero-div,.home-page .hero-v5 .hero-vals,.home-page .hero-v5 .hero-pills{align-self:center!important}
+ .home-page .hero-v5 .hero-div{max-width:340px!important}
+ .home-page .hero-v5 .hero-vals{max-width:26rem!important}
+ .home-page .hero-v5 .hero-pills{max-width:30rem!important;width:auto!important}
+}
+@media (min-width:701px){.home-page .hero-v5 .hero-copy{justify-content:flex-start!important}}
+
+/* ===== v136: Startbereich Desktop exakt nach Manuels Vorlage (alle Maße in --u = 1 % der Bildschirmbreite, max. 16 px) ===== */
+@media (min-width:701px){
+ .home-page{--u:min(1vw,16px)}
+ .home-page .hero-intro .hero-service{margin-bottom:0!important;padding-bottom:0!important}
+ .home-page .hero-intro{padding-bottom:0!important;margin-bottom:0!important}
+ .home-page .hero-v5{position:relative!important;padding:0!important;margin:0!important;margin-left:calc((100% - 100 * var(--u)) / 2)!important;width:calc(100 * var(--u))!important;max-width:none!important;background:none!important;box-shadow:none!important;border:0!important;min-height:0!important}
+ .home-page .hero-v5 .hero-copy{display:block!important;position:relative!important;height:calc(51.4 * var(--u))!important;min-height:0!important;padding:0!important;margin:0!important;max-width:none!important;width:100%!important}
+ .home-page .hero-v5 .hero-who,.home-page .hero-v5 .hero-phil{display:contents!important}
+ .home-page .hero-v5 .hero-rule,.home-page .hero-v5 .hero-head{display:none!important}
+ .home-page .hero-v5 .hero-name,.home-page .hero-v5 .hero-sub,.home-page .hero-v5 .hero-div,.home-page .hero-v5 .hero-phil-h,.home-page .hero-v5 .hero-vals,.home-page .hero-v5 .hero-text,.home-page .hero-v5 .hero-pills{position:absolute!important;margin:0!important;padding:0!important;z-index:2;max-width:none!important}
+ .home-page .hero-v5 .hero-name,.home-page .hero-v5 .hero-sub,.home-page .hero-v5 .hero-phil-h,.home-page .hero-v5 .hero-div,.home-page .hero-v5 .hero-vals{left:calc(66.06 * var(--u))!important;transform:translateX(-50%)!important;white-space:nowrap;text-align:center!important}
+ .home-page .hero-v5 .hero-name{top:calc(7.76 * var(--u))!important;font-size:calc(3.94 * var(--u))!important;line-height:1.15!important;width:auto!important}
+ .home-page .hero-v5 .hero-sub{top:calc(12.9 * var(--u))!important;font-size:calc(1.82 * var(--u))!important;line-height:1.3!important;width:auto!important}
+ .home-page .hero-v5 .hero-div{top:calc(17.33 * var(--u))!important;width:calc(29 * var(--u))!important;height:calc(2.3 * var(--u))!important;display:flex!important;gap:calc(1.2 * var(--u))!important}
+ .home-page .hero-v5 .hero-div .hgi{width:calc(1.58 * var(--u))!important}
+ .home-page .hero-v5 .hero-phil-h{top:calc(22.55 * var(--u))!important;font-size:calc(2.12 * var(--u))!important;line-height:1.2!important;width:auto!important}
+ .home-page .hero-v5 .hero-vals{top:calc(26.9 * var(--u))!important;width:calc(33.9 * var(--u))!important;height:calc(6.4 * var(--u))!important;display:grid!important;grid-template-columns:repeat(3,1fr)!important;gap:0!important}
+ .home-page .hero-v5 .hero-vals li{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:calc(.7 * var(--u))!important;padding:0!important;font-size:calc(1.17 * var(--u))!important}
+ .home-page .hero-v5 .hero-vals li span{font-size:calc(1.17 * var(--u))!important}
+ .home-page .hero-v5 .hero-vals li .ico{width:calc(1.75 * var(--u))!important;height:calc(1.75 * var(--u))!important}
+ .home-page .hero-v5 .hero-text{top:calc(36.4 * var(--u))!important;left:calc(46.4 * var(--u))!important;width:calc(39.1 * var(--u))!important;font-size:calc(1.53 * var(--u))!important;line-height:calc(2.1 * var(--u))!important;text-align:left!important}
+ .home-page .hero-v5 .hero-pills{top:calc(44.5 * var(--u))!important;left:calc(46.7 * var(--u))!important;width:calc(39.3 * var(--u))!important;display:grid!important;grid-template-columns:1fr 1fr!important;gap:calc(.85 * var(--u))!important}
+ .home-page .hero-v5 .hero-pills .btn.hero-main{height:calc(4.6 * var(--u))!important;min-height:0!important;padding:0 calc(1 * var(--u))!important;font-size:calc(1.53 * var(--u))!important;gap:calc(.7 * var(--u))!important;width:100%!important;justify-content:center!important}
+ .home-page .hero-v5 .hero-pills .btn.hero-main .ico{width:calc(1.6 * var(--u))!important;height:calc(1.6 * var(--u))!important}
+ .home-page .hero-v5 .hero-pills .bt-long{display:none!important}
+ .home-page .hero-v5 .hero-portrait{position:absolute!important;left:calc(3.3 * var(--u))!important;top:calc(-7.95 * var(--u))!important;width:calc(55.2 * var(--u))!important;height:auto!important;margin:0!important;transform:none!important;z-index:1!important;overflow:visible!important;grid-row:auto!important;
+  -webkit-mask-image:linear-gradient(180deg,#000 62%,rgba(0,0,0,.45) 72%,transparent 81%),linear-gradient(90deg,transparent 4%,#000 18%,#000 68%,rgba(0,0,0,.45) 80%,transparent 91%)!important;
+  mask-image:linear-gradient(180deg,#000 62%,rgba(0,0,0,.45) 72%,transparent 81%),linear-gradient(90deg,transparent 4%,#000 18%,#000 68%,rgba(0,0,0,.45) 80%,transparent 91%)!important;-webkit-mask-composite:source-in;mask-composite:intersect}
+ .home-page .hero-v5 .hero-portrait .hero-photo{position:relative!important;inset:auto!important;width:100%!important;height:auto!important;object-fit:contain!important;display:block}
+ .pinned .qk-div{padding-top:0!important;height:calc(2.8 * var(--u))!important;display:flex;align-items:center}
+ .pinned .qk-div+.qk-sec{margin-top:calc(3.4 * var(--u))!important}
+}
+@media (min-width:701px){
+ .home-page .hero-v5 .hero-pills{grid-template-columns:calc(19.2 * var(--u)) calc(19.2 * var(--u))!important;width:calc(39.3 * var(--u))!important}
+ .home-page .hero-v5 .hero-pills .btn.hero-main{width:calc(19.2 * var(--u))!important;max-width:none!important;min-width:0!important}
+ /* Intro oben */
+ .home-page .hero-intro{padding-top:calc(5.3 * var(--u))!important}
+ .home-page #hgslot{width:calc(5.2 * var(--u))!important;height:calc(5.2 * var(--u))!important;margin-bottom:calc(.6 * var(--u))!important}
+ .home-page .hero-intro .hero-greeting{font-size:calc(1.93 * var(--u))!important;margin-bottom:calc(.4 * var(--u))!important}
+ .home-page .hero-intro .hero-brand{font-size:calc(7.7 * var(--u))!important;line-height:1.1!important}
+ .home-page .hero-intro .hero-service{font-size:calc(2.13 * var(--u))!important;line-height:1.3!important;margin-top:calc(2.2 * var(--u))!important;max-width:none!important}
+ /* Kacheln */
+ .home-page .pinned .qk{max-width:none!important;width:calc(86.3 * var(--u))!important;margin-left:calc((100% - 86.3 * var(--u)) / 2)!important;gap:calc(1.94 * var(--u))!important}
+ .home-page .pinned .qk-sec{padding-inline:0!important;max-width:none!important}
+ .home-page .qkc{min-height:calc(17.3 * var(--u))!important;padding:calc(2.5 * var(--u)) calc(2.2 * var(--u)) calc(2.2 * var(--u))!important}
+ .home-page .qkc .qkt{font-size:calc(2.14 * var(--u))!important;line-height:1.2!important}
+ .home-page .qkc .qkd{font-size:calc(1.4 * var(--u))!important;line-height:1.35!important;margin-top:calc(.6 * var(--u))!important}
+ .home-page .qkc .qkm{font-size:calc(1.47 * var(--u))!important;margin-top:auto!important;padding-top:calc(.8 * var(--u))!important}
+}
+@media (min-width:701px){.home-page .hero-intro .hero-service{max-width:calc(40 * var(--u))!important;margin-left:auto!important;margin-right:auto!important}}
+@media (min-width:701px){
+ .home-page .hero-intro .hero-greeting{margin-bottom:calc(1.85 * var(--u))!important}
+ .home-page .hero-intro .hero-service{margin-top:calc(3.3 * var(--u))!important}
+ .home-page .hero-v5 .hero-name{top:calc(7.06 * var(--u))!important}
+ .home-page .hero-v5 .hero-sub{top:calc(11.6 * var(--u))!important}
+ .home-page .hero-v5 .hero-div{top:calc(16.7 * var(--u))!important}
+ .home-page .hero-v5 .hero-vals{top:calc(26.3 * var(--u))!important}
+ .home-page .hero-v5 .hero-text{top:calc(35.9 * var(--u))!important}
+ .home-page .hero-v5 .hero-pills{top:calc(43.9 * var(--u))!important}
+ .home-page .hero-v5 .hero-portrait{top:calc(-8.95 * var(--u))!important}
+ .home-page .qkc .qkd{font-size:calc(1.5 * var(--u))!important;line-height:1.3!important}
+ .home-page .qkc .qkt{white-space:nowrap}
+}
+@media (min-width:701px){.home-page .qkc .qkd{font-size:calc(1.4 * var(--u))!important;line-height:1.3!important}.home-page .qkc{padding-bottom:calc(2 * var(--u))!important}.home-page .qkc .qkm{padding-top:calc(.4 * var(--u))!important}}
+@media (min-width:701px){.home-page .qkc{padding-top:calc(1.9 * var(--u))!important;height:calc(17.3 * var(--u))!important;min-height:0!important;box-sizing:border-box}.home-page .qkc .qkd{margin-top:calc(.3 * var(--u))!important}.home-page .qkc .qkm{margin-top:auto!important}}
+@media (min-width:701px){.home-page .qkc .qkd{font-size:calc(1.32 * var(--u))!important}.home-page .qkc{display:flex!important;flex-direction:column!important;overflow:hidden}}
+/* v137: kein Leerraum mehr unter dem Startbereich – alles steht beieinander, beim Scrollen fährt der obere Teil einfach nach oben, die Kopfleiste setzt sich dabei zusammen */
+.pin::after{height:0!important}
+/* v138: Trennlinie unter dem Namen darf nicht ins Porträt laufen */
+@media (min-width:701px){.home-page .hero-v5 .hero-div{width:calc(19 * var(--u))!important}}
+@media (max-width:700px){.hero-v5 .hero-div{max-width:62%!important}}
+@media (min-width:701px){
+ .home-page .hero-v5 .hero-copy>.hero-div.hero-div{width:calc(19 * var(--u))!important}
+ .home-page .hero-v5 .hero-copy>.hero-vals.hero-vals{width:calc(33.9 * var(--u))!important}
+ .home-page .hero-v5 .hero-copy>.hero-text.hero-text{width:calc(39.1 * var(--u))!important}
+ .home-page .hero-v5 .hero-copy>.hero-pills.hero-pills{width:calc(39.3 * var(--u))!important}
+}
+
+/* v139: Nach dem Einflug verschwinden "Willkommen bei" und der große Schriftzug; oben bleiben nur Logo und Unterüberschrift */
+body.intro-collapsed .hero-intro .hero-greeting,body.intro-collapsed .hero-intro .hero-brand{display:none!important}
+body.intro-collapsed .hero-intro .hg-slot,body.head-done .hero-intro .hg-slot{display:block!important;background:var(--wm) center/contain no-repeat;opacity:1!important}
+body.head-done .hero-intro{position:relative!important;width:auto!important;height:auto!important;overflow:visible!important;clip:auto!important;white-space:normal!important}
+body.head-done .hero-intro .hero-greeting,body.head-done .hero-intro .hero-brand{display:none!important}
+body.head-done .home-page .hero-v5,body.head-done .hero-v5{margin-top:0!important}
+body.intro-collapsed .hero-intro .hero-service,body.head-done .hero-intro .hero-service{margin-top:calc(1.6 * var(--u,1vw))!important}
+@media (max-width:700px){body.intro-collapsed .hero-intro .hero-service,body.head-done .hero-intro .hero-service{margin-top:.9rem!important}}
+body.head-done .hero-intro{padding-top:96px!important}
+@media (max-width:700px){body.head-done .hero-intro{padding-top:84px!important}}
+body.intro-collapsed .hero-intro{padding-top:96px!important}
+@media (max-width:700px){body.intro-collapsed .hero-intro{padding-top:84px!important}}
+
+/* v140: Kopfleiste ganz leicht durchscheinend */
+.mast .mastnav,.mast.collapsed .mastnav{background:linear-gradient(180deg,rgba(255,255,255,calc(.86 * var(--na,1))) 0%,rgba(226,235,249,calc(.86 * var(--na,1))) 45%,rgba(176,198,234,calc(.86 * var(--na,1))) 100%)!important;-webkit-backdrop-filter:blur(calc(3px * var(--na,1)))!important;backdrop-filter:blur(calc(3px * var(--na,1)))!important}
+:root[data-theme="dark"] .mast .mastnav{background:linear-gradient(180deg,rgba(30,46,96,calc(.86 * var(--na,1))),rgba(18,29,63,calc(.86 * var(--na,1))))!important}
+/* v140: nach dem Einrasten kein zweites Logo mehr oben auf der Seite */
+body.intro-collapsed .hero-intro .hg-slot,body.head-done .hero-intro .hg-slot{display:none!important;background:none!important}
+
+/* ===== v141 ===== */
+/* Chat: Abschluss mit zwei Pillen wie im Startbereich (E-Mail dunkel links, WhatsApp hell rechts) */
+.cbtn-two{display:flex!important;flex-wrap:wrap;gap:.6rem!important}
+.cbtn-two .cbtn{display:inline-flex!important;align-items:center;justify-content:center;gap:.5rem;flex:1 1 0;min-width:8.5rem;border-radius:999px!important;padding:.75rem 1.1rem!important;font-weight:700!important;text-decoration:none!important}
+.cbtn-two .cbtn .ico{width:18px;height:18px}
+.cbtn-two .cbtn-mail{background:#012265!important;color:#fff!important;border:1px solid #012265!important}
+.cbtn-two .cbtn-wa{background:#fff!important;color:#012265!important;border:1px solid #012265!important}
+.cbtn-two .cbtn-wa .ico{color:#004d17}
+/* "Noch eine Frage" rechts */
+.chat .chips:last-child,.chat .chips:last-of-type{justify-content:flex-end}
+/* Chat-Bereich als eigene Fläche absetzen */
+.chat-help{background:linear-gradient(180deg,#ffffff,#f3f7fd);border:var(--bd-card,1px solid rgba(1,34,101,.08));border-radius:var(--r-card,22px);box-shadow:var(--sh-card);padding:2rem 1.6rem 1.8rem;margin-top:1rem}
+@media (max-width:700px){.chat-help{padding:1.4rem .9rem 1.2rem;margin-inline:-4px}}
+/* Mehr Luft zwischen Etikett und Überschrift, überall */
+.eyebrow{margin-bottom:1.1rem!important}
+/* Kontakt-Band: E-Mail-Adresse und WhatsApp-Nummer klickbar */
+.kon-direct{display:flex;flex-wrap:wrap;justify-content:center;gap:.3rem .7rem;margin-top:.4rem!important}
+.kon-direct a{color:#fff!important;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.45)}
+.kon-direct span{color:rgba(255,255,255,.5)}
+/* Preisliste: Unterkategorien fett und deutlich abgesetzt */
+.grp tr.sub th{font-weight:800!important;padding-top:1.6rem!important;border-top:2px solid rgba(1,34,101,.14)!important}
+.grp tbody tr.sub:first-child th{border-top:2px solid rgba(1,34,101,.14)!important;padding-top:1.2rem!important}
+/* Kategorie-Etikett dunkelgrün */
+.grp .tag{color:#004d17!important}
+/* Behandlungsseite: Einleitung und Gruppenbeschreibung in Lora */
+#leistungen .intro p,.grp .about-g{font-family:Lora,Georgia,serif!important}
+/* "Alle Behandlungen" exakt mittig, Lupe links daneben frei */
+#leistungen details.all{position:relative}
+#leistungen details.all>summary{display:block!important;text-align:center!important;width:100%}
+#leistungen .search{position:absolute!important;left:0;top:0}
+/* Ablaufseite: Karten enger, Zeilenabstand kleiner */
+.view-process .steps li p{line-height:1.45!important}
+@media (max-width:700px){.view-process .steps li{padding:1rem .95rem!important}.view-process .steps li p{font-size:.95rem!important}}
+/* Ablaufseite: Erstgespräch und Aufklärung & Behandlung grün gestrichelt markiert, gleiche Markierung vor dem Hinweis */
+.view-process .steps::after{display:none!important}
+.view-process .steps li.same-day-step{outline:1.5px dashed #2f7a46;outline-offset:3px}
+.same-day .sd-mark{width:16px!important;height:16px!important;border:1.5px dashed #2f7a46!important;border-radius:5px!important}
+/* Lora (lokal eingebunden) */
+@font-face{font-family:'Lora';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/lora-normal-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Lora';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/lora-normal-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@media (max-width:700px){.kon-direct{flex-direction:column;align-items:center}.kon-direct span{display:none}}
+/* Textlink zur nächsten Seite über dem Kontakt-Band */
+.next-link{text-align:center;margin:2.6rem auto 0!important;padding:0}
+.next-link a{font:700 1.05rem/1.4 Quicksand,"Segoe UI",system-ui,sans-serif;color:#012265;text-decoration:none;border-bottom:1.5px solid rgba(1,34,101,.25);padding-bottom:2px;transition:border-color .2s}
+.next-link a:hover{border-bottom-color:#012265}
+.next-link a span{color:#004d17}
+.next-link+section.sum-kon{margin-top:2.6rem!important}
+/* Chat: die beiden Knöpfe auch am Handy nebeneinander; "Noch eine Frage" rechts */
+.cbtn-two{flex-wrap:nowrap!important}
+.cbtn-two .cbtn{min-width:0!important;padding:.7rem .6rem!important}
+.cchips:last-child{justify-content:flex-end!important;margin-left:auto}
+/* Lupe ohne Fläche */
+#leistungen .search-toggle,#leistungen .search-toggle:hover,#leistungen .search-toggle:focus{background:none!important;border:0!important;box-shadow:none!important}
+#leistungen .search-toggle .ico{width:22px!important;height:22px!important;color:#012265}
+#leistungen .search{top:7px!important}
+
+/* v142: Begleittexte unter Überschriften überall in Lora, Zeilenabstand überall geringer */
+body{line-height:1.55!important}
+.intro p,.grp .about-g,.lei-col p,.qkc .qkd,.steps li p,.check>p,.kview[data-view=ueber-mich] section p:not(.eyebrow),.faq details p,.legal-card p,.kon-direct,.same-day,.hero-text,.home-page .hero-v5 .hero-text{font-family:Lora,Georgia,serif!important;line-height:1.5!important}
+.intro p,.grp .about-g{font-size:max(15px,.98rem)}
+.home-page .hero-v5 .hero-text{line-height:calc(2.1 * var(--u,1vw)) !important}
+@media (max-width:700px){.hero-v5 .hero-text{line-height:1.5!important}}
+.view-process .steps li p{line-height:1.42!important}
+.grp td,.grp th{line-height:1.35}
+#leistungen .note-bottom{line-height:1.4!important}
+.grp.deep .tag{color:#9fcaa9!important}
+/* "Alle Behandlungen" mit Aufklapp-Pfeil, exakt mittig; Lupe hellgrau */
+#leistungen details.all>summary{list-style:none!important;cursor:pointer;display:block!important;text-align:center!important;width:100%!important;margin:0 auto!important;padding-left:0!important;padding-right:0!important}
+#leistungen details.all>summary::-webkit-details-marker{display:none}
+#leistungen details.all>summary::marker{content:""}
+#leistungen details.all>summary::before{content:"";display:inline-block;width:0;height:0;margin-right:.45em;vertical-align:.12em;border-left:.36em solid transparent;border-right:.36em solid transparent;border-top:.5em solid currentColor;transition:transform .2s}
+#leistungen details.all:not([open])>summary::before{transform:rotate(-90deg)}
+#leistungen .search-toggle .ico{color:#aab6c8!important}
+#leistungen .search-toggle:hover .ico{color:#7d8ca3!important}
+
+/* v146: Unterkategorien als eigene, leicht getönte Blöcke statt Trennstrichen */
+.grp .subgrp{background:#f2f6fc;border-radius:var(--r-small,12px);padding:.75rem 1rem .35rem;margin-top:.8rem}
+.grp .subgrp:not(.has-h){background:none;padding:0}
+.grp .subgrp-h{margin:0 0 .25rem!important;font:800 .78rem/1.3 Quicksand,"Segoe UI",system-ui,sans-serif!important;letter-spacing:.12em;text-transform:uppercase;color:#004d17}
+.grp .subgrp table{margin:0!important}
+.grp .subgrp tr:last-child td{border-bottom:0!important}
+.grp.deep .subgrp{background:rgba(255,255,255,.08)}
+.grp.deep .subgrp-h{color:#9fcaa9}
+@media (max-width:700px){.grp .subgrp{padding:.65rem .75rem .25rem;margin-inline:-.25rem}}
+
+/* v147: Über mich – freigestelltes Porträt ohne Hintergrund, weich ausgeblendet (schwebt) */
+#ueber-mich .pframe{background:none!important;box-shadow:none!important;border:0!important;border-radius:0!important;overflow:visible!important}
+#ueber-mich img.portrait{background:none!important;box-shadow:none!important;border-radius:0!important;aspect-ratio:auto!important;height:auto!important;object-fit:contain!important;filter:none!important;
+ -webkit-mask-image:linear-gradient(180deg,#000 55%,rgba(0,0,0,.45) 75%,transparent 94%);mask-image:linear-gradient(180deg,#000 55%,rgba(0,0,0,.45) 75%,transparent 94%)}
+@media (min-width:701px){
+ #ueber-mich img.portrait{-webkit-mask-image:linear-gradient(180deg,#000 55%,rgba(0,0,0,.45) 75%,transparent 94%),linear-gradient(90deg,transparent 0%,#000 14%,#000 86%,transparent 100%);mask-image:linear-gradient(180deg,#000 55%,rgba(0,0,0,.45) 75%,transparent 94%),linear-gradient(90deg,transparent 0%,#000 14%,#000 86%,transparent 100%);-webkit-mask-composite:source-in;mask-composite:intersect}
+}
+
+/* v148: Über mich – Etikett und Überschrift mittig, Unterzeile kursiv in Lora, genau so breit wie die Überschrift */
+.about-head{text-align:center!important;margin-bottom:1.4rem}
+.kview[data-view=ueber-mich] .about-head h2.about-h2{text-align:center!important;margin-bottom:.35rem!important}
+.about-head .about-h2 span{display:inline-block}
+.about-head .about-sub{font-family:Lora,Georgia,serif!important;font-style:italic;color:var(--head,#012265);margin:0 auto!important;white-space:nowrap;line-height:1.2!important}
+.about-head .about-sub span{display:inline-block}
+@font-face{font-family:'Lora';font-style:italic;font-weight:400;font-display:swap;src:url(assets/fonts/lora-italic-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Lora';font-style:italic;font-weight:400;font-display:swap;src:url(assets/fonts/lora-italic-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+.kview[data-view=ueber-mich] section p:not(.eyebrow):not(.about-sub){font-family:Quicksand,"Segoe UI",system-ui,sans-serif!important}
+
+/* v150: Werte auf "Über mich" als Kacheln nebeneinander, Text als Karteikarte darunter über die volle Breite */
+.vtabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.6rem;margin-top:1.1rem}
+.vtab{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;padding:1rem .5rem .7rem;background:#fff;border:var(--bd-card,1px solid rgba(1,34,101,.08));border-radius:var(--r-small,12px);box-shadow:var(--sh-card);font:700 .9rem/1.25 Quicksand,"Segoe UI",system-ui,sans-serif;color:#012265;cursor:pointer;transition:background .2s,color .2s,transform .2s;text-align:center}
+.vtab .ico{width:22px;height:22px;color:#004d17}
+.vtab .vchev{width:9px;height:9px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);opacity:.5;transition:transform .2s}
+.vtab[aria-selected=true]{background:#012265;color:#fff;border-color:#012265;border-bottom-left-radius:4px;border-bottom-right-radius:4px}
+.vtab[aria-selected=true] .ico{color:#9fcaa9}
+.vtab[aria-selected=true] .vchev{transform:rotate(-135deg);opacity:.8}
+.vpanel{margin-top:.6rem;background:#fff;border:var(--bd-card,1px solid rgba(1,34,101,.08));border-radius:var(--r-small,12px);box-shadow:var(--sh-card);padding:1.1rem 1.2rem;opacity:0;transform:translateY(-6px);transition:opacity .25s,transform .25s}
+.vpanel.in{opacity:1;transform:none}
+.vpanel-h{margin:0 0 .4rem!important;font:700 1rem/1.3 Quicksand,"Segoe UI",system-ui,sans-serif;color:#012265}
+.vpanel p{margin:0!important}
+@media (max-width:700px){.vtab{font-size:.78rem;padding:.85rem .3rem .6rem}}
+/* v151: Longevity auf "Über mich" in dunkler Karte wie auf der Behandlungsseite */
+.lon-box{margin-top:1.6rem;padding:1.5rem 1.4rem 1.3rem;border-radius:var(--r-card,22px);background:linear-gradient(150deg,#22366f 0%,#122a66 50%,#012265 100%);box-shadow:var(--sh-card);color:#fff}
+.lon-box .val.plain{background:none!important;border:0!important;box-shadow:none!important;padding:0!important;margin:0 0 .6rem!important;color:#fff!important}
+.lon-box .val.plain span{color:#fff!important}
+.lon-box .val.plain .ico{color:#9fcaa9!important}
+.lon-box p{color:rgba(255,255,255,.88)!important;margin-bottom:0!important}
+.lon-box p+p{margin-top:.7rem!important}
+.lon-box a{color:#9fcaa9!important}
+/* v152: aufgeklappte Karte dunkelblau, nahtlos mit dem aktiven Reiter verbunden */
+.vtab{position:relative}
+.vtab[aria-selected=true]{border-bottom-left-radius:0!important;border-bottom-right-radius:0!important;box-shadow:none!important}
+.vtab[aria-selected=true]::after{content:"";position:absolute;left:-1px;right:-1px;bottom:-.65rem;height:.7rem;background:#012265}
+.vpanel{background:#012265!important;border-color:#012265!important;color:#fff;margin-top:.6rem!important}
+.vpanel p,.vpanel-h{color:#fff!important}
+.vpanel-h{color:#9fcaa9!important}
+#vpanel-0{border-top-left-radius:0!important}
+#vpanel-2{border-top-right-radius:0!important}
+.vpanel{transform:none!important}
+.vtab[aria-selected=true]{z-index:2}.vtab[aria-selected=true]::after{bottom:-.8rem!important;height:.95rem!important}
+/* v153: Werte-Reiter wieder getrennt, ohne dunkelblaue Fläche: aktiver Reiter weiß mit grünem Balken oben, Karte hell mit grünem Rand links */
+.vtab[aria-selected=true]{background:#fff!important;color:#012265!important;border:1.5px solid #012265!important;border-radius:var(--r-small,12px)!important;box-shadow:var(--sh-card)!important;z-index:auto}
+.vtab[aria-selected=true]::after{display:none!important;content:none!important}
+.vtab[aria-selected=true]::before{content:"";position:absolute;left:14px;right:14px;top:-1px;height:3px;border-radius:0 0 3px 3px;background:#004d17}
+.vtab[aria-selected=true] .ico{color:#004d17!important}
+.vpanel{background:#fff!important;border:var(--bd-card,1px solid rgba(1,34,101,.08))!important;border-left:4px solid #004d17!important;border-radius:var(--r-small,12px)!important;color:inherit;margin-top:.6rem!important}
+#vpanel-0,#vpanel-2{border-radius:var(--r-small,12px)!important}
+.vpanel p{color:var(--fg,#152b50)!important}
+.vpanel-h{color:#004d17!important}
+/* Longevity-Karten im gleichen satten Dunkelblau wie zuvor die Reiter */
+.lon-box,.grp.deep{background:#012265!important;background-image:none!important}
+
+/* v154 */
+.kview[data-view=ueber-mich] h3.about-h{text-align:center!important}
+/* Kontakt-Band überall mittig (auch auf Über mich / Kontakt) */
+section.sum-kon .intro,section.sum-kon .intro h2,.kview section.sum-kon h2{text-align:center!important}
+/* Über mich, Handy: Zeitlinie weg, Stationen bleiben als Liste */
+@media (max-width:700px){
+ #ueber-mich ~ * .tl::before,.view-about .tl::before,.view-about .tl::after{display:none!important}
+}
+.kview[data-view] section.sum-kon .intro,.kview[data-view] section.sum-kon h2:not(.hero-name){text-align:center!important}
+@media (max-width:700px){
+ .view-about .tl li,.view-about .tl li>*{opacity:1!important;transform:none!important;visibility:visible!important}
+ .view-about .tl li{min-height:0!important;padding-bottom:1.1rem!important;margin:0!important}
+}
+
+/* v155: Werte-Reiter – Linie im Reiter unten, in der Karte oben (Variante 2) */
+.vtab[aria-selected=true]::before{left:14px!important;right:14px!important;top:auto!important;bottom:-1px!important;height:3px!important;width:auto!important;border-radius:3px 3px 0 0!important}
+.vpanel{border-left:var(--bd-card,1px solid rgba(1,34,101,.08))!important;border-top:4px solid #004d17!important}
+/* v157: Leitgedanke auf "Über mich" hervorgehoben */
+.kview[data-view=ueber-mich] .about-head + p{font-family:Lora,Georgia,serif!important;font-style:italic;font-size:1.18rem!important;line-height:1.5!important;color:#012265!important;background:#fff;border-left:4px solid #004d17;border-radius:0 var(--r-small,12px) var(--r-small,12px) 0;padding:1rem 1.2rem!important;margin:0 0 1.4rem!important;box-shadow:var(--sh-card)}
+@media (max-width:700px){.kview[data-view=ueber-mich] .about-head + p{font-size:1.06rem!important;padding:.9rem 1rem!important}}
+.kview[data-view=ueber-mich] section .about-head + p:not(.eyebrow):not(.about-sub){font-family:Lora,Georgia,serif!important}
+
+/* v158: "Meine Philosophie und Werte" als hervorgehobener Block, Longevity zurückhaltender */
+.phil-box{margin:2rem 0 0;padding:1.8rem 1.4rem 1.5rem;border-radius:var(--r-card,22px);background:linear-gradient(180deg,#e3ecf9 0%,#d6e3f6 100%);border:1px solid rgba(255,255,255,.8);box-shadow:var(--sh-card)}
+.phil-box h3.about-h{margin-top:0!important;font-size:28px!important}
+.phil-box > p{text-align:center;max-width:36rem;margin-left:auto!important;margin-right:auto!important}
+@media (max-width:700px){.phil-box{padding:1.4rem .9rem 1.2rem;margin-inline:-4px}.phil-box h3.about-h{font-size:24px!important}}
+.lon-box{background:transparent!important;box-shadow:none!important;color:inherit;border-top:1px solid rgba(1,34,101,.12);border-radius:0!important;padding:1.4rem .2rem 0!important;margin-top:1.8rem!important}
+.lon-box .val.plain,.lon-box .val.plain span{color:#012265!important}
+.lon-box .val.plain span{font-size:1.25rem!important}
+.lon-box .val.plain .ico{color:#004d17!important}
+.lon-box p{color:var(--fg,#152b50)!important}
+/* v159: grüne Etiketten überall in Quicksand */
+.eyebrow,p.eyebrow,.kview .eyebrow,section.sum-kon .eyebrow,.grp .tag,.grp .subgrp-h{font-family:Quicksand,"Segoe UI",system-ui,sans-serif!important;font-weight:700!important}
+#leistungen .intro p.eyebrow,.kview .intro p.eyebrow{font-family:Quicksand,"Segoe UI",system-ui,sans-serif!important}
+
+/* v160: Leitgedanke – alle Ecken rund, kein Schatten */
+.kview[data-view=ueber-mich] .about-head + p{border-radius:var(--r-small,12px)!important;box-shadow:none!important}
+/* Sanduhr-Trenner zwischen Philosophie und Longevity */
+.lon-div{display:flex!important;margin:2rem auto 0!important;max-width:340px}
+/* Longevity: Überschrift mittig, Blatt als Wasserzeichen hinter dem Text */
+.lon-box{position:relative;overflow:hidden;border-top:0!important;padding:1.2rem .2rem 0!important;margin-top:1rem!important}
+.lon-box>*{position:relative;z-index:1}
+.lon-box .lon-wm{position:absolute;z-index:0;left:50%;top:50%;transform:translate(-50%,-50%);color:rgba(0,77,23,.07);pointer-events:none}
+.lon-box .lon-wm .ico{width:220px;height:220px;stroke-width:1}
+.lon-box h3.lon-h{text-align:center!important;margin:0 0 .7rem!important;font-family:Literata,Georgia,serif!important;font-weight:400!important;font-size:28px!important;color:#012265}
+@media (max-width:700px){.lon-box h3.lon-h{font-size:24px!important}.lon-box .lon-wm .ico{width:180px;height:180px}}
+.lon-box .lon-cta{margin-top:.9rem!important;font-weight:700;color:#012265!important;text-align:center}
+/* v161: Biografie mit mehr Zeilenabstand; Longevity-Satz zurückhaltend */
+.kview[data-view=ueber-mich] section .about-head + p + p:not(.eyebrow){line-height:1.8!important;font-size:1.02rem}
+.lon-box .lon-cta{font-weight:400!important;font-style:italic;color:var(--muted,#52617b)!important;font-size:.95rem}
+
+/* v162: Qualifikationen, Praxisfoto, Einladung, mitlaufendes Porträt */
+.quals{list-style:none;margin:1.4rem 0 0!important;padding:1rem 1.2rem!important;display:grid;gap:.55rem;border:1px solid rgba(1,34,101,.12);border-radius:var(--r-small,12px);background:rgba(255,255,255,.6)}
+.quals li{display:flex;align-items:center;gap:.6rem;font-weight:600;color:#012265;font-size:.95rem;margin:0!important;padding:0!important}
+.quals li::before{display:none!important}
+.quals .ico{width:18px;height:18px;flex:none;color:#004d17}
+.practice-img{margin:1.6rem 0 0!important}
+.practice-img img{width:100%;height:auto;display:block;border-radius:var(--r-card,22px)}
+.about-invite{text-align:center;font-family:Literata,Georgia,serif!important;font-size:1.45rem!important;line-height:1.3!important;color:#012265!important;margin:2.4rem auto 0!important}
+@media (max-width:700px){.about-invite{font-size:1.25rem!important}}
+@media (min-width:701px){.kview[data-view=ueber-mich] .about{align-items:start!important}.kview[data-view=ueber-mich] .pframe{position:sticky!important;top:110px!important;align-self:start}}
+.kview[data-view=ueber-mich] section .about-head + p ~ p:not(.eyebrow):not(.about-invite):not(.about-sub){line-height:1.8!important;font-size:1.02rem!important}
+.kview[data-view=ueber-mich] section .phil-box p,.kview[data-view=ueber-mich] section .lon-box p{line-height:1.5!important;font-size:inherit!important}
+.kview[data-view=ueber-mich] section .lon-box .lon-cta{font-size:.95rem!important}
+.kview[data-view=ueber-mich] section p.about-invite:not(.eyebrow){font-family:Literata,Georgia,serif!important;font-size:1.45rem!important;line-height:1.3!important}
+@media (max-width:700px){.kview[data-view=ueber-mich] section p.about-invite:not(.eyebrow){font-size:1.25rem!important}}
+
+/* v163: Werte als Aufklappliste (Vorschlag 2) */
+.vlist{margin-top:1.1rem;background:#fff;border-radius:var(--r-small,12px);overflow:hidden;box-shadow:var(--sh-card);text-align:left}
+.vrow{border-bottom:1px solid rgba(1,34,101,.1);margin:0!important;border-radius:0!important;background:none!important;box-shadow:none!important}
+.vrow:last-child{border-bottom:0}
+.vrow>summary{list-style:none;display:flex;align-items:center;gap:.8rem;padding:1rem 1.1rem;cursor:pointer;font:700 1rem/1.3 Quicksand,"Segoe UI",system-ui,sans-serif;color:#012265}
+.vrow>summary::-webkit-details-marker{display:none}
+.vrow>summary::marker{content:""}
+.vrow-ico .ico{width:22px;height:22px;color:#004d17;display:block}
+.vrow-t{flex:1}
+.vrow>summary i{width:9px;height:9px;border-right:2px solid #012265;border-bottom:2px solid #012265;transform:rotate(45deg);opacity:.5;transition:transform .2s;flex:none}
+.vrow[open]>summary i{transform:rotate(-135deg)}
+.vrow[open]{background:#f3f7fc!important}
+.vrow[open]>summary{color:#004d17}
+.kview[data-view=ueber-mich] section .vrow p{margin:0!important;padding:0 1.1rem 1.1rem 3.2rem!important;text-align:left!important;line-height:1.55!important}
+@media (max-width:700px){.kview[data-view=ueber-mich] section .vrow p{padding-left:1.1rem!important}}
+/* v164: Einladung zum Erstgespräch im Kontakt-Band (nur Über mich) */
+section.sum-kon .intro p.kon-sub{color:rgba(255,255,255,.85)!important;font-family:Lora,Georgia,serif!important;font-style:italic;font-size:1.1rem!important;margin:.2rem auto 0!important;text-align:center!important}
+.kview[data-view=ueber-mich] section .phil-box p,.kview[data-view=ueber-mich] section .lon-box p:not(.lon-cta){font-size:15px!important}
+/* v165: Über mich – Einladung ersetzt "Schreibe mir einfach", kleiner, aber prominent */
+.kview section.sum-kon h2.kon-invite{font-size:1.6rem!important;line-height:1.3!important;font-weight:500!important;max-width:30rem;margin:0 auto .3rem!important}
+@media (max-width:700px){.kview section.sum-kon h2.kon-invite{font-size:1.35rem!important}}
+.kview section.sum-kon h2.kon-invite{max-width:none!important;margin-bottom:1.1rem!important}
+
+/* v166: Knöpfe federn beim Überfahren leicht hoch, Inhalt wird dabei sanft größer */
+@media (hover:hover) and (prefers-reduced-motion:no-preference){
+ .btn,.cbtn,.next-link a{transition:transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .25s ease!important}
+ .btn>*,.cbtn>*,.btn .ico,.cbtn .ico{transition:transform .35s cubic-bezier(.34,1.56,.64,1)!important;display:inline-block}
+ .btn:hover,.cbtn:hover{transform:translateY(-3px) scale(1.03)!important;box-shadow:0 12px 24px -8px rgba(1,34,101,.35)!important}
+ .btn:hover>*,.cbtn:hover>*,.btn:hover .ico,.cbtn:hover .ico{transform:scale(1.06)}
+ .btn:active,.cbtn:active{transform:translateY(0) scale(.98)!important;transition-duration:.1s!important}
+}
+/* v167: Text im Startbereich – sauberer Zeilenabstand, gleiche Schrift wie die übrigen Begleittexte; Unterzeile wie auf "Über mich" */
+.hero-v5 .hero-text,.home-page .hero-v5 .hero-text{font-family:Lora,Georgia,serif!important;font-style:normal!important;line-height:1.55!important;color:var(--fg,#152b50)!important}
+@media (max-width:700px){.hero-v5 .hero-text{font-size:15.5px!important;text-align:left!important}}
+@media (min-width:701px){.home-page .hero-v5 .hero-text{font-size:calc(1.45 * var(--u))!important;line-height:1.55!important}}
+.hero-v5 .hero-sub{font-family:Lora,Georgia,serif!important;font-style:italic!important}
+@media (max-width:700px){.hero-v5 .hero-sub{font-size:min(4.5vw,20px)!important;white-space:nowrap}}
+.hero-v5 .hero-text,.home-page .hero-v5 .hero-text{font-family:Quicksand,"Segoe UI",system-ui,sans-serif!important}
+@media (hover:hover) and (prefers-reduced-motion:no-preference){.btn:hover>*,.cbtn:hover>*,.btn:hover .ico,.cbtn:hover .ico{transform:scale(1.12)!important}}
+/* v168: Hover-Effekt kräftiger und auch für Chat-Auswahl, Textlinks und Kopfleisten-Links */
+@media (hover:hover) and (prefers-reduced-motion:no-preference){
+ .btn:hover,.cbtn:hover{transform:translateY(-4px) scale(1.05)!important}
+ .cchip,.next-link a,.mastnav .nl a,.side-links a,.vrow>summary{transition:transform .35s cubic-bezier(.34,1.56,.64,1)!important;display:inline-flex}
+ .vrow>summary{display:flex}
+ .cchip:hover{transform:translateY(-3px) scale(1.06)!important}
+ .next-link a:hover,.mastnav .nl a:hover{transform:scale(1.1)}
+ .side-links a:hover{transform:translateX(4px) scale(1.06)}
+ .vrow>summary:hover .vrow-t{transform:scale(1.04);transform-origin:left center}
+ .vrow-t{transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
+}
+/* v169: Knopfinhalt wächst als Ganzes und bleibt groß, solange die Maus darauf ist */
+.bt-in{display:inline-flex;align-items:center;justify-content:center;gap:inherit;pointer-events:none}
+@media (hover:hover) and (prefers-reduced-motion:no-preference){
+ .btn>.bt-in>*,.cbtn>.bt-in>*,.btn:hover>.bt-in>*,.cbtn:hover>.bt-in>*,.btn:hover .ico,.cbtn:hover .ico{transform:none!important}
+ .bt-in{transition:transform .35s cubic-bezier(.34,1.56,.64,1)!important}
+ .btn:hover>.bt-in,.cbtn:hover>.bt-in{transform:scale(1.12)!important}
+}
+@media (hover:hover) and (prefers-reduced-motion:no-preference){.btn:hover>.bt-in,.cbtn:hover>.bt-in{transform:scale(1.4)!important}}
+/* v171: Hover-Inhalt 1,25; Werte im Startbereich exakt zwischen den Trennlinien; Textlinks beim Überfahren größer und grün */
+@media (hover:hover) and (prefers-reduced-motion:no-preference){.btn:hover>.bt-in,.cbtn:hover>.bt-in{transform:scale(1.25)!important}}
+.hero-v5 .hero-vals{gap:0!important;column-gap:0!important}
+.hero-v5 .hero-vals li{padding-inline:4px!important}
+.next-link a{display:inline-block;transition:transform .35s cubic-bezier(.34,1.56,.64,1),color .25s,border-color .25s!important}
+@media (hover:hover){.next-link a:hover{transform:scale(1.18)!important;color:#004d17!important;border-bottom-color:#004d17!important}}
+
+/* v172: Behandlungen am Handy als Aufklapp-Karten (Desktop unverändert) */
+@media (max-width:700px){
+ #leistungen .groups:not(.searching) .grp:not(.open)>*:not(.tag):not(h3){display:none!important}
+ #leistungen .grp h3{position:relative;cursor:pointer;padding-right:2rem;margin-bottom:0!important;-webkit-tap-highlight-color:transparent}
+ #leistungen .grp h3::after{content:"";position:absolute;right:.3rem;top:50%;width:10px;height:10px;margin-top:-7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);opacity:.55;transition:transform .25s}
+ #leistungen .grp.open h3::after,#leistungen .groups.searching .grp h3::after{transform:rotate(-135deg);margin-top:-2px}
+ #leistungen .grp.open h3,#leistungen .groups.searching .grp h3{margin-bottom:.6rem!important}
+ #leistungen .grp:not(.open){padding-bottom:1.1rem!important}
+ #leistungen .groups{gap:.8rem!important}
+}
+
+/* v173 */
+/* Kontakt-Band: mehr Luft zwischen Überschrift und Knöpfen */
+section.sum-kon .intro{margin-bottom:1.8rem!important}
+section.sum-kon .intro h2{margin-bottom:0!important}
+/* Chat: anonymes Personen-Symbol für die Gegenseite */
+.crow.me{align-items:flex-end}
+.cav-you{flex:none;width:40px;height:40px;border-radius:50%;background:#e6edf8;border:1px solid rgba(1,34,101,.12);display:grid;place-items:center;color:#7d8ca3}
+.cav-you .ico{width:22px;height:22px}
+@media (max-width:700px){.cav-you{width:34px;height:34px}.cav-you .ico{width:18px;height:18px}}
+/* Hinweis unter der Preisliste kleiner und heller */
+#leistungen .note-bottom{font-size:.8rem!important;color:#8a96a8!important}
+/* Longevity als Abschluss der Behandlungen */
+.lon-services{max-width:46rem;margin:1rem auto 0!important;text-align:left}
+.lon-services p{line-height:1.55!important}
+#leistungen .lon-div{margin-top:2.4rem!important}
+section.sum-kon .intro{margin-bottom:2.4rem!important}
+
+/* v174 */
+/* Startseite: Schritt-Titel deutlich kleiner */
+.view-home .sum-abl .steps h3{font-size:1.05rem!important;font-weight:600!important}
+@media (max-width:700px){.view-home .sum-abl .steps h3{font-size:.9rem!important}}
+/* Zeitstrahl Startseite: Titel fein, nur "Kreuzberg Ästhetik" bleibt kräftig */
+.sum-about .tl li b{font-weight:500!important}
+.sum-about .tl li:last-child b{font-weight:700!important}
+/* Fußzeilen-Logo verlinkt */
+footer .ft-home{display:inline-flex;justify-self:center}
+/* Symbole in "Zur Liste" / "Zum Chat" */
+.lei-col .btn .ico{width:17px;height:17px}
+.lei-col .btn .bt-in{gap:.45rem}
+@media (max-width:700px){.view-home .sum-abl .steps li{min-height:56px!important;padding:.55rem .5rem!important}.view-home .sum-abl .steps li:nth-child(odd):not(:first-child),.view-home .sum-abl .steps li:nth-child(even){margin-top:-22px!important}}
+
+/* v175: Begleittexte unter Überschriften wieder in Quicksand; Lora nur für hervorgehobene Stellen (Leitgedanke, Unterzeilen) */
+.intro p,.grp .about-g,.lei-col p,.qkc .qkd,.steps li p,.check>p,.faq details p,.legal-card p,.same-day,.hero-text,#leistungen .intro p,.lon-box p,.phil-box p,.vrow p,.kview[data-view=ueber-mich] section .phil-box p,.kview[data-view=ueber-mich] section .lon-box p,.kview[data-view=ueber-mich] section .vrow p{font-family:Quicksand,"Segoe UI",system-ui,sans-serif!important}
+.lon-box .lon-cta{font-family:Quicksand,"Segoe UI",system-ui,sans-serif!important}
+/* Kategorie-Etiketten in der Preisliste größer */
+.grp .tag{font-size:.82rem!important;letter-spacing:.12em!important}
+@media (max-width:700px){.grp .tag{font-size:.76rem!important}}
+
+/* v176: Infoboxen zu den Behandlungen */
+.tinfo-btn{display:inline-grid;place-items:center;width:20px;height:20px;margin-left:.45rem;vertical-align:.1em;border-radius:50%;border:1.5px solid #004d17;background:#fff;color:#004d17;font:700 .72rem/1 Lora,Georgia,serif;font-style:italic;cursor:pointer;padding:0;transition:background .2s,color .2s,transform .2s}
+.tinfo-btn[aria-expanded=true],.tinfo-btn:hover{background:#004d17;color:#fff}
+.subgrp-h .tinfo-btn{width:18px;height:18px;font-size:.68rem;letter-spacing:0;vertical-align:.05em}
+.tinfo-row td{padding:.2rem 0 .8rem!important;border-bottom:1px solid rgba(1,34,101,.1)!important}
+.tinfo{background:#fff;border:1px solid rgba(0,77,23,.25);border-left:4px solid #004d17;border-radius:var(--r-small,12px);padding:.85rem 1rem .8rem;margin:.2rem 0 .4rem;text-align:left}
+.tinfo-sub{margin:.4rem 0 .6rem}
+.tinfo-what{margin:0 0 .6rem!important;font-size:.9rem!important;line-height:1.5!important;color:var(--fg,#152b50)}
+.tinfo dl{display:grid;grid-template-columns:auto 1fr;gap:.25rem .8rem;margin:0;font-size:.84rem;line-height:1.4}
+.tinfo dt{font-weight:700;color:#012265;white-space:nowrap}
+.tinfo dd{margin:0;color:var(--fg,#152b50)}
+.tinfo-note{margin:.6rem 0 0!important;font-size:.8rem!important;color:#5c6b82!important;font-style:italic;line-height:1.45!important}
+.grp.deep .tinfo{color:#152b50}
+@media (max-width:700px){.tinfo dl{grid-template-columns:1fr;gap:0}.tinfo dt{margin-top:.35rem}}
+
+/* v177: Infoboxen als Overlay */
+.tinfo-tpl{display:none}
+.tinfo-pop{position:absolute;z-index:60;background:#fff;border:1px solid rgba(0,77,23,.25);border-top:4px solid #004d17;border-radius:var(--r-small,12px);box-shadow:0 18px 44px -12px rgba(1,34,101,.4),0 4px 12px rgba(1,34,101,.1);padding:.9rem 1rem .85rem;text-align:left;animation:tpop .18s ease}
+.tinfo-pop::before{content:"";position:absolute;top:-10px;left:calc(var(--ax,50%) - 7px);border:7px solid transparent;border-bottom-color:#004d17;border-top:0}
+.tinfo-pop.up{border-top:1px solid rgba(0,77,23,.25);border-bottom:4px solid #004d17}
+.tinfo-pop.up::before{top:auto;bottom:-10px;border-bottom:0;border-top:7px solid #004d17}
+@keyframes tpop{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+.tinfo-x{position:absolute;right:.4rem;top:.25rem;border:0;background:none;font-size:1.4rem;line-height:1;color:#7d8ca3;cursor:pointer;padding:.2rem .4rem}
+.tinfo-pop .tinfo-what{margin:0 1.2rem .6rem 0!important;font-size:.88rem!important;line-height:1.5!important;color:var(--fg,#152b50)}
+.tinfo-pop dl{display:grid;grid-template-columns:auto 1fr;gap:.25rem .7rem;margin:0;font-size:.82rem;line-height:1.4}
+.tinfo-pop dt{font-weight:700;color:#012265;white-space:nowrap}
+.tinfo-pop dd{margin:0;color:var(--fg,#152b50)}
+.tinfo-pop .tinfo-note{margin:.55rem 0 0!important;font-size:.78rem!important;color:#5c6b82!important;font-style:italic;line-height:1.45!important}
+
+/* v178 */
+/* Kontaktseite: Etikett und Überschrift mittig, E-Mail/WhatsApp-Knöpfe unter dem Text */
+.kview[data-view=kontakt] #kontakt .txt .eyebrow{display:table!important;margin-left:auto!important;margin-right:auto!important}
+.kview[data-view=kontakt] #kontakt .txt h2,.kview[data-view=kontakt] section #kontakt h2:not(.hero-name),.kview[data-view=kontakt] #kontakt .txt{text-align:center!important}
+.kon-page-btns{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem!important;max-width:26rem;margin:1.2rem auto 0!important}
+.kon-page-btns .btn{width:100%!important;justify-content:center!important;margin:0!important}
+/* Über mich: Philosophie-Block dunkelblau */
+.phil-box{background:#012265!important;border-color:#012265!important}
+.phil-box h3.about-h,.kview[data-view=ueber-mich] section .phil-box>p{color:#fff!important}
+.kview[data-view=ueber-mich] section .phil-box>p{color:rgba(255,255,255,.85)!important}
+/* Über mich, Handy: Porträt nicht seitlich abschneiden */
+@media (max-width:700px){#ueber-mich img.portrait{-webkit-mask-image:linear-gradient(180deg,#000 60%,rgba(0,0,0,.45) 80%,transparent 97%)!important;mask-image:linear-gradient(180deg,#000 60%,rgba(0,0,0,.45) 80%,transparent 97%)!important;max-width:100%!important}#ueber-mich .pframe{max-width:none!important;width:100%!important;overflow:visible!important}}
+/* Ablaufseite Handy: senkrechte Linie zwischen den Karten mit kurzen Verbindern; kleines Kästchen vor dem Hinweis weg */
+.view-process .same-day .sd-mark{display:none!important}
+@media (max-width:700px){
+ .view-process .steps{position:relative}
+ .view-process .steps::before{content:""!important;display:block!important;position:absolute;left:50%;top:0;bottom:0;width:2px;margin-left:-1px;background:#c5d1e3;z-index:0}
+ .view-process .steps li{position:relative;overflow:visible!important}
+ .view-process .steps li::after{content:""!important;display:block!important;position:absolute;top:50%;width:.6rem;height:2px;background:#c5d1e3}
+ .view-process .steps li:nth-child(odd)::after{right:calc(-.35rem - 1px)}
+ .view-process .steps li:nth-child(even)::after{left:calc(-.35rem - 1px)}
+}
+/* Über mich Handy: Foto endet rechts an der Schulter – Bild etwas kleiner, mittig, rechte Kante weich ausblenden */
+@media (max-width:700px){
+ #ueber-mich .pframe{display:flex!important;justify-content:center}
+ #ueber-mich img.portrait{width:86%!important;transform:translateX(-5%);
+  -webkit-mask-image:linear-gradient(180deg,#000 60%,rgba(0,0,0,.45) 80%,transparent 97%),linear-gradient(90deg,#000 80%,transparent 100%)!important;mask-image:linear-gradient(180deg,#000 60%,rgba(0,0,0,.45) 80%,transparent 97%),linear-gradient(90deg,#000 80%,transparent 100%)!important;-webkit-mask-composite:source-in;mask-composite:intersect}
+}
+/* Kontaktseite: Knöpfe mittig, zwei Spalten */
+.kon-page-btns{grid-template-columns:repeat(2,minmax(0,1fr))!important;width:100%!important;max-width:24rem!important;margin-left:auto!important;margin-right:auto!important}
