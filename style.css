@@ -3201,3 +3201,17 @@ svg.fillable path.fl{fill:currentColor;fill-opacity:.25;stroke:none;clip-path:in
 .div .hgi::before,.div .hgi::after{content:"";position:absolute;inset:0;background:currentColor}
 .div .hgi::before{-webkit-mask:url(assets/hg-line.png) center/contain no-repeat;mask:url(assets/hg-line.png) center/contain no-repeat}
 .div .hgi::after{opacity:.28;-webkit-mask:url(assets/hg-fill.png) center/contain no-repeat;mask:url(assets/hg-fill.png) center/contain no-repeat;clip-path:inset(0 0 calc(100% - var(--p,0) * 1%) 0)}
+
+/* Über mich: Leitgedanke in Blockschrift mit zartem Sanduhr-Wasserzeichen, Trenner unter der Unterzeile */
+.kview[data-view=ueber-mich] section .about-head + p:not(.eyebrow):not(.about-sub){font-family:Quicksand,"Segoe UI",system-ui,sans-serif!important;font-style:normal!important;font-weight:500!important;font-size:1.08rem!important;line-height:1.7!important;position:relative;overflow:hidden}
+.kview[data-view=ueber-mich] .about-head + p::after{content:"";position:absolute;right:-.6rem;top:50%;width:clamp(110px,15vw,160px);aspect-ratio:288/420;transform:translateY(-50%) rotate(8deg);background:#012265;opacity:.055;pointer-events:none;-webkit-mask:url(assets/hg-line.png) center/contain no-repeat;mask:url(assets/hg-line.png) center/contain no-repeat}
+@media (max-width:700px){.kview[data-view=ueber-mich] section .about-head + p:not(.eyebrow):not(.about-sub){font-size:1rem!important}}
+.about-head .about-div{margin:1.1rem auto 1.2rem!important;max-width:22rem}
+
+/* Zeitstrahl: Schilder füllen sich beim Scrollen von oben nach unten */
+.sum-about .tl li:not(:last-child) .node,.sum-about .tl li:not(:last-child).hit .node{position:relative;background:#fff!important;color:#012265!important;border-color:#012265!important;transition:none}
+.sum-about .tl .node .nf{position:absolute;inset:-1px;border-radius:50%;background:#012265;color:#fff;display:grid;place-items:center;clip-path:inset(0 0 calc(100% - var(--p,0) * 1%) 0);pointer-events:none}
+
+/* Pakete: Hinweis "Auswahl", "auf Anfrage" klein und grau */
+.pk-note,.pr.pr-note{font-weight:400!important;font-size:.82rem!important;color:#7a8594!important;font-family:Quicksand,"Segoe UI",system-ui,sans-serif!important}
+.pk-note{margin:.1rem 0 .5rem!important;text-align:left}

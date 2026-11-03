@@ -263,7 +263,7 @@ function ka_view_home() {
   <div class="wrap tl-wrap">
     <ol class="tl" id="tl" style="--n:<?php echo (int) count( $tl ); ?>">
       <?php foreach ( $tl as $i => $e ) : ?>
-      <li><span class="node"><?php echo ( $i === count( $tl ) - 1 ) ? '<span class="logo-w"></span>' : ka_icon( $ti[ $i % count( $ti ) ] ); ?></span><b><?php echo str_replace( ' / ', '<br>', esc_html( $e[0] ) ); ?></b><span><?php echo esc_html( $e[1] ); ?></span></li>
+      <li><span class="node"><?php echo ( $i === count( $tl ) - 1 ) ? '<span class="logo-w"></span>' : ka_icon( $ti[ $i % count( $ti ) ] ) . '<span class="nf" aria-hidden="true">' . ka_icon( $ti[ $i % count( $ti ) ] ) . '</span>'; ?></span><b><?php echo str_replace( ' / ', '<br>', esc_html( $e[0] ) ); ?></b><span><?php echo esc_html( $e[1] ); ?></span></li>
       <?php endforeach; ?>
     </ol>
   </div>
@@ -303,6 +303,7 @@ function ka_view_about() {
         <p class="eyebrow"><?php echo ka( 'about_eyebrow' ); ?></p>
         <h2 class="about-h2"><span><?php echo ka( 'about_h2' ); ?></span></h2>
         <p class="about-sub"><span><?php echo ka( 'hero_sub' ); ?></span></p>
+        <div class="div about-div" aria-hidden="true"><span class="hgi"></span></div>
       </div>
       <?php echo preg_replace( '#^\s*<p>\s*Ich lebe und arbeite in Berlin-Kreuzberg\.?\s*</p>#u', '', ka_html( 'about_main' ), 1 ); ?>
       <?php $quals = ka_lines( 'about_quals' ); if ( $quals ) : ?>
@@ -377,6 +378,7 @@ function ka_view_services() {
           <?php if ( $g['desc'] ) : ?><p class="about-g"><?php echo ka_mark( esc_html( implode( ' ', $g['desc'] ) ) ); ?></p><?php endif; ?>
           <?php if ( $g['rows'] ) : ?>
           <?php
+          if ( 'Pakete' === $g['title'] ) : ?><p class="pk-note">Eine Auswahl, zum Beispiel:</p><?php endif;
           $blocks = array(); $cur = array( 'h' => '', 'rows' => array() );
           foreach ( $g['rows'] as $r ) {
           	if ( ! empty( $r[3] ) ) { if ( $cur['h'] || $cur['rows'] ) { $blocks[] = $cur; } $cur = array( 'h' => $r[3], 'rows' => array() ); continue; }
@@ -390,7 +392,7 @@ function ka_view_services() {
             <?php endif; ?>
             <table><tbody>
             <?php foreach ( $bl['rows'] as $r ) : $rinfo = $hinfo ? null : ka_treat_find( $r[0] ); ?>
-            <tr><td><?php echo ka_row_label( $r[0] ); ?><?php if ( $rinfo ) : ?><button type="button" class="tinfo-btn" aria-expanded="false" aria-label="Infos zu dieser Behandlung">i</button><template class="tinfo-tpl"><?php echo ka_treat_box( $rinfo ); ?></template><?php endif; ?></td><td class="pr"><?php echo esc_html( $r[1] ); ?><?php echo $r[2] ? '<s>' . esc_html( $r[2] ) . '</s>' : ''; ?></td></tr>
+            <tr><td><?php echo ka_row_label( $r[0], $rinfo ? '<button type="button" class="tinfo-btn" aria-expanded="false" aria-label="Infos zu dieser Behandlung">i</button><template class="tinfo-tpl">' . ka_treat_box( $rinfo ) . '</template>' : '' ); ?></td><td class="pr<?php echo preg_match( '/\d/', $r[1] ) ? '' : ' pr-note'; ?>"><?php echo esc_html( $r[1] ); ?><?php echo $r[2] ? '<s>' . esc_html( $r[2] ) . '</s>' : ''; ?></td></tr>
             <?php endforeach; ?>
             </tbody></table>
           </div>
@@ -525,10 +527,10 @@ function ka_view_legal() {
 }
 
 /** Zeilenname der Preisliste: Erklärungen (Klammer am Ende, "innerhalb …") klein und grau darunter. */
-function ka_row_label( $s ) {
+function ka_row_label( $s, $after = '' ) {
 	if ( preg_match( '/^(.*?)\s+(innerhalb\b.*|im Abstand\b.*|\([^()]*\))$/u', $s, $m ) ) {
 		$ex = trim( $m[2], '() ' );
-		return esc_html( $m[1] ) . '<small class="ex">' . esc_html( $ex ) . '</small>';
+		return esc_html( $m[1] ) . $after . '<small class="ex">' . esc_html( $ex ) . '</small>';
 	}
-	return esc_html( $s );
+	return esc_html( $s ) . $after;
 }

@@ -328,7 +328,7 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
 
 /* Füllen der Linien-Icons und Sanduhr-Trenner: die Füllung steht an der Bildschirmmitte. Beim Hochscrollen schiebt sie sich über einen längeren Scrollweg (dist) von oben nach unten ins Symbol, beim Zurückscrollen leert es sich wieder */
 (function(){
-  var items=[].slice.call(document.querySelectorAll('svg.fillable,.div .hgi')).map(function(el){
+  var items=[].slice.call(document.querySelectorAll('svg.fillable,.div .hgi,.sum-about .tl li:not(:last-child) .node')).map(function(el){
     return{el:el,ref:el.matches('svg')?el.querySelector('path.fl'):el,p:-1};
   }),tick=false;
   function check(){
