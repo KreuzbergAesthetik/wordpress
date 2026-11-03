@@ -3196,8 +3196,8 @@ footer .ft-home{display:inline-flex;justify-self:center}
 .kon-page-btns{grid-template-columns:repeat(2,minmax(0,1fr))!important;width:100%!important;max-width:24rem!important;margin-left:auto!important;margin-right:auto!important}
 
 /* Füllung beim Scrollen: oberhalb der Bildschirmmitte füllt sich das Symbol von oben nach unten (--p = Füllstand in %) */
-svg.fillable path.fl{fill:currentColor;clip-path:inset(0 0 calc(100% - var(--p,0) * 1%) 0)}
+svg.fillable path.fl{fill:currentColor;fill-opacity:.25;stroke:none;clip-path:inset(0 0 calc(100% - var(--p,0) * 1%) 0)}
 .div .hgi{position:relative;background:none!important;-webkit-mask:none!important;mask:none!important}
 .div .hgi::before,.div .hgi::after{content:"";position:absolute;inset:0;background:currentColor}
 .div .hgi::before{-webkit-mask:url(assets/hg-line.png) center/contain no-repeat;mask:url(assets/hg-line.png) center/contain no-repeat}
-.div .hgi::after{-webkit-mask:url(assets/hg-fill.png) center/contain no-repeat;mask:url(assets/hg-fill.png) center/contain no-repeat;clip-path:inset(0 0 calc(100% - var(--p,0) * 1%) 0)}
+.div .hgi::after{opacity:.28;-webkit-mask:url(assets/hg-fill.png) center/contain no-repeat;mask:url(assets/hg-fill.png) center/contain no-repeat;clip-path:inset(0 0 calc(100% - var(--p,0) * 1%) 0)}
