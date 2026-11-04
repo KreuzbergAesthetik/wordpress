@@ -3267,3 +3267,6 @@ html.pgt-spin::after{animation:pgtspin .4s cubic-bezier(.55,0,.25,1) forwards}
 /* Behandlungen: Zusatzzeilen ("Jede weitere Zone", "Weitere Pakete") klein und grau */
 .subgrp tr.row-sub td,.subgrp tr.row-sub td.pr{font-size:.86rem!important;font-weight:400!important;color:#7a8594!important}
 .subgrp tr.row-sub td.pr s{font-size:.8em}
+
+/* Checkliste: abgehakte Punkte nicht durchstreichen */
+.check input:checked + span{text-decoration:none!important;opacity:1!important}

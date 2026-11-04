@@ -378,7 +378,7 @@ function ka_view_services() {
           <?php if ( $g['desc'] ) : ?><p class="about-g"><?php echo ka_mark( esc_html( implode( ' ', $g['desc'] ) ) ); ?></p><?php endif; ?>
           <?php if ( $g['rows'] ) : ?>
           <?php
-          if ( 'Pakete' === $g['title'] ) : ?><p class="pk-note">Eine Auswahl, zum Beispiel:</p><?php endif;
+          if ( 'Pakete' === $g['title'] ) : ?><p class="pk-note">Eine Auswahl:</p><?php endif;
           $blocks = array(); $cur = array( 'h' => '', 'rows' => array() );
           foreach ( $g['rows'] as $r ) {
           	if ( ! empty( $r[3] ) ) { if ( $cur['h'] || $cur['rows'] ) { $blocks[] = $cur; } $cur = array( 'h' => $r[3], 'rows' => array() ); continue; }
