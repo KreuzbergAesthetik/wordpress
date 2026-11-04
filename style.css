@@ -2231,7 +2231,7 @@ body.home-page .tint{display:none!important}
 
 /* v109: Nach dem einmaligen Einflug (spätere Besuche der Startseite) keine doppelte Begrüßung */
 body.head-done .hero-intro{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-body.head-done .home-page .hero-v5,body.head-done .hero-v5{margin-top:clamp(90px,12vh,140px)!important}
+@media (min-width:701px){body.head-done .home-page .hero-v5,body.head-done .hero-v5{margin-top:clamp(90px,12vh,140px)!important}}
 
 /* v109: Kacheln nur bei echter Maus einfärben (am Handy blieb die angetippte Kachel dunkelblau) */
 @media (hover:none){
@@ -2792,7 +2792,7 @@ body.intro-collapsed .hero-intro .hero-greeting,body.intro-collapsed .hero-intro
 body.intro-collapsed .hero-intro .hg-slot,body.head-done .hero-intro .hg-slot{display:block!important;background:var(--wm) center/contain no-repeat;opacity:1!important}
 body.head-done .hero-intro{position:relative!important;width:auto!important;height:auto!important;overflow:visible!important;clip:auto!important;white-space:normal!important}
 body.head-done .hero-intro .hero-greeting,body.head-done .hero-intro .hero-brand{display:none!important}
-body.head-done .home-page .hero-v5,body.head-done .hero-v5{margin-top:0!important}
+@media (min-width:701px){body.head-done .home-page .hero-v5,body.head-done .hero-v5{margin-top:0!important}}
 body.intro-collapsed .hero-intro .hero-service,body.head-done .hero-intro .hero-service{margin-top:calc(1.6 * var(--u,1vw))!important}
 @media (max-width:700px){body.intro-collapsed .hero-intro .hero-service,body.head-done .hero-intro .hero-service{margin-top:.9rem!important}}
 body.head-done .hero-intro{padding-top:96px!important}
@@ -3270,3 +3270,14 @@ html.pgt-spin::after{animation:pgtspin .4s cubic-bezier(.55,0,.25,1) forwards}
 
 /* Checkliste: abgehakte Punkte nicht durchstreichen */
 .check input:checked + span{text-decoration:none!important;opacity:1!important}
+
+/* Longevity: Schlusssatz läuft direkt im Anschluss an den Absatz weiter (weiter grau und kursiv) */
+.lon-box p:has(+ .lon-cta){display:inline!important;margin:0!important}
+.lon-box .lon-cta{display:inline!important;margin:0!important;text-align:inherit!important}
+.lon-box .lon-cta::before{content:" "}
+
+/* Ablaufseite: gemeinsamer Kasten um die zwei Karten und gleicher Kasten um den Hinweis; Punkte füllen sich später und schneller */
+#ablauf .steps li.same-day-step{outline:none!important}
+#ablauf .steps .sd-frame{position:absolute;z-index:0;border:1.5px dashed #2f7a46;border-radius:20px;pointer-events:none}
+#ablauf .same-day{display:block;box-sizing:border-box;max-width:36rem;margin:1.4rem auto 0!important;padding:.9rem 1.2rem!important;border:1.5px dashed #2f7a46;border-radius:20px;text-align:center}
+#ablauf .steps li::before{transition:background .22s ease!important}

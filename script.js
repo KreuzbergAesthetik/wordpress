@@ -388,9 +388,27 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
   var steps=[].slice.call(document.querySelectorAll('#ablauf .steps li')),tick=false;
   function check(){
     tick=false;
-    var line=window.innerHeight*0.6;
+    var line=window.innerHeight*0.32;
     steps.forEach(function(li){var r=li.getBoundingClientRect();if(r.width)li.classList.toggle('st-hit',r.top+Math.min(40,r.height/2)<line)});
   }
   function req(){if(!tick){tick=true;requestAnimationFrame(check)}}
   window.addEventListener('scroll',req,{passive:true});window.addEventListener('resize',req);check();
+})();
+
+/* Ablaufseite: gemeinsamer gestrichelter Kasten um Erstgespräch und Aufklärung & Behandlung */
+(function(){
+  var st=document.querySelector('#ablauf .steps');if(!st)return;
+  var lis=[].slice.call(st.querySelectorAll('li.same-day-step'));if(lis.length<2)return;
+  var fr=document.createElement('div');fr.className='sd-frame';fr.setAttribute('aria-hidden','true');st.appendChild(fr);
+  function place(){
+    var s=st.getBoundingClientRect();if(!s.width)return;
+    var a=lis[0].getBoundingClientRect(),b=lis[lis.length-1].getBoundingClientRect();
+    var l=Math.min(a.left,b.left)-s.left-10,r=Math.max(a.right,b.right)-s.left+10;
+    fr.style.left=Math.max(l,-12)+'px';fr.style.width=(Math.min(r,s.width+12)-Math.max(l,-12))+'px';
+    fr.style.top=(Math.min(a.top,b.top)-s.top-10)+'px';fr.style.height=(Math.max(a.bottom,b.bottom)-Math.min(a.top,b.top)+20)+'px';
+  }
+  window.addEventListener('resize',place);window.addEventListener('load',place);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(place);
+  window.addEventListener('hashchange',function(){setTimeout(place,50)});
+  place();setTimeout(place,300);
 })();
