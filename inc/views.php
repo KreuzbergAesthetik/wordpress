@@ -392,7 +392,7 @@ function ka_view_services() {
             <?php endif; ?>
             <table><tbody>
             <?php foreach ( $bl['rows'] as $r ) : $rinfo = $hinfo ? null : ka_treat_find( $r[0] ); ?>
-            <tr><td><?php echo ka_row_label( $r[0], $rinfo ? '<button type="button" class="tinfo-btn" aria-expanded="false" aria-label="Infos zu dieser Behandlung">i</button><template class="tinfo-tpl">' . ka_treat_box( $rinfo ) . '</template>' : '' ); ?></td><td class="pr<?php echo preg_match( '/\d/', $r[1] ) ? '' : ' pr-note'; ?>"><?php echo esc_html( $r[1] ); ?><?php echo $r[2] ? '<s>' . esc_html( $r[2] ) . '</s>' : ''; ?></td></tr>
+            <tr<?php echo preg_match( '/^(jede\s+weitere|weitere)\b/iu', $r[0] ) ? ' class="row-sub"' : ''; ?>><td><?php echo ka_row_label( $r[0], $rinfo ? '<button type="button" class="tinfo-btn" aria-expanded="false" aria-label="Infos zu dieser Behandlung">i</button><template class="tinfo-tpl">' . ka_treat_box( $rinfo ) . '</template>' : '' ); ?></td><td class="pr<?php echo preg_match( '/\d/', $r[1] ) ? '' : ' pr-note'; ?>"><?php echo esc_html( $r[1] ); ?><?php echo $r[2] ? '<s>' . esc_html( $r[2] ) . '</s>' : ''; ?></td></tr>
             <?php endforeach; ?>
             </tbody></table>
           </div>
@@ -528,6 +528,10 @@ function ka_view_legal() {
 
 /** Zeilenname der Preisliste: Erklärungen (Klammer am Ende, "innerhalb …") klein und grau darunter. */
 function ka_row_label( $s, $after = '' ) {
+	/* Zusätze wie ", pro Bereich" oder "/ Masseter" erscheinen klein und grau unter dem Namen */
+	if ( preg_match( '/^(.*?)\s*,\s*(pro\b.*)$/u', $s, $m ) || preg_match( '/^(.*?)\s+\/\s+(Masseter)$/u', $s, $m ) ) {
+		return esc_html( $m[1] ) . $after . '<small class="ex">' . esc_html( $m[2] ) . '</small>';
+	}
 	if ( preg_match( '/^(.*?)\s+(innerhalb\b.*|im Abstand\b.*|\([^()]*\))$/u', $s, $m ) ) {
 		$ex = trim( $m[2], '() ' );
 		return esc_html( $m[1] ) . $after . '<small class="ex">' . esc_html( $ex ) . '</small>';

@@ -38,7 +38,7 @@
     /* Die Startkarte bleibt vom ersten Pixel an stehen, auch wenn sie höher als der Bildschirm ist: erst setzt sich die Leiste zusammen, dann scrollt die Seite. */
     /* Die Einflug-Animation läuft nur einmal pro Sitzung; danach steht die Leiste sofort oben. */
     var headDone=false;try{headDone=sessionStorage.getItem(HKEY)==='1'}catch(e){}if(String(window.name).indexOf(HKEY)>=0)headDone=true;
-    M.on=!!pin&&!document.body.classList.contains('sub')&&vh>=480&&!reduce&&PH<=vh*2.2&&!headDone&&!M.done;
+    M.on=!!pin&&!document.body.classList.contains('sub')&&vh>=300&&!reduce&&PH<=vh*3&&!headDone&&!M.done;
     document.body.classList.toggle('head-done',headDone&&!M.done);
     M.off=0;
     document.documentElement.style.setProperty('--pintop',(-M.off)+'px');
@@ -383,17 +383,35 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
   });
 })();
 
-/* Zeitstrahl-Schilder und Ablauf-Stationen: jedes Schild füllt sich auf einmal, von oben nach unten nacheinander */
+/* Ablauf-Stationen: Punkt füllt sich, sobald man an der Karte vorbeigescrollt ist */
 (function(){
-  var nodes=[].slice.call(document.querySelectorAll('.sum-about .tl li:not(:last-child) .node')),
-      steps=[].slice.call(document.querySelectorAll('#ablauf .steps li')),tick=false;
-  nodes.forEach(function(n,i){n.style.setProperty('--nd',(i*0.12)+'s')});
+  var steps=[].slice.call(document.querySelectorAll('#ablauf .steps li')),tick=false;
   function check(){
     tick=false;
     var line=window.innerHeight*0.6;
-    nodes.forEach(function(n){var r=n.getBoundingClientRect();if(r.width)n.classList.toggle('nf-on',r.top+r.height/2<line)});
     steps.forEach(function(li){var r=li.getBoundingClientRect();if(r.width)li.classList.toggle('st-hit',r.top+Math.min(40,r.height/2)<line)});
   }
   function req(){if(!tick){tick=true;requestAnimationFrame(check)}}
   window.addEventListener('scroll',req,{passive:true});window.addEventListener('resize',req);check();
+})();
+
+/* Behandlungen: Info-Symbole je Block exakt untereinander ausrichten (Überschrift und Zeilen) */
+(function(){
+  function align(){
+    [].forEach.call(document.querySelectorAll('.subgrp'),function(g){
+      var bs=[].slice.call(g.querySelectorAll('.tinfo-btn'));
+      bs.forEach(function(b){b.style.marginLeft=''});
+      if(bs.length<2)return;
+      var vis=bs.filter(function(b){return b.getBoundingClientRect().width>0});
+      if(vis.length<2)return;
+      var xs=vis.map(function(b){return b.getBoundingClientRect().left}),max=Math.max.apply(null,xs);
+      var base=parseFloat(getComputedStyle(vis[0]).marginLeft)||0;
+      vis.forEach(function(b,i){var d=max-xs[i];if(d>0.5)b.style.marginLeft=(base+d)+'px'});
+    });
+  }
+  window.addEventListener('resize',align);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(align);
+  window.addEventListener('load',align);
+  document.addEventListener('click',function(){setTimeout(align,60)});
+  align();
 })();

@@ -3210,8 +3210,8 @@ svg.fillable path.fl{fill:currentColor;fill-opacity:.25;stroke:none;clip-path:in
 
 /* Zeitstrahl: Schilder füllen sich beim Scrollen von oben nach unten */
 .sum-about .tl li:not(:last-child) .node,.sum-about .tl li:not(:last-child).hit .node{position:relative;background:#fff!important;color:#012265!important;border-color:#012265!important;transition:none}
-.sum-about .tl .node .nf{position:absolute;inset:-1px;border-radius:50%;background:#012265;color:#fff;display:grid;place-items:center;opacity:0;transition:opacity .4s ease var(--nd,0s);pointer-events:none}
-.sum-about .tl .node.nf-on .nf{opacity:1}
+.sum-about .tl .node .nf{position:absolute;inset:-1px;border-radius:50%;background:#012265;color:#fff;display:grid;place-items:center;opacity:0;transition:opacity .5s ease;pointer-events:none}
+.sum-about .tl li.hit .node .nf{opacity:1}
 
 /* Pakete: Hinweis "Auswahl", "auf Anfrage" klein und grau */
 .pk-note,.pr.pr-note{font-weight:400!important;font-size:.82rem!important;color:#7a8594!important;font-family:Quicksand,"Segoe UI",system-ui,sans-serif!important}
@@ -3263,3 +3263,7 @@ html.pgt-spin::after{animation:pgtspin .4s cubic-bezier(.55,0,.25,1) forwards}
  #ablauf .steps li::after,#ablauf .steps li:nth-child(odd)::after,#ablauf .steps li:nth-child(even)::after{left:-1.6rem;right:auto;width:1.6rem;top:1.7rem}
  #ablauf .steps li::before,#ablauf .steps li:nth-child(odd)::before,#ablauf .steps li:nth-child(even)::before{left:calc(-2.6rem + 9px);right:auto;top:calc(1.7rem - 7px)}
 }
+
+/* Behandlungen: Zusatzzeilen ("Jede weitere Zone", "Weitere Pakete") klein und grau */
+.subgrp tr.row-sub td,.subgrp tr.row-sub td.pr{font-size:.86rem!important;font-weight:400!important;color:#7a8594!important}
+.subgrp tr.row-sub td.pr s{font-size:.8em}
