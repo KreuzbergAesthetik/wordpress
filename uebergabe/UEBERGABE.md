@@ -1,13 +1,13 @@
 # Übergabe: Website Kreuzberg Ästhetik (WordPress-Theme)
 
-Stand: 3. November 2026, Theme-Version 136 (ZIP in diesem Ordner), Vorschau-Version 184.
+Stand: 4. November 2026, Theme-Version 137 (ZIP im Chat), Quelltext im Repo-Hauptordner (Branch ccr-a91dd6cf-p9csol). Neu seit 136: Füll-Effekte beim Scrollen (Icons, Sanduhr-Trenner, Zeitstrahl-Schilder), Sanduhr-Übergang beim Seitenwechsel (halbe Drehung), Über mich (Blockschrift, Wasserzeichen, Trenner), Pakete (Auswahl-Hinweis, Info-Icon, 'auf Anfrage' grau), Kontakt-Knöpfe wie Startseite + Absende-Knopf mittig, Ablaufseite mit Zeitstrahl.
 
 ## ZUERST LESEN – Kurzfassung für die neue Sitzung
 
 **Wer/was:** Manuel Fella, Privatpraxis „Kreuzberg Ästhetik“ (Berlin-Kreuzberg), möchte geduzt werden. Eigenes klassisches PHP-Theme für kreuzberg-aesthetik.de (WordPress bei IONOS). Feedback kommt als Kommentar in der Vorschau oder als markierter Screenshot im Chat.
 
 **Arbeitsweise (Manuels Wünsche):**
-- Nach jeder Änderung nur die Vorschau aktualisieren. Ein neues ZIP + Versionsnummer NUR, wenn Manuel es ausdrücklich sagt („mach eine neue Version“ / „baue das ZIP“). Nächste Version: 137.
+- Nach jeder Änderung nur die Vorschau aktualisieren. Ein neues ZIP + Versionsnummer NUR, wenn Manuel es ausdrücklich sagt („mach eine neue Version“ / „baue das ZIP“). Nächste Version: 138.
 - Versionsnummer steht in `style.css` (`Version: 136`), wird in WordPress oben in der Admin-Leiste angezeigt. CSS/JS hängen Version + Änderungszeit an (Cache-Bust).
 - Kommentare: umsetzen, Vorschau veröffentlichen, im Thread kurz antworten (nicht selbst „erledigt“ schließen), im Chat kurz zusammenfassen.
 - Bei Gestaltungsfragen gern 2–3 Varianten als Bilder anbieten und eine Empfehlung geben.
