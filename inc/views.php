@@ -515,6 +515,16 @@ function ka_view_legal() {
     <?php
 	// Doppelte Überschrift vermeiden: Steht der Seitentitel schon am Anfang des Textes, wird er dort entfernt.
 	$content = apply_filters( 'the_content', get_the_content() );
+	// Ist die WordPress-Seite leer, erscheint der mitgelieferte Text (inc/legal/). Eigene Seiteninhalte haben immer Vorrang.
+	if ( '' === trim( wp_strip_all_tags( $content ) ) ) {
+		$tl = mb_strtolower( get_the_title() );
+		$fn = false !== strpos( $tl, 'impressum' ) ? 'impressum' : ( false !== strpos( $tl, 'datenschutz' ) ? 'datenschutz' : '' );
+		$fp = $fn ? get_theme_file_path( 'inc/legal/' . $fn . '.html' ) : '';
+		if ( $fp && file_exists( $fp ) ) {
+			$content = (string) file_get_contents( $fp );
+			if ( ! ( defined( 'KA_DRAFT' ) && KA_DRAFT ) ) { $content = preg_replace( '/\s*\[[^\]\[]+\]/u', '', $content ); }
+		}
+	}
 	if ( preg_match( '#^\s*<h[1-4][^>]*>(.*?)</h[1-4]>#is', $content, $m ) && mb_strtolower( trim( wp_strip_all_tags( $m[1] ) ) ) === mb_strtolower( trim( get_the_title() ) ) ) {
 		$content = preg_replace( '#^\s*<h[1-4][^>]*>.*?</h[1-4]>#is', '', $content, 1 );
 	}

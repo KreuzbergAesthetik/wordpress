@@ -9,7 +9,7 @@ function wpautop($s){$p=preg_split('/\n\s*\n/',trim($s));return implode("\n",arr
 function antispambot($s){return $s;} function wp_strip_all_tags($s){return strip_tags($s);} function wp_json_encode($d,$f=0){return json_encode($d,$f);}
 function add_action(){} function register_setting(){} function add_menu_page(){} function add_filter(){}
 $GLOBALS['lp']=0; $GLOBALS['lt']='Impressum';
-function get_page_by_path($s){return null;} function apply_filters($t,$c){return $c;} function get_the_content(){return '<h2>'.$GLOBALS['lt'].'</h2><p>Hier steht der Text Deiner Seite.</p>';} function get_the_title(){return $GLOBALS['lt'];}
+function get_page_by_path($s){return null;} function apply_filters($t,$c){return $c;} function get_the_content(){return '';} function get_the_title(){return $GLOBALS['lt'];}
 function have_posts(){ if($GLOBALS['lp']<1){return true;} return false;} function the_post(){$GLOBALS['lp']++;}
 function the_title(){echo $GLOBALS['lt'];} function the_content(){}
 require 'inc/icons.php'; require 'inc/content.php'; require 'inc/views.php';
