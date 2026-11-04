@@ -394,24 +394,3 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
   function req(){if(!tick){tick=true;requestAnimationFrame(check)}}
   window.addEventListener('scroll',req,{passive:true});window.addEventListener('resize',req);check();
 })();
-
-/* Behandlungen: Info-Symbole je Block exakt untereinander ausrichten (Überschrift und Zeilen) */
-(function(){
-  function align(){
-    [].forEach.call(document.querySelectorAll('.subgrp'),function(g){
-      var bs=[].slice.call(g.querySelectorAll('.tinfo-btn'));
-      bs.forEach(function(b){b.style.marginLeft=''});
-      if(bs.length<2)return;
-      var vis=bs.filter(function(b){return b.getBoundingClientRect().width>0});
-      if(vis.length<2)return;
-      var xs=vis.map(function(b){return b.getBoundingClientRect().left}),max=Math.max.apply(null,xs);
-      var base=parseFloat(getComputedStyle(vis[0]).marginLeft)||0;
-      vis.forEach(function(b,i){var d=max-xs[i];if(d>0.5)b.style.marginLeft=(base+d)+'px'});
-    });
-  }
-  window.addEventListener('resize',align);
-  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(align);
-  window.addEventListener('load',align);
-  document.addEventListener('click',function(){setTimeout(align,60)});
-  align();
-})();
