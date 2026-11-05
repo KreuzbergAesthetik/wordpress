@@ -3905,3 +3905,10 @@ html:not(.never) .chat-window:hover{box-shadow:0 0 38px 5px rgba(0,77,23,.45),0 
 /* Chat: Symbole in den Antwort-Pillen dunkelblau */
 .chat-chips .cchip .ico,.chat-chips .cchip:hover .ico{color:#012265!important}
 .chat-chips .cchip.go .ico{color:#fff!important}
+
+/* Chat: Antwort-Pillen komplett blau (Schrift, Hintergrund, Symbol, Rahmen) */
+.chat-chips .cchip{background:#e3ecfa!important;border:1px solid #012265!important;color:#012265!important}
+.chat-chips .cchip .ico{color:#012265!important}
+.chat-chips .cchip:hover{background:#d3e2f8!important}
+.chat-chips .cchip.go{background:#012265!important;border-color:#012265!important;color:#fff!important}
+.chat-chips .cchip.go .ico{color:#fff!important}
