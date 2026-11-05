@@ -3292,7 +3292,7 @@ svg.fillable path.chkw{stroke:#fff;fill:none;clip-path:inset(0 0 calc(100% - var
 .quals svg.fillable path.fl,.vrow-ico svg.fillable path.fl,.hero-vals svg.fillable path.fl{fill-opacity:1}
 .qkbg svg path.fl,.sico svg path.fl,.lon-wm svg path.fl,.lei-ico svg path.fl,.qkbg svg path.chkw,.sico svg path.chkw{display:none!important}
 /* Grüne Icons: ganzes Icon auf einmal */
-.hero-vals svg.fillable path.fl,.hero-vals svg.fillable path.chkw,.quals svg.fillable path.fl,.quals svg.fillable path.chkw,.vlist svg.fillable path.fl,.vlist svg.fillable path.chkw{clip-path:none!important;opacity:0;transition:opacity .35s ease var(--fd,0s)}
+.hero-vals svg.fillable path.fl,.hero-vals svg.fillable path.chkw,.quals svg.fillable path.fl,.quals svg.fillable path.chkw,.vlist svg.fillable path.fl,.vlist svg.fillable path.chkw{clip-path:none!important;opacity:0;transition:opacity .6s ease var(--fd,0s)}
 .hero-vals svg.fillable.fill-on path.fl,.hero-vals svg.fillable.fill-on path.chkw,.quals svg.fillable.fill-on path.fl,.quals svg.fillable.fill-on path.chkw,.vlist svg.fillable.fill-on path.fl,.vlist svg.fillable.fill-on path.chkw{opacity:1}
 
 /* Über mich: Wasserzeichen gerade und zentriert hinter dem Text des Leitgedankens */
