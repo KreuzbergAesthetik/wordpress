@@ -3323,3 +3323,8 @@ svg.fillable path.chkw{stroke:#fff;fill:none;clip-path:inset(0 0 calc(100% - var
  .sum-abl.sum-abl .steps.steps li::after,.sum-abl.sum-abl .steps.steps li:nth-child(odd)::after,.sum-abl.sum-abl .steps.steps li:nth-child(even)::after{left:-1.6rem!important;right:auto!important;width:1.6rem!important}
  .sum-abl.sum-abl .steps.steps li::before,.sum-abl.sum-abl .steps.steps li:nth-child(odd)::before,.sum-abl.sum-abl .steps.steps li:nth-child(even)::before{left:calc(-2.6rem + 9px)!important;right:auto!important}
 }
+
+/* Zeitstrahl Startseite: die Sanduhr (Logo) im letzten Schild dreht sich einmal, nachdem das Schild blau geworden ist */
+.sum-about .tl li:last-child.logo-spun .logo-w{animation:logoturn .9s cubic-bezier(.55,0,.25,1) .5s 1 both}
+@keyframes logoturn{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.sum-about .tl li:last-child.logo-spun .logo-w{animation:none}}

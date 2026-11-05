@@ -426,3 +426,17 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
   function req(){if(!tick){tick=true;requestAnimationFrame(check)}}
   window.addEventListener('scroll',req,{passive:true});window.addEventListener('resize',req);check();
 })();
+
+/* Zeitstrahl Startseite: Sanduhr im letzten Schild dreht sich einmalig, sobald das Schild blau wird */
+(function(){
+  var tl=document.getElementById('tl');if(!tl)return;
+  var last=tl.lastElementChild,done=false,tick=false;
+  if(!last)return;
+  function check(){
+    tick=false;
+    if(done)return;
+    if(last.classList.contains('hit')){done=true;last.classList.add('logo-spun');window.removeEventListener('scroll',req)}
+  }
+  function req(){if(!tick){tick=true;requestAnimationFrame(check)}}
+  window.addEventListener('scroll',req,{passive:true});check();
+})();
