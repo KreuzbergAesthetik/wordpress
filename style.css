@@ -3645,3 +3645,23 @@ html:not(.calm) .consent:hover{transform:scale(1.03)}
 .mast .mastnav .nl a,.mast .mastnav .hb,.mast .mastnav .logo-btn,.mast .mastnav .pl{transition:transform .3s cubic-bezier(.25,.8,.35,1),color .2s,opacity .2s!important}
 html:not(.calm) .mast .mastnav .nl a:hover,html:not(.calm) .mast .mastnav .nl a:focus-visible{transform:scale(1.08)}
 html:not(.calm) .mast .mastnav .hb:hover,html:not(.calm) .mast .mastnav .logo-btn:hover,html:not(.calm) .mast .mastnav .pl:hover{transform:scale(1.08)}
+
+/* v153+: Kacheln unter dem Startbereich bleiben beim Überfahren weiß und ruhig (nur Schatten dunkler); „Mehr erfahren“ unterstrichen, blau, poppt, Pfeil etwas höher */
+html:not(.never) .qkc:hover,html:not(.never) .qkc:focus-visible,html:not(.never) .qkc.qkc-1:hover{background:#fff!important;transform:none!important}
+html:not(.never) .qkc:hover .qkt,html:not(.never) .qkc:focus-visible .qkt{color:var(--head)!important}
+html:not(.never) .qkc:hover .qkd,html:not(.never) .qkc:focus-visible .qkd{color:var(--muted)!important}
+html:not(.never) .qkc:hover .qkbg,html:not(.never) .qkc:focus-visible .qkbg{color:rgba(1,34,101,.06)!important}
+html:not(.never) .qkc .qkm,html:not(.never) .qkc.qkc-1 .qkm,html:not(.never) .qkc:hover .qkm,html:not(.never) .qkc:focus-visible .qkm,html:not(.never) .qkc.qkc-1:hover .qkm{color:#012265!important}
+.qkc .qkm .qkm-t{text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px}
+.qkc .qkm>i{position:relative;top:-.1em}
+
+/* Kopfleiste: Schriftzug poppt; „Behandlungen“ und „Kontakt“ als Pillen mit dunkelblauem Rahmen, transparentem Hintergrund, poppen */
+@keyframes ka-pop{from{scale:1}to{scale:1.05}}
+html:not(.calm) .mast .wm:hover{animation:ka-pop .3s cubic-bezier(.25,.8,.35,1) forwards}
+.mast .mastnav .nl a{border:1.5px solid #012265!important;background:transparent!important;border-radius:999px!important;padding:.4rem 1rem!important;color:#012265!important;opacity:1!important}
+.mast .mastnav .nl a:hover,.mast .mastnav .nl a:focus-visible{color:#012265!important;background:transparent!important}
+:root[data-theme="dark"] .mast .mastnav .nl a,:root[data-theme="dark"] .mast .mastnav .nl a:hover{border-color:#dce8f8!important;color:#dce8f8!important}
+
+/* Kein Farbwechsel nach Grün beim Überfahren: Links bleiben blau */
+.side .side-links a:hover,.side .side-links a:focus-visible,.home-about-link:hover{color:#012265!important}
+:root[data-theme="dark"] .side .side-links a:hover,:root[data-theme="dark"] .home-about-link:hover{color:#dce8f8!important}

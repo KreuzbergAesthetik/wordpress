@@ -210,7 +210,7 @@ function ka_view_home() {
       <span class="qkbg" aria-hidden="true"><?php echo ka_icon( $icons[ $i ] ); ?></span>
             <span class="qkt"><?php echo esc_html( str_replace( ' und ', ' & ', $t[0] ) ); ?></span>
       <span class="qkd"><?php echo esc_html( $t[1] ); ?></span>
-      <span class="qkm"><?php echo ka( 'tz_btn' ); ?> <i aria-hidden="true">&rarr;</i></span>
+      <span class="qkm"><span class="qkm-t"><?php echo ka( 'tz_btn' ); ?></span> <i aria-hidden="true">&rarr;</i></span>
     </a>
     <?php endforeach; ?>
   </div>
