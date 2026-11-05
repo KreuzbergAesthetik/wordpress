@@ -3495,15 +3495,13 @@ html.calm,html.calm *,html.calm *::before,html.calm *::after{animation:none!impo
  .sum-abl.sum-abl .steps.steps li{width:calc(50% - 1.2rem)!important;max-width:none!important}
 }
 
-/* Versuch: Farben umgekehrt – dunkelblaue Karten, weiße Knöpfe mit dunkelblauer Schrift (Startseite: "Was ich für Dich tun kann" und Ablauf) */
+/* Versuch: Farben umgekehrt – dunkelblaue Karten, weiße Knöpfe mit dunkelblauer Schrift (Startseite: "Was ich für Dich tun kann"; Ablauf bleibt hell) */
 .lei-col{background:#012265!important;border-color:rgba(255,255,255,.14)!important}
 .lei-col h3{color:#fff!important}
 .lei-col p{color:rgba(255,255,255,.88)!important}
 .lei-col>.lei-ico{color:rgba(255,255,255,.09)!important}
 .lei-col .btn,.lei-col .btn.deep{background:#fff!important;color:#012265!important;border-color:#fff!important;box-shadow:0 8px 18px rgba(0,0,0,.25)!important}
 .lei-col .btn .ico,.lei-col .btn .bt-in{color:#012265!important}
-.sum-abl.sum-abl .steps.steps li{background:#012265!important;border-color:rgba(255,255,255,.14)!important}
-.sum-abl.sum-abl .steps.steps li h3,.sum-abl.sum-abl .steps.steps li h3 a{color:#fff!important}
 
 /* Porträt heller dort, wo Text darüber steht (Schulter am Desktop, Hemd unter dem Gesicht am Handy) */
 .hero-v5 .hero-portrait::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:2}
