@@ -413,7 +413,7 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
       var r=li.getBoundingClientRect();if(!r.width)return;
       var idx=[].indexOf.call(li.parentNode.children,li),home=!!li.closest('.sum-abl');
       /* jeder weitere Punkt braucht mehr Scrollweg; nie weiter, als das Seitenende erlaubt */
-      var mob,off,cy=r.top+Math.min(40,r.height/2),lim=cy-(maxS-sy)+30,mob=window.innerWidth<=700,off=mob?(home?-idx*24:idx*50):-idx*(home?60:95),line=Math.max(vh*(home?0.85:0.32)+off,lim);
+      var mob,off,cy=r.top+Math.min(40,r.height/2),lim=cy-(maxS-sy)+30,mob=window.innerWidth<=700,off=mob?(home?-idx*60:idx*50):-idx*(home?130:95),line=Math.max(vh*(home?0.85:0.32)+off,lim);
       li.classList.toggle('st-hit',cy<line);
     });
   }
@@ -454,7 +454,7 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
       var r=el.getBoundingClientRect(),cy=r.top+r.height/2,ok;
       if(!r.width)return true;
       /* Startbereich: ab 1/4 des Weges, den die Reihe ab ihrem Sichtbarwerden bis zum oberen Bildrand zurücklegt, füllen sich Stern, Herz und Personen von links nach rechts, jedes durch weiteres Scrollen ausgelöst, mit kurzem Scrollabstand */
-      if(el._hi!==undefined){var docY=cy+(window.pageYOffset||0),st=Math.max(1,Math.min(vh,docY));ok=(st-cy)/st>=0.25+el._hi*0.12}
+      if(el._hi!==undefined){var docY=cy+(window.pageYOffset||0),st=Math.max(1,Math.min(vh,docY));ok=(st-cy)/st>=0.25+el._hi*0.18}
       else ok=cy<line-(el._off||0);
       if(ok){el.classList.add('fill-on');return false}
       return true;
@@ -478,3 +478,11 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
   function req(){if(!tick){tick=true;requestAnimationFrame(check)}}
   window.addEventListener('scroll',req,{passive:true});check();
 })();
+
+/* Anfrage-Karte: ein Klick irgendwo auf die Karte öffnet die Kontaktseite */
+document.addEventListener('click',function(e){
+  var li=e.target.closest&&e.target.closest('li.step-card');
+  if(!li||e.target.closest('a,button'))return;
+  var a=li.querySelector('a.step-cta,a.step-link');
+  if(a)a.click();
+});

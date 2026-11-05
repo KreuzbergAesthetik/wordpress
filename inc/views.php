@@ -39,7 +39,7 @@ function ka_chrome() {
     <button class="hb" id="hbbtn" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navmenu"><span></span></button>
     <button class="logo-btn" id="logobtn" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navmenu"></button>
   </nav>
-  <a class="wm" id="wm" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo ka( 'brand' ); ?></a>
+  <a class="wm" id="wm" href="<?php echo esc_url( home_url( '/' ) ); ?>"><span class="wm-in"><?php echo ka( 'brand' ); ?></span></a>
   <div class="wmk" id="wmk" aria-hidden="true"><span class="lg-s"></span><span class="lg-f" id="lgf"></span><span class="ls" id="lgs"></span><span class="wst" id="lgt"></span></div>
 </div>
 <?php
@@ -80,7 +80,7 @@ function ka_footer() {
   </div>
   <label class="calm-control"><input type="checkbox" id="ka-calm"> <span>Animationen reduzieren</span></label>
   <div class="side-contact">
-    <a class="btn" href="<?php echo $sms; ?>"><?php echo ka( 'msg_label' ); ?></a>
+    <a class="btn" href="<?php echo $sms; ?>"><?php echo ka_icon( 'whatsapp' ); ?><?php echo ka( 'msg_label' ); ?></a>
     <a class="mail" href="<?php echo $mail; ?>"><?php echo ka( 'email' ); ?></a>
   </div>
 </aside>
@@ -117,7 +117,7 @@ function ka_contact_band() {
 		'legal'    => array( home_url( '/' ), 'Startseite' ),
 	);
 	if ( isset( $next[ $view ] ) ) : ?>
-<p class="next-link"><a href="<?php echo esc_url( $next[ $view ][0] ); ?>"><?php echo esc_html( $next[ $view ][1] ); ?> <span aria-hidden="true">&rarr;</span></a></p>
+<p class="next-link"><a href="<?php echo esc_url( $next[ $view ][0] ); ?>"><span class="nl-pre">Hier geht&rsquo;s weiter zu:</span> <span class="nl-t"><?php echo esc_html( $next[ $view ][1] ); ?> <span class="nl-arrow" aria-hidden="true">&rarr;</span></span></a></p>
 <?php endif;
 	?>
 <section class="sum sum-kon" aria-labelledby="sum-kon-h">
@@ -210,7 +210,7 @@ function ka_view_home() {
       <span class="qkbg" aria-hidden="true"><?php echo ka_icon( $icons[ $i ] ); ?></span>
             <span class="qkt"><?php echo esc_html( str_replace( ' und ', ' & ', $t[0] ) ); ?></span>
       <span class="qkd"><?php echo esc_html( $t[1] ); ?></span>
-      <span class="qkm"><?php echo ka( 'tz_btn' ); ?> <i aria-hidden="true">&rarr;</i></span>
+      <span class="qkm"><span class="qkm-t"><?php echo ka( 'tz_btn' ); ?> <i aria-hidden="true">&rarr;</i></span></span>
     </a>
     <?php endforeach; ?>
   </div>
@@ -235,13 +235,13 @@ function ka_view_home() {
       <h2 id="sum-lei-h"><?php echo ka( 'lei_h2' ); ?></h2>
     </div>
     <div class="lei-two">
-      <div class="lei-col">
+      <div class="lei-col glow">
         <span class="lei-ico"><?php echo ka_icon( 'document' ); ?></span>
         <h3>Behandlungsübersicht</h3>
         <p><?php echo ka( 'home_lei_intro' ); ?></p>
         <a class="btn deep" href="<?php echo esc_url( ka_url( 'leistungen' ) ); ?>"><?php echo ka_icon( 'list' ); ?>Zur Liste <span aria-hidden="true">&rarr;</span></a>
       </div>
-      <div class="lei-col">
+      <div class="lei-col glow">
         <span class="lei-ico"><?php echo ka_icon( 'bubble' ); ?></span>
         <h3>Unsicher?</h3>
         <p>Lass Dich im interaktiven Chat beraten: ein paar Antworten antippen und Du siehst, was zu Dir passen könnte.</p>
@@ -280,7 +280,7 @@ function ka_view_home() {
     </div>
     <ol class="steps">
       <?php $si = array( 'bubble', 'talk', 'clipboard', 'document' ); foreach ( $steps as $i => $s ) : ?>
-      <li><span class="sico"><?php echo ka_icon( $si[ $i % count( $si ) ] ); ?></span><h3><?php $t = esc_html( trim( preg_replace( '/^.*&\s*/u', '', $s[0] ) ) ); echo ( 0 === $i ) ? '<a class="step-link" href="' . esc_url( ka_url( 'kontakt' ) ) . '">' . $t . '</a>' : $t; ?></h3><p><?php echo esc_html( $s[1] ); ?></p></li>
+      <li<?php echo 0 === $i ? ' class="step-card"' : ''; ?>><span class="sico"><?php echo ka_icon( $si[ $i % count( $si ) ] ); ?></span><h3><?php $t = esc_html( trim( preg_replace( '/^.*&\s*/u', '', $s[0] ) ) ); echo ( 0 === $i ) ? '<a class="step-link" href="' . esc_url( ka_url( 'kontakt' ) ) . '">' . $t . '</a>' : $t; ?></h3><p><?php echo esc_html( $s[1] ); ?></p></li>
       <?php endforeach; ?>
     </ol>
     <p class="sum-more"><a class="btn deep" href="<?php echo esc_url( ka_url( 'ablauf' ) ); ?>">Ablauf und häufige Fragen <span aria-hidden="true">&rarr;</span></a></p>
@@ -433,7 +433,7 @@ function ka_view_process() {
     </div>
     <ol class="steps">
       <?php $si = array( 'bubble', 'talk', 'clipboard', 'document' ); foreach ( ka_steps() as $i => $s ) : ?>
-      <li<?php echo ( 1 === $i || 2 === $i ) ? ' class="same-day-step"' : ''; ?>><span class="sico"><?php echo ka_icon( $si[ $i % count( $si ) ] ); ?></span><h3><?php echo ( 0 === $i ) ? '<a class="step-link" href="' . esc_url( ka_url( 'kontakt' ) ) . '">' . esc_html( $s[0] ) . '</a>' : esc_html( $s[0] ); ?></h3><p><?php echo esc_html( $s[1] ); ?></p><?php if ( 1 === $i ) : ?><button type="button" class="tinfo-btn sd-i" aria-expanded="false" aria-label="Hinweis zu Erstgespräch und Behandlung">i</button><template class="tinfo-tpl"><div class="tinfo-in"><p class="tinfo-what"><?php echo ka( 'abl_same_day' ); ?></p></div></template><?php endif; ?></li>
+      <li class="<?php echo ( 1 === $i || 2 === $i ) ? 'same-day-step' : ( 0 === $i ? 'step-card' : '' ); ?>"><span class="sico"><?php echo ka_icon( $si[ $i % count( $si ) ] ); ?></span><h3><?php echo ( 0 === $i ) ? '<a class="step-link" href="' . esc_url( ka_url( 'kontakt' ) ) . '">' . esc_html( $s[0] ) . '</a>' : esc_html( $s[0] ); ?></h3><p><?php echo esc_html( $s[1] ); ?></p><?php if ( 0 === $i ) : ?><a class="step-cta" href="<?php echo esc_url( ka_url( 'kontakt' ) ); ?>">Kontakt <span class="cta-arrow" aria-hidden="true">&rarr;</span></a><?php endif; ?><?php if ( 1 === $i ) : ?><button type="button" class="tinfo-btn sd-i" aria-expanded="false" aria-label="Hinweis zu Erstgespräch und Behandlung">i</button><template class="tinfo-tpl"><div class="tinfo-in"><p class="tinfo-what"><?php echo ka( 'abl_same_day' ); ?></p></div></template><?php endif; ?></li>
       <?php endforeach; ?>
     </ol>
     <div class="check">

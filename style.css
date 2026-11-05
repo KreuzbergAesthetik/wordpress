@@ -2,7 +2,7 @@
 Theme Name: Kreuzberg Ästhetik
 Description: Website der Privatpraxis Kreuzberg Ästhetik
 Author: Kreuzberg Ästhetik
-Version: 153
+Version: 154
 Requires at least: 6.0
 Requires PHP: 7.4
 Text Domain: kreuzberg-aesthetik
@@ -3513,3 +3513,196 @@ html.calm,html.calm *,html.calm *::before,html.calm *::after{animation:none!impo
 @media (max-width:700px){
  .hero-v5 .hero-portrait::after{background:linear-gradient(180deg,rgba(232,238,250,0) 52%,rgba(232,238,250,.55) 80%,rgba(232,238,250,.85) 100%)}
 }
+
+/* v153+: E-Mail/WhatsApp-Knöpfe (Startbereich, Kontaktseite) – Rand bleibt, beim Überfahren nur dezenter Farbton statt Farbumschlag */
+.hero-v5 .hero-pills .btn.hero-main,.hero-v5 .hero-pills .btn.hero-main+.btn.hero-main,.kon-page-btns .btn.hero-main{border:1.5px solid #012265!important;transition:background-color .25s ease,color .25s ease,transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .25s ease!important}
+.hero-v5 .hero-pills .btn.hero-main:first-child:hover,.hero-v5 .hero-pills .btn.hero-main:first-child:focus-visible,.kon-page-btns .btn.hero-main:first-child:hover,.kon-page-btns .btn.hero-main:first-child:focus-visible{background:#0b2f80!important;color:#fff!important;border-color:#012265!important}
+.hero-v5 .hero-pills .btn.hero-main+.btn.hero-main:hover,.hero-v5 .hero-pills .btn.hero-main+.btn.hero-main:focus-visible{background:transparent!important;color:#012265!important;border-color:#012265!important}
+.kon-page-btns .btn.hero-main:last-child:hover,.kon-page-btns .btn.hero-main:last-child:focus-visible{background:#fff!important;color:#012265!important;border-color:#012265!important}
+/* v153+: Knöpfe poppen beim Überfahren deutlicher nach vorn – Schrift und Symbol wachsen sichtbar (nicht bei „Animationen reduzieren“) */
+html:not(.calm) .btn,html:not(.calm) .cbtn{transition:transform .4s cubic-bezier(.25,.8,.35,1),box-shadow .25s ease,background-color .25s ease,color .25s ease!important}
+html:not(.calm) .btn .bt-in,html:not(.calm) .cbtn .bt-in{transition:transform .4s cubic-bezier(.25,.8,.35,1)!important}
+html:not(.calm) .btn:hover,html:not(.calm) .btn:focus-visible,html:not(.calm) .cbtn:hover,html:not(.calm) .cbtn:focus-visible{transform:scale(1.03)!important;box-shadow:0 16px 28px -8px rgba(1,34,101,.42)!important}
+html:not(.calm) .btn:hover>.bt-in,html:not(.calm) .btn:focus-visible>.bt-in,html:not(.calm) .cbtn:hover>.bt-in,html:not(.calm) .cbtn:focus-visible>.bt-in{transform:scale(1.035)!important}
+html:not(.calm) .btn:active,html:not(.calm) .cbtn:active{transform:translateY(0) scale(.98)!important;transition-duration:.1s!important}
+
+/* v153+: Alle Knöpfe einheitlich 15 px fett; beim Überfahren wachsen Schrift und Symbol auf 16 px (1,0667) */
+.btn,.cbtn,.btn.hero-main,.hero-v5 .hero-cta .btn,.home-page .hero-v5 .hero-pills .btn.hero-main,.hero-v5 .hero-pills .btn.hero-main+.btn.hero-main,.kon-page-btns .btn.hero-main,.cbtn-two .cbtn,.lei-col .btn,.sum-kon .btn{font-size:15px!important;font-weight:700!important;line-height:1.3}
+.home-page .hero-v5 .hero-pills .btn.hero-main{height:calc(3.9 * var(--u))!important;min-height:44px!important}
+@media (max-width:350px){.sum-kon .btn{padding-inline:.6rem!important;gap:.35rem!important}}
+
+/* v153+: Pfeile rutschen überall beim Überfahren leicht nach rechts */
+.btn .bt-in>span[aria-hidden="true"],.cbtn .bt-in>span[aria-hidden="true"],.btn>span[aria-hidden="true"],.qkm>i{display:inline-block;font-style:normal;transition:transform .3s cubic-bezier(.25,.8,.35,1)}
+html:not(.calm) .btn:hover .bt-in>span[aria-hidden="true"],html:not(.calm) .btn:focus-visible .bt-in>span[aria-hidden="true"],html:not(.calm) .cbtn:hover .bt-in>span[aria-hidden="true"],html:not(.calm) .btn:hover>span[aria-hidden="true"],html:not(.calm) .qkc:hover .qkm>i,html:not(.calm) .qkc:focus-visible .qkm>i{transform:translateX(4px)!important}
+
+/* v153+: Kacheln unter dem Startbereich – „Mehr erfahren“ zuerst dunkelblau; beim Überfahren hellgrün, etwa 1 px größer, Pfeil rutscht */
+.qkc .qkm,.qkc.qkc-1 .qkm{color:#012265!important;display:inline-flex;align-items:center;gap:.3em;transform-origin:left center;transition:transform .3s cubic-bezier(.25,.8,.35,1),color .25s ease!important}
+@media (hover:hover){.qkc:hover .qkm,.qkc:focus-visible .qkm,.qkc.qkc-1:hover .qkm{color:#9fcaa9!important}}
+html:not(.calm) .qkc:hover .qkm,html:not(.calm) .qkc:focus-visible .qkm{transform:scale(1.05)}
+@media (max-width:700px){html:not(.calm) .qkc:hover .qkm{transform:scale(1.07)}}
+
+/* v153+: Schatten – Karten haben immer einen Schatten, der beim Überfahren dunkler wird */
+:root{--sh-card-h:0 26px 50px -12px rgba(1,34,101,.42),0 6px 16px rgba(1,34,101,.14)}
+.faq details,.tzc,.chat-help,.phil-box,.vlist{box-shadow:var(--sh-card)!important}
+.qkc:hover,.qkc:focus-visible,.lei-col:hover,article.grp:hover,.tzc:hover{box-shadow:var(--sh-card-h)!important}
+.qkc,.lei-col,.steps li,article.grp,.check,.faq details,.tzc,.chat-help,.phil-box,.vlist{transition:box-shadow .3s ease,transform .25s ease,background .25s ease!important}
+
+/* v153+: Info-„i“ wird beim Überfahren etwas größer, grün gefüllt mit weißem i */
+.tinfo-btn{transition:background .2s,color .2s,transform .25s cubic-bezier(.25,.8,.35,1),box-shadow .25s!important}
+html:not(.calm) .tinfo-btn:hover,html:not(.calm) .tinfo-btn:focus-visible{transform:scale(1.18)!important}
+.tinfo-btn:hover,.tinfo-btn:focus-visible,.tinfo-btn[aria-expanded=true]{background:#004d17!important;color:#fff!important;border-color:#004d17!important}
+.tinfo-btn:hover{box-shadow:0 4px 10px rgba(0,77,23,.35)}
+
+/* ===== v153+ Feinschliff: Hover, Schatten, Pop – Stand 5. November ===== */
+
+/* Link zur nächsten Seite: „Hier geht’s weiter zu: Behandlungen →“, Name unterstrichen, bleibt blau, poppt; Pfeil etwas höher */
+.next-link a{font:700 15px/1.3 Quicksand,"Segoe UI",system-ui,sans-serif!important;color:#012265!important;text-decoration:none!important;border:0!important;padding:0!important;display:inline-block}
+.next-link a:hover,.next-link a:focus-visible{color:#012265!important;border:0!important}
+.next-link .nl-pre{font-weight:500;color:#012265!important}
+:root[data-theme="dark"] .next-link .nl-pre{color:#dce8f8!important}
+.next-link .nl-t{display:inline-block;position:relative;margin-left:.5em;color:#012265!important;padding-bottom:1px;transform-origin:left center;transition:transform .3s cubic-bezier(.25,.8,.35,1)}
+.next-link .nl-t::after{content:"";position:absolute;left:0;bottom:0;height:1.5px;width:100%;background:#012265;transition:width .3s cubic-bezier(.25,.8,.35,1)}
+:root[data-theme="dark"] .next-link .nl-t::after{background:#dce8f8}
+.next-link .nl-arrow{display:inline-block;color:#012265!important;position:relative;top:-.08em;margin-left:.15em;transition:transform .3s cubic-bezier(.25,.8,.35,1)}
+html:not(.calm) .next-link a:hover{transform:none!important}
+html:not(.calm) .next-link a:hover .nl-t,html:not(.calm) .next-link a:focus-visible .nl-t{transform:scale(1.0667)}
+html:not(.calm) .next-link a:hover .nl-arrow,html:not(.calm) .next-link a:focus-visible .nl-arrow{transform:translateX(4px)}
+html:not(.calm) .next-link a:hover .nl-t::after,html:not(.calm) .next-link a:focus-visible .nl-t::after{width:calc(100% + 4px)}
+:root[data-theme="dark"] .next-link a,:root[data-theme="dark"] .next-link .nl-t,:root[data-theme="dark"] .next-link .nl-arrow{color:#dce8f8!important}
+
+/* WhatsApp-Knöpfe: beim Überfahren kein Schatten */
+html:not(.never) .hero-v5 .hero-pills .btn.hero-main+.btn.hero-main:hover,html:not(.never) .kon-page-btns .btn.hero-main:last-child:hover,html:not(.never) .cbtn-two .cbtn.cbtn-wa:hover,html:not(.never) .side .side-contact .btn:hover,html:not(.never) .hero-v5 .hero-pills .btn.hero-main+.btn.hero-main:focus-visible{box-shadow:none!important}
+
+/* Kontaktband (E-Mail, WhatsApp, Formular): heller Schein (Halo) beim Überfahren */
+html:not(.never) .sum-kon .btn:hover,html:not(.never) .sum-kon .btn:focus-visible{box-shadow:0 0 34px 8px rgba(255,255,255,.65)!important}
+
+/* Fußzeile: Impressum, Logo, Datenschutz poppen leicht */
+footer .ft-l,footer .ft-r,footer .ft-home{transition:transform .3s cubic-bezier(.25,.8,.35,1)}
+html:not(.calm) footer .ft-l:hover,html:not(.calm) footer .ft-r:hover,html:not(.calm) footer .ft-home:hover,html:not(.calm) footer .ft-l:focus-visible,html:not(.calm) footer .ft-r:focus-visible,html:not(.calm) footer .ft-home:focus-visible{transform:scale(1.08)}
+
+/* Seitenmenü: Links poppen, X ändert die Farbe, Auswahl-Rand dunkelblau, WhatsApp-Rahmen dicker */
+html:not(.calm) .side-links a:hover,html:not(.calm) .side-links a:focus-visible{transform:translateX(4px) scale(1.06)}
+.side-close{transition:color .2s,opacity .2s}
+.side .side-close:hover,.side .side-close:focus-visible{color:#012265!important;opacity:1!important}
+.side-contact .mail{display:inline-block;transition:transform .3s cubic-bezier(.25,.8,.35,1)}
+html:not(.calm) .side-contact .mail:hover{transform:scale(1.06)}
+.calm-control{transition:transform .25s cubic-bezier(.25,.8,.35,1);transform-origin:left center}
+html:not(.calm) .calm-control:hover{transform:scale(1.03)}
+.side .appearance-control select{transition:border-color .2s,box-shadow .2s}
+.side .appearance-control select:hover,.side .appearance-control select:focus,.side .appearance-control select:focus-visible{border-color:#012265!important;outline:2px solid #012265!important;outline-offset:2px}
+.side .side-contact .btn{border:2px solid #012265!important;box-shadow:none!important}
+:root[data-theme="dark"] .side .side-contact .btn,:root[data-theme="dark"] .side .appearance-control select:hover{border-color:#dce8f8!important}
+
+/* Behandlungen: „Alle Behandlungen“ unterstrichen, bleibt blau, poppt; Pfeile beim Überfahren dunkler; Info-Symbole kleiner */
+#leistungen details.all>summary{color:#012265!important;text-decoration:underline!important;text-decoration-thickness:1.5px;text-underline-offset:4px;transition:transform .3s cubic-bezier(.25,.8,.35,1)!important}
+#leistungen details.all>summary:hover,#leistungen details.all>summary:focus-visible{color:#012265!important}
+html:not(.calm) #leistungen details.all>summary:hover,html:not(.calm) #leistungen details.all>summary:focus-visible{transform:scale(1.0667)}
+#leistungen details.all>summary::before{opacity:.5;transition:transform .25s,opacity .2s!important}
+#leistungen details.all>summary:hover::before,#leistungen details.all>summary:focus-visible::before{opacity:1}
+#leistungen .grp h3::after{transition:transform .25s,opacity .2s!important}
+#leistungen .grp h3:hover::after{opacity:1!important}
+.tinfo-btn{width:16px!important;height:16px!important;font-size:.62rem!important}
+.subgrp-h .tinfo-btn{width:15px!important;height:15px!important;font-size:.58rem!important}
+
+/* Chat-Antworten: nur leicht größer, ohne Schatten und Farbwechsel */
+html:not(.never) .cchip:not(.go):hover,html:not(.never) .cchip:not(.go):focus-visible{background:rgba(249,251,255,.9)!important;color:#012265!important;box-shadow:none!important;border-color:var(--line)!important;transform:scale(1.04)!important}
+html:not(.never) .cchip:not(.go):hover .ico{color:var(--jade)!important}
+:root[data-theme="dark"] html:not(.never) .cchip:not(.go):hover,html:not(.never):root[data-theme="dark"] .cchip:not(.go):hover{background:var(--card)!important;color:var(--head)!important}
+html.calm .cchip:not(.go):hover{transform:none!important}
+
+/* Schwebender WhatsApp-Knopf: Schatten, poppt */
+.wa{box-shadow:0 6px 20px rgba(1,34,101,.35)!important;transition:opacity .3s ease,transform .3s cubic-bezier(.25,.8,.35,1),box-shadow .3s ease!important}
+html:not(.calm) .wa:hover,html:not(.calm) .wa:focus-visible{transform:scale(1.08)!important;box-shadow:0 10px 28px rgba(1,34,101,.5)!important}
+
+/* Über mich: Qualifikationen-Zeilen werden beim Überfahren leicht grau, Schrift poppt; Longevity ohne Schatten und ohne Effekte */
+.kview[data-view=ueber-mich] .lon-box,.kview[data-view=ueber-mich] .lon-box:hover{box-shadow:none!important;transform:none!important;transition:none!important}
+
+/* Ablauf & FAQ: Karten ohne Aktion bleiben ruhig, Schatten rundherum und kräftiger; „Anfrage“ ist ein Link zu Kontakt und poppt */
+.kview[data-view=ablauf] .steps li,.kview[data-view=ablauf] .check,.kview[data-view=ablauf] .faq details{box-shadow:0 0 24px 2px rgba(1,34,101,.22),0 4px 16px rgba(1,34,101,.14)!important}
+.steps li.step-card{position:relative;cursor:pointer}
+.step-cta{display:inline-flex;align-items:center;gap:.3em;margin-top:.5rem;font:700 15px/1.3 Quicksand,"Segoe UI",system-ui,sans-serif;color:#012265;text-decoration:none}
+.step-cta::after{content:"";position:absolute;inset:0;border-radius:inherit}
+.step-cta .cta-arrow{display:inline-block;transition:transform .3s cubic-bezier(.25,.8,.35,1)}
+.kview[data-view=ablauf] .steps li.step-card{transition:transform .3s cubic-bezier(.25,.8,.35,1),box-shadow .3s ease!important}
+html:not(.calm) .kview[data-view=ablauf] .steps li.step-card:hover{transform:scale(1.02)!important;box-shadow:0 0 32px 4px rgba(1,34,101,.34),0 12px 24px rgba(1,34,101,.2)!important}
+html:not(.calm) .step-card:hover .cta-arrow{transform:translateX(4px)}
+.check li label{transform-origin:left center;transition:transform .25s cubic-bezier(.25,.8,.35,1)}
+html:not(.calm) .check li label:hover{transform:scale(1.04)}
+.faq summary::after{transition:transform .2s,color .2s!important}
+.faq summary:hover::after{color:#012265!important}
+
+/* Kontakt: Formularfelder beim Überfahren hervorgehoben, Zustimmungs-Kästchen poppt */
+.kview form input:not([type=checkbox]):not([type=radio]),.kview form textarea{transition:border-color .2s,box-shadow .2s,background .2s}
+.kview form input:not([type=checkbox]):not([type=radio]):hover,.kview form textarea:hover{border-color:#012265!important;background:#fff!important;box-shadow:0 0 0 3px rgba(1,34,101,.12)!important}
+.consent input{transition:transform .25s cubic-bezier(.25,.8,.35,1)}
+html:not(.calm) .consent:hover input{transform:scale(1.3)}
+
+/* Startbereich: E-Mail und WhatsApp immer exakt gleich groß */
+@media (min-width:701px){.home-page .hero-v5 .hero-pills .btn.hero-main,.home-page .hero-v5 .hero-pills .btn.hero-main+.btn.hero-main{height:calc(3.9 * var(--u))!important;min-height:44px!important;box-sizing:border-box!important;padding-block:0!important}}
+
+/* Kopfleiste: Links, Menü-Knopf und Logo poppen beim Überfahren leicht */
+.mast .mastnav .nl a,.mast .mastnav .hb,.mast .mastnav .logo-btn,.mast .mastnav .pl{transition:transform .3s cubic-bezier(.25,.8,.35,1),color .2s,opacity .2s!important}
+html:not(.calm) .mast .mastnav .nl a:hover,html:not(.calm) .mast .mastnav .nl a:focus-visible{transform:scale(1.08)}
+html:not(.calm) .mast .mastnav .hb:hover,html:not(.calm) .mast .mastnav .logo-btn:hover,html:not(.calm) .mast .mastnav .pl:hover{transform:scale(1.08)}
+
+/* v153+: Kacheln unter dem Startbereich bleiben beim Überfahren weiß und ruhig (nur Schatten dunkler); „Mehr erfahren“ unterstrichen, blau, poppt, Pfeil etwas höher */
+html:not(.never) .qkc:hover,html:not(.never) .qkc:focus-visible,html:not(.never) .qkc.qkc-1:hover{background:#fff!important;transform:none!important}
+html:not(.never) .qkc:hover .qkt,html:not(.never) .qkc:focus-visible .qkt{color:var(--head)!important}
+html:not(.never) .qkc:hover .qkd,html:not(.never) .qkc:focus-visible .qkd{color:var(--muted)!important}
+html:not(.never) .qkc:hover .qkbg,html:not(.never) .qkc:focus-visible .qkbg{color:rgba(1,34,101,.06)!important}
+html:not(.never) .qkc .qkm,html:not(.never) .qkc.qkc-1 .qkm,html:not(.never) .qkc:hover .qkm,html:not(.never) .qkc:focus-visible .qkm,html:not(.never) .qkc.qkc-1:hover .qkm{color:#012265!important}
+.qkc .qkm .qkm-t{display:inline-block;border-bottom:1.5px solid #012265;padding-bottom:1px}
+.qkc .qkm-t>i{display:inline-block;position:relative;top:-.08em;margin-left:.15em;transition:margin-left .3s cubic-bezier(.25,.8,.35,1)}
+html:not(.calm) .qkc:hover .qkm-t>i,html:not(.calm) .qkc:focus-visible .qkm-t>i{margin-left:.5em;transform:none}
+
+/* Kopfleiste: Schriftzug poppt; „Behandlungen“ und „Kontakt“ als Pillen mit dunkelblauem Rahmen, transparentem Hintergrund, poppen */
+.mast .wm .wm-in{display:inline-block;transition:transform .3s cubic-bezier(.25,.8,.35,1)}
+html:not(.calm) .mast .wm:hover .wm-in{transform:scale(1.03)}
+.mast .mastnav .nl a{border:1.5px solid #012265!important;background:transparent!important;border-radius:999px!important;padding:.4rem 1rem!important;color:#012265!important;opacity:1!important}
+.mast .mastnav .nl a:hover,.mast .mastnav .nl a:focus-visible{color:#012265!important;background:transparent!important}
+:root[data-theme="dark"] .mast .mastnav .nl a,:root[data-theme="dark"] .mast .mastnav .nl a:hover{border-color:#dce8f8!important;color:#dce8f8!important}
+
+/* Kein Farbwechsel nach Grün beim Überfahren: Links bleiben blau */
+.side .side-links a:hover,.side .side-links a:focus-visible,.home-about-link:hover{color:#012265!important}
+:root[data-theme="dark"] .side .side-links a:hover,:root[data-theme="dark"] .home-about-link:hover{color:#dce8f8!important}
+
+/* ===== v153+ Kommentar-Runde (Vorschau 5. November abends) ===== */
+:root{--sh-ar:0 0 26px 2px rgba(1,34,101,.26),0 6px 18px rgba(1,34,101,.16);--sh-ar-h:0 0 38px 5px rgba(1,34,101,.40),0 10px 26px rgba(1,34,101,.24)}
+
+/* Schatten rundherum (und beim Überfahren stärker) – Kacheln, dunkle Karten, Behandlungskarten, Chat, Ablauf-Schritte der Startseite */
+html:not(.never) .qkc,html:not(.never) .lei-col,html:not(.never) article.grp,html:not(.never) .chat-help,html:not(.never) .sum-abl .steps li{box-shadow:var(--sh-ar)!important}
+html:not(.never) .qkc:hover,html:not(.never) .qkc:focus-visible,html:not(.never) .lei-col:hover,html:not(.never) article.grp:hover,html:not(.never) .chat-help:hover{box-shadow:var(--sh-ar-h)!important}
+html:not(.never) .kview[data-view=ablauf] .steps li,html:not(.never) .kview[data-view=ablauf] .check,html:not(.never) .kview[data-view=ablauf] .faq details{box-shadow:var(--sh-ar)!important}
+html:not(.never) .kview[data-view=ablauf] .steps li.step-card:hover{box-shadow:var(--sh-ar-h)!important}
+/* Startseite: Anfrage-Karte ist ein Link zu Kontakt und poppt */
+.sum-abl .steps li.step-card{position:relative;cursor:pointer}
+.step-card .step-link::after{content:"";position:absolute;inset:0;border-radius:inherit}
+.sum-abl .steps li.step-card{transition:transform .3s cubic-bezier(.25,.8,.35,1),box-shadow .3s ease!important}
+html:not(.calm) .sum-abl .steps li.step-card:hover{transform:scale(1.02)!important;box-shadow:var(--sh-ar-h)!important}
+
+/* Kacheln unter dem Startbereich: alle „Mehr erfahren“ auf einer Linie, Karten etwas höher */
+@media (min-width:701px){.home-page .qkc{height:calc(19.4 * var(--u))!important}.home-page .qkc .qkm{margin-top:auto!important;padding-top:calc(.4 * var(--u))!important}}
+
+/* Knöpfe: Pfeile etwas höher, Symbole in den weißen Karten-Knöpfen grün, „Mehr über mich“ mit kräftigerem Schatten */
+.btn .bt-in>span[aria-hidden="true"],.cbtn .bt-in>span[aria-hidden="true"]{position:relative;top:-.08em}
+.lei-col .btn .ico,.lei-col .btn.deep .ico{color:#004d17!important}
+.sum:not(.sum-kon) .sum-more .btn.deep,.kview form .btn.deep{box-shadow:0 14px 30px rgba(1,34,101,.5),0 3px 8px rgba(1,34,101,.25)!important}
+html:not(.never) .sum:not(.sum-kon) .sum-more .btn.deep:hover,html:not(.never) .sum:not(.sum-kon) .sum-more .btn.deep:focus-visible,html:not(.never) .kview form .btn.deep:hover{box-shadow:0 22px 38px -4px rgba(1,34,101,.75),0 4px 10px rgba(1,34,101,.35)!important}
+.lei-col .btn,.lei-col .btn.deep{box-shadow:none!important}
+html:not(.never) .lei-col .btn:hover,html:not(.never) .lei-col .btn:focus-visible{box-shadow:0 0 34px 8px rgba(255,255,255,.65)!important}
+
+/* Seitenmenü: WhatsApp-Knopf mit grünem Logo */
+.side .side-contact .btn{display:inline-flex!important;align-items:center;justify-content:center;gap:.5rem}
+.side .side-contact .btn .ico{width:18px;height:18px;color:#004d17!important;flex:none}
+
+/* Über mich: Werte-Zeilen werden beim Überfahren leicht grau, Schrift poppt */
+.vrow>summary{border-radius:var(--r-small,12px);transition:background .2s,transform .3s cubic-bezier(.25,.8,.35,1)!important}
+.vrow>summary:hover{background:rgba(1,34,101,.06)}
+html:not(.calm) .vrow>summary:hover .vrow-t{transform:scale(1.04);transform-origin:left center}
+.vrow-t{transition:transform .3s cubic-bezier(.25,.8,.35,1)}
+
+/* Kontaktseite: WhatsApp-Knopf mit transparentem Hintergrund (auch beim Überfahren) */
+.kon-page-btns .btn.hero-main:last-child,html:not(.never) .kon-page-btns .btn.hero-main:last-child:hover,html:not(.never) .kon-page-btns .btn.hero-main:last-child:focus-visible{background:transparent!important}
+
+/* Startbereich- und Kontaktseiten-Knöpfe: beim Überfahren zoomen statt hochspringen */
+html:not(.calm) .hero-v5 .hero-pills .btn.hero-main:hover,html:not(.calm) .hero-v5 .hero-pills .btn.hero-main:focus-visible,html:not(.calm) .kon-page-btns .btn.hero-main:hover,html:not(.calm) .kon-page-btns .btn.hero-main:focus-visible{transform:scale(1.03)!important}
