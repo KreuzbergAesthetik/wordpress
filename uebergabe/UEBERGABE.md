@@ -1,38 +1,72 @@
 # Übergabe: Website Kreuzberg Ästhetik (WordPress-Theme)
 
-Stand: 5. November 2026, Theme-Version 152 (ZIP im Chat), Quelltext im Repo-Hauptordner (Branch ccr-a91dd6cf-p9csol). Neu seit 151: Der Text unter dem Schriftzug wird schneller unscharf. Neu seit 150: Kopf-Animation: Der Text „Privatpraxis für ästhetische Medizin …“ unter dem Schriftzug wird sehr früh unscharf (Blur), solange der Schriftzug darüber hinwegfliegt, und gegen Ende wieder scharf. Neu seit 149: Wasserzeichen-Symbole in den kleinen Ablauf-Karten der Startseite wieder sichtbar. Neu seit 148: Startseite „Was ich für Dich tun kann“: dunkelblaue Karten mit weißen Knöpfen; Porträt heller dort, wo Text darüber steht (Desktop: Schulter, Handy: Hemd). Neu seit 147: Startseite Ablauf: alle Karten gleich groß; Porträt: rechte Schulter blendet am Desktop früher aus (Text daneben besser lesbar). Neu seit 146: Startseite Ablauf: kleinere Karten passend zur Schrift ohne Wasserzeichen; Karte „Anfrage“: Titel verlinkt zur Kontaktseite (Start und Ablaufseite); „Animationen reduzieren“ und System-„Bewegung reduzieren“ gelten gleich (Klasse calm): keine Animation, alle Füllungen im Endzustand. Neu seit 145: Behandlungskarten am Desktop standardmäßig alle offen, einzeln zuklappbar (Handy unverändert: eine offen). Neu seit 144: Startseite „Dein Weg zur Behandlung“ wieder mit Leiste in der Mitte und abwechselnd links/rechts versetzten Karten; Ablaufseite bleibt mit Leiste links und allen Karten rechts. Neu seit 143: Behandlungskarten auch am Desktop als Aufklappkarten (eine offen, erste vorgeöffnet, Suche öffnet alle). Neu seit 142: Ablauf-Punkte am Handy füllen sich schneller (kürzerer Scrollweg, kürzerer Übergang). Neu seit 141: Ablaufseite und Startseite („Dein Weg zur Behandlung“) mit Leiste links und allen Karten rechts davon auf allen Breiten. Neu seit 140: Pakete als Karte neben „Haut und Körper“ (nicht mehr breit), Kontaktformular unter den zwei Knöpfen. Neu seit 139: Ablauf-Punkte mit mehr Scrollweg, Kopfleiste höher, Pakete im Kasten, transparente i-Symbole, Werte-Icons füllen beim Öffnen, Impressum und Datenschutz immer aus dem Theme (KA_LEGAL_BUNDLED in functions.php, Texte in inc/legal/). Neu seit 138: grüne Icons (Hero links nach rechts ab 1/4 des Scrollwegs, Qualifikationen und Werte ganz auf einmal, bleiben gefüllt), Schild mit weißem Haken, Wasserzeichen ohne Füllung, Startseite Ablauf als Zeitstrahl mit grauen Punkten, Ablaufseite mit i-Hinweis und einzeiligen Titeln, nur die Sanduhr im Zeitstrahl-Logo dreht sich, Kopf-Animation mit längerem Scrollweg, 'Animationen reduzieren' schaltet alles aus. Neu seit 137: Kopf-Animation im Querformat, Startseite am Handy nach Rückkehr korrigiert, Zeitstrahl-Schilder gleichzeitig mit Beschriftung, Behandlungen (Kontur-Sammelinfo, Zusätze klein und grau, Korrekturen an Infotexten, Hinweis 'Eine Auswahl:'), Longevity-Satz im Anschluss, Ablauf mit gemeinsamen Kästen, Checkliste ohne Durchstreichen, Impressum/Datenschutz als mitgelieferte Texte (inc/legal/, nur bei leerer WordPress-Seite). Neu in 137 (gegenüber 136): Füll-Effekte beim Scrollen (Icons, Sanduhr-Trenner, Zeitstrahl-Schilder), Sanduhr-Übergang beim Seitenwechsel (halbe Drehung), Über mich (Blockschrift, Wasserzeichen, Trenner), Pakete (Auswahl-Hinweis, Info-Icon, 'auf Anfrage' grau), Kontakt-Knöpfe wie Startseite + Absende-Knopf mittig, Ablaufseite mit Zeitstrahl.
+Stand: 5. November 2026. **Theme-Version 152 ist live** (Übertragung Nr. 16 grün). Nächste Version: 153.
 
 ## ZUERST LESEN – Kurzfassung für die neue Sitzung
 
-**Wer/was:** Manuel Fella, Privatpraxis „Kreuzberg Ästhetik“ (Berlin-Kreuzberg), möchte geduzt werden. Eigenes klassisches PHP-Theme für kreuzberg-aesthetik.de (WordPress bei IONOS). Feedback kommt als Kommentar in der Vorschau oder als markierter Screenshot im Chat.
+**Wer/was:** Manuel Fella, Privatpraxis „Kreuzberg Ästhetik“ (Berlin-Kreuzberg). Er möchte **geduzt** werden und Antworten auf Deutsch, kurz und ohne Fachjargon. Eigenes klassisches PHP-Theme für kreuzberg-aesthetik.de (WordPress bei IONOS). Repo: `KreuzbergAesthetik/wordpress` (Theme liegt im Hauptordner des Repos). Arbeitszweig der Sitzung: `ccr-a91dd6cf-p9csol`. Feedback kommt als Kommentar in der Vorschau oder als markierter Screenshot im Chat.
 
-**Arbeitsweise (Manuels Wünsche):**
-- Nach jeder Änderung nur die Vorschau aktualisieren. Ein neues ZIP + Versionsnummer NUR, wenn Manuel es ausdrücklich sagt („mach eine neue Version“ / „baue das ZIP“). Nächste Version: 153.
-- Versionsnummer steht in `style.css` (`Version: 136`), wird in WordPress oben in der Admin-Leiste angezeigt. CSS/JS hängen Version + Änderungszeit an (Cache-Bust).
-- Kommentare: umsetzen, Vorschau veröffentlichen, im Thread kurz antworten (nicht selbst „erledigt“ schließen), im Chat kurz zusammenfassen.
-- Bei Gestaltungsfragen gern 2–3 Varianten als Bilder anbieten und eine Empfehlung geben.
-- Nur fundierte medizinische Angaben; Neuromodulator darf „allgemein als Botox bekannt“ heißen, sonst keine Marken bei verschreibungspflichtigen Arzneimitteln; kein „Lemon Bottle“.
+### So arbeitet Manuel mit Dir (wichtig)
 
-**Vorschau bauen:** Theme liegt in `theme-quelltext/` → nach `theme3/kreuzberg-aesthetik/` kopieren, `build3.py`, `mk.sh`, `stub_tpl.php` daneben, Bilder (`portrait.jpg`, `logo-light.png`, `logo-dark.png`, `hg-line.png`, `portrait-cutout.webp`, `avatar.webp` aus `theme-quelltext/assets/`) ins selbe Verzeichnis; `bash mk.sh` erzeugt `kt3d.html` → als Artifact an https://claude.ai/artifact/Rdvj7GY2bT1qWwiSXGoRHZ veröffentlichen. Prüfen mit Playwright (Handy 390 px, Desktop 1440 px).
+- **Nicht nerven:** Er will wenig Rückfragen und keine langen Erklärungen. Nur bei echter Unsicherheit fragen („Frage bei Unsicherheit“ war seine Ansage), vor allem bei unleserlichen Handschrift-Markierungen in Screenshots. Kurz sagen, wie Du es gelesen hast, und weitermachen.
+- **Unklare Kommentare:** Er tippt per Sprache und mit Tippfehlern („unsxgatd“ = „unscharf“, „Landgamer“ = „Langsamer“). Sinn erschließen, in der Antwort kurz nennen, wie gelesen.
+- **„Nur als Vorschau“** heißt: nichts veröffentlichen. Sonst geht eine Änderung nach dem Testen auf die Website, ohne extra zu fragen.
+- **Gestaltungsfragen:** gern 2–3 Varianten als Bild und eine Empfehlung.
+- **Medizinische Texte:** nur fundierte Angaben. Neuromodulator darf „allgemein als Botox bekannt“ heißen, sonst keine Marken bei verschreibungspflichtigen Arzneimitteln, kein „Lemon Bottle“.
+- Er prüft am **Handy** (Chrome, auch Querformat) und am Desktop. Immer beides testen (Playwright: 390×844 und 1440×900, bei Kopf-Animation zusätzlich 844×390).
 
-**Wichtige Technik:**
-- `ka_render()` legt `<div class="kview" data-view="home|ueber-mich|leistungen|ablauf|kontakt|impressum">` um den Inhalt – viele CSS-Regeln hängen daran (seit 135).
-- `style.css` ist ein langes Protokoll: neue Regeln immer ans Ende, meist mit `!important`. Gestaltungs-Variablen `--r-card`, `--r-small`, `--sh-card`, `--bd-card`; Startbereich Desktop in `--u` (= min(1vw,16px)).
-- Schriften lokal: Quicksand (Fließtext, Knöpfe, Etiketten), Literata (Überschriften), Lora (nur Leitgedanke auf Über mich und Unterzeilen „Ich lebe und arbeite …“).
-- Texte/Preise in `inc/content.php`, im WordPress-Menü „Inhalte“ überschreibbar (gespeicherte Felder überschreiben neue Vorgaben → ggf. leeren).
+### Ablauf einer Änderung (seit 5. November, ohne ZIP)
 
-**Aktueller Stand der Seiten (kurz):**
-- Start: Logo/Schriftzug fliegen beim ersten Scrollen einmal pro Sitzung in die Leiste, danach verschwindet der obere Intro-Teil; Porträt + Text nach Manuels Vorlage; Werte Professionalität/Authentizität/Inklusivität; Kacheln; „Was ich für Dich tun kann“ (Zur Liste / Zum Chat mit Symbolen); Zeitstrahl; „Dein Weg zur Behandlung“ (4 kleine Karten); Kontakt-Band; Fußzeile Impressum | Logo (→ Start) | Datenschutz.
-- Behandlungen: Kategorien-Karten (Handy: Aufklapp-Karten, eine offen), Unterkategorien als getönte Blöcke, „i“-Infoboxen als Overlay (Feld `treat_info`), Suche hinter Lupe, Longevity als Abschluss unter der Liste, Chat mit Personen-Symbol für Besucher.
-- Über mich: freigestelltes Porträt, „Hallo, ich bin Manuel!“ mittig, Leitgedanke als Zitat-Karte, Biografie (2 Absätze), Qualifikationen-Liste (`about_quals`, inkl. „2018 Approbation als Arzt“), dunkelblauer Block „Meine Philosophie und Werte“ mit Aufklappliste, Longevity mit Blatt-Wasserzeichen; Kontakt-Band hier mit „Lerne mich im Erstgespräch persönlich kennen.“
-- Ablauf: 4 Schritte, Hinweis „am selben Tag“, FAQ. Kontakt: mittig, E-Mail/WhatsApp-Knöpfe, Formular.
-- Über jedem Kontakt-Band Textlink zur nächsten Seite (ohne „Weiter:“). Schwebender WhatsApp-Knopf verschwindet beim Kontakt-Band. Knöpfe federn beim Überfahren, Inhalt 1,25-fach.
+1. Änderung machen, in der Vorschau auf Desktop und Handy testen (Playwright).
+2. Versionsnummer in `style.css` Zeile 5 (`Version: NNN`) um 1 erhöhen, kurzen Eintrag oben in dieser Datei ergänzen.
+3. Commit, Push auf `ccr-a91dd6cf-p9csol`. Ist der Zweig schon in `main` gemergt, zuerst `git fetch origin && git checkout -B ccr-a91dd6cf-p9csol origin/main`.
+4. Pull Request nach `main` öffnen und übernehmen (Manuel hat das ausdrücklich erlaubt, „Variante 1: alles außer der Freigabe“).
+5. Ablauf **„Zu IONOS übertragen“** (`ionos-deploy.yml`) auf `main` starten, Eingabe `publish=true` (Tool `actions_run_trigger`, `run_workflow`).
+6. **Manuel gibt in GitHub frei** (Actions → Ablauf → „Review deployments“ → Haken `ionos-production` → „Approve and deploy“). Das kann nur er. Der Ablauf wartet bis dahin. Ist ein älterer Ablauf noch wartend, diesen mit `cancel_workflow_run` abbrechen.
+7. Danach Status prüfen (`actions_list`), Manuel sagen: **Autoptimize-Cache leeren** und in der schwarzen Admin-Leiste „Theme NNN“ prüfen.
 
-**Offen:**
-1. Manuel spielt Theme 136 ein (Design → Themes ersetzen, Autoptimize-Cache leeren, „Theme 136“ prüfen).
-2. Produktliste von Manuel für die Infoboxen (bis dahin „z. B.“-Beispiele); Infobox-Texte fachlich prüfen lassen (`infoboxen-behandlungen.md`).
-3. Rechtliche Prüfung (HWG), Datenschutz: Log-Löschfrist IONOS, Plugins prüfen.
-4. Optional: Praxisfoto (`about_practice_img`), Porträt mit vollständiger Schulter für Über mich (Handy).
+Rollback: ältere Version über einen neuen Pull Request wiederherstellen und übertragen, oder die ZIP-Datei der Vorgängerversion in WordPress hochladen (ZIP kannst Du aus dem Repo-Stand bauen: Ordner `kreuzberg-aesthetik/` mit `*.php`, `*.css`, `*.js`, `assets`, `inc`, `README.txt`).
+
+### Server und GitHub (einmalig eingerichtet)
+
+- IONOS-SFTP-Zugang endet im Ordner `wp-content`. Das Geheimnis `IONOS_THEME_PATH` lautet deshalb **`/themes/kreuzberg-aesthetik`** (nicht `/wordpress/wp-content/…`). Host: `access-5018625844.webspace-host.com`.
+- Geheimnisse (Umgebung `ionos-production`, Manuel ist Pflicht-Prüfer): `IONOS_HOST`, `IONOS_USER`, `IONOS_PASSWORD`, `IONOS_THEME_PATH`, `IONOS_KNOWN_HOSTS`. Passwörter nie im Chat erfragen oder schreiben.
+- Hilfsabläufe (laden nichts hoch): „IONOS Server-Schlüssel abrufen“ und „IONOS Ordner anzeigen“. Die Übertragung löscht nichts auf dem Server.
+- Aktives Theme in WordPress ist der Ordner `kreuzberg-aesthetik`, eine Übertragung ist also sofort live. Alte Ordner `kreuzberg-aesthetik-theme103…134` auf dem Server sind alte Stände, nicht anfassen.
+- Auf die Live-Seite selbst (WordPress-Admin) hast Du **keinen** Zugriff (die WordPress.com-Anbindung sieht die Site nicht). Aus dieser Sitzung heraus kommt man auch nicht per SSH an den Server (nur über die GitHub-Abläufe).
+
+### Vorschau bauen (Artifact)
+
+Vorschau-Adresse (privat, gleiche Adresse immer wieder überschreiben): https://claude.ai/artifact/2dqerjPUV9RJf9L7fh5fjZ
+
+1. Arbeitsordner anlegen, darin `theme3/kreuzberg-aesthetik/` mit den Theme-Dateien (`*.php`, `*.css`, `*.js`, `assets`, `inc`) aus dem Repo.
+2. Daneben legen: `uebergabe/build3.py`, `uebergabe/mk.sh`, `uebergabe/stub_tpl.php` und aus `assets/` die Bilder `portrait.jpg`, `logo-light.png`, `logo-dark.png`, `hg-line.png`, `hg-fill.png`, `portrait-cutout.webp`, `avatar.webp`.
+3. `bash mk.sh` erzeugt `kt3d.html` (PHP muss installiert sein). In der Datei die erste Zeile `<!doctype html>` und die Zeile mit `claude:viewport-fit-sides` löschen, dann mit dem Artifact-Werkzeug auf dieselbe Adresse veröffentlichen.
+4. Kommentare der Vorschau lesen und beantworten mit `ArtifactComments`. Threads offen lassen (Manuel schließt selbst). Mehrere ältere Threads sind „nicht aktiviert“, dort kann man nicht antworten.
+5. Die Vorschau hat keine echten Seitenwechsel (Ansichten per `#adresse`) und der Kopf-Skript-Zustand (`ka_head_done_109` in `sessionStorage`) ist frisch. Für Tests „zweiter Besuch der Startseite“ setzt man diesen Schlüssel auf `1`.
+
+### Wichtige Technik
+
+- `ka_render()` legt `<div class="kview" data-view="home|ueber-mich|leistungen|ablauf|kontakt|impressum">` um den Inhalt. Viele CSS-Regeln hängen daran.
+- `style.css` ist ein langes Protokoll: neue Regeln **immer ans Ende**, meist mit `!important`. Variablen `--r-card`, `--r-small`, `--sh-card`, `--bd-card`; Startbereich Desktop in `--u` (= min(1vw,16px)).
+- Schriften lokal: Quicksand (Fließtext, Knöpfe), Literata (Überschriften), Lora (Leitgedanke, Unterzeilen).
+- Texte, Preise, Infoboxen in `inc/content.php` und im WordPress-Menü „Inhalte“ überschreibbar. **Gespeicherte Felder in WordPress überschreiben neue Vorgaben** (Preisliste, `treat_info`, `about_quals`). Dann Feld leeren.
+- **Füll-Effekte:** blaue Icons und Sanduhr-Trenner füllen sich beim Scrollen (`--p` per `script.js`), grüne Icons (Startbereich, Qualifikationen) füllen sich ganz auf einmal (`fill-on`), Werte-Icons füllen sich beim Öffnen. Wasserzeichen-Icons (`.sico`, `.qkbg`, `.lon-wm`, `.lei-ico`) werden nie gefüllt.
+- **Animationen reduzieren** (Schalter im Menü) und System-„Bewegung reduzieren“ setzen beide die Klasse `calm` auf `<html>`: keine Animation, alle Füllungen im Endzustand.
+- **Seitenwechsel:** kurze Sanduhr (halbe Drehung) per `html::before/::after`, Klassen `pgt-on`/`pgt-spin`.
+- **Ablauf:** Unterseite = Leiste links, alle Karten rechts, gemeinsamer gestrichelter Kasten um „Erstgespräch“ und „Aufklärung & Behandlung“, i-Hinweis in der Karte „Erstgespräch“. Startseite = Leiste in der Mitte, Karten gleich groß, abwechselnd links/rechts, Punkte grau. Die Kreise sind mathematisch auf die Leiste zentriert (1 px Kartenrand ausgeglichen). „Anfrage“ ist ein Link zur Kontaktseite.
+- **Behandlungskarten:** Desktop alle offen und einzeln zuklappbar, Handy nur eine offen. Pakete sind eine normale Karte neben „Haut und Körper“. Eine Sammel-Info nur bei „Kontur“, sonst Info je Zeile (`treat_info` in `content.php`).
+- **Impressum/Datenschutz:** kommen aus `inc/legal/*.html`, immer (Konstante `KA_LEGAL_BUNDLED` in `functions.php`). Klammer-Platzhalter werden entfernt.
+- Kopf-Animation (`script.js`, `PIN`): Scrollweg 440 bis 760 px, läuft auch im Querformat. Der Text unter dem Schriftzug wird früh unscharf (Blur), solange der Schriftzug darüber fliegt.
+
+### Offen
+
+1. **Rechtliche Prüfung des Datenschutzes** (Löschfrist der Server-Logs bei IONOS; ob WPForms, WPCode, Yoast, Autoptimize Daten verarbeiten; Heilmittelwerbegesetz bei den Leistungsbezeichnungen). Die Platzhalter im Entwurf wurden aus dem Text entfernt, nicht geklärt.
+2. **Retinol-Peeling, Ausfallzeit:** steht „feines Schälen 2–4 Tage“. Manuel hatte bei der „4“ etwas geändert, die Zahl blieb unbeantwortet.
+3. Produktliste für die Infoboxen (Plinest/PolyPhil/PNBlast sind eingetragen, weitere offen). Infobox-Texte fachlich prüfen lassen (`infoboxen-behandlungen.md`).
+4. Offene Vorschau-Threads (Behandlungen „Jede weitere Zone“, „Hyperhidrose pro Bereich“, Zeitstrahl, „Kopf bleibt hängen“) sind umgesetzt oder erledigt, aber Manuel schließt sie selbst.
+5. Optional: Praxisfoto (`about_practice_img`), englische Version.
+6. Pathologen-Eintrag steht noch im Zeitstrahl der Startseite und in der Biografie (nur aus der Qualifikationsliste entfernt). Manuel hat das so bestätigt.
 
 ---
 
