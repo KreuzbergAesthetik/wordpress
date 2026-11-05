@@ -3901,3 +3901,7 @@ html:not(.never) .chat-window:hover{box-shadow:0 0 38px 5px rgba(0,77,23,.45),0 
 .chat-window .crow:not(.me) .cbub,.chat-window .crow:not(.me) .cbub *{color:#012265!important}
 .chat-window .crow:not(.me) .cbub .cfine{color:#5a6f8f!important}
 .chat-window .crow.me .cbub{color:#fff!important}
+
+/* Chat: Symbole in den Antwort-Pillen dunkelblau */
+.chat-chips .cchip .ico,.chat-chips .cchip:hover .ico{color:#012265!important}
+.chat-chips .cchip.go .ico{color:#fff!important}
