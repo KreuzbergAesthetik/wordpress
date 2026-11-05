@@ -1,6 +1,6 @@
 # Übergabe: Website Kreuzberg Ästhetik (WordPress-Theme)
 
-Stand: 5. November 2026. **Theme-Version 152 ist live** (Übertragung Nr. 16 grün). Nächste Version: 153.
+Stand: 5. November 2026. **Theme-Version 153 wird veröffentlicht** (Infoboxen und Preisliste überarbeitet, Suche findet Markennamen und Infotexte, Pakete mit Zusätzen). Nächste Version: 154.
 
 ## ZUERST LESEN – Kurzfassung für die neue Sitzung
 
