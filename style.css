@@ -3338,3 +3338,18 @@ svg.fillable path.chkw{stroke:#fff;fill:none;clip-path:inset(0 0 calc(100% - var
 /* Startseite Ablauf: Punkte hohl, färben sich beim Scrollen grau wie die Leiste */
 .sum-abl.sum-abl .steps.steps li::before{border-color:#b3c2db!important}
 .sum-abl.sum-abl .steps.steps li.st-hit::before{background:#b3c2db!important}
+
+/* Startseite Ablauf: Karten näher beieinander */
+.sum-abl.sum-abl .steps.steps li{margin-bottom:.5rem!important;padding-top:.85rem!important;padding-bottom:.85rem!important}
+.sum-abl.sum-abl .steps.steps li:last-child{margin-bottom:0!important}
+@media (min-width:701px){
+ .sum-abl.sum-abl .steps.steps li{width:calc(50% - 2rem)!important}
+ .sum-abl.sum-abl .steps.steps li:nth-child(odd)::after{right:-2rem!important;width:2rem!important}
+ .sum-abl.sum-abl .steps.steps li:nth-child(even)::after{left:-2rem!important;width:2rem!important}
+ .sum-abl.sum-abl .steps.steps li:nth-child(odd)::before{right:calc(-2rem - 7px)!important}
+ .sum-abl.sum-abl .steps.steps li:nth-child(even)::before{left:calc(-2rem - 7px)!important}
+}
+@media (max-width:700px){
+ .sum-abl.sum-abl .steps.steps li:nth-child(odd),.sum-abl.sum-abl .steps.steps li:nth-child(even){margin-bottom:.5rem!important}
+ .sum-abl.sum-abl .steps.steps li:last-child{margin-bottom:0!important}
+}
