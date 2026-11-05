@@ -1,6 +1,6 @@
 # Übergabe: Website Kreuzberg Ästhetik (WordPress-Theme)
 
-Stand: 6. November 2026. **Theme-Version 156 wird veröffentlicht** (Chat: Antwort-Pillen weiß, Termin-Knopf mit Kalendersymbol, Knöpfe in der Chat-Antwort wieder lesbar). Nächste Version: 157.
+Stand: 6. November 2026. **Theme-Version 157 wird veröffentlicht** (Chat-Hintergrund zart grau, Wasserzeichen weiß). Nächste Version: 158.
 
 ## ZUERST LESEN – Kurzfassung für die neue Sitzung
 
