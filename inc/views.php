@@ -98,7 +98,7 @@ function ka_render( $view ) {
 	echo '<main class="view view-' . esc_attr( $view ) . '">';
 	call_user_func( 'ka_view_' . $view );
 	if ( ! in_array( $view, array( 'home', 'contact' ), true ) ) { ka_contact_band( 'legal' !== $view ); }
-	if ( in_array( $view, array( 'contact', 'legal' ), true ) ) { ka_next_link(); }
+	if ( 'contact' === $view ) { ka_next_link(); }
 	echo '</main></div>';
 	ka_footer();
 	get_footer();

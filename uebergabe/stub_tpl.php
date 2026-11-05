@@ -20,7 +20,7 @@ foreach ([['ueber-mich','about'],['leistungen','services'],['ablauf','process'],
 }
 foreach ([['impressum','Impressum'],['datenschutz','Datenschutz']] as $v){
   $GLOBALS['lp']=0;$GLOBALS['lt']=$v[1];
-  echo '<div class="kview" data-view="'.$v[0].'" hidden><main class="view view-legal">'; $GLOBALS['ka_view']='legal'; ka_view_legal(); ka_contact_band(false); ka_next_link(); echo '</main></div>';
+  echo '<div class="kview" data-view="'.$v[0].'" hidden><main class="view view-legal">'; $GLOBALS['ka_view']='legal'; ka_view_legal(); ka_contact_band(false); echo '</main></div>';
 }
 ka_footer();
 echo '<script>window.KA_DATA='.json_encode(ka_js_data(),JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES).';</script>';
