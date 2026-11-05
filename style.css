@@ -3574,7 +3574,7 @@ html:not(.calm) .next-link a:hover .nl-t::after,html:not(.calm) .next-link a:foc
 html:not(.never) .hero-v5 .hero-pills .btn.hero-main+.btn.hero-main:hover,html:not(.never) .kon-page-btns .btn.hero-main:last-child:hover,html:not(.never) .cbtn-two .cbtn.cbtn-wa:hover,html:not(.never) .side .side-contact .btn:hover,html:not(.never) .hero-v5 .hero-pills .btn.hero-main+.btn.hero-main:focus-visible{box-shadow:none!important}
 
 /* Kontaktband (E-Mail, WhatsApp, Formular): heller Schein (Halo) beim Überfahren */
-html:not(.never) .sum-kon .btn:hover,html:not(.never) .sum-kon .btn:focus-visible{box-shadow:0 0 0 4px rgba(255,255,255,.28),0 0 34px 8px rgba(255,255,255,.65)!important}
+html:not(.never) .sum-kon .btn:hover,html:not(.never) .sum-kon .btn:focus-visible{box-shadow:0 0 34px 8px rgba(255,255,255,.65)!important}
 
 /* Fußzeile: Impressum, Logo, Datenschutz poppen leicht */
 footer .ft-l,footer .ft-r,footer .ft-home{transition:transform .3s cubic-bezier(.25,.8,.35,1)}
