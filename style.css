@@ -3522,5 +3522,5 @@ html.calm,html.calm *,html.calm *::before,html.calm *::after{animation:none!impo
 .hero-v5 .hero-pills .btn.hero-main+.btn.hero-main:hover .ico,.kon-page-btns .btn.hero-main:last-child:hover .ico{color:#9fcaa9!important}
 
 /* Link zur nächsten Seite (z. B. „Behandlungen →“) vor dem Kontaktband: beim Überfahren komplett grün und unterstrichen */
-@media (hover:hover){.next-link a:hover,.next-link a:focus-visible{color:#004d17!important;text-decoration:underline!important;text-decoration-thickness:2px;text-underline-offset:6px;border-bottom-color:transparent!important}.next-link a:hover span,.next-link a:focus-visible span{color:#004d17!important}}
+.next-link a:hover,.next-link a:focus-visible{color:#004d17!important;text-decoration:underline!important;text-decoration-thickness:2px;text-underline-offset:6px;border-bottom-color:transparent!important}.next-link a:hover span,.next-link a:focus-visible span{color:#004d17!important}
 :root[data-theme="dark"] .next-link a:hover{color:#9fcaa9!important}
