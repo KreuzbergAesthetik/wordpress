@@ -428,7 +428,7 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
       var r=el.getBoundingClientRect(),cy=r.top+r.height/2,ok;
       if(!r.width)return true;
       /* Startbereich: ab 1/4 des Weges, den die Reihe ab ihrem Sichtbarwerden bis zum oberen Bildrand zurücklegt, füllen sich Stern, Herz und Personen von links nach rechts, jedes durch weiteres Scrollen ausgelöst, mit kurzem Scrollabstand */
-      if(el._hi!==undefined){var docY=cy+(window.pageYOffset||0),st=Math.max(1,Math.min(vh,docY));ok=(st-cy)/st>=0.25+el._hi*0.07}
+      if(el._hi!==undefined){var docY=cy+(window.pageYOffset||0),st=Math.max(1,Math.min(vh,docY));ok=(st-cy)/st>=0.25+el._hi*0.12}
       else ok=cy<line-(el._off||0);
       if(ok){el.classList.add('fill-on');return false}
       return true;
