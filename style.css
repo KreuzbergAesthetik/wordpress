@@ -3291,9 +3291,9 @@ html.pgt-spin::after{animation:pgtspin .4s cubic-bezier(.55,0,.25,1) forwards}
 svg.fillable path.chkw{stroke:#fff;fill:none;clip-path:inset(0 0 calc(100% - var(--p,0) * 1%) 0)}
 .quals svg.fillable path.fl,.vrow-ico svg.fillable path.fl,.hero-vals svg.fillable path.fl{fill-opacity:1}
 .qkbg svg path.fl,.sico svg path.fl,.lon-wm svg path.fl,.lei-ico svg path.fl,.qkbg svg path.chkw,.sico svg path.chkw{display:none!important}
-/* Hero: ganzes Icon auf einmal, von links nach rechts nacheinander */
-.hero-vals svg.fillable path.fl,.hero-vals svg.fillable path.chkw{clip-path:none!important;opacity:0;transition:opacity .4s ease var(--fd,0s)}
-.hero-vals svg.fillable.fill-on path.fl,.hero-vals svg.fillable.fill-on path.chkw{opacity:1}
+/* Grüne Icons: ganzes Icon auf einmal */
+.hero-vals svg.fillable path.fl,.hero-vals svg.fillable path.chkw,.quals svg.fillable path.fl,.quals svg.fillable path.chkw,.vlist svg.fillable path.fl,.vlist svg.fillable path.chkw{clip-path:none!important;opacity:0;transition:opacity .4s ease}
+.hero-vals svg.fillable.fill-on path.fl,.hero-vals svg.fillable.fill-on path.chkw,.quals svg.fillable.fill-on path.fl,.quals svg.fillable.fill-on path.chkw,.vlist svg.fillable.fill-on path.fl,.vlist svg.fillable.fill-on path.chkw{opacity:1}
 
 /* Über mich: Wasserzeichen gerade und zentriert hinter dem Text des Leitgedankens */
 .kview[data-view=ueber-mich] section .about-head + p:not(.eyebrow):not(.about-sub){isolation:isolate}
@@ -3324,7 +3324,9 @@ svg.fillable path.chkw{stroke:#fff;fill:none;clip-path:inset(0 0 calc(100% - var
  .sum-abl.sum-abl .steps.steps li::before,.sum-abl.sum-abl .steps.steps li:nth-child(odd)::before,.sum-abl.sum-abl .steps.steps li:nth-child(even)::before{left:calc(-2.6rem + 9px)!important;right:auto!important}
 }
 
-/* Zeitstrahl Startseite: die Sanduhr (Logo) im letzten Schild dreht sich einmal, nachdem das Schild blau geworden ist */
-.sum-about .tl li:last-child.logo-spun .logo-w{animation:logoturn .9s cubic-bezier(.55,0,.25,1) .5s 1 both}
-@keyframes logoturn{from{transform:rotate(0)}to{transform:rotate(360deg)}}
-@media (prefers-reduced-motion:reduce){.sum-about .tl li:last-child.logo-spun .logo-w{animation:none}}
+/* Zeitstrahl Startseite: Logo im letzten Schild aus Ring und Sanduhr (wie Kopfleiste und Menü); nur die Sanduhr dreht sich einmal */
+.sum-about .tl .wmk.wmk-node{position:relative;left:auto;top:auto;width:46px;height:46px;transform:none!important;will-change:auto;flex:none;color:#012265;transition:color .5s ease}
+.sum-about .tl li:last-child.hit .wmk.wmk-node{color:#fff}
+.sum-about .tl .wmk.wmk-node .lg-f{transition:transform 1.3s cubic-bezier(.65,0,.3,1)}
+@media (max-width:700px){.sum-about .tl .wmk.wmk-node{width:38px;height:38px}}
+@media (prefers-reduced-motion:reduce){.sum-about .tl .wmk.wmk-node .lg-f{transition:none}}

@@ -328,7 +328,7 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
 
 /* Füllen der Linien-Icons und Sanduhr-Trenner: die Füllung steht an der Bildschirmmitte. Beim Hochscrollen schiebt sie sich über einen längeren Scrollweg (dist) von oben nach unten ins Symbol, beim Zurückscrollen leert es sich wieder */
 (function(){
-  var items=[].slice.call(document.querySelectorAll('svg.fillable,.div .hgi')).filter(function(el){return !el.closest('.hero-vals')}).map(function(el){
+  var items=[].slice.call(document.querySelectorAll('svg.fillable,.div .hgi')).filter(function(el){return !el.closest('.hero-vals,.quals,.vlist')}).map(function(el){
     return{el:el,ref:el.matches('svg')?el.querySelector('path.fl'):el,p:-1};
   }),tick=false;
   function check(){
@@ -413,21 +413,28 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
   place();setTimeout(place,300);
 })();
 
-/* Hero-Werte (Stern, Herz, Personen): jedes Icon füllt sich ganz, von links nach rechts nacheinander */
+/* Grüne Icons (Startbereich, Qualifikationen, Werte): jedes füllt sich ganz auf einmal, mit Scroll-Abstand nacheinander, und bleibt gefüllt */
 (function(){
-  var ic=[].slice.call(document.querySelectorAll('.hero-vals svg.fillable')),tick=false;
+  var ic=[].slice.call(document.querySelectorAll('.hero-vals svg.fillable,.quals svg.fillable,.vlist svg.fillable')),tick=false;
   if(!ic.length)return;
-  ic.forEach(function(el,i){el.style.setProperty('--fd',(i*0.22)+'s')});
+  [].slice.call(document.querySelectorAll('.hero-vals,.quals,.vlist')).forEach(function(box){
+    var k=0;ic.forEach(function(el){if(box.contains(el)){el._off=k*(box.classList.contains('hero-vals')?150:110);k++}});
+  });
   function check(){
     tick=false;
     var line=window.innerHeight*0.65;
-    ic.forEach(function(el){var r=el.getBoundingClientRect();if(r.width)el.classList.toggle('fill-on',r.top+r.height/2<line)});
+    ic=ic.filter(function(el){
+      var r=el.getBoundingClientRect();
+      if(r.width&&r.top+r.height/2<line-(el._off||0)){el.classList.add('fill-on');return false}
+      return true;
+    });
+    if(!ic.length){window.removeEventListener('scroll',req);window.removeEventListener('resize',req)}
   }
   function req(){if(!tick){tick=true;requestAnimationFrame(check)}}
   window.addEventListener('scroll',req,{passive:true});window.addEventListener('resize',req);check();
 })();
 
-/* Zeitstrahl Startseite: Sanduhr im letzten Schild dreht sich einmalig, sobald das Schild blau wird */
+/* Zeitstrahl Startseite: nur die Sanduhr im letzten Schild dreht sich einmalig, sobald das Schild blau wird */
 (function(){
   var tl=document.getElementById('tl');if(!tl)return;
   var last=tl.lastElementChild,done=false,tick=false;
@@ -435,7 +442,7 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
   function check(){
     tick=false;
     if(done)return;
-    if(last.classList.contains('hit')){done=true;last.classList.add('logo-spun');window.removeEventListener('scroll',req)}
+    if(last.classList.contains('hit')){done=true;window.removeEventListener('scroll',req);var f=last.querySelector('.wmk-node .lg-f');if(f)setTimeout(function(){f.style.transform='rotate(180deg)'},500)}
   }
   function req(){if(!tick){tick=true;requestAnimationFrame(check)}}
   window.addEventListener('scroll',req,{passive:true});check();

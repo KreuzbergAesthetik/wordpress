@@ -263,7 +263,7 @@ function ka_view_home() {
   <div class="wrap tl-wrap">
     <ol class="tl" id="tl" style="--n:<?php echo (int) count( $tl ); ?>">
       <?php foreach ( $tl as $i => $e ) : ?>
-      <li><span class="node"><?php echo ( $i === count( $tl ) - 1 ) ? '<span class="logo-w"></span>' : ka_icon( $ti[ $i % count( $ti ) ] ) . '<span class="nf" aria-hidden="true">' . ka_icon( $ti[ $i % count( $ti ) ] ) . '</span>'; ?></span><b><?php echo str_replace( ' / ', '<br>', esc_html( $e[0] ) ); ?></b><span><?php echo esc_html( $e[1] ); ?></span></li>
+      <li><span class="node"><?php echo ( $i === count( $tl ) - 1 ) ? '<span class="wmk wmk-node" aria-hidden="true"><span class="lg-s"></span><span class="lg-f"></span></span>' : ka_icon( $ti[ $i % count( $ti ) ] ) . '<span class="nf" aria-hidden="true">' . ka_icon( $ti[ $i % count( $ti ) ] ) . '</span>'; ?></span><b><?php echo str_replace( ' / ', '<br>', esc_html( $e[0] ) ); ?></b><span><?php echo esc_html( $e[1] ); ?></span></li>
       <?php endforeach; ?>
     </ol>
   </div>
