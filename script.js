@@ -300,8 +300,8 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
     if(i===0)g.classList.add('open');
     h.setAttribute('aria-expanded',i===0?'true':'false');
     function tog(){var o=!g.classList.contains('open');grps.forEach(function(x){x.classList.remove('open');var hh=x.querySelector('h3');if(hh)hh.setAttribute('aria-expanded','false')});if(o){g.classList.add('open');h.setAttribute('aria-expanded','true');if(window.innerWidth<=700){var t=g.getBoundingClientRect().top;if(t<80)window.scrollBy({top:t-90,behavior:'smooth'})}}}
-    h.addEventListener('click',function(){if(window.innerWidth<=700)tog()});
-    h.addEventListener('keydown',function(e){if((e.key==='Enter'||e.key===' ')&&window.innerWidth<=700){e.preventDefault();tog()}});
+    h.addEventListener('click',function(){tog()});
+    h.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tog()}});
   });
   var q=document.getElementById('preissuche');
   if(q)q.addEventListener('input',function(){wrap.classList.toggle('searching',!!q.value.trim())});
