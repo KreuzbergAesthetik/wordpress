@@ -3317,11 +3317,15 @@ svg.fillable path.chkw{stroke:#fff;fill:none;clip-path:inset(0 0 calc(100% - var
 .sum-abl.sum-abl .steps.steps .sico{position:absolute!important;inset:0!important;width:auto!important;height:auto!important;overflow:hidden;border-radius:inherit;pointer-events:none;display:block!important}
 .sum-abl.sum-abl .steps.steps .sico .ico{position:absolute;right:-12px;bottom:-14px;left:auto;top:auto;margin:0!important;width:80px!important;height:80px!important}
 @media (max-width:700px){
- .sum-abl.sum-abl .steps.steps::before{left:15px!important;margin-left:0!important}
- .sum-abl.sum-abl .steps.steps li,.sum-abl.sum-abl .steps.steps li:nth-child(odd),.sum-abl.sum-abl .steps.steps li:nth-child(even){width:calc(100% - 2.6rem)!important;margin:0 0 1rem 2.6rem!important}
+ .sum-abl.sum-abl .steps.steps::before{left:50%!important;margin-left:-1px!important}
+ .sum-abl.sum-abl .steps.steps li{padding:.95rem .8rem!important}
+ .sum-abl.sum-abl .steps.steps li:nth-child(odd){width:calc(50% - 1.2rem)!important;margin:0 auto 1rem 0!important}
+ .sum-abl.sum-abl .steps.steps li:nth-child(even){width:calc(50% - 1.2rem)!important;margin:0 0 1rem auto!important}
  .sum-abl.sum-abl .steps.steps li:last-child{margin-bottom:0!important}
- .sum-abl.sum-abl .steps.steps li::after,.sum-abl.sum-abl .steps.steps li:nth-child(odd)::after,.sum-abl.sum-abl .steps.steps li:nth-child(even)::after{left:-1.6rem!important;right:auto!important;width:1.6rem!important}
- .sum-abl.sum-abl .steps.steps li::before,.sum-abl.sum-abl .steps.steps li:nth-child(odd)::before,.sum-abl.sum-abl .steps.steps li:nth-child(even)::before{left:calc(-2.6rem + 9px)!important;right:auto!important}
+ .sum-abl.sum-abl .steps.steps li:nth-child(odd)::after{right:-1.2rem!important;left:auto!important;width:1.2rem!important}
+ .sum-abl.sum-abl .steps.steps li:nth-child(even)::after{left:-1.2rem!important;right:auto!important;width:1.2rem!important}
+ .sum-abl.sum-abl .steps.steps li:nth-child(odd)::before{right:calc(-1.2rem - 7px)!important;left:auto!important}
+ .sum-abl.sum-abl .steps.steps li:nth-child(even)::before{left:calc(-1.2rem - 7px)!important;right:auto!important}
 }
 
 /* Zeitstrahl Startseite: Logo im letzten Schild aus Ring und Sanduhr (wie Kopfleiste und Menü); nur die Sanduhr dreht sich einmal */
@@ -3330,3 +3334,7 @@ svg.fillable path.chkw{stroke:#fff;fill:none;clip-path:inset(0 0 calc(100% - var
 .sum-about .tl .wmk.wmk-node .lg-f{transition:transform 1.3s cubic-bezier(.65,0,.3,1)}
 @media (max-width:700px){.sum-about .tl .wmk.wmk-node{width:38px;height:38px}}
 @media (prefers-reduced-motion:reduce){.sum-about .tl .wmk.wmk-node .lg-f{transition:none}}
+
+/* Startseite Ablauf: Punkte hohl, färben sich beim Scrollen grau wie die Leiste */
+.sum-abl.sum-abl .steps.steps li::before{border-color:#b3c2db!important}
+.sum-abl.sum-abl .steps.steps li.st-hit::before{background:#b3c2db!important}
