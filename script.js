@@ -161,18 +161,13 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
   var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches||document.documentElement.classList.contains('calm');
   var T={},order=[];(D.topics||[]).forEach(function(t,i){var k='t'+i;T[k]=t;order.push(k)});
   var asked={},topics=[],busy=false;
-  var panel=document.getElementById('chat-panel'),sendBtn=document.getElementById('chat-send'),phBar=document.getElementById('chat-chips');
-  function syncSend(){if(sendBtn){var o=!!(panel&&!panel.hidden);sendBtn.setAttribute('aria-expanded',o?'true':'false');sendBtn.classList.toggle('open',o)}}
-  function togglePanel(){if(panel&&panel.querySelector('.cchip')){panel.hidden=!panel.hidden;syncSend()}}
-  if(sendBtn)sendBtn.addEventListener('click',togglePanel);
-  if(phBar)phBar.addEventListener('click',togglePanel);
   function dec(x){var d=document.createElement('textarea');d.innerHTML=x;return d.value}
   function el(tag,cls,html){var e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e}
   var ready=false;
   function show(){if(!ready)return;var l=chat.lastElementChild;if(l)l.scrollIntoView({behavior:reduce?'auto':'smooth',block:'nearest'})}
   function manuel(html){var r=el('div','crow');r.appendChild(el('span','cav'));r.appendChild(el('div','cbub',html));chat.appendChild(r)}
   function me(t){var r=el('div','crow me');r.appendChild(el('div','cbub',t));r.appendChild(el('span','cav-you',IC.person||''));chat.appendChild(r)}
-  function chips(list){var c=el('div','cchips');list.forEach(function(it){var b=el('button','cchip'+(it.go?' go':''),(it.icon||'')+'<span>'+it.label+'</span>');b.type='button';b.addEventListener('click',function(){if(busy)return;ready=true;c.remove();if(panel){panel.hidden=true;syncSend()}me(it.label);show();it.fn()});c.appendChild(b)});if(panel){panel.appendChild(c);panel.hidden=false;syncSend()}else{chat.appendChild(c);show()}}
+  function chips(list){var c=el('div','cchips');list.forEach(function(it){var b=el('button','cchip'+(it.go?' go':''),(it.icon||'')+'<span>'+it.label+'</span>');b.type='button';b.addEventListener('click',function(){if(busy)return;ready=true;c.remove();me(it.label);show();it.fn()});c.appendChild(b)});var bar=document.getElementById('chat-chips');if(bar){bar.appendChild(c);bar.scrollTop=0}else{chat.appendChild(c);show()}}
   function say(parts,done){busy=true;var i=0;(function next(){
     if(i>=parts.length){busy=false;done&&done();return}
     var t=el('div','crow');t.appendChild(el('span','cav ghost'));t.appendChild(el('div','cbub ctyping','<i></i><i></i><i></i>'));chat.appendChild(t);show();

@@ -425,8 +425,7 @@ function ka_view_services() {
       <div class="chat-window">
         <div class="chat-top"><span class="cav" aria-hidden="true"></span><span class="chat-who"><b>Manuel von Kreuzberg Ästhetik</b><small><i class="chat-dot" aria-hidden="true"></i>antwortet persönlich</small></span></div>
         <div class="chat" id="chat" role="log" aria-live="polite" aria-relevant="additions"></div>
-        <div class="chat-panel" id="chat-panel" role="group" aria-label="Antworten zur Auswahl" hidden></div>
-        <div class="chat-input"><div class="chat-chips" id="chat-chips"><span class="chat-ph">Wähle eine Antwort …</span></div><button type="button" class="chat-send" id="chat-send" aria-label="Antworten anzeigen" aria-expanded="false" aria-controls="chat-panel"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button></div>
+        <div class="chat-input"><div class="chat-chips" id="chat-chips"><span class="chat-ph">Wähle eine Antwort …</span></div><span class="chat-send" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></span></div>
       </div>
     </div>
   </div>
