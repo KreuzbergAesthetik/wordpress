@@ -496,3 +496,18 @@ document.addEventListener('click',function(e){
   if(f)f.addEventListener('submit',function(){setTimeout(look,60)});
   if(window.MutationObserver)new MutationObserver(look).observe(n,{attributes:true,attributeFilter:['hidden']});
 })();
+
+/* „Zum Chat“: Der Link #chat-hilfe führt direkt zum Chat, ohne dass man erst durch die Liste scrollen muss */
+(function(){
+  function go(){
+    if(location.hash!=='#chat-hilfe')return;
+    var h=document.getElementById('chat-hilfe');if(!h)return;
+    window.scrollTo(0,h.getBoundingClientRect().top+(window.pageYOffset||0)-90);
+  }
+  if(location.hash==='#chat-hilfe'){
+    go();
+    window.addEventListener('load',function(){go();setTimeout(go,300);setTimeout(go,900)});
+    if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){setTimeout(go,100)});
+  }
+  window.addEventListener('hashchange',go);
+})();
