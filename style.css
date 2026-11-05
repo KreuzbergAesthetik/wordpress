@@ -3546,3 +3546,10 @@ html:not(.calm) .btn:active,html:not(.calm) .cbtn:active{transform:translateY(0)
 :root[data-theme="dark"] .next-link a{border-bottom-color:#dce8f8!important}
 :root[data-theme="dark"] .next-link a:hover,:root[data-theme="dark"] .next-link a:hover span{color:#9fcaa9!important}
 :root[data-theme="dark"] .next-link a:hover{border-bottom-color:#9fcaa9!important}
+
+/* Link zur nächsten Seite: 15 px, Unterstreichung näher am Text; beim Überfahren Schrift 16 px und Pfeil rutscht nach rechts */
+.next-link a{font-size:15px!important;line-height:1.2!important;padding-bottom:0!important}
+.next-link a span{display:inline-block;transition:transform .3s cubic-bezier(.25,.8,.35,1)}
+html:not(.calm) .next-link a{transition:transform .3s cubic-bezier(.25,.8,.35,1),color .25s,border-color .25s!important}
+html:not(.calm) .next-link a:hover,html:not(.calm) .next-link a:focus-visible{transform:scale(1.0667)!important}
+html:not(.calm) .next-link a:hover span,html:not(.calm) .next-link a:focus-visible span{transform:translateX(4px)}
