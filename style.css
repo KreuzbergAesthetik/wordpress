@@ -2,7 +2,7 @@
 Theme Name: Kreuzberg Ästhetik
 Description: Website der Privatpraxis Kreuzberg Ästhetik
 Author: Kreuzberg Ästhetik
-Version: 146
+Version: 147
 Requires at least: 6.0
 Requires PHP: 7.4
 Text Domain: kreuzberg-aesthetik
@@ -3448,3 +3448,36 @@ body:not(.admin-bar) .mastnav{top:calc(5px + env(safe-area-inset-top,0px))!impor
  #leistungen .grp:not(.open){padding-bottom:1.1rem!important}
  #leistungen .groups{align-items:start!important}
 }
+
+/* Anfrage-Karte: Titel ist ein Link zur Kontaktseite */
+.steps h3 a.step-link{color:inherit;text-decoration:none;border-bottom:1.5px solid transparent;transition:border-color .2s}
+.steps h3 a.step-link:hover,.steps h3 a.step-link:focus-visible{border-bottom-color:currentColor}
+
+/* Startseite Ablauf: Karten kleiner, passend zur Schrift */
+.sum-abl.sum-abl .steps.steps li{padding:.5rem 1.2rem!important;width:fit-content!important;min-height:0!important}
+.sum-abl.sum-abl .steps.steps h3{font-size:1rem!important;margin:0!important;line-height:1.3!important}
+.sum-abl.sum-abl .steps.steps .sico .ico{width:46px!important;height:46px!important;right:-8px;bottom:-10px}
+@media (min-width:701px){
+ .sum-abl.sum-abl .steps.steps li{max-width:calc(50% - 2rem)!important}
+ .sum-abl.sum-abl .steps.steps li:nth-child(odd){margin:0 calc(50% + 2rem) -.2rem auto!important}
+ .sum-abl.sum-abl .steps.steps li:nth-child(even){margin:0 auto -.2rem calc(50% + 2rem)!important}
+ .sum-abl.sum-abl .steps.steps li:last-child{margin-bottom:0!important}
+}
+@media (max-width:700px){
+ .sum-abl.sum-abl .steps.steps li{max-width:calc(50% - 1.2rem)!important}
+ .sum-abl.sum-abl .steps.steps li:nth-child(odd){margin:0 calc(50% + 1.2rem) -.2rem auto!important}
+ .sum-abl.sum-abl .steps.steps li:nth-child(even){margin:0 auto -.2rem calc(50% + 1.2rem)!important}
+ .sum-abl.sum-abl .steps.steps li:last-child{margin-bottom:0!important}
+}
+
+/* Animationen reduzieren / Bewegung reduzieren: wirklich alle Animationen aus, alles im Endzustand */
+html.calm,html.calm *,html.calm *::before,html.calm *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+.calm svg.fillable path.fl,.calm svg.fillable path.chkw{opacity:1!important;clip-path:none!important}
+.calm .div .hgi::after{clip-path:none!important}
+.calm .tl{--tlp:100%!important}
+.calm .sum-about .tl li .node .nf{opacity:1!important}
+.calm #ablauf .steps li::before{background:#012265!important}
+.calm .sum-abl.sum-abl .steps.steps li::before{background:#c5d1e3!important}
+.calm .btn:hover,.calm .btn:focus-visible,.calm .next-link a:hover,.calm .cbtn:hover,.calm .pill:hover,.calm .mastnav a:hover,.calm .side a:hover{transform:none!important}
+.calm .btn .bt-in,.calm .btn:hover .bt-in,.calm .cbtn .bt-in,.calm .cbtn:hover .bt-in{transform:none!important}
+.sum-abl.sum-abl .steps.steps .sico{display:none!important}
