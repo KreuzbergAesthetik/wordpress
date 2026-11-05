@@ -3926,4 +3926,7 @@ html:not(.calm) .chat-book:hover,html:not(.calm) .chat-book:focus-visible{transf
 .chat-window .crow:not(.me) .cbub .cbtn-wa,.chat-window .crow:not(.me) .cbub .cbtn-wa *{color:#004d17!important}
 .chat-window .cbtn-wa{background:#fff!important;border:1px solid #004d17!important}
 .chat-window .cbtn-wa .ico{color:#004d17!important}
-.chat-chips{background:#fff!important}
+/* Antwort-Pillen mit weißem Hintergrund (Leiste dahinter bleibt hellgrün) */
+.chat-chips .cchip{background:#fff!important}
+.chat-chips .cchip:hover{background:#eef3fb!important}
+.chat-chips .cchip.go{background:#012265!important}
