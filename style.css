@@ -3810,3 +3810,7 @@ html:not(.never) .vlist:hover{box-shadow:0 0 30px 6px rgba(1,34,101,.32)!importa
 
 /* Ablaufseite: Sanduhr-Trenner zwischen Schritten und Checkliste */
 .step-check-div{margin:2.2rem auto 0}
+
+/* Ablaufseite, Anfrage-Karte: der Link „Kontakt →“ poppt selbst beim Überfahren */
+.step-cta{transition:transform .3s cubic-bezier(.25,.8,.35,1);transform-origin:right center}
+html:not(.calm) .step-cta:hover,html:not(.calm) .step-cta:focus-visible{transform:scale(1.1)}
