@@ -294,15 +294,25 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
 (function(){
   var wrap=document.querySelector('#leistungen .groups');if(!wrap)return;
   var grps=[].slice.call(wrap.querySelectorAll('.grp'));
-  grps.forEach(function(g,i){
+  function desk(){return window.innerWidth>700}
+  function setOpen(g,o){g.classList.toggle('open',o);var hh=g.querySelector('h3');if(hh)hh.setAttribute('aria-expanded',o?'true':'false')}
+  /* Desktop: alle Karten offen und einzeln zuklappbar. Handy: immer nur eine offen, die erste vorgeöffnet. */
+  function initState(){grps.forEach(function(g,i){setOpen(g,desk()||i===0)})}
+  grps.forEach(function(g){
     var h=g.querySelector('h3');if(!h)return;
     h.setAttribute('role','button');h.setAttribute('tabindex','0');
-    if(i===0)g.classList.add('open');
-    h.setAttribute('aria-expanded',i===0?'true':'false');
-    function tog(){var o=!g.classList.contains('open');grps.forEach(function(x){x.classList.remove('open');var hh=x.querySelector('h3');if(hh)hh.setAttribute('aria-expanded','false')});if(o){g.classList.add('open');h.setAttribute('aria-expanded','true');if(window.innerWidth<=700){var t=g.getBoundingClientRect().top;if(t<80)window.scrollBy({top:t-90,behavior:'smooth'})}}}
+    function tog(){
+      var o=!g.classList.contains('open');
+      if(desk()){setOpen(g,o);return}
+      grps.forEach(function(x){setOpen(x,false)});
+      if(o){setOpen(g,true);var t=g.getBoundingClientRect().top;if(t<80)window.scrollBy({top:t-90,behavior:'smooth'})}
+    }
     h.addEventListener('click',function(){tog()});
     h.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tog()}});
   });
+  initState();
+  var lastDesk=desk();
+  window.addEventListener('resize',function(){if(desk()!==lastDesk){lastDesk=desk();initState()}});
   var q=document.getElementById('preissuche');
   if(q)q.addEventListener('input',function(){wrap.classList.toggle('searching',!!q.value.trim())});
 })();
