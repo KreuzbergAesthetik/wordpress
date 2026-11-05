@@ -1,0 +1,39 @@
+name: IONOS Server-Schlüssel abrufen
+
+# Zeigt den öffentlichen Server-Schlüssel von IONOS samt Fingerabdruck an.
+# Der Eintrag wird als Geheimnis IONOS_KNOWN_HOSTS gespeichert. Dieser Ablauf überträgt nichts.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  hostkey:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    environment: ionos-production
+    steps:
+      - name: Schlüssel abrufen und anzeigen
+        shell: bash
+        env:
+          IONOS_HOST: ${{ secrets.IONOS_HOST }}
+        run: |
+          set -euo pipefail
+          [ -n "$IONOS_HOST" ] || { echo "::error::Das Geheimnis IONOS_HOST fehlt."; exit 1; }
+          [[ "$IONOS_HOST" =~ ^[a-zA-Z0-9][a-zA-Z0-9.-]*$ ]] || { echo "::error::IONOS_HOST sieht nicht wie ein Servername aus."; exit 1; }
+          ssh-keyscan -T 15 -t ed25519,ecdsa,rsa "$IONOS_HOST" > hostkeys.txt 2>/dev/null || true
+          [ -s hostkeys.txt ] || { echo "::error::Vom Server kam kein Schlüssel zurück."; exit 1; }
+          {
+            echo "### Server-Schlüssel von $IONOS_HOST"
+            echo
+            echo "**1. Fingerabdrücke** (mit den Angaben von IONOS vergleichen):"
+            echo '```'
+            ssh-keygen -lf hostkeys.txt
+            echo '```'
+            echo
+            echo "**2. Diesen Text komplett als Geheimnis \`IONOS_KNOWN_HOSTS\` speichern:**"
+            echo '```'
+            cat hostkeys.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"

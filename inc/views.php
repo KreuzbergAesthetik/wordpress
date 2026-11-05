@@ -34,9 +34,8 @@ function ka_chrome() {
     <a class="pl" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="Zur Startseite"><span class="slot-hg"></span></a>
     <ul class="nl nl-l">
       <li><a href="<?php echo esc_url( ka_url( 'leistungen' ) ); ?>"><?php echo ka( 'nav_services' ); ?></a></li>
-      <li><a href="<?php echo esc_url( ka_url( 'ueber-mich' ) ); ?>"><?php echo ka( 'about_eyebrow' ); ?></a></li>
     </ul>
-    <ul class="nl nl-r"><li><a href="<?php echo esc_url( ka_url( 'ablauf' ) ); ?>"><?php echo ka( 'abl_eyebrow' ); ?></a></li></ul>
+    <ul class="nl nl-r"><li><a href="<?php echo esc_url( ka_url( 'kontakt' ) ); ?>"><?php echo ka( 'kon_eyebrow' ); ?></a></li></ul>
     <button class="hb" id="hbbtn" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navmenu"><span></span></button>
     <button class="logo-btn" id="logobtn" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navmenu"></button>
   </nav>
@@ -52,10 +51,10 @@ function ka_footer() {
 	$mail = esc_attr( ka_mail_href() );
 	?>
 <footer>
-  <div class="wrap">
-    <span class="logo-img footer-logo" role="img" aria-label="Kreuzberg Ästhetik"></span>
-    <span><?php echo ka( 'footer_text' ); ?></span>
-    <span><a href="<?php echo esc_url( ka_legal_url( array( 'impressum' ) ) ); ?>">Impressum</a> · <a href="<?php echo esc_url( ka_legal_url( array( 'datenschutz', 'datenschutzerklaerung', 'datenschutzerklarung' ) ) ); ?>">Datenschutz</a></span>
+  <div class="wrap ft3">
+    <a class="ft-l" href="<?php echo esc_url( ka_legal_url( array( 'impressum' ) ) ); ?>">Impressum</a>
+    <a class="ft-home" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="Zur Startseite"><span class="logo-img footer-logo" aria-hidden="true"></span></a>
+    <a class="ft-r" href="<?php echo esc_url( ka_legal_url( array( 'datenschutz', 'datenschutzerklaerung', 'datenschutzerklarung' ) ) ); ?>">Datenschutz</a>
   </div>
 </footer>
 </div>
@@ -85,19 +84,61 @@ function ka_footer() {
     <a class="mail" href="<?php echo $mail; ?>"><?php echo ka( 'email' ); ?></a>
   </div>
 </aside>
-<a class="wa" id="wa-float" href="<?php echo $sms; ?>" aria-label="<?php echo esc_attr( ka_raw( 'msg_label' ) ); ?>"><?php echo ka_icon( 'bubble' ); ?><span class="wa-t"><?php echo ka( 'msg_label' ); ?></span></a>
+<a class="wa" id="wa-float" href="<?php echo $sms; ?>" aria-label="<?php echo esc_attr( ka_raw( 'msg_label' ) ); ?>"><?php echo ka_icon( 'whatsapp' ); ?><span class="wa-t"><?php echo ka( 'msg_label' ); ?></span></a>
 <?php
 }
 
 /** Eine komplette Seite ausgeben. */
 function ka_render( $view ) {
+	$GLOBALS['ka_view'] = $view;
 	get_header();
 	ka_chrome();
+	$slug = array( 'home' => 'home', 'about' => 'ueber-mich', 'services' => 'leistungen', 'process' => 'ablauf', 'contact' => 'kontakt', 'legal' => 'impressum' );
+	echo '<div class="kview" data-view="' . esc_attr( isset( $slug[ $view ] ) ? $slug[ $view ] : $view ) . '">';
 	echo '<main class="view view-' . esc_attr( $view ) . '">';
 	call_user_func( 'ka_view_' . $view );
-	echo '</main>';
+	if ( ! in_array( $view, array( 'home', 'contact' ), true ) ) { ka_contact_band(); }
+	echo '</main></div>';
 	ka_footer();
 	get_footer();
+}
+
+
+/** Kontakt-Band (Startseite und alle Unterseiten außer Kontakt). */
+function ka_contact_band() {
+	$sms  = esc_attr( ka_sms_href() );
+	$mail = esc_attr( ka_mail_href() );
+	$view = isset( $GLOBALS['ka_view'] ) ? $GLOBALS['ka_view'] : 'home';
+	$next = array(
+		'home'     => array( ka_url( 'leistungen' ), ka_raw( 'lei_eyebrow' ) ),
+		'services' => array( ka_url( 'ueber-mich' ), ka_raw( 'about_eyebrow' ) ),
+		'about'    => array( ka_url( 'ablauf' ), ka_raw( 'abl_eyebrow' ) ),
+		'process'  => array( ka_url( 'kontakt' ), ka_raw( 'kon_eyebrow' ) ),
+		'legal'    => array( home_url( '/' ), 'Startseite' ),
+	);
+	if ( isset( $next[ $view ] ) ) : ?>
+<p class="next-link"><a href="<?php echo esc_url( $next[ $view ][0] ); ?>"><?php echo esc_html( $next[ $view ][1] ); ?> <span aria-hidden="true">&rarr;</span></a></p>
+<?php endif;
+	?>
+<section class="sum sum-kon" aria-labelledby="sum-kon-h">
+  <span class="kon-hg" aria-hidden="true"><span class="hgi hg-top"></span><span class="hgi hg-bot"></span></span>
+  <div class="wrap">
+    <div class="intro">
+      <p class="eyebrow"><?php echo ka( 'kon_eyebrow' ); ?></p>
+      <?php if ( 'about' === $view && '' !== ka_raw( 'about_invite' ) ) : ?>
+      <h2 id="sum-kon-h" class="kon-invite"><?php echo ka( 'about_invite' ); ?></h2>
+      <?php else : ?>
+      <h2 id="sum-kon-h"><?php echo ka( 'kon_h2' ); ?></h2>
+      <?php endif; ?>
+    </div>
+    <p class="sum-more sum-contact">
+      <a class="btn deep" href="<?php echo $mail; ?>"><?php echo ka_icon( 'mail' ); ?>E-Mail</a>
+      <a class="btn deep" href="<?php echo $sms; ?>"><?php echo ka_icon( 'whatsapp' ); ?>WhatsApp</a>
+      <a class="btn deep" href="<?php echo esc_url( ka_url( 'kontakt' ) ); ?>"><?php echo ka_icon( 'document' ); ?>Formular</a>
+    </p>
+  </div>
+</section>
+<?php
 }
 
 /** Teaser-Kacheln der Startseite. */
@@ -140,10 +181,11 @@ function ka_view_home() {
         <p class="hero-sub"><?php echo ka( 'hero_sub' ); ?></p>
       </div>
       <span class="hero-rule" aria-hidden="true"></span>
+      <div class="div hero-div" aria-hidden="true"><span class="hgi"></span></div>
       <div class="hero-phil">
         <h3 class="hero-phil-h"><?php echo ka( 'hero_phil_h' ); ?></h3>
         <ul class="hero-vals">
-          <?php $vi = array( 'star', 'heart', 'shield' ); foreach ( ka_lines( 'hero_vals' ) as $i => $hv ) : ?>
+          <?php $vi = array( 'star', 'heart', 'people' ); foreach ( ka_lines( 'hero_vals' ) as $i => $hv ) : ?>
           <li><?php echo ka_icon( $vi[ $i % 3 ] ); ?><span><?php echo esc_html( $hv ); ?></span></li>
           <?php endforeach; ?>
         </ul>
@@ -155,25 +197,28 @@ function ka_view_home() {
       </p>
     </div>
   </header>
-  </div></div>
-</div>
 <?php
 	$slugs = array( 'leistungen', 'ueber-mich', 'ablauf', 'kontakt' );
 	$icons = array( 'syringe', 'person', 'question', 'bubble' );
 	$tz    = ka_teasers();
 	?>
+<div class="wrap divwrap qk-div" aria-hidden="true"><div class="div"><span class="hgi"></span></div></div>
 <nav class="qk-sec" aria-label="Bereiche">
   <div class="qk">
     <?php foreach ( $tz as $i => $t ) : if ( ! isset( $slugs[ $i ] ) ) { break; } ?>
     <a class="qkc qkc-<?php echo (int) $i + 1; ?>" href="<?php echo esc_url( ka_url( $slugs[ $i ] ) ); ?>">
       <span class="qkbg" aria-hidden="true"><?php echo ka_icon( $icons[ $i ] ); ?></span>
-            <span class="qkt"><?php echo esc_html( $t[0] ); ?></span>
+            <span class="qkt"><?php echo esc_html( str_replace( ' und ', ' & ', $t[0] ) ); ?></span>
       <span class="qkd"><?php echo esc_html( $t[1] ); ?></span>
       <span class="qkm"><?php echo ka( 'tz_btn' ); ?> <i aria-hidden="true">&rarr;</i></span>
     </a>
     <?php endforeach; ?>
   </div>
 </nav>
+  </div></div>
+</div>
+
+
 
 <?php
 	// Kurze Zusammenfassungen der Bereiche, in der Reihenfolge der Kacheln
@@ -194,13 +239,13 @@ function ka_view_home() {
         <span class="lei-ico"><?php echo ka_icon( 'document' ); ?></span>
         <h3>Behandlungsübersicht</h3>
         <p><?php echo ka( 'home_lei_intro' ); ?></p>
-        <a class="btn deep" href="<?php echo esc_url( ka_url( 'leistungen' ) ); ?>">Zur Behandlungsübersicht <span aria-hidden="true">&rarr;</span></a>
+        <a class="btn deep" href="<?php echo esc_url( ka_url( 'leistungen' ) ); ?>"><?php echo ka_icon( 'list' ); ?>Zur Liste <span aria-hidden="true">&rarr;</span></a>
       </div>
       <div class="lei-col">
         <span class="lei-ico"><?php echo ka_icon( 'bubble' ); ?></span>
         <h3>Unsicher?</h3>
         <p>Lass Dich im interaktiven Chat beraten: ein paar Antworten antippen und Du siehst, was zu Dir passen könnte.</p>
-        <a class="btn deep" href="<?php echo esc_url( ka_url( 'leistungen' ) . '#chat-hilfe' ); ?>">Zum Chat <span aria-hidden="true">&rarr;</span></a>
+        <a class="btn deep" href="<?php echo esc_url( ka_url( 'leistungen' ) . '#chat-hilfe' ); ?>"><?php echo ka_icon( 'bubble' ); ?>Zum Chat <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
   </div>
@@ -218,7 +263,7 @@ function ka_view_home() {
   <div class="wrap tl-wrap">
     <ol class="tl" id="tl" style="--n:<?php echo (int) count( $tl ); ?>">
       <?php foreach ( $tl as $i => $e ) : ?>
-      <li><span class="node"><?php echo ( $i === count( $tl ) - 1 ) ? '<span class="logo-w"></span>' : ka_icon( $ti[ $i % count( $ti ) ] ); ?></span><b><?php echo esc_html( $e[0] ); ?></b><span><?php echo esc_html( $e[1] ); ?></span></li>
+      <li><span class="node"><?php echo ( $i === count( $tl ) - 1 ) ? '<span class="wmk wmk-node" aria-hidden="true"><span class="lg-s"></span><span class="lg-f"></span></span>' : ka_icon( $ti[ $i % count( $ti ) ] ) . '<span class="nf" aria-hidden="true">' . ka_icon( $ti[ $i % count( $ti ) ] ) . '</span>'; ?></span><b><?php echo str_replace( ' / ', '<br>', esc_html( $e[0] ) ); ?></b><span><?php echo esc_html( $e[1] ); ?></span></li>
       <?php endforeach; ?>
     </ol>
   </div>
@@ -235,69 +280,75 @@ function ka_view_home() {
     </div>
     <ol class="steps">
       <?php $si = array( 'bubble', 'talk', 'clipboard', 'document' ); foreach ( $steps as $i => $s ) : ?>
-      <li><span class="sico"><?php echo ka_icon( $si[ $i % count( $si ) ] ); ?></span><h3><?php echo esc_html( $s[0] ); ?></h3><p><?php echo esc_html( $s[1] ); ?></p></li>
+      <li><span class="sico"><?php echo ka_icon( $si[ $i % count( $si ) ] ); ?></span><h3><?php echo esc_html( trim( preg_replace( '/^.*&\s*/u', '', $s[0] ) ) ); ?></h3><p><?php echo esc_html( $s[1] ); ?></p></li>
       <?php endforeach; ?>
     </ol>
     <p class="sum-more"><a class="btn deep" href="<?php echo esc_url( ka_url( 'ablauf' ) ); ?>">Ablauf und häufige Fragen <span aria-hidden="true">&rarr;</span></a></p>
   </div>
 </section>
 
-<?php echo $div; ?>
-<section class="sum sum-kon" aria-labelledby="sum-kon-h">
-  <div class="wrap">
-    <div class="intro">
-      <p class="eyebrow"><?php echo ka( 'kon_eyebrow' ); ?></p>
-      <h2 id="sum-kon-h"><?php echo ka( 'kon_h2' ); ?></h2>
-      <p><?php echo esc_html( trim( preg_replace( '/\s*Schreibe? mir einfach!?\s*/u', ' ', ka_raw( 'say_text' ) ) ) ); ?></p>
-    </div>
-    <p class="sum-more sum-contact">
-      <a class="btn deep" href="<?php echo $mail; ?>"><?php echo ka_icon( 'mail' ); ?>E-Mail</a>
-      <a class="btn deep" href="<?php echo $sms; ?>"><?php echo ka_icon( 'whatsapp' ); ?>WhatsApp</a>
-      <a class="btn deep" href="<?php echo esc_url( ka_url( 'kontakt' ) ); ?>"><?php echo ka_icon( 'document' ); ?>Formular</a>
-    </p>
-  </div>
-</section>
+<?php ka_contact_band(); ?>
 <?php
 }
 
 function ka_view_about() {
 	$portrait = ka_raw( 'portrait_url' );
-	if ( '' === $portrait ) { $portrait = get_theme_file_uri( 'assets/portrait.webp' ); }
+	if ( '' === $portrait ) { $portrait = get_theme_file_uri( 'assets/portrait-cutout.webp' ); }
 	?>
 <section id="ueber-mich" class="sub-sec">
   <div class="wrap about">
     <div class="pframe"><img class="portrait" src="<?php echo esc_url( $portrait ); ?>" width="900" height="1229" alt="<?php echo esc_attr( ka_raw( 'portrait_alt' ) ); ?>"></div>
     <div>
-      <p class="eyebrow"><?php echo ka( 'about_eyebrow' ); ?></p>
-      <h2><?php echo ka( 'about_h2' ); ?></h2>
-      <?php echo ka_html( 'about_main' ); ?>
+      <div class="about-head">
+        <p class="eyebrow"><?php echo ka( 'about_eyebrow' ); ?></p>
+        <h2 class="about-h2"><span><?php echo ka( 'about_h2' ); ?></span></h2>
+        <p class="about-sub"><span><?php echo ka( 'hero_sub' ); ?></span></p>
+        <div class="div about-div" aria-hidden="true"><span class="hgi"></span></div>
+      </div>
+      <?php echo preg_replace( '#^\s*<p>\s*Ich lebe und arbeite in Berlin-Kreuzberg\.?\s*</p>#u', '', ka_html( 'about_main' ), 1 ); ?>
+      <?php $quals = ka_lines( 'about_quals' ); if ( $quals ) : ?>
+      <ul class="quals">
+        <?php foreach ( $quals as $q ) : ?><li><?php echo ka_icon( 'shield' ); ?><span><?php echo esc_html( $q ); ?></span></li><?php endforeach; ?>
+      </ul>
+      <?php endif; ?>
+      <?php $pimg = ka_raw( 'about_practice_img' ); if ( '' !== $pimg ) : ?>
+      <figure class="practice-img"><img src="<?php echo esc_url( $pimg ); ?>" alt="Praxis Kreuzberg Ästhetik" loading="lazy"></figure>
+      <?php endif; ?>
+      <div class="phil-box">
       <h3 class="about-h"><?php echo ka( 'about_values_h' ); ?></h3>
       <p><?php echo ka( 'about_values_intro' ); ?></p>
-      <div class="values">
-      <?php foreach ( ka_lines( 'about_values' ) as $v ) :
-		$p = array_map( 'trim', explode( '|', $v, 2 ) );
-		if ( isset( $p[1] ) && '' !== $p[1] ) : ?>
-        <details class="val"><summary><?php echo ka_icon( ka_icon_for( $p[0] ) ); ?><span><?php echo esc_html( $p[0] ); ?></span></summary><p><?php echo ka_mark( esc_html( $p[1] ) ); ?></p></details>
-      <?php else : ?>
-        <div class="val plain"><?php echo ka_icon( ka_icon_for( $p[0] ) ); ?><span><?php echo esc_html( $p[0] ); ?></span></div>
-      <?php endif; endforeach; ?>
+      <?php
+      $vals = array(); $plain = array();
+      foreach ( ka_lines( 'about_values' ) as $v ) {
+      	$p = array_map( 'trim', explode( '|', $v, 2 ) );
+      	$parts = array_map( 'trim', explode( '&', $p[0], 2 ) );
+      	if ( ! isset( $p[1] ) || '' === $p[1] ) { $plain[] = $p[0]; continue; }
+      	$vals[] = array( 'name' => $p[0], 'tab' => $parts[0] . ( isset( $parts[1] ) ? ' …' : '' ), 'head' => isset( $parts[1] ) ? '… ' . $parts[1] : '', 'text' => isset( $p[1] ) ? $p[1] : '' );
+      }
+      ?>
+      <div class="vlist">
+        <?php foreach ( $vals as $i => $v ) : ?>
+        <details class="vrow"<?php echo 0 === $i ? ' open' : ''; ?>>
+          <summary><span class="vrow-ico"><?php echo ka_icon( ka_icon_for( $v['name'] ) ); ?></span><span class="vrow-t"><?php echo esc_html( $v['name'] ); ?></span><i aria-hidden="true"></i></summary>
+          <p><?php echo ka_mark( esc_html( $v['text'] ) ); ?></p>
+        </details>
+        <?php endforeach; ?>
       </div>
+      </div>
+      <div class="div lon-div" aria-hidden="true"><span class="hgi"></span></div>
+      <div class="lon-box">
+      <span class="lon-wm" aria-hidden="true"><?php echo ka_icon( 'leaf' ); ?></span>
+      <?php foreach ( $plain as $pl ) : ?>
+      <h3 class="lon-h"><?php echo esc_html( $pl ); ?></h3>
+      <?php endforeach; ?>
       <?php echo ka_html( 'about_after' ); ?>
+      <p class="lon-cta"><?php echo ka( 'about_lon_cta' ); ?></p>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="wrap divwrap" aria-hidden="true"><div class="div"><span class="hgi"></span></div></div>
-<?php $tl = ka_timeline(); if ( $tl ) : $ti = array( 'cap', 'plane', 'microscope', 'face', 'hourglass' ); ?>
-<div class="wrap tl-wrap">
-  <h3 class="tl-h"><?php echo ka( 'tl_h' ); ?></h3>
-  <ol class="tl" id="tl" style="--n:<?php echo (int) count( $tl ); ?>">
-    <?php foreach ( $tl as $i => $e ) : ?>
-    <li><span class="node"><?php echo ( $i === count( $tl ) - 1 ) ? '<span class="logo-w"></span>' : ka_icon( $ti[ $i % count( $ti ) ] ); ?></span><b><?php echo esc_html( $e[0] ); ?></b><span><?php echo esc_html( $e[1] ); ?></span></li>
-    <?php endforeach; ?>
-  </ol>
-</div>
-<?php endif; ?>
+
 
 <?php
 }
@@ -313,7 +364,6 @@ function ka_view_services() {
     </div>
     <details class="all" open>
       <summary><?php echo ka( 'all_summary' ); ?></summary>
-      <p class="note note-top"><?php echo ka( 'lei_note' ); ?></p>
       <div class="search" id="suche">
         <button class="search-toggle" type="button" aria-label="Behandlung suchen" aria-expanded="false" aria-controls="preissuche"><?php echo ka_icon( 'search' ); ?></button>
         <label for="preissuche" class="screen-reader-text">Behandlung suchen</label>
@@ -321,22 +371,46 @@ function ka_view_services() {
       </div>
       <p id="nohit" role="status" hidden>Dazu finde ich nichts in der Liste. Schreibe mir gern, ich helfe Dir weiter.</p>
       <div class="groups">
-      <?php foreach ( ka_groups() as $g ) : ?>
+      <?php $lon_grp = null; foreach ( ka_groups() as $g ) : if ( $g['deep'] && ! $g['rows'] ) { $lon_grp = $g; continue; } ?>
         <article class="grp<?php echo $g['deep'] ? ' deep glow' : ''; ?><?php echo $g['wide'] ? ' wide' : ''; ?>">
           <span class="tag"><?php echo esc_html( $g['tag'] ); ?></span>
           <h3><?php echo esc_html( $g['title'] ); ?></h3>
           <?php if ( $g['desc'] ) : ?><p class="about-g"><?php echo ka_mark( esc_html( implode( ' ', $g['desc'] ) ) ); ?></p><?php endif; ?>
           <?php if ( $g['rows'] ) : ?>
-          <table><tbody>
-            <?php foreach ( $g['rows'] as $r ) : ?>
-            <?php if ( ! empty( $r[3] ) ) : ?><tr class="sub"><th colspan="2" scope="rowgroup"><?php echo esc_html( $r[3] ); ?></th></tr><?php continue; endif; ?>
-            <tr><td><?php echo ka_row_label( $r[0] ); ?></td><td class="pr"><?php echo $r[2] ? '<s>' . esc_html( $r[2] ) . '</s>' : ''; ?><?php echo esc_html( $r[1] ); ?></td></tr>
+          <?php
+          $blocks = array(); $cur = array( 'h' => '', 'rows' => array() );
+          foreach ( $g['rows'] as $r ) {
+          	if ( ! empty( $r[3] ) ) { if ( $cur['h'] || $cur['rows'] ) { $blocks[] = $cur; } $cur = array( 'h' => $r[3], 'rows' => array() ); continue; }
+          	$cur['rows'][] = $r;
+          }
+          $blocks[] = $cur;
+          foreach ( $blocks as $bl ) : ?>
+          <?php $hinfo = $bl['h'] ? ka_treat_find( $bl['h'] ) : null; ?>
+          <div class="subgrp<?php echo $bl['h'] ? ' has-h' : ''; ?>">
+            <?php if ( $bl['h'] ) : ?><h4 class="subgrp-h"><?php echo esc_html( $bl['h'] ); ?><?php if ( $hinfo ) : ?><button type="button" class="tinfo-btn" aria-expanded="false" aria-label="Infos zu <?php echo esc_attr( $bl['h'] ); ?>">i</button><template class="tinfo-tpl"><?php echo ka_treat_box( $hinfo ); ?></template><?php endif; ?></h4>
+            <?php endif; ?>
+            <?php if ( ! $bl['h'] && 'Pakete' === $g['title'] ) : ?><p class="pk-note">Eine Auswahl:</p><?php endif; ?>
+            <table><tbody>
+            <?php foreach ( $bl['rows'] as $r ) : $rinfo = $hinfo ? null : ka_treat_find( $r[0] ); ?>
+            <tr<?php echo preg_match( '/^(jede\s+weitere|weitere)\b/iu', $r[0] ) ? ' class="row-sub"' : ''; ?>><td><?php echo ka_row_label( $r[0], $rinfo ? '<button type="button" class="tinfo-btn" aria-expanded="false" aria-label="Infos zu dieser Behandlung">i</button><template class="tinfo-tpl">' . ka_treat_box( $rinfo ) . '</template>' : '' ); ?></td><td class="pr<?php echo preg_match( '/\d/', $r[1] ) ? '' : ' pr-note'; ?>"><?php echo esc_html( $r[1] ); ?><?php echo $r[2] ? '<s>' . esc_html( $r[2] ) . '</s>' : ''; ?></td></tr>
             <?php endforeach; ?>
-          </tbody></table>
+            </tbody></table>
+          </div>
+          <?php endforeach; ?>
           <?php endif; ?>
         </article>
       <?php endforeach; ?>
       </div>
+      <p class="note note-bottom"><?php echo ka( 'lei_note' ); ?></p>
+      <?php if ( $lon_grp ) : ?>
+      <div class="div lon-div" aria-hidden="true"><span class="hgi"></span></div>
+      <div class="lon-box lon-services">
+        <span class="lon-wm" aria-hidden="true"><?php echo ka_icon( 'leaf' ); ?></span>
+        <h3 class="lon-h"><?php echo esc_html( $lon_grp['title'] ); ?></h3>
+        <?php if ( $lon_grp['desc'] ) : ?><p><?php echo ka_mark( esc_html( implode( ' ', $lon_grp['desc'] ) ) ); ?></p><?php endif; ?>
+        <p class="lon-cta"><?php echo ka( 'about_lon_cta' ); ?></p>
+      </div>
+      <?php endif; ?>
     </details>
     <div class="wrap divwrap" aria-hidden="true"><div class="div"><span class="hgi"></span></div></div>
     <div class="chat-help" id="chat-hilfe">
@@ -359,7 +433,7 @@ function ka_view_process() {
     </div>
     <ol class="steps">
       <?php $si = array( 'bubble', 'talk', 'clipboard', 'document' ); foreach ( ka_steps() as $i => $s ) : ?>
-      <li><span class="sico"><?php echo ka_icon( $si[ $i % count( $si ) ] ); ?></span><h3><?php echo esc_html( $s[0] ); ?></h3><p><?php echo esc_html( $s[1] ); ?></p></li>
+      <li<?php echo ( 1 === $i || 2 === $i ) ? ' class="same-day-step"' : ''; ?>><span class="sico"><?php echo ka_icon( $si[ $i % count( $si ) ] ); ?></span><h3><?php echo esc_html( $s[0] ); ?></h3><p><?php echo esc_html( $s[1] ); ?></p><?php if ( 1 === $i ) : ?><button type="button" class="tinfo-btn sd-i" aria-expanded="false" aria-label="Hinweis zu Erstgespräch und Behandlung">i</button><template class="tinfo-tpl"><div class="tinfo-in"><p class="tinfo-what"><?php echo ka( 'abl_same_day' ); ?></p></div></template><?php endif; ?></li>
       <?php endforeach; ?>
     </ol>
     <div class="check">
@@ -408,6 +482,10 @@ function ka_view_contact() {
       <p class="eyebrow"><?php echo ka( 'kon_eyebrow' ); ?></p>
       <h2><?php echo ka( 'kon_h2' ); ?></h2>
       <p><?php echo ka( 'kon_text' ); ?></p>
+      <p class="sum-contact kon-page-btns">
+        <a class="btn hero-main" href="<?php echo esc_attr( ka_mail_href() ); ?>"><?php echo ka_icon( 'mail' ); ?><span>E-Mail</span></a>
+        <a class="btn hero-main" href="<?php echo $sms; ?>"><?php echo ka_icon( 'whatsapp' ); ?><span>WhatsApp</span></a>
+      </p>
     </div>
     <form id="contact-form" method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
       <input type="hidden" name="action" value="ka_contact">
@@ -436,6 +514,16 @@ function ka_view_legal() {
     <?php
 	// Doppelte Überschrift vermeiden: Steht der Seitentitel schon am Anfang des Textes, wird er dort entfernt.
 	$content = apply_filters( 'the_content', get_the_content() );
+	// Impressum und Datenschutz kommen aus dem Theme (inc/legal/). Wer den Text lieber in der WordPress-Seite pflegt, setzt KA_LEGAL_BUNDLED in functions.php auf false; dann gilt der Seiteninhalt und der mitgelieferte Text greift nur bei leerer Seite.
+	if ( ( defined( 'KA_LEGAL_BUNDLED' ) && KA_LEGAL_BUNDLED ) || '' === trim( wp_strip_all_tags( $content ) ) ) {
+		$tl = mb_strtolower( get_the_title() );
+		$fn = false !== strpos( $tl, 'impressum' ) ? 'impressum' : ( false !== strpos( $tl, 'datenschutz' ) ? 'datenschutz' : '' );
+		$fp = $fn ? get_theme_file_path( 'inc/legal/' . $fn . '.html' ) : '';
+		if ( $fp && file_exists( $fp ) ) {
+			$content = (string) file_get_contents( $fp );
+			if ( ! ( defined( 'KA_DRAFT' ) && KA_DRAFT ) ) { $content = preg_replace( '/\s*\[[^\]\[]+\]/u', '', $content ); }
+		}
+	}
 	if ( preg_match( '#^\s*<h[1-4][^>]*>(.*?)</h[1-4]>#is', $content, $m ) && mb_strtolower( trim( wp_strip_all_tags( $m[1] ) ) ) === mb_strtolower( trim( get_the_title() ) ) ) {
 		$content = preg_replace( '#^\s*<h[1-4][^>]*>.*?</h[1-4]>#is', '', $content, 1 );
 	}
@@ -448,10 +536,14 @@ function ka_view_legal() {
 }
 
 /** Zeilenname der Preisliste: Erklärungen (Klammer am Ende, "innerhalb …") klein und grau darunter. */
-function ka_row_label( $s ) {
+function ka_row_label( $s, $after = '' ) {
+	/* Zusätze wie ", pro Bereich" oder "/ Masseter" erscheinen klein und grau unter dem Namen */
+	if ( preg_match( '/^(.*?)\s*,\s*(pro\b.*)$/u', $s, $m ) || preg_match( '/^(.*?)\s+\/\s+(Masseter)$/u', $s, $m ) ) {
+		return esc_html( $m[1] ) . $after . '<small class="ex">' . esc_html( $m[2] ) . '</small>';
+	}
 	if ( preg_match( '/^(.*?)\s+(innerhalb\b.*|im Abstand\b.*|\([^()]*\))$/u', $s, $m ) ) {
 		$ex = trim( $m[2], '() ' );
-		return esc_html( $m[1] ) . '<small class="ex">' . esc_html( $ex ) . '</small>';
+		return esc_html( $m[1] ) . $after . '<small class="ex">' . esc_html( $ex ) . '</small>';
 	}
-	return esc_html( $s );
+	return esc_html( $s ) . $after;
 }

@@ -1,0 +1,8 @@
+/* C: schräge Bänder */
+body{background:linear-gradient(180deg,#e9f0fa 0%,#f6f9fd 50%,#eaf1fa 100%)!important}
+.home-page .qk-sec{padding-bottom:2rem}
+.home-page .sum{clip-path:polygon(0 4.5vw,100% 0,100% 100%,0 100%);padding-top:calc(4.2rem + 4.5vw)!important;margin-top:-3vw!important}
+.home-page .sum-lei{background:#ffffff!important;margin-top:0!important}
+.home-page .sum-about{background:linear-gradient(180deg,#dbe6f6,#cfdcf2)!important;clip-path:polygon(0 0,100% 4.5vw,100% 100%,0 100%)}
+.home-page .sum-abl{background:#ffffff!important}
+.home-page .sum-kon{background:linear-gradient(150deg,#22366f 0%,#122a66 50%,#012265 100%)!important;clip-path:polygon(0 0,100% 4.5vw,100% 100%,0 100%)}

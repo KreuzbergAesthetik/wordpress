@@ -8,6 +8,7 @@ function ka_icon_paths() {
 	return array(
 		'bubble'    => 'M4 5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H10l-5 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z',
 		'talk'      => 'M3 5h11a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H8l-3 3v-3H3zM17 9h3a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-1v3l-3-3h-5',
+		'list'      => 'M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01',
 		'clipboard' => 'M9 4h6v3H9zM7 5H6a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-1M9 14l2 2 4-4',
 		'document'  => 'M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v5h5M12 18c-1.8-1.2-3-2.2-3-3.4a1.6 1.6 0 0 1 3-.7 1.6 1.6 0 0 1 3 .7c0 1.2-1.2 2.2-3 3.4z',
 		'shield'    => 'M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6zM9 12l2 2 4-4',
@@ -37,7 +38,18 @@ function ka_icon_paths() {
 function ka_icon( $name, $class = 'ico' ) {
 	$p = ka_icon_paths();
 	$d = isset( $p[ $name ] ) ? $p[ $name ] : $p['sparkle'];
-	return '<svg class="' . esc_attr( $class ) . '" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="' . esc_attr( $d ) . '"/></svg>';
+	$fillable = in_array( $name, array( 'star', 'heart', 'people', 'person', 'leaf', 'drop', 'sparkle', 'hourglass', 'bubble', 'shield' ), true );
+	$cls      = esc_attr( $class ) . ( $fillable ? ' fillable' : '' );
+	$inner    = '';
+	if ( 'shield' === $name ) {
+		// Schild mit Haken: Der Haken wird im gefüllten Teil weiß.
+		$body  = 'M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z';
+		$check = 'M9 12l2 2 4-4';
+		$inner = '<path d="' . $body . '"/><path class="fl" d="' . $body . '"/><path class="chk" d="' . $check . '"/><path class="chkw" d="' . $check . '"/>';
+	} else {
+		$inner = '<path d="' . esc_attr( $d ) . '"/>' . ( $fillable ? '<path class="fl" d="' . esc_attr( $d ) . '"/>' : '' );
+	}
+	return '<svg class="' . $cls . '" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' . $inner . '</svg>';
 }
 
 /** Icon-Name passend zu einem Begriff. */

@@ -6,6 +6,8 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 /* true = Entwurfsmodus: zeigt oben einen Hinweis und markiert offene [Stellen]. false = Live. */
 if ( ! defined( 'KA_DRAFT' ) ) { define( 'KA_DRAFT', false ); }
+// Impressum und Datenschutz aus dem Theme (inc/legal/) statt aus dem Seiteninhalt; false = Seiteninhalt hat Vorrang.
+if ( ! defined( 'KA_LEGAL_BUNDLED' ) ) { define( 'KA_LEGAL_BUNDLED', true ); }
 /* Empfänger der Kontaktformular-Nachrichten */
 if ( ! defined( 'KA_MAIL_TO' ) ) { define( 'KA_MAIL_TO', 'info@kreuzberg-aesthetik.de' ); }
 
@@ -25,11 +27,13 @@ add_action( 'after_setup_theme', function () {
 } );
 
 add_action( 'wp_enqueue_scripts', function () {
-	$v = wp_get_theme()->get( 'Version' );
-	wp_enqueue_style( 'ka-style', get_stylesheet_uri(), array(), $v );
-	wp_enqueue_script( 'ka-day-cycle', get_theme_file_uri( 'day-cycle.js' ), array(), $v, array( 'in_footer' => true, 'strategy' => 'defer' ) );
+	// Versionsnummer + Änderungszeit der Datei: Browser und Caches laden nach jedem Theme-Update garantiert die neuen Dateien.
+	$v  = wp_get_theme()->get( 'Version' );
+	$vf = function ( $f ) use ( $v ) { $p = get_theme_file_path( $f ); return $v . '.' . ( file_exists( $p ) ? filemtime( $p ) : '0' ); };
+	wp_enqueue_style( 'ka-style', get_stylesheet_uri(), array(), $vf( 'style.css' ) );
+	wp_enqueue_script( 'ka-day-cycle', get_theme_file_uri( 'day-cycle.js' ), array(), $vf( 'day-cycle.js' ), array( 'in_footer' => true, 'strategy' => 'defer' ) );
 	{
-		wp_enqueue_script( 'ka-script', get_theme_file_uri( 'script.js' ), array(), $v, array( 'in_footer' => true, 'strategy' => 'defer' ) );
+		wp_enqueue_script( 'ka-script', get_theme_file_uri( 'script.js' ), array(), $vf( 'script.js' ), array( 'in_footer' => true, 'strategy' => 'defer' ) );
 		wp_add_inline_script( 'ka-script', 'window.KA_DATA=' . wp_json_encode( ka_js_data(), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) . ';', 'before' );
 	}
 	// Standard-Block-Styles werden nicht gebraucht.
@@ -89,9 +93,19 @@ function ka_contact_handler() {
 	$subject = 'Terminanfrage über die Website';
 	$body    = "Name: $first $last\nE-Mail: $email\n\n$msg\n\nDie Person hat der Verarbeitung ihrer Angaben zur Beantwortung der Anfrage zugestimmt.";
 	$headers = array( 'Content-Type: text/plain; charset=UTF-8', 'Reply-To: ' . $first . ' ' . $last . ' <' . $email . '>' );
-	$ok = wp_mail( KA_MAIL_TO, $subject, $body, $headers );
+	$ok = wp_mail( ka_raw( 'email' ), $subject, $body, $headers );
 	wp_safe_redirect( add_query_arg( 'ka', $ok ? 'sent' : 'error', $back ) . '#kontakt' );
 	exit;
 }
 add_action( 'admin_post_nopriv_ka_contact', 'ka_contact_handler' );
 add_action( 'admin_post_ka_contact', 'ka_contact_handler' );
+
+
+/* Theme-Version sichtbar machen: oben in der schwarzen Admin-Leiste (nur für angemeldete Admins) und als Kommentar im Seitenquelltext. */
+add_action( 'admin_bar_menu', function ( $bar ) {
+	if ( ! current_user_can( 'edit_theme_options' ) ) { return; }
+	$bar->add_node( array( 'id' => 'ka-version', 'title' => 'Theme ' . esc_html( wp_get_theme()->get( 'Version' ) ), 'href' => admin_url( 'themes.php' ) ) );
+}, 100 );
+add_action( 'wp_footer', function () {
+	echo "\n<!-- Kreuzberg Ästhetik Theme " . esc_html( wp_get_theme()->get( 'Version' ) ) . " -->\n";
+}, 99 );
