@@ -279,7 +279,8 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
 /* Über mich: immer nur ein Wert offen – Öffnen eines Werts schließt die anderen */
 (function(){
   var rows=[].slice.call(document.querySelectorAll('.vlist .vrow'));
-  rows.forEach(function(r){r.addEventListener('toggle',function(){if(r.open)rows.forEach(function(o){if(o!==r&&o.open)o.open=false})})});
+  function fillIcon(r){var ic=r.querySelector('.vrow-ico svg.fillable');if(ic)ic.classList.add('fill-on')}
+  rows.forEach(function(r){if(r.open)fillIcon(r);r.addEventListener('toggle',function(){if(r.open){fillIcon(r);rows.forEach(function(o){if(o!==r&&o.open)o.open=false})}})});
 })();
 
 /* Knöpfe: gesamten Inhalt (Symbol + Text) in einen Rahmen packen, damit er beim Überfahren als Ganzes wächst */
@@ -388,8 +389,14 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
   var steps=[].slice.call(document.querySelectorAll('#ablauf .steps li,.sum-abl .steps li')),tick=false;
   function check(){
     tick=false;
-    var vh=window.innerHeight;
-    steps.forEach(function(li){var r=li.getBoundingClientRect(),line=vh*(li.closest('.sum-abl')?0.85:0.32);if(r.width)li.classList.toggle('st-hit',r.top+Math.min(40,r.height/2)<line)});
+    var vh=window.innerHeight,de=document.documentElement,maxS=Math.max(0,de.scrollHeight-vh),sy=window.pageYOffset||0;
+    steps.forEach(function(li){
+      var r=li.getBoundingClientRect();if(!r.width)return;
+      var idx=[].indexOf.call(li.parentNode.children,li),home=!!li.closest('.sum-abl');
+      /* jeder weitere Punkt braucht mehr Scrollweg; nie weiter, als das Seitenende erlaubt */
+      var cy=r.top+Math.min(40,r.height/2),lim=cy-(maxS-sy)+30,line=Math.max(vh*(home?0.85:0.32)-idx*(home?60:95),lim);
+      li.classList.toggle('st-hit',cy<line);
+    });
   }
   function req(){if(!tick){tick=true;requestAnimationFrame(check)}}
   window.addEventListener('scroll',req,{passive:true});window.addEventListener('resize',req);check();
@@ -415,9 +422,9 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
 
 /* Grüne Icons (Startbereich, Qualifikationen, Werte): jedes füllt sich ganz auf einmal, mit Scroll-Abstand nacheinander, und bleibt gefüllt */
 (function(){
-  var ic=[].slice.call(document.querySelectorAll('.hero-vals svg.fillable,.quals svg.fillable,.vlist svg.fillable')),tick=false;
+  var ic=[].slice.call(document.querySelectorAll('.hero-vals svg.fillable,.quals svg.fillable')),tick=false;
   if(!ic.length)return;
-  [].slice.call(document.querySelectorAll('.hero-vals,.quals,.vlist')).forEach(function(box){
+  [].slice.call(document.querySelectorAll('.hero-vals,.quals')).forEach(function(box){
     var k=0,hero=box.classList.contains('hero-vals');ic.forEach(function(el){if(box.contains(el)){if(hero)el._hi=k;else el._off=k*110;k++}});
   });
   function check(){

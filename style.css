@@ -3280,7 +3280,7 @@ html.pgt-spin::after{animation:pgtspin .4s cubic-bezier(.55,0,.25,1) forwards}
 #ablauf .steps li.same-day-step{outline:none!important}
 #ablauf .steps .sd-frame{position:absolute;z-index:0;border:1.5px dashed #2f7a46;border-radius:20px;pointer-events:none}
 #ablauf .same-day{display:block;box-sizing:border-box;max-width:36rem;margin:1.4rem auto 0!important;padding:.9rem 1.2rem!important;border:1.5px dashed #2f7a46;border-radius:20px;text-align:center}
-#ablauf .steps li::before{transition:background .22s ease!important}
+#ablauf .steps li::before{transition:background .6s ease!important}
 
 /* Rechtstexte: Zwischenüberschriften dezenter */
 .legal-card h2{font-size:1.45rem!important;line-height:1.3!important;margin:1.8rem 0 .6rem!important}
@@ -3310,7 +3310,7 @@ svg.fillable path.chkw{stroke:#fff;fill:none;clip-path:inset(0 0 calc(100% - var
 .sum-abl.sum-abl .steps.steps li::after{content:""!important;display:block!important;position:absolute!important;z-index:0;top:calc(50% - 1px)!important;width:3rem!important;height:2px!important;margin:0!important;background:#c5d1e3!important;border-radius:0!important;box-shadow:none!important}
 .sum-abl.sum-abl .steps.steps li:nth-child(odd)::after{right:-3rem!important;left:auto!important}
 .sum-abl.sum-abl .steps.steps li:nth-child(even)::after{left:-3rem!important;right:auto!important}
-.sum-abl.sum-abl .steps.steps li::before{content:""!important;display:block!important;position:absolute!important;top:calc(50% - 7px)!important;width:14px!important;height:14px!important;margin:0!important;box-sizing:border-box;border-radius:50%;background:#fff!important;border:2px solid #012265;z-index:2;font-size:0!important;transform:none!important;box-shadow:none!important;transition:background .22s ease}
+.sum-abl.sum-abl .steps.steps li::before{content:""!important;display:block!important;position:absolute!important;top:calc(50% - 7px)!important;width:14px!important;height:14px!important;margin:0!important;box-sizing:border-box;border-radius:50%;background:#fff!important;border:2px solid #012265;z-index:2;font-size:0!important;transform:none!important;box-shadow:none!important;transition:background .6s ease}
 .sum-abl.sum-abl .steps.steps li:nth-child(odd)::before{right:calc(-3rem - 7px)!important;left:auto!important}
 .sum-abl.sum-abl .steps.steps li:nth-child(even)::before{left:calc(-3rem - 7px)!important;right:auto!important}
 .sum-abl.sum-abl .steps.steps li.st-hit::before{background:#012265!important}
@@ -3405,3 +3405,15 @@ svg.fillable path.chkw{stroke:#fff;fill:none;clip-path:inset(0 0 calc(100% - var
 html.calm,html.calm body{scroll-behavior:auto!important}
 html.calm::before,html.calm::after{display:none!important}
 .calm .wmk .lg-f,.calm .tl .node .nf,.calm svg.fillable path{transition:none!important}
+
+/* i-Symbole: transparenter Hintergrund */
+.tinfo-btn{background:transparent!important}
+.tinfo-btn[aria-expanded=true],.tinfo-btn:hover{background:#004d17!important}
+
+/* Kopfleiste weiter oben, weniger Abstand zum Rand */
+body:not(.admin-bar) .mastnav{top:calc(5px + env(safe-area-inset-top,0px))!important}
+
+/* Pakete: Kasten wie bei den anderen Blöcken */
+.grp .subgrp:not(.has-h){background:#f2f6fc;border-radius:var(--r-small,12px);padding:.75rem 1rem .35rem;margin-top:.8rem}
+.grp .subgrp:not(.has-h) .pk-note{margin:0 0 .3rem!important}
+@media (max-width:700px){.grp .subgrp:not(.has-h){padding:.65rem .75rem .25rem;margin-inline:-.25rem}}

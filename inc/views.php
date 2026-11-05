@@ -378,7 +378,6 @@ function ka_view_services() {
           <?php if ( $g['desc'] ) : ?><p class="about-g"><?php echo ka_mark( esc_html( implode( ' ', $g['desc'] ) ) ); ?></p><?php endif; ?>
           <?php if ( $g['rows'] ) : ?>
           <?php
-          if ( 'Pakete' === $g['title'] ) : ?><p class="pk-note">Eine Auswahl:</p><?php endif;
           $blocks = array(); $cur = array( 'h' => '', 'rows' => array() );
           foreach ( $g['rows'] as $r ) {
           	if ( ! empty( $r[3] ) ) { if ( $cur['h'] || $cur['rows'] ) { $blocks[] = $cur; } $cur = array( 'h' => $r[3], 'rows' => array() ); continue; }
@@ -390,6 +389,7 @@ function ka_view_services() {
           <div class="subgrp<?php echo $bl['h'] ? ' has-h' : ''; ?>">
             <?php if ( $bl['h'] ) : ?><h4 class="subgrp-h"><?php echo esc_html( $bl['h'] ); ?><?php if ( $hinfo ) : ?><button type="button" class="tinfo-btn" aria-expanded="false" aria-label="Infos zu <?php echo esc_attr( $bl['h'] ); ?>">i</button><template class="tinfo-tpl"><?php echo ka_treat_box( $hinfo ); ?></template><?php endif; ?></h4>
             <?php endif; ?>
+            <?php if ( ! $bl['h'] && 'Pakete' === $g['title'] ) : ?><p class="pk-note">Eine Auswahl:</p><?php endif; ?>
             <table><tbody>
             <?php foreach ( $bl['rows'] as $r ) : $rinfo = $hinfo ? null : ka_treat_find( $r[0] ); ?>
             <tr<?php echo preg_match( '/^(jede\s+weitere|weitere)\b/iu', $r[0] ) ? ' class="row-sub"' : ''; ?>><td><?php echo ka_row_label( $r[0], $rinfo ? '<button type="button" class="tinfo-btn" aria-expanded="false" aria-label="Infos zu dieser Behandlung">i</button><template class="tinfo-tpl">' . ka_treat_box( $rinfo ) . '</template>' : '' ); ?></td><td class="pr<?php echo preg_match( '/\d/', $r[1] ) ? '' : ' pr-note'; ?>"><?php echo esc_html( $r[1] ); ?><?php echo $r[2] ? '<s>' . esc_html( $r[2] ) . '</s>' : ''; ?></td></tr>
