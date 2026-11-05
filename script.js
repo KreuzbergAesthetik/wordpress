@@ -167,7 +167,7 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
   function show(){if(!ready)return;var l=chat.lastElementChild;if(l)l.scrollIntoView({behavior:reduce?'auto':'smooth',block:'nearest'})}
   function manuel(html){var r=el('div','crow');r.appendChild(el('span','cav'));r.appendChild(el('div','cbub',html));chat.appendChild(r)}
   function me(t){var r=el('div','crow me');r.appendChild(el('div','cbub',t));r.appendChild(el('span','cav-you',IC.person||''));chat.appendChild(r)}
-  function chips(list){var c=el('div','cchips');list.forEach(function(it){var b=el('button','cchip'+(it.go?' go':''),(it.icon||'')+'<span>'+it.label+'</span>');b.type='button';b.addEventListener('click',function(){if(busy)return;ready=true;c.remove();me(it.label);show();it.fn()});c.appendChild(b)});chat.appendChild(c);show()}
+  function chips(list){var c=el('div','cchips');list.forEach(function(it){var b=el('button','cchip'+(it.go?' go':''),(it.icon||'')+'<span>'+it.label+'</span>');b.type='button';b.addEventListener('click',function(){if(busy)return;ready=true;c.remove();me(it.label);show();it.fn()});c.appendChild(b)});var bar=document.getElementById('chat-chips');if(bar){bar.appendChild(c);bar.scrollTop=0}else{chat.appendChild(c);show()}}
   function say(parts,done){busy=true;var i=0;(function next(){
     if(i>=parts.length){busy=false;done&&done();return}
     var t=el('div','crow');t.appendChild(el('span','cav ghost'));t.appendChild(el('div','cbub ctyping','<i></i><i></i><i></i>'));chat.appendChild(t);show();

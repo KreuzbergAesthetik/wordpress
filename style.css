@@ -3788,3 +3788,22 @@ html:not(.calm) #leistungen details.all>summary:hover::before,html:not(.calm) #l
 .step-card .sl-k{opacity:0}
 .step-card:hover .sl-a,.step-card:focus-within .sl-a{opacity:0}
 .step-card:hover .sl-k,.step-card:focus-within .sl-k{opacity:1}
+
+/* Chat: Vorschläge stehen in der Tippleiste, weißes Logo als Wasserzeichen hinter dem Chat, Senden-Pfeil */
+.chat-window .chat{position:relative;isolation:isolate}
+.chat-window .chat::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(255,255,255,.6);-webkit-mask:url(assets/logo-light.png) center/min(72%,340px) no-repeat;mask:url(assets/logo-light.png) center/min(72%,340px) no-repeat;pointer-events:none}
+.chat-input{align-items:flex-end}
+.chat-chips{flex:1;min-width:0;display:flex;align-items:center;padding:.5rem .6rem;border-radius:20px;background:#eef3fb;max-height:280px;overflow:auto}
+.chat-ph{padding:.2rem .4rem;color:#8a9ab5;font-size:.9rem}
+.chat-chips:has(.cchips) .chat-ph{display:none}
+.chat-chips .cchips{padding:0!important;margin:0!important;justify-content:flex-start!important;gap:.4rem;animation:none}
+.chat-chips .cchip{font-size:.8rem;padding:.5rem .8rem;min-height:36px;background:#fff!important}
+.chat-send{margin-bottom:.2rem}
+.chat-chips .cchip.go{background:#012265!important;color:#fff!important;border-color:#012265!important}
+.chat-chips .cchip.go .ico{color:#fff!important}
+
+/* Über mich: „Meine Philosophie“-Karte mit Schatten, beim Überfahren dunkler; die Werte-Tabelle bekommt beim Überfahren einen Halo */
+html:not(.never) .phil-box{box-shadow:var(--sh-ar)!important;transition:box-shadow .3s ease!important}
+html:not(.never) .phil-box:hover{box-shadow:var(--sh-ar-h)!important}
+html:not(.never) .vlist{transition:box-shadow .3s ease!important}
+html:not(.never) .vlist:hover{box-shadow:0 0 30px 6px rgba(1,34,101,.32)!important}
