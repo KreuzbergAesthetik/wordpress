@@ -2,7 +2,7 @@
 Theme Name: Kreuzberg Ästhetik
 Description: Website der Privatpraxis Kreuzberg Ästhetik
 Author: Kreuzberg Ästhetik
-Version: 141
+Version: 142
 Requires at least: 6.0
 Requires PHP: 7.4
 Text Domain: kreuzberg-aesthetik
@@ -3422,3 +3422,21 @@ body:not(.admin-bar) .mastnav{top:calc(5px + env(safe-area-inset-top,0px))!impor
 .contact{grid-template-columns:1fr!important;max-width:44rem!important;gap:2rem!important}
 .contact .txt{text-align:center}
 @media (max-width:700px){.contact{gap:1.6rem!important}}
+
+/* Ablaufseite, alle Breiten: Leiste links, alle Karten rechts davon */
+@media (min-width:701px){
+ #ablauf .steps{max-width:46rem!important}
+ #ablauf .steps::before{left:15px!important;margin-left:0!important}
+ #ablauf .steps li,#ablauf .steps li:nth-child(odd),#ablauf .steps li:nth-child(even){width:calc(100% - 2.6rem)!important;margin:0 0 1.2rem 2.6rem!important}
+ #ablauf .steps li:last-child{margin-bottom:0!important}
+ #ablauf .steps li::after,#ablauf .steps li:nth-child(odd)::after,#ablauf .steps li:nth-child(even)::after{left:-1.6rem!important;right:auto!important;width:1.6rem!important;top:1.7rem!important}
+ #ablauf .steps li::before,#ablauf .steps li:nth-child(odd)::before,#ablauf .steps li:nth-child(even)::before{left:calc(-2.6rem + 8px)!important;right:auto!important;top:calc(1.7rem - 7px)!important}
+}
+
+/* Startseite "Dein Weg zur Behandlung": Leiste links, alle Karten rechts davon (alle Breiten) */
+.sum-abl.sum-abl .steps.steps{max-width:46rem!important}
+.sum-abl.sum-abl .steps.steps::before{left:15px!important;margin-left:0!important}
+.sum-abl.sum-abl .steps.steps li,.sum-abl.sum-abl .steps.steps li:nth-child(odd),.sum-abl.sum-abl .steps.steps li:nth-child(even){width:calc(100% - 2.6rem)!important;margin:0 0 .6rem 2.6rem!important}
+.sum-abl.sum-abl .steps.steps li:last-child{margin-bottom:0!important}
+.sum-abl.sum-abl .steps.steps li::after,.sum-abl.sum-abl .steps.steps li:nth-child(odd)::after,.sum-abl.sum-abl .steps.steps li:nth-child(even)::after{left:calc(-1.6rem + 6px)!important;right:auto!important;width:calc(1.6rem - 7px)!important}
+.sum-abl.sum-abl .steps.steps li::before,.sum-abl.sum-abl .steps.steps li:nth-child(odd)::before,.sum-abl.sum-abl .steps.steps li:nth-child(even)::before{left:calc(-2.6rem + 8px)!important;right:auto!important}
