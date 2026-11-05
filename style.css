@@ -3781,3 +3781,10 @@ html:not(.calm) #leistungen details.all>summary:hover::before,html:not(.calm) #l
 /* Impressum und Datenschutz: Karte schmaler und mittig */
 .kview .legal-wrap{max-width:640px!important;margin-left:auto!important;margin-right:auto!important}
 .kview .legal-wrap .legal-card{margin-left:auto;margin-right:auto}
+
+/* Anfrage-Karte: beim Überfahren wird aus „Anfrage“ das Wort „Kontakt“ */
+.step-card .sl-t{display:inline-grid}
+.step-card .sl-a,.step-card .sl-k{grid-area:1/1;transition:opacity .25s ease}
+.step-card .sl-k{opacity:0}
+.step-card:hover .sl-a,.step-card:focus-within .sl-a{opacity:0}
+.step-card:hover .sl-k,.step-card:focus-within .sl-k{opacity:1}

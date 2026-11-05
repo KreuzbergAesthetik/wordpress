@@ -287,7 +287,7 @@ function ka_view_home() {
     </div>
     <ol class="steps">
       <?php $si = array( 'bubble', 'talk', 'clipboard', 'document' ); foreach ( $steps as $i => $s ) : ?>
-      <li<?php echo 0 === $i ? ' class="step-card"' : ''; ?>><span class="sico"><?php echo ka_icon( $si[ $i % count( $si ) ] ); ?></span><h3><?php $t = esc_html( trim( preg_replace( '/^.*&\s*/u', '', $s[0] ) ) ); echo ( 0 === $i ) ? '<a class="step-link" href="' . esc_url( ka_url( 'kontakt' ) ) . '"><span class="sl-t">' . $t . '</span> <span class="cta-arrow" aria-hidden="true">&rarr;</span></a>' : $t; ?></h3><p><?php echo esc_html( $s[1] ); ?></p></li>
+      <li<?php echo 0 === $i ? ' class="step-card"' : ''; ?>><span class="sico"><?php echo ka_icon( $si[ $i % count( $si ) ] ); ?></span><h3><?php $t = esc_html( trim( preg_replace( '/^.*&\s*/u', '', $s[0] ) ) ); echo ( 0 === $i ) ? '<a class="step-link" href="' . esc_url( ka_url( 'kontakt' ) ) . '"><span class="sl-t"><span class="sl-a">' . $t . '</span><span class="sl-k" aria-hidden="true">Kontakt</span></span> <span class="cta-arrow" aria-hidden="true">&rarr;</span></a>' : $t; ?></h3><p><?php echo esc_html( $s[1] ); ?></p></li>
       <?php endforeach; ?>
     </ol>
     <p class="sum-more"><a class="btn deep" href="<?php echo esc_url( ka_url( 'ablauf' ) ); ?>">Ablauf und häufige Fragen <span aria-hidden="true">&rarr;</span></a></p>
@@ -444,7 +444,7 @@ function ka_view_process() {
     </div>
     <ol class="steps">
       <?php $si = array( 'bubble', 'talk', 'clipboard', 'document' ); foreach ( ka_steps() as $i => $s ) : ?>
-      <li class="<?php echo ( 1 === $i || 2 === $i ) ? 'same-day-step' : ( 0 === $i ? 'step-card' : '' ); ?>"><span class="sico"><?php echo ka_icon( $si[ $i % count( $si ) ] ); ?></span><h3><?php echo ( 0 === $i ) ? '<a class="step-link" href="' . esc_url( ka_url( 'kontakt' ) ) . '"><span class="sl-t">' . esc_html( $s[0] ) . '</span></a>' : esc_html( $s[0] ); ?></h3><?php if ( 0 === $i ) : ?><a class="step-cta" href="<?php echo esc_url( ka_url( 'kontakt' ) ); ?>">Kontakt <span class="cta-arrow" aria-hidden="true">&rarr;</span></a><?php endif; ?><p><?php echo esc_html( $s[1] ); ?></p><?php if ( 1 === $i ) : ?><button type="button" class="tinfo-btn sd-i" aria-expanded="false" aria-label="Hinweis zu Erstgespräch und Behandlung">i</button><template class="tinfo-tpl"><div class="tinfo-in"><p class="tinfo-what"><?php echo ka( 'abl_same_day' ); ?></p></div></template><?php endif; ?></li>
+      <li class="<?php echo ( 1 === $i || 2 === $i ) ? 'same-day-step' : ( 0 === $i ? 'step-card' : '' ); ?>"><span class="sico"><?php echo ka_icon( $si[ $i % count( $si ) ] ); ?></span><h3><?php echo ( 0 === $i ) ? '<a class="step-link" href="' . esc_url( ka_url( 'kontakt' ) ) . '"><span class="sl-t"><span class="sl-a">' . esc_html( $s[0] ) . '</span><span class="sl-k" aria-hidden="true">Kontakt</span></span></a>' : esc_html( $s[0] ); ?></h3><?php if ( 0 === $i ) : ?><a class="step-cta" href="<?php echo esc_url( ka_url( 'kontakt' ) ); ?>">Kontakt <span class="cta-arrow" aria-hidden="true">&rarr;</span></a><?php endif; ?><p><?php echo esc_html( $s[1] ); ?></p><?php if ( 1 === $i ) : ?><button type="button" class="tinfo-btn sd-i" aria-expanded="false" aria-label="Hinweis zu Erstgespräch und Behandlung">i</button><template class="tinfo-tpl"><div class="tinfo-in"><p class="tinfo-what"><?php echo ka( 'abl_same_day' ); ?></p></div></template><?php endif; ?></li>
       <?php endforeach; ?>
     </ol>
     <div class="check">
