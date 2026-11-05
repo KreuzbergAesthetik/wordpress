@@ -3570,3 +3570,14 @@ html:not(.calm) .qkc:hover .qkm,html:not(.calm) .qkc:focus-visible .qkm{transfor
 
 /* v153+: Karten heben sich beim Überfahren ganz leicht (poppen), zusätzlich zum dunkleren Schatten */
 html:not(.calm) article.grp:hover,html:not(.calm) .lei-col:hover,html:not(.calm) .check:hover,html:not(.calm) .faq details:hover,html:not(.calm) .tzc:hover{transform:translateY(-3px)!important}
+
+/* v153+: Info-„i“ wird beim Überfahren etwas größer, grün gefüllt mit weißem i */
+.tinfo-btn{transition:background .2s,color .2s,transform .25s cubic-bezier(.25,.8,.35,1),box-shadow .25s!important}
+html:not(.calm) .tinfo-btn:hover,html:not(.calm) .tinfo-btn:focus-visible{transform:scale(1.18)!important}
+.tinfo-btn:hover,.tinfo-btn:focus-visible,.tinfo-btn[aria-expanded=true]{background:#004d17!important;color:#fff!important;border-color:#004d17!important}
+.tinfo-btn:hover{box-shadow:0 4px 10px rgba(0,77,23,.35)}
+
+/* v153+: „Alle Behandlungen“ – beim Überfahren grün und etwas größer */
+#leistungen details.all>summary{transition:color .25s ease,transform .3s cubic-bezier(.25,.8,.35,1)!important}
+#leistungen details.all>summary:hover,#leistungen details.all>summary:focus-visible{color:#004d17!important}
+html:not(.calm) #leistungen details.all>summary:hover,html:not(.calm) #leistungen details.all>summary:focus-visible{transform:scale(1.0667)}
