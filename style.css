@@ -3365,3 +3365,32 @@ svg.fillable path.chkw{stroke:#fff;fill:none;clip-path:inset(0 0 calc(100% - var
  .sum-abl.sum-abl .steps.steps li:nth-child(odd)::after{right:calc(-1.2rem + 7px)!important;width:calc(1.2rem - 7px)!important}
  .sum-abl.sum-abl .steps.steps li:nth-child(even)::after{left:calc(-1.2rem + 7px)!important;width:calc(1.2rem - 7px)!important}
 }
+
+/* Startseite Ablauf: Karten noch näher zusammen (abwechselnde Seiten dürfen sich in der Höhe etwas überlappen) */
+.sum-abl.sum-abl .steps.steps li,.sum-abl.sum-abl .steps.steps li:nth-child(odd),.sum-abl.sum-abl .steps.steps li:nth-child(even){margin-bottom:-.7rem!important}
+.sum-abl.sum-abl .steps.steps li:last-child{margin-bottom:0!important}
+
+/* Startseite Ablauf: Kreise exakt mittig auf der Leiste (1 px Kartenrand ausgleichen) */
+@media (min-width:701px){
+ .sum-abl.sum-abl .steps.steps li:nth-child(odd)::before{right:calc(-2rem - 8px)!important}
+ .sum-abl.sum-abl .steps.steps li:nth-child(even)::before{left:calc(-2rem - 8px)!important}
+ .sum-abl.sum-abl .steps.steps li:nth-child(odd)::after{right:calc(-2rem + 6px)!important}
+ .sum-abl.sum-abl .steps.steps li:nth-child(even)::after{left:calc(-2rem + 6px)!important}
+}
+@media (max-width:700px){
+ .sum-abl.sum-abl .steps.steps li:nth-child(odd)::before{right:calc(-1.2rem - 8px)!important}
+ .sum-abl.sum-abl .steps.steps li:nth-child(even)::before{left:calc(-1.2rem - 8px)!important}
+ .sum-abl.sum-abl .steps.steps li:nth-child(odd)::after{right:calc(-1.2rem + 6px)!important}
+ .sum-abl.sum-abl .steps.steps li:nth-child(even)::after{left:calc(-1.2rem + 6px)!important}
+}
+
+/* Ablaufseite: Kreise ebenfalls exakt mittig auf der Leiste */
+@media (min-width:701px){
+ #ablauf .steps li:nth-child(odd)::before{right:calc(-3rem - 8px)}
+ #ablauf .steps li:nth-child(even)::before{left:calc(-3rem - 8px)}
+ #ablauf .steps li:nth-child(odd)::after{right:calc(-3rem + 1px)}
+ #ablauf .steps li:nth-child(even)::after{left:calc(-3rem + 1px)}
+}
+@media (max-width:700px){
+ #ablauf .steps li::before,#ablauf .steps li:nth-child(odd)::before,#ablauf .steps li:nth-child(even)::before{left:calc(-2.6rem + 8px)}
+}
