@@ -235,13 +235,13 @@ function ka_view_home() {
       <h2 id="sum-lei-h"><?php echo ka( 'lei_h2' ); ?></h2>
     </div>
     <div class="lei-two">
-      <div class="lei-col">
+      <div class="lei-col glow">
         <span class="lei-ico"><?php echo ka_icon( 'document' ); ?></span>
         <h3>Behandlungsübersicht</h3>
         <p><?php echo ka( 'home_lei_intro' ); ?></p>
         <a class="btn deep" href="<?php echo esc_url( ka_url( 'leistungen' ) ); ?>"><?php echo ka_icon( 'list' ); ?>Zur Liste <span aria-hidden="true">&rarr;</span></a>
       </div>
-      <div class="lei-col">
+      <div class="lei-col glow">
         <span class="lei-ico"><?php echo ka_icon( 'bubble' ); ?></span>
         <h3>Unsicher?</h3>
         <p>Lass Dich im interaktiven Chat beraten: ein paar Antworten antippen und Du siehst, was zu Dir passen könnte.</p>
