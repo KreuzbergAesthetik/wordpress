@@ -3513,3 +3513,14 @@ html.calm,html.calm *,html.calm *::before,html.calm *::after{animation:none!impo
 @media (max-width:700px){
  .hero-v5 .hero-portrait::after{background:linear-gradient(180deg,rgba(232,238,250,0) 52%,rgba(232,238,250,.55) 80%,rgba(232,238,250,.85) 100%)}
 }
+
+/* v153+: E-Mail/WhatsApp-Knöpfe (Startbereich, Kontaktseite) – Rand bleibt beim Überfahren, Farben tauschen */
+.hero-v5 .hero-pills .btn.hero-main,.hero-v5 .hero-pills .btn.hero-main+.btn.hero-main,.kon-page-btns .btn.hero-main{border:1.5px solid #012265!important;transition:background-color .25s ease,color .25s ease,transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .25s ease!important}
+.hero-v5 .hero-pills .btn.hero-main:first-child:hover,.hero-v5 .hero-pills .btn.hero-main:first-child:focus-visible,.kon-page-btns .btn.hero-main:first-child:hover,.kon-page-btns .btn.hero-main:first-child:focus-visible{background:#fff!important;color:#012265!important;border-color:#012265!important}
+.hero-v5 .hero-pills .btn.hero-main+.btn.hero-main:hover,.hero-v5 .hero-pills .btn.hero-main+.btn.hero-main:focus-visible,.kon-page-btns .btn.hero-main:last-child:hover,.kon-page-btns .btn.hero-main:last-child:focus-visible{background:#012265!important;color:#fff!important;border-color:#012265!important}
+.hero-v5 .hero-pills .btn.hero-main:first-child:hover .ico,.kon-page-btns .btn.hero-main:first-child:hover .ico{color:#004d17!important}
+.hero-v5 .hero-pills .btn.hero-main+.btn.hero-main:hover .ico,.kon-page-btns .btn.hero-main:last-child:hover .ico{color:#9fcaa9!important}
+
+/* Kopfleiste: Links werden beim Überfahren grün und unterstrichen */
+.mast .mastnav .nl a:hover,.mast .mastnav .nl a:focus-visible{color:#004d17!important;opacity:1!important;text-decoration:underline!important;text-decoration-thickness:1.5px;text-underline-offset:5px}
+:root[data-theme="dark"] .mast .mastnav .nl a:hover{color:#9fcaa9!important}
