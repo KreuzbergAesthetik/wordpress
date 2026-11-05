@@ -2,7 +2,7 @@
 Theme Name: Kreuzberg Ästhetik
 Description: Website der Privatpraxis Kreuzberg Ästhetik
 Author: Kreuzberg Ästhetik
-Version: 156
+Version: 157
 Requires at least: 6.0
 Requires PHP: 7.4
 Text Domain: kreuzberg-aesthetik
@@ -3930,3 +3930,7 @@ html:not(.calm) .chat-book:hover,html:not(.calm) .chat-book:focus-visible{transf
 .chat-chips .cchip{background:#fff!important}
 .chat-chips .cchip:hover{background:#eef3fb!important}
 .chat-chips .cchip.go{background:#012265!important}
+
+/* Chat: Hintergrund zart grau, Wasserzeichen weiß */
+.chat-window .chat{background:linear-gradient(180deg,#f3f5f8,#eceff4)!important}
+.chat-window .chat::before{background:#fff!important}
