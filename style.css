@@ -3567,3 +3567,6 @@ html:not(.calm) .qkc:hover .qkm,html:not(.calm) .qkc:focus-visible .qkm{transfor
 .faq details,.tzc,.chat-help,.phil-box,.vlist{box-shadow:var(--sh-card)!important}
 .qkc:hover,.qkc:focus-visible,.lei-col:hover,.sum-abl .steps li:hover,.steps li:hover,article.grp:hover,.check:hover,.kview form:hover,article.legal-card:hover,.faq details:hover,.tzc:hover,.chat-help:hover,.phil-box:hover,.vlist:hover,.lon-box:hover{box-shadow:var(--sh-card-h)!important}
 .qkc,.lei-col,.steps li,article.grp,.check,.faq details,.tzc,.chat-help,.phil-box,.vlist,.lon-box{transition:box-shadow .3s ease,transform .25s ease,background .25s ease!important}
+
+/* v153+: Karten heben sich beim Überfahren ganz leicht (poppen), zusätzlich zum dunkleren Schatten */
+html:not(.calm) article.grp:hover,html:not(.calm) .lei-col:hover,html:not(.calm) .check:hover,html:not(.calm) .faq details:hover,html:not(.calm) .tzc:hover{transform:translateY(-3px)!important}
