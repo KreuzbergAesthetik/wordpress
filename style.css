@@ -3832,3 +3832,11 @@ html:not(.never) .kview form#contact-form:hover{box-shadow:var(--sh-ar-h)!import
 
 /* Kontaktseite: Sanduhr-Trenner zwischen den Knöpfen und dem Formular */
 .contact .contact-div{width:100%}
+
+/* Fußzeile: setzt das dunkelblaue Kontaktband fort – dunkelblau, Schrift und Logo weiß */
+footer{background:#012265!important;color:#fff!important;border-top:0!important;box-shadow:none!important;margin-top:0!important}
+footer .wrap,footer a,footer .ft3,footer .ft-l,footer .ft-r{color:#fff!important}
+footer .footer-logo,footer .ft-home .logo-img{background-image:none!important;background-color:#fff!important;-webkit-mask:url(assets/logo-light.png) center/contain no-repeat!important;mask:url(assets/logo-light.png) center/contain no-repeat!important}
+footer .ft-l,footer .ft-r{text-decoration-color:rgba(255,255,255,.6)}
+:root[data-theme="dark"] footer{background:#012265!important}
+:root[data-theme="dark"] footer .wrap,:root[data-theme="dark"] footer a{color:#fff!important}
