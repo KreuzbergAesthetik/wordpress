@@ -31,7 +31,7 @@ Wenn Du mir schreibst, verarbeite ich Deine Angaben, um Deine Anfrage zu beantwo
 
 Bitte schicke in der ersten Nachricht keine Fotos und keine Gesundheitsdaten.
 
-Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen auf Deine Anfrage) und, soweit Du eingewilligt hast, Art. 6 Abs. 1 lit. a DSGVO. Teile Du mir selbst Gesundheitsdaten mit, ist Rechtsgrundlage Art. 9 Abs. 2 lit. a DSGVO (Deine ausdrückliche Einwilligung).
+Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen auf Deine Anfrage) und, soweit Du eingewilligt hast, Art. 6 Abs. 1 lit. a DSGVO. Wenn Du mir von Dir aus Gesundheitsdaten mitteilst, ist die Rechtsgrundlage Art. 9 Abs. 2 lit. a DSGVO (Deine ausdrückliche Einwilligung).
 
 Ich lösche Deine Anfrage, sobald sie erledigt ist und keine gesetzliche Aufbewahrungspflicht besteht. Kommt es zu einer Behandlung, gelten die Aufbewahrungsfristen für Patientenunterlagen.
 
