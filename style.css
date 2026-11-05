@@ -3918,3 +3918,12 @@ html:not(.never) .chat-window:hover{box-shadow:0 0 38px 5px rgba(0,77,23,.45),0 
 .chat-book .ico{width:17px;height:17px;color:#fff}
 html:not(.calm) .chat-book:hover,html:not(.calm) .chat-book:focus-visible{transform:scale(1.04)}
 .chat-book:hover{box-shadow:0 4px 12px rgba(0,77,23,.5)}
+
+/* Chat: Knöpfe in der Antwort („E-Mail“, „WhatsApp“) wieder gut lesbar; Tippleiste mit weißem Hintergrund */
+.chat-window .crow:not(.me) .cbub .cbtn,.chat-window .crow:not(.me) .cbub .cbtn *{color:#fff!important}
+.chat-window .crow:not(.me) .cbub .cbtn-mail,.chat-window .crow:not(.me) .cbub .cbtn-mail *{background:transparent;color:#fff!important}
+.chat-window .cbtn-mail{background:#004d17!important;border:1px solid #004d17!important}
+.chat-window .crow:not(.me) .cbub .cbtn-wa,.chat-window .crow:not(.me) .cbub .cbtn-wa *{color:#004d17!important}
+.chat-window .cbtn-wa{background:#fff!important;border:1px solid #004d17!important}
+.chat-window .cbtn-wa .ico{color:#004d17!important}
+.chat-chips{background:#fff!important}
