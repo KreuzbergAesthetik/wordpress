@@ -6,6 +6,8 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 /* true = Entwurfsmodus: zeigt oben einen Hinweis und markiert offene [Stellen]. false = Live. */
 if ( ! defined( 'KA_DRAFT' ) ) { define( 'KA_DRAFT', false ); }
+// Impressum und Datenschutz aus dem Theme (inc/legal/) statt aus dem Seiteninhalt; false = Seiteninhalt hat Vorrang.
+if ( ! defined( 'KA_LEGAL_BUNDLED' ) ) { define( 'KA_LEGAL_BUNDLED', true ); }
 /* Empfänger der Kontaktformular-Nachrichten */
 if ( ! defined( 'KA_MAIL_TO' ) ) { define( 'KA_MAIL_TO', 'info@kreuzberg-aesthetik.de' ); }
 

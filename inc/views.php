@@ -514,8 +514,8 @@ function ka_view_legal() {
     <?php
 	// Doppelte Überschrift vermeiden: Steht der Seitentitel schon am Anfang des Textes, wird er dort entfernt.
 	$content = apply_filters( 'the_content', get_the_content() );
-	// Ist die WordPress-Seite leer, erscheint der mitgelieferte Text (inc/legal/). Eigene Seiteninhalte haben immer Vorrang.
-	if ( '' === trim( wp_strip_all_tags( $content ) ) ) {
+	// Impressum und Datenschutz kommen aus dem Theme (inc/legal/). Wer den Text lieber in der WordPress-Seite pflegt, setzt KA_LEGAL_BUNDLED in functions.php auf false; dann gilt der Seiteninhalt und der mitgelieferte Text greift nur bei leerer Seite.
+	if ( ( defined( 'KA_LEGAL_BUNDLED' ) && KA_LEGAL_BUNDLED ) || '' === trim( wp_strip_all_tags( $content ) ) ) {
 		$tl = mb_strtolower( get_the_title() );
 		$fn = false !== strpos( $tl, 'impressum' ) ? 'impressum' : ( false !== strpos( $tl, 'datenschutz' ) ? 'datenschutz' : '' );
 		$fp = $fn ? get_theme_file_path( 'inc/legal/' . $fn . '.html' ) : '';
