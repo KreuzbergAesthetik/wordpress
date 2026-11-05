@@ -433,10 +433,9 @@ function ka_view_process() {
     </div>
     <ol class="steps">
       <?php $si = array( 'bubble', 'talk', 'clipboard', 'document' ); foreach ( ka_steps() as $i => $s ) : ?>
-      <li<?php echo ( 1 === $i || 2 === $i ) ? ' class="same-day-step"' : ''; ?>><span class="sico"><?php echo ka_icon( $si[ $i % count( $si ) ] ); ?></span><h3><?php echo str_replace( ' &amp; ', ' &amp;<br>', esc_html( $s[0] ) ); ?></h3><p><?php echo esc_html( $s[1] ); ?></p></li>
+      <li<?php echo ( 1 === $i || 2 === $i ) ? ' class="same-day-step"' : ''; ?>><span class="sico"><?php echo ka_icon( $si[ $i % count( $si ) ] ); ?></span><h3><?php echo ( 2 === $i ) ? esc_html( $s[0] ) : str_replace( ' &amp; ', ' &amp;<br>', esc_html( $s[0] ) ); ?></h3><p><?php echo esc_html( $s[1] ); ?></p><?php if ( 1 === $i ) : ?><button type="button" class="tinfo-btn sd-i" aria-expanded="false" aria-label="Hinweis zu Erstgespräch und Behandlung">i</button><template class="tinfo-tpl"><div class="tinfo-in"><p class="tinfo-what"><?php echo ka( 'abl_same_day' ); ?></p></div></template><?php endif; ?></li>
       <?php endforeach; ?>
     </ol>
-    <p class="same-day"><span class="sd-mark" aria-hidden="true"></span><?php echo ka( 'abl_same_day' ); ?></p>
     <div class="check">
       <h3><?php echo ka( 'check_h3' ); ?></h3>
       <p><?php echo ka( 'check_intro' ); ?></p>
