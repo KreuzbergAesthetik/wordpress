@@ -3807,3 +3807,6 @@ html:not(.never) .phil-box{box-shadow:var(--sh-ar)!important;transition:box-shad
 html:not(.never) .phil-box:hover{box-shadow:var(--sh-ar-h)!important}
 html:not(.never) .vlist{transition:box-shadow .3s ease!important}
 html:not(.never) .vlist:hover{box-shadow:0 0 30px 6px rgba(1,34,101,.32)!important}
+
+/* Ablaufseite: Sanduhr-Trenner zwischen Schritten und Checkliste */
+.step-check-div{margin:2.2rem auto 0}
