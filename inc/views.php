@@ -131,7 +131,7 @@ function ka_contact_band( $with_next = true ) {
   <span class="kon-hg" aria-hidden="true"><span class="hgi hg-top"></span><span class="hgi hg-bot"></span></span>
   <div class="wrap">
     <div class="intro">
-      <p class="eyebrow"><?php echo ka( 'kon_eyebrow' ); ?></p>
+      <p class="eyebrow"><a class="eyebrow-link" href="<?php echo esc_url( ka_url( 'kontakt' ) ); ?>"><?php echo ka( 'kon_eyebrow' ); ?></a></p>
       <?php if ( 'about' === $view && '' !== ka_raw( 'about_invite' ) ) : ?>
       <h2 id="sum-kon-h" class="kon-invite"><?php echo ka( 'about_invite' ); ?></h2>
       <?php else : ?>

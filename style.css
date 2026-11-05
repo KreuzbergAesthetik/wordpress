@@ -3840,3 +3840,12 @@ footer .footer-logo,footer .ft-home .logo-img{background-image:none!important;ba
 footer .ft-l,footer .ft-r{text-decoration-color:rgba(255,255,255,.6)}
 :root[data-theme="dark"] footer{background:#012265!important}
 :root[data-theme="dark"] footer .wrap,:root[data-theme="dark"] footer a{color:#fff!important}
+
+/* Kontaktband: grüne Beschriftung „Kontakt“ führt zur Kontaktseite */
+.sum-kon .eyebrow .eyebrow-link{color:inherit!important;text-decoration:none;display:inline-block;transition:transform .3s cubic-bezier(.25,.8,.35,1)}
+html:not(.calm) .sum-kon .eyebrow .eyebrow-link:hover,html:not(.calm) .sum-kon .eyebrow .eyebrow-link:focus-visible{transform:scale(1.06)}
+.sum-kon .eyebrow{cursor:pointer}
+
+/* Fußzeile nicht mehr als eigene Leiste erkennbar: Kontaktband läuft senkrecht in exakt dieselbe Farbe aus */
+section.sum.sum-kon{background:linear-gradient(180deg,#223872 0%,#10296b 50%,#012265 100%)!important}
+footer{background:#012265!important;margin-top:0!important}
