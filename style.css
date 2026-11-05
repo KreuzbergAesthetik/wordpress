@@ -2,7 +2,7 @@
 Theme Name: Kreuzberg Ästhetik
 Description: Website der Privatpraxis Kreuzberg Ästhetik
 Author: Kreuzberg Ästhetik
-Version: 143
+Version: 144
 Requires at least: 6.0
 Requires PHP: 7.4
 Text Domain: kreuzberg-aesthetik
@@ -3444,4 +3444,15 @@ body:not(.admin-bar) .mastnav{top:calc(5px + env(safe-area-inset-top,0px))!impor
 /* Ablauf-Punkte am Handy: schneller füllen */
 @media (max-width:700px){
  #ablauf .steps li::before,.sum-abl.sum-abl .steps.steps li::before{transition:background .3s ease!important}
+}
+
+/* Behandlungen: auch am Desktop als Aufklapp-Karten (eine offen, erste vorgeöffnet) */
+@media (min-width:701px){
+ #leistungen .groups:not(.searching) .grp:not(.open)>*:not(.tag):not(h3){display:none!important}
+ #leistungen .grp h3{position:relative;cursor:pointer;padding-right:2rem;margin-bottom:0!important;-webkit-tap-highlight-color:transparent}
+ #leistungen .grp h3::after{content:"";position:absolute;right:.3rem;top:50%;width:11px;height:11px;margin-top:-7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);opacity:.55;transition:transform .25s}
+ #leistungen .grp.open h3::after,#leistungen .groups.searching .grp h3::after{transform:rotate(-135deg);margin-top:-2px}
+ #leistungen .grp.open h3,#leistungen .groups.searching .grp h3{margin-bottom:.6rem!important}
+ #leistungen .grp:not(.open){padding-bottom:1.1rem!important}
+ #leistungen .groups{align-items:start!important}
 }
