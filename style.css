@@ -3560,18 +3560,21 @@ html:not(.calm) .tinfo-btn:hover,html:not(.calm) .tinfo-btn:focus-visible{transf
 .next-link a:hover,.next-link a:focus-visible{color:#012265!important;border:0!important}
 .next-link .nl-pre{font-weight:500;color:#012265!important}
 :root[data-theme="dark"] .next-link .nl-pre{color:#dce8f8!important}
-.next-link .nl-t{display:inline-block;margin-left:.3em;color:#012265!important;border-bottom:1.5px solid #012265;padding-bottom:1px;transition:transform .3s cubic-bezier(.25,.8,.35,1)}
-.next-link .nl-arrow{display:inline-block;color:#012265!important;position:relative;top:-.08em;margin-left:.15em;transition:margin-left .3s cubic-bezier(.25,.8,.35,1)}
+.next-link .nl-t{display:inline-block;position:relative;margin-left:.5em;color:#012265!important;padding-bottom:1px;transform-origin:left center;transition:transform .3s cubic-bezier(.25,.8,.35,1)}
+.next-link .nl-t::after{content:"";position:absolute;left:0;bottom:0;height:1.5px;width:100%;background:#012265;transition:width .3s cubic-bezier(.25,.8,.35,1)}
+:root[data-theme="dark"] .next-link .nl-t::after{background:#dce8f8}
+.next-link .nl-arrow{display:inline-block;color:#012265!important;position:relative;top:-.08em;margin-left:.15em;transition:transform .3s cubic-bezier(.25,.8,.35,1)}
 html:not(.calm) .next-link a:hover{transform:none!important}
 html:not(.calm) .next-link a:hover .nl-t,html:not(.calm) .next-link a:focus-visible .nl-t{transform:scale(1.0667)}
-html:not(.calm) .next-link a:hover .nl-arrow,html:not(.calm) .next-link a:focus-visible .nl-arrow{margin-left:.5em}
+html:not(.calm) .next-link a:hover .nl-arrow,html:not(.calm) .next-link a:focus-visible .nl-arrow{transform:translateX(4px)}
+html:not(.calm) .next-link a:hover .nl-t::after,html:not(.calm) .next-link a:focus-visible .nl-t::after{width:calc(100% + 4px)}
 :root[data-theme="dark"] .next-link a,:root[data-theme="dark"] .next-link .nl-t,:root[data-theme="dark"] .next-link .nl-arrow{color:#dce8f8!important}
 
 /* WhatsApp-Knöpfe: beim Überfahren kein Schatten */
 html:not(.never) .hero-v5 .hero-pills .btn.hero-main+.btn.hero-main:hover,html:not(.never) .kon-page-btns .btn.hero-main:last-child:hover,html:not(.never) .cbtn-two .cbtn.cbtn-wa:hover,html:not(.never) .side .side-contact .btn:hover,html:not(.never) .hero-v5 .hero-pills .btn.hero-main+.btn.hero-main:focus-visible{box-shadow:none!important}
 
 /* Kontaktband (E-Mail, WhatsApp, Formular): heller Schein (Halo) beim Überfahren */
-html:not(.never) .sum-kon .btn:hover,html:not(.never) .sum-kon .btn:focus-visible{box-shadow:0 0 0 3px rgba(255,255,255,.22),0 0 24px 4px rgba(255,255,255,.5)!important}
+html:not(.never) .sum-kon .btn:hover,html:not(.never) .sum-kon .btn:focus-visible{box-shadow:0 0 0 4px rgba(255,255,255,.28),0 0 34px 8px rgba(255,255,255,.65)!important}
 
 /* Fußzeile: Impressum, Logo, Datenschutz poppen leicht */
 footer .ft-l,footer .ft-r,footer .ft-home{transition:transform .3s cubic-bezier(.25,.8,.35,1)}
@@ -3683,8 +3686,10 @@ html:not(.calm) .sum-abl .steps li.step-card:hover{transform:translateY(-4px)!im
 /* Knöpfe: Pfeile etwas höher, Symbole in den weißen Karten-Knöpfen grün, „Mehr über mich“ mit kräftigerem Schatten */
 .btn .bt-in>span[aria-hidden="true"],.cbtn .bt-in>span[aria-hidden="true"]{position:relative;top:-.08em}
 .lei-col .btn .ico,.lei-col .btn.deep .ico{color:#004d17!important}
-.sum-more .btn.deep{box-shadow:0 12px 26px rgba(1,34,101,.38)!important}
-html:not(.never) .sum-more .btn.deep:hover{box-shadow:0 16px 30px -6px rgba(1,34,101,.5)!important}
+.sum:not(.sum-kon) .sum-more .btn.deep,.kview form .btn.deep{box-shadow:0 14px 30px rgba(1,34,101,.5),0 3px 8px rgba(1,34,101,.25)!important}
+html:not(.never) .sum:not(.sum-kon) .sum-more .btn.deep:hover,html:not(.never) .sum:not(.sum-kon) .sum-more .btn.deep:focus-visible,html:not(.never) .kview form .btn.deep:hover{box-shadow:0 22px 38px -4px rgba(1,34,101,.75),0 4px 10px rgba(1,34,101,.35)!important}
+.lei-col .btn,.lei-col .btn.deep{box-shadow:0 10px 22px rgba(0,0,0,.4)!important}
+html:not(.never) .lei-col .btn:hover,html:not(.never) .lei-col .btn:focus-visible{box-shadow:0 18px 32px -4px rgba(0,0,0,.65)!important}
 
 /* Seitenmenü: WhatsApp-Knopf mit grünem Logo */
 .side .side-contact .btn{display:inline-flex!important;align-items:center;justify-content:center;gap:.5rem}
