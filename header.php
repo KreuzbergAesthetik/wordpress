@@ -3,6 +3,7 @@
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches)document.documentElement.classList.add('calm')}catch(e){}</script>
 <script>try{if(sessionStorage.getItem('ka_seen'))document.documentElement.classList.add('seen');if(localStorage.getItem('ka_calm')==='1')document.documentElement.classList.add('calm')}catch(e){}</script>
 <script>try{if(sessionStorage.getItem('ka_pgt')){document.documentElement.classList.add('pgt-on');setTimeout(function(){document.documentElement.classList.remove('pgt-on')},3000)}}catch(e){}</script>
 <script>

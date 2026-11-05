@@ -280,7 +280,7 @@ function ka_view_home() {
     </div>
     <ol class="steps">
       <?php $si = array( 'bubble', 'talk', 'clipboard', 'document' ); foreach ( $steps as $i => $s ) : ?>
-      <li><span class="sico"><?php echo ka_icon( $si[ $i % count( $si ) ] ); ?></span><h3><?php echo esc_html( trim( preg_replace( '/^.*&\s*/u', '', $s[0] ) ) ); ?></h3><p><?php echo esc_html( $s[1] ); ?></p></li>
+      <li><span class="sico"><?php echo ka_icon( $si[ $i % count( $si ) ] ); ?></span><h3><?php $t = esc_html( trim( preg_replace( '/^.*&\s*/u', '', $s[0] ) ) ); echo ( 0 === $i ) ? '<a class="step-link" href="' . esc_url( ka_url( 'kontakt' ) ) . '">' . $t . '</a>' : $t; ?></h3><p><?php echo esc_html( $s[1] ); ?></p></li>
       <?php endforeach; ?>
     </ol>
     <p class="sum-more"><a class="btn deep" href="<?php echo esc_url( ka_url( 'ablauf' ) ); ?>">Ablauf und häufige Fragen <span aria-hidden="true">&rarr;</span></a></p>
@@ -433,7 +433,7 @@ function ka_view_process() {
     </div>
     <ol class="steps">
       <?php $si = array( 'bubble', 'talk', 'clipboard', 'document' ); foreach ( ka_steps() as $i => $s ) : ?>
-      <li<?php echo ( 1 === $i || 2 === $i ) ? ' class="same-day-step"' : ''; ?>><span class="sico"><?php echo ka_icon( $si[ $i % count( $si ) ] ); ?></span><h3><?php echo esc_html( $s[0] ); ?></h3><p><?php echo esc_html( $s[1] ); ?></p><?php if ( 1 === $i ) : ?><button type="button" class="tinfo-btn sd-i" aria-expanded="false" aria-label="Hinweis zu Erstgespräch und Behandlung">i</button><template class="tinfo-tpl"><div class="tinfo-in"><p class="tinfo-what"><?php echo ka( 'abl_same_day' ); ?></p></div></template><?php endif; ?></li>
+      <li<?php echo ( 1 === $i || 2 === $i ) ? ' class="same-day-step"' : ''; ?>><span class="sico"><?php echo ka_icon( $si[ $i % count( $si ) ] ); ?></span><h3><?php echo ( 0 === $i ) ? '<a class="step-link" href="' . esc_url( ka_url( 'kontakt' ) ) . '">' . esc_html( $s[0] ) . '</a>' : esc_html( $s[0] ); ?></h3><p><?php echo esc_html( $s[1] ); ?></p><?php if ( 1 === $i ) : ?><button type="button" class="tinfo-btn sd-i" aria-expanded="false" aria-label="Hinweis zu Erstgespräch und Behandlung">i</button><template class="tinfo-tpl"><div class="tinfo-in"><p class="tinfo-what"><?php echo ka( 'abl_same_day' ); ?></p></div></template><?php endif; ?></li>
       <?php endforeach; ?>
     </ol>
     <div class="check">
