@@ -97,8 +97,8 @@ function ka_render( $view ) {
 	echo '<div class="kview" data-view="' . esc_attr( isset( $slug[ $view ] ) ? $slug[ $view ] : $view ) . '">';
 	echo '<main class="view view-' . esc_attr( $view ) . '">';
 	call_user_func( 'ka_view_' . $view );
-	if ( ! in_array( $view, array( 'home', 'contact' ), true ) ) { ka_contact_band(); }
-	if ( 'contact' === $view ) { ka_next_link(); }
+	if ( ! in_array( $view, array( 'home', 'contact' ), true ) ) { ka_contact_band( 'legal' !== $view ); }
+	if ( in_array( $view, array( 'contact', 'legal' ), true ) ) { ka_next_link(); }
 	echo '</main></div>';
 	ka_footer();
 	get_footer();
@@ -122,10 +122,10 @@ function ka_next_link() {
 }
 
 /** Kontakt-Band (Startseite und alle Unterseiten außer Kontakt). */
-function ka_contact_band() {
+function ka_contact_band( $with_next = true ) {
 	$sms  = esc_attr( ka_sms_href() );
 	$mail = esc_attr( ka_mail_href() );
-	ka_next_link();
+	if ( $with_next ) { ka_next_link(); }
 	?>
 <section class="sum sum-kon" aria-labelledby="sum-kon-h">
   <span class="kon-hg" aria-hidden="true"><span class="hgi hg-top"></span><span class="hgi hg-bot"></span></span>
@@ -500,6 +500,7 @@ function ka_view_contact() {
         <a class="btn hero-main" href="<?php echo $sms; ?>"><?php echo ka_icon( 'whatsapp' ); ?><span>WhatsApp</span></a>
       </p>
     </div>
+    <div class="div contact-div" aria-hidden="true"><span class="hgi"></span></div>
     <form id="contact-form" method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
       <input type="hidden" name="action" value="ka_contact">
       <input type="hidden" name="ka_back" value="<?php echo esc_url( ka_url( 'kontakt' ) ); ?>">

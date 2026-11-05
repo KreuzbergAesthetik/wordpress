@@ -3829,3 +3829,6 @@ html:not(.never) .kview[data-view=ablauf] .faq details:hover{box-shadow:var(--sh
 /* Kontaktformular: Kartenschatten rundherum, beim Überfahren dunkler */
 html:not(.never) .kview form#contact-form{box-shadow:var(--sh-ar)!important;transition:box-shadow .3s ease!important}
 html:not(.never) .kview form#contact-form:hover{box-shadow:var(--sh-ar-h)!important}
+
+/* Kontaktseite: Sanduhr-Trenner zwischen den Knöpfen und dem Formular */
+.contact .contact-div{width:100%}
