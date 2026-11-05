@@ -3640,3 +3640,8 @@ html:not(.calm) .consent:hover{transform:scale(1.03)}
 
 /* Startbereich: E-Mail und WhatsApp immer exakt gleich groß */
 @media (min-width:701px){.home-page .hero-v5 .hero-pills .btn.hero-main,.home-page .hero-v5 .hero-pills .btn.hero-main+.btn.hero-main{height:calc(3.9 * var(--u))!important;min-height:44px!important;box-sizing:border-box!important;padding-block:0!important}}
+
+/* Kopfleiste: Links, Menü-Knopf und Logo poppen beim Überfahren leicht */
+.mast .mastnav .nl a,.mast .mastnav .hb,.mast .mastnav .logo-btn,.mast .mastnav .pl{transition:transform .3s cubic-bezier(.25,.8,.35,1),color .2s,opacity .2s!important}
+html:not(.calm) .mast .mastnav .nl a:hover,html:not(.calm) .mast .mastnav .nl a:focus-visible{transform:scale(1.08)}
+html:not(.calm) .mast .mastnav .hb:hover,html:not(.calm) .mast .mastnav .logo-btn:hover,html:not(.calm) .mast .mastnav .pl:hover{transform:scale(1.08)}
