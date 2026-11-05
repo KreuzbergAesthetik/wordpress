@@ -427,8 +427,8 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
     ic=ic.filter(function(el){
       var r=el.getBoundingClientRect(),cy=r.top+r.height/2,ok;
       if(!r.width)return true;
-      /* Startbereich: Stern nach 1/4, Herz nach 1/2, Personen nach 3/4 des Weges, den die Reihe ab ihrem Sichtbarwerden bis zum oberen Bildrand zurücklegt */
-      if(el._hi!==undefined){var docY=cy+(window.pageYOffset||0),st=Math.max(1,Math.min(vh,docY));ok=(st-cy)/st>=0.25*(el._hi+1)}
+      /* Startbereich: ab 1/4 des Weges, den die Reihe ab ihrem Sichtbarwerden bis zum oberen Bildrand zurücklegt, füllen sich Stern, Herz und Personen von links nach rechts in kurzem zeitlichem Abstand */
+      if(el._hi!==undefined){var docY=cy+(window.pageYOffset||0),st=Math.max(1,Math.min(vh,docY));ok=(st-cy)/st>=0.25;if(ok)el.style.setProperty('--fd',(el._hi*0.28)+'s')}
       else ok=cy<line-(el._off||0);
       if(ok){el.classList.add('fill-on');return false}
       return true;
