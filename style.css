@@ -3400,3 +3400,8 @@ svg.fillable path.chkw{stroke:#fff;fill:none;clip-path:inset(0 0 calc(100% - var
 #ablauf .steps li:nth-child(3) h3{white-space:nowrap}
 #ablauf .steps li h3{white-space:nowrap}
 @media (max-width:360px){#ablauf .steps li h3{font-size:1rem!important}}
+
+/* "Animationen reduzieren": wirklich alle Animationen aus (auch Seitenwechsel-Sanduhr und Scroll-Weichheit) */
+html.calm,html.calm body{scroll-behavior:auto!important}
+html.calm::before,html.calm::after{display:none!important}
+.calm .wmk .lg-f,.calm .tl .node .nf,.calm svg.fillable path{transition:none!important}

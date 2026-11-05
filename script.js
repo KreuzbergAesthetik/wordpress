@@ -149,7 +149,7 @@
 (function(){
   var D=window.KA_DATA||{},WA=(D.phone||'').replace(/^\+/,''),MAIL=D.mail||'',IC=D.icons||{},chat=document.getElementById('chat');
   if(!chat)return;
-  var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches||document.documentElement.classList.contains('calm');
   var T={},order=[];(D.topics||[]).forEach(function(t,i){var k='t'+i;T[k]=t;order.push(k)});
   var asked={},topics=[],busy=false;
   function dec(x){var d=document.createElement('textarea');d.innerHTML=x;return d.value}
@@ -191,7 +191,7 @@
 (function(){
   var w=document.getElementById('wmk'),f=document.getElementById('lgf'),s=document.getElementById('lgs'),t=document.getElementById('lgt');
   if(!w||!f)return;
-  var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches||document.documentElement.classList.contains('calm');
   function lerp(a,b,x){return a+(b-a)*x}
   function set(p){w.style.setProperty('--a',lerp(12.6,32.9,p).toFixed(2)+'%');w.style.setProperty('--b',lerp(87.5,62.5,p).toFixed(2)+'%')}
   set(0);
@@ -348,7 +348,7 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
 
 /* Seitenwechsel: kurze Sanduhr, die sich einmal schnell dreht */
 (function(){
-  var root=document.documentElement,busy=false,rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var root=document.documentElement,busy=false,rm=(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches)||root.classList.contains('calm');
   if(root.classList.contains('pgt-on')){
     try{sessionStorage.removeItem('ka_pgt')}catch(e){}
     var off=function(){setTimeout(function(){root.classList.remove('pgt-on')},180)};
