@@ -3869,3 +3869,7 @@ html:not(.never) .chat-window:hover{box-shadow:var(--sh-ar-h)!important}
 /* Chat: Logo oben rechts in der Kopfzeile, Wasserzeichen blasser, Sende-Pfeil als runder Knopf */
 .chat-top::after{content:"";margin-left:auto;flex:none;width:42px;height:42px;background:#fff;-webkit-mask:url(assets/logo-light.png) center/contain no-repeat;mask:url(assets/logo-light.png) center/contain no-repeat}
 .chat-window .chat::before{background:rgba(255,255,255,.3)!important}
+
+/* Chat: Sende-Knopf wie bei WhatsApp – runder grüner Knopf mit weißem Papierflieger */
+.chat-send{background:#004d17!important;box-shadow:0 2px 6px rgba(0,77,23,.35)}
+.chat-send .ico{width:19px!important;height:19px!important;color:#fff!important;margin-left:2px}
