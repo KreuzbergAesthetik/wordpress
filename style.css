@@ -3849,3 +3849,9 @@ html:not(.calm) .sum-kon .eyebrow .eyebrow-link:hover,html:not(.calm) .sum-kon .
 /* Fußzeile nicht mehr als eigene Leiste erkennbar: Kontaktband läuft senkrecht in exakt dieselbe Farbe aus */
 section.sum.sum-kon{background:linear-gradient(180deg,#223872 0%,#10296b 50%,#012265 100%)!important}
 footer{background:#012265!important;margin-top:0!important}
+
+/* Chat: ohne Karte dahinter, die Überschrift steht frei, das Chatfenster liegt direkt auf der Seite – mit Schatten rundherum, dunkler beim Überfahren, ohne Poppen */
+html:not(.never) .chat-help,html:not(.never) .chat-help:hover{background:none!important;border:0!important;box-shadow:none!important;padding:0!important}
+@media (max-width:700px){html:not(.never) .chat-help{margin-inline:0!important}}
+html:not(.never) .chat-window{box-shadow:var(--sh-ar)!important;transition:box-shadow .3s ease,transform .3s cubic-bezier(.25,.8,.35,1)!important}
+html:not(.never) .chat-window:hover{box-shadow:var(--sh-ar-h)!important}
