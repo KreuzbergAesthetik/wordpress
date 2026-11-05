@@ -3814,3 +3814,14 @@ html:not(.never) .vlist:hover{box-shadow:0 0 30px 6px rgba(1,34,101,.32)!importa
 /* Ablaufseite, Anfrage-Karte: der Link „Kontakt →“ poppt selbst beim Überfahren */
 .step-cta{transition:transform .3s cubic-bezier(.25,.8,.35,1);transform-origin:right center}
 html:not(.calm) .step-cta:hover,html:not(.calm) .step-cta:focus-visible{transform:scale(1.1)}
+
+/* Ablaufseite: Anfrage-Karte poppt nicht (nur der Link), „Kontakt“ unterstrichen */
+html:not(.calm) .kview[data-view=ablauf] .steps li.step-card:hover{transform:none!important}
+.step-cta .cta-t{border-bottom:1.5px solid currentColor;padding-bottom:1px}
+
+/* Gut zu wissen: + und × immer dunkelblau und poppen; Karten-Schatten wird beim Überfahren dunkler */
+.faq summary::after{color:#012265!important}
+.faq summary:hover::after{color:#012265!important}
+html:not(.calm) .faq summary:hover::after{scale:1.3}
+html:not(.never) .kview[data-view=ablauf] .faq details:hover{box-shadow:var(--sh-ar-h)!important}
+.kview[data-view=ablauf] .faq details{transition:box-shadow .3s ease!important}
