@@ -135,7 +135,7 @@ Bruxismus / Masseter | ab 299,-
 Nefertiti (Nofretete-Lift) | ab 399,-
 Jawline | ab 269,-
 Platysma (Hals-Straffung) | ab 269,-
-Trapezius (Barbie Botox) | ab 349,-
+Trapezius („Barbie-Botox“) | ab 349,-
 
 ## Filler und Booster | Volumen und Hautqualität
 Für Kontur, Volumen und eine bessere Hautqualität. Ich wähle das Produkt passend zu Deiner Anatomie und erkläre Dir, warum.
@@ -170,7 +170,7 @@ Chemisch (traditionell) | ab 249,-
 
 ## Pakete | Mehrere Termine, günstigerer Preis
 Wenn mehrere Termine sinnvoll sind, bekommst Du die Behandlungen im Paket zu einem günstigeren Preis.
-2 × PLLA-Behandlung z. B. Sculptra innerhalb von 6 Monaten | ab 999,- | 1198,-
+2 × PLLA-Behandlung z. B. Sculptra, innerhalb von 6 Monaten | ab 999,- | 1198,-
 4 × Retinol-Peeling innerhalb von 6 Monaten | ab 699,- | 796,-
 3 × Polynukleotide innerhalb von 6 Monaten | ab 899,- | 1047,-
 Lip-Flip + 0,7 ml Hyaluron (Abstand 2 Wochen) | ab 349,- | 458,-

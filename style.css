@@ -3706,3 +3706,74 @@ html:not(.calm) .vrow>summary:hover .vrow-t{transform:scale(1.04);transform-orig
 
 /* Startbereich- und Kontaktseiten-Knöpfe: beim Überfahren zoomen statt hochspringen */
 html:not(.calm) .hero-v5 .hero-pills .btn.hero-main:hover,html:not(.calm) .hero-v5 .hero-pills .btn.hero-main:focus-visible,html:not(.calm) .kon-page-btns .btn.hero-main:hover,html:not(.calm) .kon-page-btns .btn.hero-main:focus-visible{transform:scale(1.03)!important}
+
+/* ===== v155 – Kommentar-Runde 6. November ===== */
+
+/* Zweites, graues Foto hinter dem Porträt (Handy) abschalten */
+.hero-v5 .hero-portrait::before{display:none!important}
+
+/* Pfeile: Unterstreichung nur unter dem Text, der Pfeil steht daneben ohne Linie */
+.qkc .qkm>i{display:inline-block;font-style:normal;position:relative;top:-.08em;margin-left:.15em;transition:transform .3s cubic-bezier(.25,.8,.35,1)}
+html:not(.calm) .qkc:hover .qkm>i,html:not(.calm) .qkc:focus-visible .qkm>i{transform:translateX(4px)}
+
+/* „Hier geht’s weiter zu: Behandlungen →“ größer (auf allen Seiten gleich), Unterstreichung nur unter dem Namen */
+.next-link a{font:700 18px/1.3 Quicksand,"Segoe UI",system-ui,sans-serif!important}
+.next-link .nl-pre{font-size:inherit}
+.next-link .nl-t{border-bottom:1.5px solid #012265;margin-left:.45em;padding-bottom:1px}
+.next-link .nl-t::after{content:none!important}
+.next-link .nl-arrow{margin-left:.3em}
+:root[data-theme="dark"] .next-link .nl-t{border-bottom-color:#dce8f8}
+
+/* Anfrage-Karte: Titel unterstrichen mit Pfeil daneben (Startseite); auf der Ablaufseite „Kontakt →“ oben am Zeilenende */
+.steps h3 a.step-link,.steps h3 a.step-link:hover,.steps h3 a.step-link:focus-visible{border-bottom:0!important;text-decoration:none}
+.steps h3 a.step-link .sl-t{border-bottom:1.5px solid currentColor;padding-bottom:1px}
+.steps .cta-arrow{display:inline-block;position:relative;top:-.06em;transition:transform .3s cubic-bezier(.25,.8,.35,1)}
+html:not(.calm) .step-card:hover .cta-arrow{transform:translateX(4px)}
+#ablauf .steps li.step-card .step-cta{position:absolute;top:1.15rem;right:1.4rem;margin:0}
+#ablauf .steps li.step-card h3{padding-right:7rem}
+
+/* Kopfleiste: Kontakt wird beim Überfahren dunkelblau mit weißer Schrift; Logo poppt */
+.mast .mastnav .nl-r a{transition:background-color .25s ease,color .25s ease,transform .3s cubic-bezier(.25,.8,.35,1)!important}
+.mast .mastnav .nl-r a:hover,.mast .mastnav .nl-r a:focus-visible{background:#012265!important;color:#fff!important}
+.wmk>span{transition:scale .3s cubic-bezier(.25,.8,.35,1)}
+html:not(.calm) .mast:has(.pl:hover) .wmk>span,html:not(.calm) .mast:has(.logo-btn:hover) .wmk>span{scale:1.12}
+
+/* Startseite: dunkle Behandlungs-Karten mit kräftigem Schatten, beim Überfahren deutlich dunkler */
+html:not(.never) .lei-col{box-shadow:0 0 30px 4px rgba(1,34,101,.5),0 8px 22px rgba(1,34,101,.3)!important}
+html:not(.never) .lei-col:hover{box-shadow:0 0 46px 8px rgba(1,34,101,.75),0 14px 32px rgba(1,34,101,.45)!important}
+
+/* Behandlungen: Ausklapp-Pfeile von Anfang an dunkelblau, die Spitzen poppen beim Überfahren */
+#leistungen details.all>summary::before{opacity:1!important}
+#leistungen .grp h3::after{opacity:1!important}
+.vrow>summary i{opacity:1!important}
+#leistungen details.all>summary::before,#leistungen .grp h3::after,.vrow>summary i{transition:transform .25s,scale .25s cubic-bezier(.25,.8,.35,1)!important}
+html:not(.calm) #leistungen details.all>summary:hover::before,html:not(.calm) #leistungen .grp h3:hover::after,html:not(.calm) .vrow>summary:hover i{scale:1.3}
+
+/* Kontaktseite: Sanduhr zwischen E-Mail und WhatsApp */
+.kon-page-btns{grid-template-columns:1fr auto 1fr!important;align-items:center;max-width:28rem!important}
+.kon-page-btns .btn-hg{display:flex;align-items:center;justify-content:center}
+.kon-page-btns .btn-hg .hgi{width:19px;color:#012265;opacity:.85}
+
+/* Versandbestätigung des Formulars: groß und gut sichtbar */
+#note.form-note{display:flex;align-items:center;gap:.9rem;padding:1.15rem 1.3rem;margin:0 0 .4rem;border-radius:var(--r-small,12px);background:#e7f4ea;border:2px solid #004d17;color:#0c3a1b;font:700 1.12rem/1.4 Quicksand,"Segoe UI",system-ui,sans-serif;box-shadow:0 0 26px rgba(0,77,23,.28)}
+#note.form-note[hidden]{display:none}
+#note.form-note::before{content:"\2713";flex:none;display:grid;place-items:center;width:2.4rem;height:2.4rem;border-radius:50%;background:#004d17;color:#fff;font-size:1.3rem}
+#note.form-note.err{background:#fdeceb;border-color:#b3261e;color:#7a1a14;box-shadow:0 0 26px rgba(179,38,30,.25)}
+#note.form-note.err::before{content:"!";background:#b3261e}
+
+/* Chat: wie ein Messenger – Kopfzeile mit Foto und Status, helle Chatfläche, Sprechblasen mit Ecke, Eingabeleiste unten */
+.chat-window{max-width:760px;margin:0 auto;border-radius:22px;overflow:hidden;border:1px solid rgba(1,34,101,.14);background:#fff;box-shadow:0 12px 32px rgba(1,34,101,.16)}
+.chat-top{display:flex;align-items:center;gap:.8rem;padding:.8rem 1.1rem;background:linear-gradient(180deg,#0a2f7a,#012265);color:#fff}
+.chat-top .cav{width:44px;height:44px;border-radius:50%;box-shadow:0 0 0 2px rgba(255,255,255,.65);flex:none}
+.chat-who{display:flex;flex-direction:column;gap:.1rem;line-height:1.2}
+.chat-who b{font:700 1rem Quicksand,"Segoe UI",system-ui,sans-serif}
+.chat-who small{display:flex;align-items:center;gap:.4rem;font-size:.78rem;color:rgba(255,255,255,.85)}
+.chat-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#46d369;box-shadow:0 0 0 3px rgba(70,211,105,.25)}
+.chat-window .chat{max-width:none;margin:0;padding:1.2rem 1rem 1rem;gap:.6rem;background:linear-gradient(180deg,#e6eefa,#dfe9f7)}
+.chat-window .cbub{border:0;border-radius:18px 18px 18px 4px;background:#fff;box-shadow:0 1px 2px rgba(1,34,101,.18)}
+.chat-window .crow.me .cbub{background:#012265;color:#fff;border-radius:18px 18px 4px 18px;box-shadow:0 1px 2px rgba(1,34,101,.3)}
+.chat-window .cav{width:32px;height:32px}
+.chat-input{display:flex;align-items:center;justify-content:space-between;gap:.8rem;padding:.7rem 1rem;background:#fff;border-top:1px solid rgba(1,34,101,.1);color:#8a9ab5;font-size:.9rem}
+.chat-input>span:first-child{flex:1;padding:.55rem .9rem;border-radius:999px;background:#eef3fb}
+.chat-send{display:grid;place-items:center;flex:none;width:38px;height:38px;border-radius:50%;background:#012265}
+.chat-send .ico{width:18px;height:18px;color:#fff}
