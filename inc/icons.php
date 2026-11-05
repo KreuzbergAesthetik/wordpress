@@ -38,10 +38,18 @@ function ka_icon_paths() {
 function ka_icon( $name, $class = 'ico' ) {
 	$p = ka_icon_paths();
 	$d = isset( $p[ $name ] ) ? $p[ $name ] : $p['sparkle'];
-	$fillable = in_array( $name, array( 'star', 'heart', 'people', 'person', 'leaf', 'drop', 'sparkle', 'hourglass', 'bubble' ), true );
+	$fillable = in_array( $name, array( 'star', 'heart', 'people', 'person', 'leaf', 'drop', 'sparkle', 'hourglass', 'bubble', 'shield' ), true );
 	$cls      = esc_attr( $class ) . ( $fillable ? ' fillable' : '' );
-	$fl       = $fillable ? '<path class="fl" d="' . esc_attr( $d ) . '"/>' : '';
-	return '<svg class="' . $cls . '" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="' . esc_attr( $d ) . '"/>' . $fl . '</svg>';
+	$inner    = '';
+	if ( 'shield' === $name ) {
+		// Schild mit Haken: Der Haken wird im gefüllten Teil weiß.
+		$body  = 'M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z';
+		$check = 'M9 12l2 2 4-4';
+		$inner = '<path d="' . $body . '"/><path class="fl" d="' . $body . '"/><path class="chk" d="' . $check . '"/><path class="chkw" d="' . $check . '"/>';
+	} else {
+		$inner = '<path d="' . esc_attr( $d ) . '"/>' . ( $fillable ? '<path class="fl" d="' . esc_attr( $d ) . '"/>' : '' );
+	}
+	return '<svg class="' . $cls . '" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' . $inner . '</svg>';
 }
 
 /** Icon-Name passend zu einem Begriff. */

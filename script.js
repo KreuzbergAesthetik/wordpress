@@ -328,7 +328,7 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
 
 /* Füllen der Linien-Icons und Sanduhr-Trenner: die Füllung steht an der Bildschirmmitte. Beim Hochscrollen schiebt sie sich über einen längeren Scrollweg (dist) von oben nach unten ins Symbol, beim Zurückscrollen leert es sich wieder */
 (function(){
-  var items=[].slice.call(document.querySelectorAll('svg.fillable,.div .hgi')).map(function(el){
+  var items=[].slice.call(document.querySelectorAll('svg.fillable,.div .hgi')).filter(function(el){return !el.closest('.hero-vals')}).map(function(el){
     return{el:el,ref:el.matches('svg')?el.querySelector('path.fl'):el,p:-1};
   }),tick=false;
   function check(){
@@ -385,11 +385,11 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
 
 /* Ablauf-Stationen: Punkt füllt sich, sobald man an der Karte vorbeigescrollt ist */
 (function(){
-  var steps=[].slice.call(document.querySelectorAll('#ablauf .steps li')),tick=false;
+  var steps=[].slice.call(document.querySelectorAll('#ablauf .steps li,.sum-abl .steps li')),tick=false;
   function check(){
     tick=false;
-    var line=window.innerHeight*0.32;
-    steps.forEach(function(li){var r=li.getBoundingClientRect();if(r.width)li.classList.toggle('st-hit',r.top+Math.min(40,r.height/2)<line)});
+    var vh=window.innerHeight;
+    steps.forEach(function(li){var r=li.getBoundingClientRect(),line=vh*(li.closest('.sum-abl')?0.85:0.32);if(r.width)li.classList.toggle('st-hit',r.top+Math.min(40,r.height/2)<line)});
   }
   function req(){if(!tick){tick=true;requestAnimationFrame(check)}}
   window.addEventListener('scroll',req,{passive:true});window.addEventListener('resize',req);check();
@@ -411,4 +411,18 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(place);
   window.addEventListener('hashchange',function(){setTimeout(place,50)});
   place();setTimeout(place,300);
+})();
+
+/* Hero-Werte (Stern, Herz, Personen): jedes Icon füllt sich ganz, von links nach rechts nacheinander */
+(function(){
+  var ic=[].slice.call(document.querySelectorAll('.hero-vals svg.fillable')),tick=false;
+  if(!ic.length)return;
+  ic.forEach(function(el,i){el.style.setProperty('--fd',(i*0.22)+'s')});
+  function check(){
+    tick=false;
+    var line=window.innerHeight*0.65;
+    ic.forEach(function(el){var r=el.getBoundingClientRect();if(r.width)el.classList.toggle('fill-on',r.top+r.height/2<line)});
+  }
+  function req(){if(!tick){tick=true;requestAnimationFrame(check)}}
+  window.addEventListener('scroll',req,{passive:true});window.addEventListener('resize',req);check();
 })();

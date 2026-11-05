@@ -3286,3 +3286,40 @@ html.pgt-spin::after{animation:pgtspin .4s cubic-bezier(.55,0,.25,1) forwards}
 .legal-card h2{font-size:1.45rem!important;line-height:1.3!important;margin:1.8rem 0 .6rem!important}
 .legal-card h2:first-of-type{margin-top:1rem!important}
 @media (max-width:700px){.legal-card h2{font-size:1.25rem!important}}
+
+/* Füll-Icons: Haken im Schild wird im gefüllten Teil weiß; grüne Icons kräftig wie der Rand; Wasserzeichen nie füllen */
+svg.fillable path.chkw{stroke:#fff;fill:none;clip-path:inset(0 0 calc(100% - var(--p,0) * 1%) 0)}
+.quals svg.fillable path.fl,.vrow-ico svg.fillable path.fl,.hero-vals svg.fillable path.fl{fill-opacity:1}
+.qkbg svg path.fl,.sico svg path.fl,.lon-wm svg path.fl,.lei-ico svg path.fl,.qkbg svg path.chkw,.sico svg path.chkw{display:none!important}
+/* Hero: ganzes Icon auf einmal, von links nach rechts nacheinander */
+.hero-vals svg.fillable path.fl,.hero-vals svg.fillable path.chkw{clip-path:none!important;opacity:0;transition:opacity .4s ease var(--fd,0s)}
+.hero-vals svg.fillable.fill-on path.fl,.hero-vals svg.fillable.fill-on path.chkw{opacity:1}
+
+/* Über mich: Wasserzeichen gerade und zentriert hinter dem Text des Leitgedankens */
+.kview[data-view=ueber-mich] section .about-head + p:not(.eyebrow):not(.about-sub){isolation:isolate}
+.kview[data-view=ueber-mich] .about-head + p::after{z-index:-1!important;left:50%!important;right:auto!important;top:50%!important;transform:translate(-50%,-50%)!important}
+
+/* Startseite, "Dein Weg zur Behandlung": Zeitstrahl wie auf der Ablaufseite (Punkte füllen sich beim Scrollen) */
+.sum-abl.sum-abl .steps.steps{display:block!important;position:relative;max-width:46rem!important;width:100%;margin:2rem auto 1.4rem!important;padding:0!important;overflow:visible!important}
+.sum-abl.sum-abl .steps.steps::before{content:""!important;display:block!important;position:absolute;left:50%;top:14px;bottom:14px;width:2px;margin:0 0 0 -1px!important;background:#c5d1e3!important;z-index:0;height:auto}
+.sum-abl.sum-abl .steps.steps::after{display:none!important}
+.sum-abl.sum-abl .steps.steps li{position:relative;overflow:visible!important;width:calc(50% - 3rem)!important;max-width:none!important;margin:0 0 1.2rem!important;min-height:0!important;padding:1.1rem 1.2rem!important;box-sizing:border-box;text-align:left}
+.sum-abl.sum-abl .steps.steps li:last-child{margin-bottom:0!important}
+.sum-abl.sum-abl .steps.steps li:nth-child(odd){margin-right:auto!important;margin-left:0!important}
+.sum-abl.sum-abl .steps.steps li:nth-child(even){margin-left:auto!important;margin-right:0!important}
+.sum-abl.sum-abl .steps.steps li::after{content:""!important;display:block!important;position:absolute!important;z-index:0;top:calc(50% - 1px)!important;width:3rem!important;height:2px!important;margin:0!important;background:#c5d1e3!important;border-radius:0!important;box-shadow:none!important}
+.sum-abl.sum-abl .steps.steps li:nth-child(odd)::after{right:-3rem!important;left:auto!important}
+.sum-abl.sum-abl .steps.steps li:nth-child(even)::after{left:-3rem!important;right:auto!important}
+.sum-abl.sum-abl .steps.steps li::before{content:""!important;display:block!important;position:absolute!important;top:calc(50% - 7px)!important;width:14px!important;height:14px!important;margin:0!important;box-sizing:border-box;border-radius:50%;background:#fff!important;border:2px solid #012265;z-index:2;font-size:0!important;transform:none!important;box-shadow:none!important;transition:background .22s ease}
+.sum-abl.sum-abl .steps.steps li:nth-child(odd)::before{right:calc(-3rem - 7px)!important;left:auto!important}
+.sum-abl.sum-abl .steps.steps li:nth-child(even)::before{left:calc(-3rem - 7px)!important;right:auto!important}
+.sum-abl.sum-abl .steps.steps li.st-hit::before{background:#012265!important}
+.sum-abl.sum-abl .steps.steps .sico{position:absolute!important;inset:0!important;width:auto!important;height:auto!important;overflow:hidden;border-radius:inherit;pointer-events:none;display:block!important}
+.sum-abl.sum-abl .steps.steps .sico .ico{position:absolute;right:-12px;bottom:-14px;left:auto;top:auto;margin:0!important;width:80px!important;height:80px!important}
+@media (max-width:700px){
+ .sum-abl.sum-abl .steps.steps::before{left:15px!important;margin-left:0!important}
+ .sum-abl.sum-abl .steps.steps li,.sum-abl.sum-abl .steps.steps li:nth-child(odd),.sum-abl.sum-abl .steps.steps li:nth-child(even){width:calc(100% - 2.6rem)!important;margin:0 0 1rem 2.6rem!important}
+ .sum-abl.sum-abl .steps.steps li:last-child{margin-bottom:0!important}
+ .sum-abl.sum-abl .steps.steps li::after,.sum-abl.sum-abl .steps.steps li:nth-child(odd)::after,.sum-abl.sum-abl .steps.steps li:nth-child(even)::after{left:-1.6rem!important;right:auto!important;width:1.6rem!important}
+ .sum-abl.sum-abl .steps.steps li::before,.sum-abl.sum-abl .steps.steps li:nth-child(odd)::before,.sum-abl.sum-abl .steps.steps li:nth-child(even)::before{left:calc(-2.6rem + 9px)!important;right:auto!important}
+}
