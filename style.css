@@ -3729,8 +3729,8 @@ html:not(.calm) .qkc:hover .qkm>i,html:not(.calm) .qkc:focus-visible .qkm>i{tran
 .steps h3 a.step-link .sl-t{border-bottom:1.5px solid currentColor;padding-bottom:1px}
 .steps .cta-arrow{display:inline-block;position:relative;top:-.06em;transition:transform .3s cubic-bezier(.25,.8,.35,1)}
 html:not(.calm) .step-card:hover .cta-arrow{transform:translateX(4px)}
-#ablauf .steps li.step-card .step-cta{position:absolute;top:1.15rem;right:1.4rem;margin:0}
-#ablauf .steps li.step-card h3{padding-right:7rem}
+#ablauf .steps li.step-card{cursor:default}
+#ablauf .steps li.step-card .step-cta{position:absolute;bottom:1.1rem;right:1.4rem;top:auto;margin:0;z-index:2}
 
 /* Kopfleiste: Kontakt wird beim Überfahren dunkelblau mit weißer Schrift; Logo poppt */
 .mast .mastnav .nl-r a{transition:background-color .25s ease,color .25s ease,transform .3s cubic-bezier(.25,.8,.35,1)!important}

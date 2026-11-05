@@ -481,7 +481,7 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
 
 /* Anfrage-Karte: ein Klick irgendwo auf die Karte öffnet die Kontaktseite */
 document.addEventListener('click',function(e){
-  var li=e.target.closest&&e.target.closest('li.step-card');
+  var li=e.target.closest&&e.target.closest('.sum-abl li.step-card');
   if(!li||e.target.closest('a,button'))return;
   var a=li.querySelector('a.step-cta,a.step-link');
   if(a)a.click();
