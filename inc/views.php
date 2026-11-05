@@ -496,7 +496,6 @@ function ka_view_contact() {
       <p><?php echo ka( 'kon_text' ); ?></p>
       <p class="sum-contact kon-page-btns">
         <a class="btn hero-main" href="<?php echo esc_attr( ka_mail_href() ); ?>"><?php echo ka_icon( 'mail' ); ?><span>E-Mail</span></a>
-        <span class="btn-hg" aria-hidden="true"><span class="hgi"></span></span>
         <a class="btn hero-main" href="<?php echo $sms; ?>"><?php echo ka_icon( 'whatsapp' ); ?><span>WhatsApp</span></a>
       </p>
     </div>

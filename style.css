@@ -3893,3 +3893,11 @@ html:not(.never) .chat-window:hover{box-shadow:0 0 38px 5px rgba(0,77,23,.45),0 
 .chat-chips .cchip.go .ico{color:#fff!important}
 .chat-window .cbub a,.chat-window .cbub b{color:inherit}
 .chat-window .cbtn{background:#004d17!important;color:#fff!important}
+
+/* Kontaktseite: kein Trenner mehr zwischen E-Mail und WhatsApp */
+.kon-page-btns{grid-template-columns:repeat(2,minmax(0,1fr))!important;max-width:24rem!important}
+
+/* Chat: Text in den Sprechblasen immer gut lesbar (auch im dunklen Darstellungsmodus) */
+.chat-window .crow:not(.me) .cbub,.chat-window .crow:not(.me) .cbub *{color:#012265!important}
+.chat-window .crow:not(.me) .cbub .cfine{color:#5a6f8f!important}
+.chat-window .crow.me .cbub{color:#fff!important}
