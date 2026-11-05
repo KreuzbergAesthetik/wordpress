@@ -3713,3 +3713,6 @@ html:not(.calm) .mast .mastnav .nav-wa:hover,html:not(.calm) .mast .mastnav .nav
 
 /* Kontaktseite: WhatsApp-Knopf mit transparentem Hintergrund (auch beim Überfahren) */
 .kon-page-btns .btn.hero-main:last-child,html:not(.never) .kon-page-btns .btn.hero-main:last-child:hover,html:not(.never) .kon-page-btns .btn.hero-main:last-child:focus-visible{background:transparent!important}
+
+/* Startbereich- und Kontaktseiten-Knöpfe: beim Überfahren zoomen statt hochspringen */
+html:not(.calm) .hero-v5 .hero-pills .btn.hero-main:hover,html:not(.calm) .hero-v5 .hero-pills .btn.hero-main:focus-visible,html:not(.calm) .kon-page-btns .btn.hero-main:hover,html:not(.calm) .kon-page-btns .btn.hero-main:focus-visible{transform:scale(1.03)!important}
