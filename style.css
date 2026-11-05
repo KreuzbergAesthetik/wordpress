@@ -3825,3 +3825,7 @@ html:not(.calm) .kview[data-view=ablauf] .steps li.step-card:hover{transform:non
 html:not(.calm) .faq summary:hover::after{scale:1.3}
 html:not(.never) .kview[data-view=ablauf] .faq details:hover{box-shadow:var(--sh-ar-h)!important}
 .kview[data-view=ablauf] .faq details{transition:box-shadow .3s ease!important}
+
+/* Kontaktformular: Kartenschatten rundherum, beim Überfahren dunkler */
+html:not(.never) .kview form#contact-form{box-shadow:var(--sh-ar)!important;transition:box-shadow .3s ease!important}
+html:not(.never) .kview form#contact-form:hover{box-shadow:var(--sh-ar-h)!important}
