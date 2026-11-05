@@ -2,7 +2,7 @@
 Theme Name: Kreuzberg Ästhetik
 Description: Website der Privatpraxis Kreuzberg Ästhetik
 Author: Kreuzberg Ästhetik
-Version: 148
+Version: 149
 Requires at least: 6.0
 Requires PHP: 7.4
 Text Domain: kreuzberg-aesthetik
@@ -3493,4 +3493,21 @@ html.calm,html.calm *,html.calm *::before,html.calm *::after{animation:none!impo
 }
 @media (max-width:700px){
  .sum-abl.sum-abl .steps.steps li{width:calc(50% - 1.2rem)!important;max-width:none!important}
+}
+
+/* Versuch: Farben umgekehrt – dunkelblaue Karten, weiße Knöpfe mit dunkelblauer Schrift (Startseite: "Was ich für Dich tun kann"; Ablauf bleibt hell) */
+.lei-col{background:#012265!important;border-color:rgba(255,255,255,.14)!important}
+.lei-col h3{color:#fff!important}
+.lei-col p{color:rgba(255,255,255,.88)!important}
+.lei-col>.lei-ico{color:rgba(255,255,255,.09)!important}
+.lei-col .btn,.lei-col .btn.deep{background:#fff!important;color:#012265!important;border-color:#fff!important;box-shadow:0 8px 18px rgba(0,0,0,.25)!important}
+.lei-col .btn .ico,.lei-col .btn .bt-in{color:#012265!important}
+
+/* Porträt heller dort, wo Text darüber steht (Schulter am Desktop, Hemd unter dem Gesicht am Handy) */
+.hero-v5 .hero-portrait::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:2}
+@media (min-width:701px){
+ .hero-v5 .hero-portrait::after{background:radial-gradient(ellipse 42% 36% at 72% 74%,rgba(232,238,250,.78) 0%,rgba(232,238,250,.45) 55%,rgba(232,238,250,0) 100%)}
+}
+@media (max-width:700px){
+ .hero-v5 .hero-portrait::after{background:linear-gradient(180deg,rgba(232,238,250,0) 52%,rgba(232,238,250,.55) 80%,rgba(232,238,250,.85) 100%)}
 }
