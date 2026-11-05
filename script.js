@@ -88,9 +88,12 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
     }
     var ro=1;for(var i=0;i<rest.length;i++){rest[i].style.opacity=ro<1?ro.toFixed(2):'';rest[i].style.pointerEvents=ro<1?'none':''}
     var li=slot&&slot.previousElementSibling&&slot.previousElementSibling.classList.contains('hero-greeting')?slot.previousElementSibling:document.querySelector('.lead-in');if(li&&M.on&&!M.done)li.style.opacity=Math.max(0,1-t*2.4).toFixed(2);
-    /* Der Text unter dem Schriftzug blendet kurz aus, solange der Schriftzug darüber hinweg in die Leiste fliegt, und kommt danach wieder */
+    /* Der Text unter dem Schriftzug wird sehr früh unscharf, solange der Schriftzug darüber hinwegfliegt, und gegen Ende wieder scharf */
     var sv=document.querySelector('.hero-service');
-    if(sv){if(M.on&&!M.done){var so=t<.18?1-t/.18:(t>.9?(t-.9)/.1:0);sv.style.opacity=so.toFixed(2)}else if(sv.style.opacity!==''){sv.style.opacity=''}}
+    if(sv){
+      if(M.on&&!M.done){var bl=t<.05?t/.05:(t>.88?(1-t)/.12:1);bl=Math.max(0,Math.min(1,bl));sv.style.filter=bl>.01?'blur('+(bl*7).toFixed(1)+'px)':'';sv.style.opacity=(1-.45*bl).toFixed(2)}
+      else if(sv.style.filter!==''||sv.style.opacity!==''){sv.style.filter='';sv.style.opacity=''}
+    }
     var topC=M.top+29,startC=M.vh-16-29;
     var slotC=M.on?slot.getBoundingClientRect().top+slot.offsetHeight/2:topC;
     var pcn=topC,wc=slotC+(topC-slotC)*e,k=M.on?M.k0+(M.k1-M.k0)*e:M.k1;
