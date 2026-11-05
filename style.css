@@ -3398,3 +3398,5 @@ svg.fillable path.chkw{stroke:#fff;fill:none;clip-path:inset(0 0 calc(100% - var
 /* Ablaufseite: Hinweis "am selben Tag" als i-Symbol oben rechts in der zweiten Karte; Aufklärung & Behandlung in einer Zeile */
 #ablauf .steps li .sd-i{position:absolute;top:.7rem;right:.7rem;z-index:3;margin:0}
 #ablauf .steps li:nth-child(3) h3{white-space:nowrap}
+#ablauf .steps li h3{white-space:nowrap}
+@media (max-width:360px){#ablauf .steps li h3{font-size:1rem!important}}
