@@ -394,7 +394,7 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
       var r=li.getBoundingClientRect();if(!r.width)return;
       var idx=[].indexOf.call(li.parentNode.children,li),home=!!li.closest('.sum-abl');
       /* jeder weitere Punkt braucht mehr Scrollweg; nie weiter, als das Seitenende erlaubt */
-      var cy=r.top+Math.min(40,r.height/2),lim=cy-(maxS-sy)+30,line=Math.max(vh*(home?0.85:0.32)-idx*(home?60:95),lim);
+      var mob,off,cy=r.top+Math.min(40,r.height/2),lim=cy-(maxS-sy)+30,mob=window.innerWidth<=700,off=mob?(home?-idx*24:idx*50):-idx*(home?60:95),line=Math.max(vh*(home?0.85:0.32)+off,lim);
       li.classList.toggle('st-hit',cy<line);
     });
   }
