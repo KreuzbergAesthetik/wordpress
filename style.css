@@ -2,7 +2,7 @@
 Theme Name: Kreuzberg Ästhetik
 Description: Website der Privatpraxis Kreuzberg Ästhetik
 Author: Kreuzberg Ästhetik
-Version: 142
+Version: 143
 Requires at least: 6.0
 Requires PHP: 7.4
 Text Domain: kreuzberg-aesthetik
@@ -3440,3 +3440,8 @@ body:not(.admin-bar) .mastnav{top:calc(5px + env(safe-area-inset-top,0px))!impor
 .sum-abl.sum-abl .steps.steps li:last-child{margin-bottom:0!important}
 .sum-abl.sum-abl .steps.steps li::after,.sum-abl.sum-abl .steps.steps li:nth-child(odd)::after,.sum-abl.sum-abl .steps.steps li:nth-child(even)::after{left:calc(-1.6rem + 6px)!important;right:auto!important;width:calc(1.6rem - 7px)!important}
 .sum-abl.sum-abl .steps.steps li::before,.sum-abl.sum-abl .steps.steps li:nth-child(odd)::before,.sum-abl.sum-abl .steps.steps li:nth-child(even)::before{left:calc(-2.6rem + 8px)!important;right:auto!important}
+
+/* Ablauf-Punkte am Handy: schneller füllen */
+@media (max-width:700px){
+ #ablauf .steps li::before,.sum-abl.sum-abl .steps.steps li::before{transition:background .3s ease!important}
+}
