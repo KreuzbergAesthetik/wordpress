@@ -2,7 +2,7 @@
 Theme Name: Kreuzberg Ästhetik
 Description: Website der Privatpraxis Kreuzberg Ästhetik
 Author: Kreuzberg Ästhetik
-Version: 140
+Version: 141
 Requires at least: 6.0
 Requires PHP: 7.4
 Text Domain: kreuzberg-aesthetik
@@ -3417,3 +3417,8 @@ body:not(.admin-bar) .mastnav{top:calc(5px + env(safe-area-inset-top,0px))!impor
 .grp .subgrp:not(.has-h){background:#f2f6fc;border-radius:var(--r-small,12px);padding:.75rem 1rem .35rem;margin-top:.8rem}
 .grp .subgrp:not(.has-h) .pk-note{margin:0 0 .3rem!important}
 @media (max-width:700px){.grp .subgrp:not(.has-h){padding:.65rem .75rem .25rem;margin-inline:-.25rem}}
+
+/* Kontaktseite: Formular unter den zwei Knöpfen (eine Spalte) */
+.contact{grid-template-columns:1fr!important;max-width:44rem!important;gap:2rem!important}
+.contact .txt{text-align:center}
+@media (max-width:700px){.contact{gap:1.6rem!important}}

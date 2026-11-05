@@ -168,7 +168,7 @@ Chemisch (traditionell) | ab 249,-
 ## Longevity | Medizin für lange Gesundheit | dunkel
 Ästhetik und Gesundheit gehören für mich zusammen. Longevity-Medizin schaut auf die kommenden Jahre und nicht nur auf das Aussehen: Wie bleiben Gesundheit, Ausstrahlung und Lebensqualität langfristig erhalten? Wir sprechen über Deine Ziele und Deine Ausgangslage und legen dann gemeinsam fest, welche Maßnahmen für Dich sinnvoll sind. [Vorschlag: Prüfe, ob das zu Deinem Konzept passt, und ergänze Details zu den Angeboten.]
 
-## Pakete | Mehrere Termine, günstigerer Preis | breit
+## Pakete | Mehrere Termine, günstigerer Preis
 Wenn mehrere Termine sinnvoll sind, bekommst Du die Behandlungen im Paket zu einem günstigeren Preis.
 2 × PLLA-Behandlung innerhalb von 6 Monaten | ab 999,- | 1198,-
 4 × Retinol-Peeling innerhalb von 6 Monaten | ab 699,- | 796,-

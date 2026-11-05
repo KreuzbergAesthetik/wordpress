@@ -372,7 +372,7 @@ function ka_view_services() {
       <p id="nohit" role="status" hidden>Dazu finde ich nichts in der Liste. Schreibe mir gern, ich helfe Dir weiter.</p>
       <div class="groups">
       <?php $lon_grp = null; foreach ( ka_groups() as $g ) : if ( $g['deep'] && ! $g['rows'] ) { $lon_grp = $g; continue; } ?>
-        <article class="grp<?php echo $g['deep'] ? ' deep glow' : ''; ?><?php echo $g['wide'] ? ' wide' : ''; ?>">
+        <article class="grp<?php echo $g['deep'] ? ' deep glow' : ''; ?><?php echo ( $g['wide'] && 'Pakete' !== $g['title'] ) ? ' wide' : ''; ?>">
           <span class="tag"><?php echo esc_html( $g['tag'] ); ?></span>
           <h3><?php echo esc_html( $g['title'] ); ?></h3>
           <?php if ( $g['desc'] ) : ?><p class="about-g"><?php echo ka_mark( esc_html( implode( ' ', $g['desc'] ) ) ); ?></p><?php endif; ?>
