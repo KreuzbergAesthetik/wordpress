@@ -275,7 +275,6 @@ function ka_view_home() {
     </ol>
   </div>
   <?php endif; ?>
-  <?php echo $div; ?>
   <div class="wrap"><p class="sum-more"><a class="btn deep" href="<?php echo esc_url( ka_url( 'ueber-mich' ) ); ?>">Mehr über mich <span aria-hidden="true">&rarr;</span></a></p></div>
 </section>
 

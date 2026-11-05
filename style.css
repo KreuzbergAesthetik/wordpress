@@ -3735,8 +3735,8 @@ html:not(.calm) .step-card:hover .cta-arrow{transform:translateX(4px)}
 /* Kopfleiste: Kontakt wird beim Überfahren dunkelblau mit weißer Schrift; Logo poppt */
 .mast .mastnav .nl-r a{transition:background-color .25s ease,color .25s ease,transform .3s cubic-bezier(.25,.8,.35,1)!important}
 .mast .mastnav .nl-r a:hover,.mast .mastnav .nl-r a:focus-visible{background:#012265!important;color:#fff!important}
-.wmk>span{transition:scale .3s cubic-bezier(.25,.8,.35,1)}
-html:not(.calm) .mast:has(.pl:hover) .wmk>span,html:not(.calm) .mast:has(.logo-btn:hover) .wmk>span{scale:1.12}
+@keyframes ka-pop12{from{scale:1}to{scale:1.12}}
+html:not(.calm) .mast:has(.pl:hover) .wmk>span,html:not(.calm) .mast:has(.logo-btn:hover) .wmk>span{animation:ka-pop12 .3s cubic-bezier(.25,.8,.35,1) forwards}
 
 /* Startseite: dunkle Behandlungs-Karten mit kräftigem Schatten, beim Überfahren deutlich dunkler */
 html:not(.never) .lei-col{box-shadow:0 0 30px 4px rgba(1,34,101,.5),0 8px 22px rgba(1,34,101,.3)!important}
