@@ -3755,9 +3755,9 @@ html:not(.calm) #leistungen details.all>summary:hover::before,html:not(.calm) #l
 .kon-page-btns .btn-hg .hgi{width:19px;color:#012265;opacity:.85}
 
 /* Versandbestätigung des Formulars: groß und gut sichtbar */
-#note.form-note{display:flex;align-items:center;gap:.9rem;padding:1.15rem 1.3rem;margin:0 0 .4rem;border-radius:var(--r-small,12px);background:#e7f4ea;border:2px solid #004d17;color:#0c3a1b;font:700 1.12rem/1.4 Quicksand,"Segoe UI",system-ui,sans-serif;box-shadow:0 0 26px rgba(0,77,23,.28)}
+#note.form-note{display:flex;align-items:center;gap:.8rem;padding:.95rem 1.1rem;margin:0 0 .4rem;border-radius:var(--r-small,12px);background:#e7f4ea;border:2px solid #004d17;color:#0c3a1b;font:600 .95rem/1.45 Quicksand,"Segoe UI",system-ui,sans-serif;box-shadow:0 0 26px rgba(0,77,23,.28)}
 #note.form-note[hidden]{display:none}
-#note.form-note::before{content:"\2713";flex:none;display:grid;place-items:center;width:2.4rem;height:2.4rem;border-radius:50%;background:#004d17;color:#fff;font-size:1.3rem}
+#note.form-note::before{content:"\2713";flex:none;display:grid;place-items:center;width:2rem;height:2rem;border-radius:50%;background:#004d17;color:#fff;font-size:1.05rem}
 #note.form-note.err{background:#fdeceb;border-color:#b3261e;color:#7a1a14;box-shadow:0 0 26px rgba(179,38,30,.25)}
 #note.form-note.err::before{content:"!";background:#b3261e}
 
