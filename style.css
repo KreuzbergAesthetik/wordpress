@@ -3432,3 +3432,11 @@ body:not(.admin-bar) .mastnav{top:calc(5px + env(safe-area-inset-top,0px))!impor
  #ablauf .steps li::after,#ablauf .steps li:nth-child(odd)::after,#ablauf .steps li:nth-child(even)::after{left:-1.6rem!important;right:auto!important;width:1.6rem!important;top:1.7rem!important}
  #ablauf .steps li::before,#ablauf .steps li:nth-child(odd)::before,#ablauf .steps li:nth-child(even)::before{left:calc(-2.6rem + 8px)!important;right:auto!important;top:calc(1.7rem - 7px)!important}
 }
+
+/* Startseite "Dein Weg zur Behandlung": Leiste links, alle Karten rechts davon (alle Breiten) */
+.sum-abl.sum-abl .steps.steps{max-width:46rem!important}
+.sum-abl.sum-abl .steps.steps::before{left:15px!important;margin-left:0!important}
+.sum-abl.sum-abl .steps.steps li,.sum-abl.sum-abl .steps.steps li:nth-child(odd),.sum-abl.sum-abl .steps.steps li:nth-child(even){width:calc(100% - 2.6rem)!important;margin:0 0 .6rem 2.6rem!important}
+.sum-abl.sum-abl .steps.steps li:last-child{margin-bottom:0!important}
+.sum-abl.sum-abl .steps.steps li::after,.sum-abl.sum-abl .steps.steps li:nth-child(odd)::after,.sum-abl.sum-abl .steps.steps li:nth-child(even)::after{left:calc(-1.6rem + 6px)!important;right:auto!important;width:calc(1.6rem - 7px)!important}
+.sum-abl.sum-abl .steps.steps li::before,.sum-abl.sum-abl .steps.steps li:nth-child(odd)::before,.sum-abl.sum-abl .steps.steps li:nth-child(even)::before{left:calc(-2.6rem + 8px)!important;right:auto!important}
