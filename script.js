@@ -167,7 +167,7 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
   function show(){if(!ready)return;var l=chat.lastElementChild;if(l)l.scrollIntoView({behavior:reduce?'auto':'smooth',block:'nearest'})}
   function manuel(html){var r=el('div','crow');r.appendChild(el('span','cav'));r.appendChild(el('div','cbub',html));chat.appendChild(r)}
   function me(t){var r=el('div','crow me');r.appendChild(el('div','cbub',t));r.appendChild(el('span','cav-you',IC.person||''));chat.appendChild(r)}
-  function chips(list){var c=el('div','cchips');list.forEach(function(it){var b=el('button','cchip'+(it.go?' go':''),(it.icon||'')+'<span>'+it.label+'</span>');b.type='button';b.addEventListener('click',function(){if(busy)return;ready=true;c.remove();me(it.label);show();it.fn()});c.appendChild(b)});chat.appendChild(c);show()}
+  function chips(list){var c=el('div','cchips');list.forEach(function(it){var b=el('button','cchip'+(it.go?' go':''),(it.icon||'')+'<span>'+it.label+'</span>');b.type='button';b.addEventListener('click',function(){if(busy)return;ready=true;c.remove();me(it.label);show();it.fn()});c.appendChild(b)});var bar=document.getElementById('chat-chips');if(bar){bar.appendChild(c);bar.scrollTop=0}else{chat.appendChild(c);show()}}
   function say(parts,done){busy=true;var i=0;(function next(){
     if(i>=parts.length){busy=false;done&&done();return}
     var t=el('div','crow');t.appendChild(el('span','cav ghost'));t.appendChild(el('div','cbub ctyping','<i></i><i></i><i></i>'));chat.appendChild(t);show();
@@ -177,12 +177,14 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
   function after(){
     var l=[{label:'Wie läuft ein Termin ab?',fn:flow},{label:'Was soll ich mitbringen?',fn:bring}];
     if(order.some(function(k){return !asked[k]}))l.push({label:'Noch ein anderes Thema',fn:function(){say(['Gern. Was noch?'],menu)}});
-    l.push({label:'Ich möchte einen Termin anfragen',go:true,fn:book});chips(l)}
+    chips(l)}
   function topic(k){asked[k]=1;topics.push(dec(T[k].label));var t=T[k],parts=t.text.map(function(x){return '<p>'+x+'</p>'});if(t.prices)parts[parts.length-1]+=pr(t.prices);say(parts,after)}
   function flow(){say([(D.steps||[]).map(function(st,i){return '<p><b>'+(i+1)+'. '+st[0]+':</b> '+st[1]+'</p>'}).join('')],after)}
   function bring(){say(['<p>'+(D.checkIntro||'')+'</p><ul class="clist">'+(D.checks||[]).map(function(c){return '<li>'+c+'</li>'}).join('')+'</ul>'],after)}
   function text(){var base=(D.smsText||'').replace(/\s+$/,'');var hasTail=/[:]$/.test(base);return topics.length?base.replace(/Mein Anliegen:?$/,'').trim()+' Mein Thema: '+topics.join(', ')+'.':(D.smsText||'')}
   function book(){say(['<p>Sehr gern. Termine vergebe ich aktuell persönlich. Schreibe mir einfach'+(topics.length?'. Ich habe Deine Themen schon in die Nachricht geschrieben: '+topics.join(', ')+'.':'.')+'</p><p class="cbtn-wrap cbtn-two"><a class="cbtn cbtn-mail" href="mailto:'+MAIL+'?subject='+encodeURIComponent('Terminanfrage')+'&body='+encodeURIComponent(text())+'">'+(IC.mail||'')+'E-Mail</a><a class="cbtn cbtn-wa" href="https://wa.me/'+WA+'?text='+encodeURIComponent(text())+'" target="_blank" rel="noopener">'+(IC.whatsapp||'')+'WhatsApp</a></p><p class="cfine">Bitte schicke in der Nachricht keine Fotos oder Gesundheitsdaten.</p>'],function(){chips([{label:'Noch eine Frage',fn:function(){say(['Gern. Was möchtest Du noch wissen?'],menu)}}])})}
+  var bookBtn=document.getElementById('chat-book');
+  if(bookBtn)bookBtn.addEventListener('click',function(){if(busy)return;ready=true;var cc=document.querySelector('#chat-chips .cchips');if(cc)cc.remove();me('Ich möchte einen Termin anfragen');show();book()});
   manuel('<p>'+(D.chatIntro||'')+'</p>');
   menu();
   chat.firstElementChild&&0;
@@ -191,7 +193,7 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
 
 (function(){
   var tl=document.getElementById('tl');if(!tl)return;
-  function fill(){var r=tl.getBoundingClientRect(),vh=window.innerHeight,p=window.innerWidth>700?(vh*.92-r.top)/(vh*.28):(vh*.75-r.top)/(r.height||1);var q=Math.min(1,Math.max(0,p));tl.style.setProperty('--tlp',Math.round(q*100)+'%');var li=tl.children,n=li.length;for(var i=0;i<n;i++){li[i].classList.toggle('hit',q>=(n>1?i/(n-1):0)-.001&&q>0)}}
+  function fill(){var r=tl.getBoundingClientRect(),vh=window.innerHeight,land=window.innerWidth>700&&vh<600,p=window.innerWidth>700?(vh*.92-r.top)/(land?Math.max(vh*.85,330):vh*.28):(vh*.75-r.top)/(r.height||1);var q=Math.min(1,Math.max(0,p));tl.style.setProperty('--tlp',Math.round(q*100)+'%');var li=tl.children,n=li.length;for(var i=0;i<n;i++){li[i].classList.toggle('hit',q>=(n>1?i/(n-1):0)-.001&&q>0)}}
   window.addEventListener('scroll',fill,{passive:true});window.addEventListener('resize',fill);fill();
 })();
 
@@ -348,7 +350,7 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
 
 /* Füllen der Linien-Icons und Sanduhr-Trenner: die Füllung steht an der Bildschirmmitte. Beim Hochscrollen schiebt sie sich über einen längeren Scrollweg (dist) von oben nach unten ins Symbol, beim Zurückscrollen leert es sich wieder */
 (function(){
-  var items=[].slice.call(document.querySelectorAll('svg.fillable,.div .hgi')).filter(function(el){return !el.closest('.hero-vals,.quals,.vlist')}).map(function(el){
+  var items=[].slice.call(document.querySelectorAll('svg.fillable,.div .hgi,.btn-hg .hgi')).filter(function(el){return !el.closest('.hero-vals,.quals,.vlist')}).map(function(el){
     return{el:el,ref:el.matches('svg')?el.querySelector('path.fl'):el,p:-1};
   }),tick=false;
   function check(){
@@ -481,8 +483,33 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
 
 /* Anfrage-Karte: ein Klick irgendwo auf die Karte öffnet die Kontaktseite */
 document.addEventListener('click',function(e){
-  var li=e.target.closest&&e.target.closest('li.step-card');
+  var li=e.target.closest&&e.target.closest('.sum-abl li.step-card');
   if(!li||e.target.closest('a,button'))return;
   var a=li.querySelector('a.step-cta,a.step-link');
   if(a)a.click();
 });
+
+/* Versandbestätigung: nach dem Absenden in den sichtbaren Bereich holen */
+(function(){
+  var n=document.getElementById('note'),f=document.getElementById('contact-form');
+  if(!n)return;
+  function look(){if(!n.hidden){n.scrollIntoView({behavior:'smooth',block:'center'});try{n.focus({preventScroll:true})}catch(e){}}}
+  if(!n.hidden)setTimeout(look,300);
+  if(f)f.addEventListener('submit',function(){setTimeout(look,60)});
+  if(window.MutationObserver)new MutationObserver(look).observe(n,{attributes:true,attributeFilter:['hidden']});
+})();
+
+/* „Zum Chat“: Der Link #chat-hilfe führt direkt zum Chat, ohne dass man erst durch die Liste scrollen muss */
+(function(){
+  function go(){
+    if(location.hash!=='#chat-hilfe')return;
+    var h=document.getElementById('chat-hilfe');if(!h)return;
+    window.scrollTo(0,h.getBoundingClientRect().top+(window.pageYOffset||0)-90);
+  }
+  if(location.hash==='#chat-hilfe'){
+    go();
+    window.addEventListener('load',function(){go();setTimeout(go,300);setTimeout(go,900)});
+    if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){setTimeout(go,100)});
+  }
+  window.addEventListener('hashchange',go);
+})();

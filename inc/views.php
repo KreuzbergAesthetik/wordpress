@@ -97,34 +97,41 @@ function ka_render( $view ) {
 	echo '<div class="kview" data-view="' . esc_attr( isset( $slug[ $view ] ) ? $slug[ $view ] : $view ) . '">';
 	echo '<main class="view view-' . esc_attr( $view ) . '">';
 	call_user_func( 'ka_view_' . $view );
-	if ( ! in_array( $view, array( 'home', 'contact' ), true ) ) { ka_contact_band(); }
+	if ( ! in_array( $view, array( 'home', 'contact' ), true ) ) { ka_contact_band( 'legal' !== $view ); }
+	if ( 'contact' === $view ) { ka_next_link(); }
 	echo '</main></div>';
 	ka_footer();
 	get_footer();
 }
 
 
-/** Kontakt-Band (Startseite und alle Unterseiten außer Kontakt). */
-function ka_contact_band() {
-	$sms  = esc_attr( ka_sms_href() );
-	$mail = esc_attr( ka_mail_href() );
+/** Link zur nächsten Seite („Hier geht’s weiter zu: …“), steht über dem Kontakt-Band bzw. über der Fußzeile. */
+function ka_next_link() {
 	$view = isset( $GLOBALS['ka_view'] ) ? $GLOBALS['ka_view'] : 'home';
 	$next = array(
 		'home'     => array( ka_url( 'leistungen' ), ka_raw( 'lei_eyebrow' ) ),
 		'services' => array( ka_url( 'ueber-mich' ), ka_raw( 'about_eyebrow' ) ),
 		'about'    => array( ka_url( 'ablauf' ), ka_raw( 'abl_eyebrow' ) ),
 		'process'  => array( ka_url( 'kontakt' ), ka_raw( 'kon_eyebrow' ) ),
+		'contact'  => array( home_url( '/' ), 'Startseite' ),
 		'legal'    => array( home_url( '/' ), 'Startseite' ),
 	);
 	if ( isset( $next[ $view ] ) ) : ?>
-<p class="next-link"><a href="<?php echo esc_url( $next[ $view ][0] ); ?>"><span class="nl-pre">Hier geht&rsquo;s weiter zu:</span> <span class="nl-t"><?php echo esc_html( $next[ $view ][1] ); ?> <span class="nl-arrow" aria-hidden="true">&rarr;</span></span></a></p>
+<p class="next-link"><a href="<?php echo esc_url( $next[ $view ][0] ); ?>"><span class="nl-pre">Hier geht&rsquo;s weiter zu:</span> <span class="nl-t"><?php echo esc_html( $next[ $view ][1] ); ?></span> <span class="nl-arrow" aria-hidden="true">&rarr;</span></a></p>
 <?php endif;
+}
+
+/** Kontakt-Band (Startseite und alle Unterseiten außer Kontakt). */
+function ka_contact_band( $with_next = true ) {
+	$sms  = esc_attr( ka_sms_href() );
+	$mail = esc_attr( ka_mail_href() );
+	if ( $with_next ) { ka_next_link(); }
 	?>
 <section class="sum sum-kon" aria-labelledby="sum-kon-h">
   <span class="kon-hg" aria-hidden="true"><span class="hgi hg-top"></span><span class="hgi hg-bot"></span></span>
   <div class="wrap">
     <div class="intro">
-      <p class="eyebrow"><?php echo ka( 'kon_eyebrow' ); ?></p>
+      <p class="eyebrow"><a class="eyebrow-link" href="<?php echo esc_url( ka_url( 'kontakt' ) ); ?>"><?php echo ka( 'kon_eyebrow' ); ?></a></p>
       <?php if ( 'about' === $view && '' !== ka_raw( 'about_invite' ) ) : ?>
       <h2 id="sum-kon-h" class="kon-invite"><?php echo ka( 'about_invite' ); ?></h2>
       <?php else : ?>
@@ -210,7 +217,7 @@ function ka_view_home() {
       <span class="qkbg" aria-hidden="true"><?php echo ka_icon( $icons[ $i ] ); ?></span>
             <span class="qkt"><?php echo esc_html( str_replace( ' und ', ' & ', $t[0] ) ); ?></span>
       <span class="qkd"><?php echo esc_html( $t[1] ); ?></span>
-      <span class="qkm"><span class="qkm-t"><?php echo ka( 'tz_btn' ); ?> <i aria-hidden="true">&rarr;</i></span></span>
+      <span class="qkm"><span class="qkm-t"><?php echo ka( 'tz_btn' ); ?></span> <i aria-hidden="true">&rarr;</i></span>
     </a>
     <?php endforeach; ?>
   </div>
@@ -280,7 +287,7 @@ function ka_view_home() {
     </div>
     <ol class="steps">
       <?php $si = array( 'bubble', 'talk', 'clipboard', 'document' ); foreach ( $steps as $i => $s ) : ?>
-      <li<?php echo 0 === $i ? ' class="step-card"' : ''; ?>><span class="sico"><?php echo ka_icon( $si[ $i % count( $si ) ] ); ?></span><h3><?php $t = esc_html( trim( preg_replace( '/^.*&\s*/u', '', $s[0] ) ) ); echo ( 0 === $i ) ? '<a class="step-link" href="' . esc_url( ka_url( 'kontakt' ) ) . '">' . $t . '</a>' : $t; ?></h3><p><?php echo esc_html( $s[1] ); ?></p></li>
+      <li<?php echo 0 === $i ? ' class="step-card"' : ''; ?>><span class="sico"><?php echo ka_icon( $si[ $i % count( $si ) ] ); ?></span><h3><?php $t = esc_html( trim( preg_replace( '/^.*&\s*/u', '', $s[0] ) ) ); echo ( 0 === $i ) ? '<a class="step-link" href="' . esc_url( ka_url( 'kontakt' ) ) . '"><span class="sl-t"><span class="sl-a">' . $t . '</span><span class="sl-k" aria-hidden="true">Kontakt</span></span> <span class="cta-arrow" aria-hidden="true">&rarr;</span></a>' : $t; ?></h3><p><?php echo esc_html( $s[1] ); ?></p></li>
       <?php endforeach; ?>
     </ol>
     <p class="sum-more"><a class="btn deep" href="<?php echo esc_url( ka_url( 'ablauf' ) ); ?>">Ablauf und häufige Fragen <span aria-hidden="true">&rarr;</span></a></p>
@@ -415,7 +422,11 @@ function ka_view_services() {
     <div class="wrap divwrap" aria-hidden="true"><div class="div"><span class="hgi"></span></div></div>
     <div class="chat-help" id="chat-hilfe">
       <h3 class="chat-h"><?php echo ka( 'chat_h' ); ?></h3>
-      <div class="chat" id="chat" role="log" aria-live="polite" aria-relevant="additions"></div>
+      <div class="chat-window">
+        <div class="chat-top"><span class="cav" aria-hidden="true"></span><span class="chat-who"><b>Manuel von Kreuzberg Ästhetik</b><small><i class="chat-dot" aria-hidden="true"></i>online</small></span></div>
+        <div class="chat" id="chat" role="log" aria-live="polite" aria-relevant="additions"></div>
+        <div class="chat-input"><div class="chat-chips" id="chat-chips"><span class="chat-ph">Wähle eine Antwort …</span></div><button type="button" class="chat-book" id="chat-book"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span>Termin anfragen</span></button></div>
+      </div>
     </div>
   </div>
 </section>
@@ -433,9 +444,10 @@ function ka_view_process() {
     </div>
     <ol class="steps">
       <?php $si = array( 'bubble', 'talk', 'clipboard', 'document' ); foreach ( ka_steps() as $i => $s ) : ?>
-      <li class="<?php echo ( 1 === $i || 2 === $i ) ? 'same-day-step' : ( 0 === $i ? 'step-card' : '' ); ?>"><span class="sico"><?php echo ka_icon( $si[ $i % count( $si ) ] ); ?></span><h3><?php echo ( 0 === $i ) ? '<a class="step-link" href="' . esc_url( ka_url( 'kontakt' ) ) . '">' . esc_html( $s[0] ) . '</a>' : esc_html( $s[0] ); ?></h3><p><?php echo esc_html( $s[1] ); ?></p><?php if ( 0 === $i ) : ?><a class="step-cta" href="<?php echo esc_url( ka_url( 'kontakt' ) ); ?>">Kontakt <span class="cta-arrow" aria-hidden="true">&rarr;</span></a><?php endif; ?><?php if ( 1 === $i ) : ?><button type="button" class="tinfo-btn sd-i" aria-expanded="false" aria-label="Hinweis zu Erstgespräch und Behandlung">i</button><template class="tinfo-tpl"><div class="tinfo-in"><p class="tinfo-what"><?php echo ka( 'abl_same_day' ); ?></p></div></template><?php endif; ?></li>
+      <li class="<?php echo ( 1 === $i || 2 === $i ) ? 'same-day-step' : ( 0 === $i ? 'step-card' : '' ); ?>"><span class="sico"><?php echo ka_icon( $si[ $i % count( $si ) ] ); ?></span><h3><?php echo esc_html( $s[0] ); ?></h3><?php if ( 0 === $i ) : ?><a class="step-cta" href="<?php echo esc_url( ka_url( 'kontakt' ) ); ?>"><span class="cta-t">Kontakt</span> <span class="cta-arrow" aria-hidden="true">&rarr;</span></a><?php endif; ?><p><?php echo esc_html( $s[1] ); ?></p><?php if ( 1 === $i ) : ?><button type="button" class="tinfo-btn sd-i" aria-expanded="false" aria-label="Hinweis zu Erstgespräch und Behandlung">i</button><template class="tinfo-tpl"><div class="tinfo-in"><p class="tinfo-what"><?php echo ka( 'abl_same_day' ); ?></p></div></template><?php endif; ?></li>
       <?php endforeach; ?>
     </ol>
+    <div class="div step-check-div" aria-hidden="true"><span class="hgi"></span></div>
     <div class="check">
       <h3><?php echo ka( 'check_h3' ); ?></h3>
       <p><?php echo ka( 'check_intro' ); ?></p>
@@ -487,10 +499,12 @@ function ka_view_contact() {
         <a class="btn hero-main" href="<?php echo $sms; ?>"><?php echo ka_icon( 'whatsapp' ); ?><span>WhatsApp</span></a>
       </p>
     </div>
+    <div class="div contact-div" aria-hidden="true"><span class="hgi"></span></div>
     <form id="contact-form" method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
       <input type="hidden" name="action" value="ka_contact">
       <input type="hidden" name="ka_back" value="<?php echo esc_url( ka_url( 'kontakt' ) ); ?>">
       <?php wp_nonce_field( 'ka_contact', 'ka_nonce' ); ?>
+      <p id="note" class="form-note<?php echo 'sent' === $ka ? ' ok' : ( $ka ? ' err' : '' ); ?>" role="status" tabindex="-1"<?php echo $ka ? '' : ' hidden'; ?>><?php echo 'sent' === $ka ? ka( 'kon_ok' ) : ( $ka ? ka( 'kon_err' ) : '' ); ?></p>
       <div class="hp" aria-hidden="true"><label>Bitte leer lassen<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
       <label for="vorname">Vorname<input id="vorname" name="vorname" autocomplete="given-name" required></label>
       <label for="nachname">Nachname<input id="nachname" name="nachname" autocomplete="family-name" required></label>
@@ -498,7 +512,6 @@ function ka_view_contact() {
       <label class="full" for="nachricht">Deine Nachricht<textarea id="nachricht" name="nachricht" required></textarea></label>
       <label class="full consent" for="consent"><input id="consent" name="consent" value="1" type="checkbox" required><span><?php echo ka( 'kon_consent' ); ?></span></label>
       <div class="full"><button class="btn deep" type="submit"><?php echo ka( 'kon_send' ); ?></button></div>
-      <p id="note" role="status"<?php echo $ka ? '' : ' hidden'; ?>><?php echo 'sent' === $ka ? ka( 'kon_ok' ) : ( $ka ? ka( 'kon_err' ) : '' ); ?></p>
     </form>
   </div>
 </section>

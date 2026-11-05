@@ -11,7 +11,7 @@ open('wptest/raw.html','w',encoding='utf8').write(html)
 open('wptest/index.html','w',encoding='utf8').write(html)
 body=html[:html.index('<script>window.KA_DATA')]
 body=re.sub(r'href="/(ueber-mich|leistungen|ablauf|kontakt|impressum|datenschutz)/"',r'href="#\1"',body)
-body=body.replace('href="/leistungen/#chat-hilfe"','href="#leistungen"')
+body=body.replace('href="/leistungen/#chat-hilfe"','href="#leistungen" data-kachat="1"')
 body=body.replace('href="/"','href="#"')
 data=re.search(r'<script>(window\.KA_DATA=.*?;)</script>',html,flags=re.S).group(1)
 css=open(T+'style.css',encoding='utf8').read()
@@ -32,7 +32,9 @@ router='''
     document.body.classList.toggle('sub',h!=='home');document.body.classList.toggle('home-page',h==='home');
     window.scrollTo(0,0);
     window.dispatchEvent(new Event('resize'));
+    if(window.__kaChat){window.__kaChat=0;setTimeout(function(){var c=document.getElementById('chat-hilfe');if(c)window.scrollTo(0,c.getBoundingClientRect().top+(window.pageYOffset||0)-90)},500)}
   }
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-kachat]');if(a)window.__kaChat=1},true);
   window.addEventListener('hashchange',route);
   route();
 })();

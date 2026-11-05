@@ -16,11 +16,11 @@ require 'inc/icons.php'; require 'inc/content.php'; require 'inc/views.php';
 ka_chrome();
 echo '<div class="kview" data-view="home"><main class="view view-home">'; $GLOBALS['ka_view']='home'; ka_view_home(); echo '</main></div>';
 foreach ([['ueber-mich','about'],['leistungen','services'],['ablauf','process'],['kontakt','contact']] as $v){
-  echo '<div class="kview" data-view="'.$v[0].'" hidden><main class="view view-'.$v[1].'">'; $GLOBALS['ka_view']=$v[1]; call_user_func('ka_view_'.$v[1]); if($v[1]!=='contact') ka_contact_band(); echo '</main></div>';
+  echo '<div class="kview" data-view="'.$v[0].'" hidden><main class="view view-'.$v[1].'">'; $GLOBALS['ka_view']=$v[1]; call_user_func('ka_view_'.$v[1]); if($v[1]!=='contact') ka_contact_band(); else ka_next_link(); echo '</main></div>';
 }
 foreach ([['impressum','Impressum'],['datenschutz','Datenschutz']] as $v){
   $GLOBALS['lp']=0;$GLOBALS['lt']=$v[1];
-  echo '<div class="kview" data-view="'.$v[0].'" hidden><main class="view view-legal">'; $GLOBALS['ka_view']='legal'; ka_view_legal(); ka_contact_band(); echo '</main></div>';
+  echo '<div class="kview" data-view="'.$v[0].'" hidden><main class="view view-legal">'; $GLOBALS['ka_view']='legal'; ka_view_legal(); ka_contact_band(false); echo '</main></div>';
 }
 ka_footer();
 echo '<script>window.KA_DATA='.json_encode(ka_js_data(),JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES).';</script>';
