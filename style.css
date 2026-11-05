@@ -3504,3 +3504,12 @@ html.calm,html.calm *,html.calm *::before,html.calm *::after{animation:none!impo
 .lei-col .btn .ico,.lei-col .btn .bt-in{color:#012265!important}
 .sum-abl.sum-abl .steps.steps li{background:#012265!important;border-color:rgba(255,255,255,.14)!important}
 .sum-abl.sum-abl .steps.steps li h3,.sum-abl.sum-abl .steps.steps li h3 a{color:#fff!important}
+
+/* Porträt heller dort, wo Text darüber steht (Schulter am Desktop, Hemd unter dem Gesicht am Handy) */
+.hero-v5 .hero-portrait::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:2}
+@media (min-width:701px){
+ .hero-v5 .hero-portrait::after{background:radial-gradient(ellipse 42% 36% at 72% 74%,rgba(232,238,250,.78) 0%,rgba(232,238,250,.45) 55%,rgba(232,238,250,0) 100%)}
+}
+@media (max-width:700px){
+ .hero-v5 .hero-portrait::after{background:linear-gradient(180deg,rgba(232,238,250,0) 52%,rgba(232,238,250,.55) 80%,rgba(232,238,250,.85) 100%)}
+}
