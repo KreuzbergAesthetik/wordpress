@@ -541,7 +541,7 @@ function ka_row_label( $s, $after = '' ) {
 	if ( preg_match( '/^(.*?)\s*,\s*(pro\b.*)$/u', $s, $m ) || preg_match( '/^(.*?)\s+\/\s+(Masseter)$/u', $s, $m ) ) {
 		return esc_html( $m[1] ) . $after . '<small class="ex">' . esc_html( $m[2] ) . '</small>';
 	}
-	if ( preg_match( '/^(.*?)\s+(innerhalb\b.*|im Abstand\b.*|\([^()]*\))$/u', $s, $m ) ) {
+	if ( preg_match( '/^(.*?)\s+(z\. B\. .*|innerhalb\b.*|im Abstand\b.*|\([^()]*\))$/u', $s, $m ) ) {
 		$ex = trim( $m[2], '() ' );
 		return esc_html( $m[1] ) . $after . '<small class="ex">' . esc_html( $ex ) . '</small>';
 	}

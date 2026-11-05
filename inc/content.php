@@ -170,9 +170,9 @@ Chemisch (traditionell) | ab 249,-
 
 ## Pakete | Mehrere Termine, günstigerer Preis
 Wenn mehrere Termine sinnvoll sind, bekommst Du die Behandlungen im Paket zu einem günstigeren Preis.
-2 × PLLA-Behandlung innerhalb von 6 Monaten | ab 999,- | 1198,-
+2 × PLLA-Behandlung z. B. Sculptra innerhalb von 6 Monaten | ab 999,- | 1198,-
 4 × Retinol-Peeling innerhalb von 6 Monaten | ab 699,- | 796,-
-3 × Polynukleotide | ab 899,- | 1047,-
+3 × Polynukleotide innerhalb von 6 Monaten | ab 899,- | 1047,-
 Lip-Flip + 0,7 ml Hyaluron (Abstand 2 Wochen) | ab 349,- | 458,-
 Weitere Pakete | auf Anfrage",
 		"Aufbau: Jede Gruppe beginnt mit ## Titel | Kleine Zeile. Am Ende der Zeile kann | dunkel (dunkle Karte) oder | breit (volle Breite) stehen. Die Zeilen darunter ohne | sind der Beschreibungstext. Preiszeilen haben das Format: Name | Preis | durchgestrichener alter Preis (der dritte Teil ist optional)." );
