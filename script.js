@@ -177,12 +177,14 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
   function after(){
     var l=[{label:'Wie läuft ein Termin ab?',fn:flow},{label:'Was soll ich mitbringen?',fn:bring}];
     if(order.some(function(k){return !asked[k]}))l.push({label:'Noch ein anderes Thema',fn:function(){say(['Gern. Was noch?'],menu)}});
-    l.push({label:'Ich möchte einen Termin anfragen',go:true,fn:book});chips(l)}
+    chips(l)}
   function topic(k){asked[k]=1;topics.push(dec(T[k].label));var t=T[k],parts=t.text.map(function(x){return '<p>'+x+'</p>'});if(t.prices)parts[parts.length-1]+=pr(t.prices);say(parts,after)}
   function flow(){say([(D.steps||[]).map(function(st,i){return '<p><b>'+(i+1)+'. '+st[0]+':</b> '+st[1]+'</p>'}).join('')],after)}
   function bring(){say(['<p>'+(D.checkIntro||'')+'</p><ul class="clist">'+(D.checks||[]).map(function(c){return '<li>'+c+'</li>'}).join('')+'</ul>'],after)}
   function text(){var base=(D.smsText||'').replace(/\s+$/,'');var hasTail=/[:]$/.test(base);return topics.length?base.replace(/Mein Anliegen:?$/,'').trim()+' Mein Thema: '+topics.join(', ')+'.':(D.smsText||'')}
   function book(){say(['<p>Sehr gern. Termine vergebe ich aktuell persönlich. Schreibe mir einfach'+(topics.length?'. Ich habe Deine Themen schon in die Nachricht geschrieben: '+topics.join(', ')+'.':'.')+'</p><p class="cbtn-wrap cbtn-two"><a class="cbtn cbtn-mail" href="mailto:'+MAIL+'?subject='+encodeURIComponent('Terminanfrage')+'&body='+encodeURIComponent(text())+'">'+(IC.mail||'')+'E-Mail</a><a class="cbtn cbtn-wa" href="https://wa.me/'+WA+'?text='+encodeURIComponent(text())+'" target="_blank" rel="noopener">'+(IC.whatsapp||'')+'WhatsApp</a></p><p class="cfine">Bitte schicke in der Nachricht keine Fotos oder Gesundheitsdaten.</p>'],function(){chips([{label:'Noch eine Frage',fn:function(){say(['Gern. Was möchtest Du noch wissen?'],menu)}}])})}
+  var bookBtn=document.getElementById('chat-book');
+  if(bookBtn)bookBtn.addEventListener('click',function(){if(busy)return;ready=true;var cc=document.querySelector('#chat-chips .cchips');if(cc)cc.remove();me('Ich möchte einen Termin anfragen');show();book()});
   manuel('<p>'+(D.chatIntro||'')+'</p>');
   menu();
   chat.firstElementChild&&0;
