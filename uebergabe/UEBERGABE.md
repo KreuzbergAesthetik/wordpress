@@ -1,13 +1,13 @@
 # Übergabe: Website Kreuzberg Ästhetik (WordPress-Theme)
 
-Stand: 4. November 2026, Theme-Version 137 (ZIP im Chat), Quelltext im Repo-Hauptordner (Branch ccr-a91dd6cf-p9csol). Neu seit 136: Füll-Effekte beim Scrollen (Icons, Sanduhr-Trenner, Zeitstrahl-Schilder), Sanduhr-Übergang beim Seitenwechsel (halbe Drehung), Über mich (Blockschrift, Wasserzeichen, Trenner), Pakete (Auswahl-Hinweis, Info-Icon, 'auf Anfrage' grau), Kontakt-Knöpfe wie Startseite + Absende-Knopf mittig, Ablaufseite mit Zeitstrahl.
+Stand: 5. November 2026, Theme-Version 138 (ZIP im Chat), Quelltext im Repo-Hauptordner (Branch ccr-a91dd6cf-p9csol). Neu seit 137: Kopf-Animation im Querformat, Startseite am Handy nach Rückkehr korrigiert, Zeitstrahl-Schilder gleichzeitig mit Beschriftung, Behandlungen (Kontur-Sammelinfo, Zusätze klein und grau, Korrekturen an Infotexten, Hinweis 'Eine Auswahl:'), Longevity-Satz im Anschluss, Ablauf mit gemeinsamen Kästen, Checkliste ohne Durchstreichen, Impressum/Datenschutz als mitgelieferte Texte (inc/legal/, nur bei leerer WordPress-Seite). Neu in 137 (gegenüber 136): Füll-Effekte beim Scrollen (Icons, Sanduhr-Trenner, Zeitstrahl-Schilder), Sanduhr-Übergang beim Seitenwechsel (halbe Drehung), Über mich (Blockschrift, Wasserzeichen, Trenner), Pakete (Auswahl-Hinweis, Info-Icon, 'auf Anfrage' grau), Kontakt-Knöpfe wie Startseite + Absende-Knopf mittig, Ablaufseite mit Zeitstrahl.
 
 ## ZUERST LESEN – Kurzfassung für die neue Sitzung
 
 **Wer/was:** Manuel Fella, Privatpraxis „Kreuzberg Ästhetik“ (Berlin-Kreuzberg), möchte geduzt werden. Eigenes klassisches PHP-Theme für kreuzberg-aesthetik.de (WordPress bei IONOS). Feedback kommt als Kommentar in der Vorschau oder als markierter Screenshot im Chat.
 
 **Arbeitsweise (Manuels Wünsche):**
-- Nach jeder Änderung nur die Vorschau aktualisieren. Ein neues ZIP + Versionsnummer NUR, wenn Manuel es ausdrücklich sagt („mach eine neue Version“ / „baue das ZIP“). Nächste Version: 138.
+- Nach jeder Änderung nur die Vorschau aktualisieren. Ein neues ZIP + Versionsnummer NUR, wenn Manuel es ausdrücklich sagt („mach eine neue Version“ / „baue das ZIP“). Nächste Version: 139.
 - Versionsnummer steht in `style.css` (`Version: 136`), wird in WordPress oben in der Admin-Leiste angezeigt. CSS/JS hängen Version + Änderungszeit an (Cache-Bust).
 - Kommentare: umsetzen, Vorschau veröffentlichen, im Thread kurz antworten (nicht selbst „erledigt“ schließen), im Chat kurz zusammenfassen.
 - Bei Gestaltungsfragen gern 2–3 Varianten als Bilder anbieten und eine Empfehlung geben.
