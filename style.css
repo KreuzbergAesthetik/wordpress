@@ -2,7 +2,7 @@
 Theme Name: Kreuzberg Ästhetik
 Description: Website der Privatpraxis Kreuzberg Ästhetik
 Author: Kreuzberg Ästhetik
-Version: 147
+Version: 148
 Requires at least: 6.0
 Requires PHP: 7.4
 Text Domain: kreuzberg-aesthetik
@@ -3481,3 +3481,16 @@ html.calm,html.calm *,html.calm *::before,html.calm *::after{animation:none!impo
 .calm .btn:hover,.calm .btn:focus-visible,.calm .next-link a:hover,.calm .cbtn:hover,.calm .pill:hover,.calm .mastnav a:hover,.calm .side a:hover{transform:none!important}
 .calm .btn .bt-in,.calm .btn:hover .bt-in,.calm .cbtn .bt-in,.calm .cbtn:hover .bt-in{transform:none!important}
 .sum-abl.sum-abl .steps.steps .sico{display:none!important}
+
+/* Startseite Porträt: rechte Schulter weicher ausblenden, damit der Text daneben gut lesbar ist */
+@media (min-width:701px){
+ .hero-v5 .hero-portrait{-webkit-mask-image:linear-gradient(180deg,#000 62%,rgba(0,0,0,.45) 72%,transparent 81%),linear-gradient(90deg,transparent 4%,#000 18%,#000 66%,rgba(0,0,0,.22) 73%,transparent 81%)!important;mask-image:linear-gradient(180deg,#000 62%,rgba(0,0,0,.45) 72%,transparent 81%),linear-gradient(90deg,transparent 4%,#000 18%,#000 66%,rgba(0,0,0,.22) 73%,transparent 81%)!important}
+}
+
+/* Startseite Ablauf: alle Karten gleich groß */
+@media (min-width:701px){
+ .sum-abl.sum-abl .steps.steps li{width:11rem!important;max-width:calc(50% - 2rem)!important}
+}
+@media (max-width:700px){
+ .sum-abl.sum-abl .steps.steps li{width:calc(50% - 1.2rem)!important;max-width:none!important}
+}
