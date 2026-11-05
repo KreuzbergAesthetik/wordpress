@@ -418,14 +418,19 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
   var ic=[].slice.call(document.querySelectorAll('.hero-vals svg.fillable,.quals svg.fillable,.vlist svg.fillable')),tick=false;
   if(!ic.length)return;
   [].slice.call(document.querySelectorAll('.hero-vals,.quals,.vlist')).forEach(function(box){
-    var k=0;ic.forEach(function(el){if(box.contains(el)){el._off=k*(box.classList.contains('hero-vals')?150:110);k++}});
+    var k=0,hero=box.classList.contains('hero-vals');ic.forEach(function(el){if(box.contains(el)){if(hero)el._hi=k;else el._off=k*110;k++}});
   });
   function check(){
     tick=false;
     var line=window.innerHeight*0.65;
+    var vh=window.innerHeight;
     ic=ic.filter(function(el){
-      var r=el.getBoundingClientRect();
-      if(r.width&&r.top+r.height/2<line-(el._off||0)){el.classList.add('fill-on');return false}
+      var r=el.getBoundingClientRect(),cy=r.top+r.height/2,ok;
+      if(!r.width)return true;
+      /* Startbereich: Stern nach 1/4, Herz nach 1/2, Personen nach 3/4 des Weges, den die Reihe ab ihrem Sichtbarwerden bis zum oberen Bildrand zurücklegt */
+      if(el._hi!==undefined){var docY=cy+(window.pageYOffset||0),st=Math.max(1,Math.min(vh,docY));ok=(st-cy)/st>=0.25*(el._hi+1)}
+      else ok=cy<line-(el._off||0);
+      if(ok){el.classList.add('fill-on');return false}
       return true;
     });
     if(!ic.length){window.removeEventListener('scroll',req);window.removeEventListener('resize',req)}
