@@ -10,20 +10,24 @@ Stand: 5. November 2026. **Theme-Version 152 ist live** (Übertragung Nr. 16 gr�
 
 - **Nicht nerven:** Er will wenig Rückfragen und keine langen Erklärungen. Nur bei echter Unsicherheit fragen („Frage bei Unsicherheit“ war seine Ansage), vor allem bei unleserlichen Handschrift-Markierungen in Screenshots. Kurz sagen, wie Du es gelesen hast, und weitermachen.
 - **Unklare Kommentare:** Er tippt per Sprache und mit Tippfehlern („unsxgatd“ = „unscharf“, „Landgamer“ = „Langsamer“). Sinn erschließen, in der Antwort kurz nennen, wie gelesen.
-- **„Nur als Vorschau“** heißt: nichts veröffentlichen. Sonst geht eine Änderung nach dem Testen auf die Website, ohne extra zu fragen.
+- **Veröffentlichen nur auf Befehl (Regel von Manuel, 5. November, gilt vor allem anderen):** Nichts geht automatisch auf die Website. Eine gewünschte Änderung wird umgesetzt und getestet und bleibt **unveröffentlicht** auf dem Arbeitszweig. Eine **Vorschau** wird erst auf Nachfrage gemacht. Erst auf einen ausdrücklichen Befehl wie „Veröffentliche“ folgt der Ablauf unten (Version erhöhen, Pull Request, Übertragung). Nicht von selbst nachfragen „soll ich veröffentlichen?“ und nicht aus Sätzen wie „ja“ oder „okay“ auf Veröffentlichen schließen, wenn sie sich auf etwas anderes beziehen. Eine Übertragung nur starten, wenn der Befehl eindeutig dazu da ist. Auch ein Pull Request nach `main` zählt zum Veröffentlichen und kommt erst auf den Befehl.
 - **Gestaltungsfragen:** gern 2–3 Varianten als Bild und eine Empfehlung.
 - **Medizinische Texte:** nur fundierte Angaben. Neuromodulator darf „allgemein als Botox bekannt“ heißen, sonst keine Marken bei verschreibungspflichtigen Arzneimitteln, kein „Lemon Bottle“.
 - Er prüft am **Handy** (Chrome, auch Querformat) und am Desktop. Immer beides testen (Playwright: 390×844 und 1440×900, bei Kopf-Animation zusätzlich 844×390).
 
 ### Ablauf einer Änderung (seit 5. November, ohne ZIP)
 
-1. Änderung machen, in der Vorschau auf Desktop und Handy testen (Playwright).
-2. Versionsnummer in `style.css` Zeile 5 (`Version: NNN`) um 1 erhöhen, kurzen Eintrag oben in dieser Datei ergänzen.
-3. Commit, Push auf `ccr-a91dd6cf-p9csol`. Ist der Zweig schon in `main` gemergt, zuerst `git fetch origin && git checkout -B ccr-a91dd6cf-p9csol origin/main`.
-4. Pull Request nach `main` öffnen und übernehmen (Manuel hat das ausdrücklich erlaubt, „Variante 1: alles außer der Freigabe“).
-5. Ablauf **„Zu IONOS übertragen“** (`ionos-deploy.yml`) auf `main` starten, Eingabe `publish=true` (Tool `actions_run_trigger`, `run_workflow`).
-6. **Manuel gibt in GitHub frei** (Actions → Ablauf → „Review deployments“ → Haken `ionos-production` → „Approve and deploy“). Das kann nur er. Der Ablauf wartet bis dahin. Ist ein älterer Ablauf noch wartend, diesen mit `cancel_workflow_run` abbrechen.
-7. Danach Status prüfen (`actions_list`), Manuel sagen: **Autoptimize-Cache leeren** und in der schwarzen Admin-Leiste „Theme NNN“ prüfen.
+Schritte 1 bis 2 passieren bei jeder gewünschten Änderung. **Ab Schritt 3 nur, wenn Manuel es ausdrücklich befiehlt** (zum Beispiel „Veröffentliche“).
+
+1. Änderung machen und auf Desktop und Handy testen (Playwright). Die Vorschau (Artifact) nur auf Nachfrage aktualisieren.
+2. Kurz sagen, was geändert wurde und dass es noch nicht veröffentlicht ist (Änderung bleibt auf dem Arbeitszweig).
+   *Auf Befehl „Veröffentlichen“:*
+3. Versionsnummer in `style.css` Zeile 5 (`Version: NNN`) um 1 erhöhen, kurzen Eintrag oben in dieser Datei ergänzen.
+4. Commit, Push auf `ccr-a91dd6cf-p9csol`. Ist der Zweig schon in `main` gemergt, zuerst `git fetch origin && git checkout -B ccr-a91dd6cf-p9csol origin/main`.
+5. Pull Request nach `main` öffnen und übernehmen (erlaubt, aber nur im Rahmen des Befehls).
+6. Ablauf **„Zu IONOS übertragen“** (`ionos-deploy.yml`) auf `main` starten, Eingabe `publish=true` (Tool `actions_run_trigger`, `run_workflow`).
+7. **Manuel gibt in GitHub frei** (Actions → Ablauf → „Review deployments“ → Haken `ionos-production` → „Approve and deploy“). Das kann nur er. Der Ablauf wartet bis dahin. Ist ein älterer Ablauf noch wartend, diesen mit `cancel_workflow_run` abbrechen.
+8. Danach Status prüfen (`actions_list`), Manuel sagen: **Autoptimize-Cache leeren** und in der schwarzen Admin-Leiste „Theme NNN“ prüfen.
 
 Rollback: ältere Version über einen neuen Pull Request wiederherstellen und übertragen, oder die ZIP-Datei der Vorgängerversion in WordPress hochladen (ZIP kannst Du aus dem Repo-Stand bauen: Ordner `kreuzberg-aesthetik/` mit `*.php`, `*.css`, `*.js`, `assets`, `inc`, `README.txt`).
 
