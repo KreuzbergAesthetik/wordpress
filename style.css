@@ -3777,3 +3777,7 @@ html:not(.calm) #leistungen details.all>summary:hover::before,html:not(.calm) #l
 .chat-input>span:first-child{flex:1;padding:.55rem .9rem;border-radius:999px;background:#eef3fb}
 .chat-send{display:grid;place-items:center;flex:none;width:38px;height:38px;border-radius:50%;background:#012265}
 .chat-send .ico{width:18px;height:18px;color:#fff}
+
+/* Impressum und Datenschutz: Karte schmaler und mittig */
+.kview .legal-wrap{max-width:640px!important;margin-left:auto!important;margin-right:auto!important}
+.kview .legal-wrap .legal-card{margin-left:auto;margin-right:auto}
