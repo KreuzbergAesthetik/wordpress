@@ -3701,16 +3701,6 @@ html:not(.never) .lei-col .btn:hover,html:not(.never) .lei-col .btn:focus-visibl
 html:not(.calm) .vrow>summary:hover .vrow-t{transform:scale(1.04);transform-origin:left center}
 .vrow-t{transition:transform .3s cubic-bezier(.25,.8,.35,1)}
 
-/* Kopfleiste: WhatsApp-Symbol mittig zwischen „Kontakt“ und Menü-Symbol */
-.mast .mastnav .nl-r{margin-right:0!important}
-.mast .mastnav .nav-wa{display:inline-flex;align-items:center;justify-content:center;flex:none;width:30px;height:30px;margin:0 calc(.7rem - 9.5px) 0 calc(.7rem + 9.5px);color:#004d17;transition:transform .3s cubic-bezier(.25,.8,.35,1)}
-.mast .mastnav .nav-wa .ico{width:22px;height:22px}
-html:not(.calm) .mast .mastnav .nav-wa:hover,html:not(.calm) .mast .mastnav .nav-wa:focus-visible{transform:scale(1.12)}
-.mast .mastnav .nav-wa{opacity:var(--na,1)}
-/* Schmale Ansicht (Kontakt-Link ausgeblendet): Symbol sitzt mittig zwischen Schriftzug und Menü-Symbol, auf sehr kleinen Handys weg */
-@media (max-width:1099px){.mast .mastnav .nav-wa{margin:0 -15px 0 auto!important}}
-@media (max-width:359px){.mast .mastnav .nav-wa{display:none!important}}
-
 /* Kontaktseite: WhatsApp-Knopf mit transparentem Hintergrund (auch beim Überfahren) */
 .kon-page-btns .btn.hero-main:last-child,html:not(.never) .kon-page-btns .btn.hero-main:last-child:hover,html:not(.never) .kon-page-btns .btn.hero-main:last-child:focus-visible{background:transparent!important}
 

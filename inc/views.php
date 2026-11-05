@@ -36,7 +36,6 @@ function ka_chrome() {
       <li><a href="<?php echo esc_url( ka_url( 'leistungen' ) ); ?>"><?php echo ka( 'nav_services' ); ?></a></li>
     </ul>
     <ul class="nl nl-r"><li><a href="<?php echo esc_url( ka_url( 'kontakt' ) ); ?>"><?php echo ka( 'kon_eyebrow' ); ?></a></li></ul>
-    <a class="nav-wa" href="<?php echo esc_attr( ka_sms_href() ); ?>" aria-label="<?php echo esc_attr( ka_raw( 'msg_label' ) ); ?>"><?php echo ka_icon( 'whatsapp' ); ?></a>
     <button class="hb" id="hbbtn" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navmenu"><span></span></button>
     <button class="logo-btn" id="logobtn" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navmenu"></button>
   </nav>
