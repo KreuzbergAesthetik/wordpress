@@ -2,7 +2,7 @@
 Theme Name: Kreuzberg Ästhetik
 Description: Website der Privatpraxis Kreuzberg Ästhetik
 Author: Kreuzberg Ästhetik
-Version: 157
+Version: 158
 Requires at least: 6.0
 Requires PHP: 7.4
 Text Domain: kreuzberg-aesthetik
@@ -3934,3 +3934,15 @@ html:not(.calm) .chat-book:hover,html:not(.calm) .chat-book:focus-visible{transf
 /* Chat: Hintergrund zart grau, Wasserzeichen weiß */
 .chat-window .chat{background:linear-gradient(180deg,#f3f5f8,#eceff4)!important}
 .chat-window .chat::before{background:#fff!important}
+
+
+/* v158: Mehr Luft im Hero und rund um den Chat auf der Behandlungsseite */
+@media (min-width:701px){
+  .home-page .hero-v5 .hero-pills,
+  .home-page .hero-v5 .hero-copy>.hero-pills.hero-pills{top:calc(45.2 * var(--u))!important}
+}
+@media (max-width:700px){
+  .home-page .hero-v5 .hero-cta.hero-pills{margin-top:1.8rem!important}
+}
+.kview[data-view=leistungen] .chat-help{margin-top:2.8rem!important}
+.kview[data-view=leistungen] .next-link{margin-top:3.2rem!important}
