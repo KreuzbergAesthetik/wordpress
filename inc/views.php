@@ -181,7 +181,7 @@ function ka_view_home() {
         <p class="hero-service"><?php echo ka_inline( 'hero_h1' ); ?></p>
       </div>
       <figure class="hero-portrait">
-        <img class="hero-photo" src="<?php echo esc_url( get_theme_file_uri( 'assets/portrait-cutout.webp' ) ); ?>" width="900" height="1229" alt="<?php echo esc_attr( ka_raw( 'portrait_alt' ) ); ?>">
+        <img class="hero-photo" src="<?php echo esc_url( get_theme_file_uri( 'assets/portrait-hero-new.webp' ) ); ?>" width="900" height="1229" alt="<?php echo esc_attr( ka_raw( 'portrait_alt' ) ); ?>">
       </figure>
       <div class="hero-who">
         <h2 class="hero-name"><?php echo ka( 'hero_name' ); ?></h2>
