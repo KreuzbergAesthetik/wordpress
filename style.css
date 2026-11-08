@@ -4137,3 +4137,4 @@ footer .ft-l,footer .ft-r{text-decoration:none!important}
 footer .ft-l:hover,footer .ft-r:hover,footer .ft-l:focus-visible,footer .ft-r:focus-visible{text-decoration:underline!important}
 .lei-sum .lei-ico{background:none!important;border-radius:0!important;border:0!important;box-shadow:none!important}
 .steps li.step-card:hover h3 a.step-link .sl-t,.steps li.step-card:focus-within h3 a.step-link .sl-t,.steps li.step-card:hover .step-cta .cta-t,.steps li.step-card:focus-within .step-cta .cta-t,.steps li.step-card .step-cta:hover .cta-t{border-bottom-color:currentColor!important}
+html:not(.never) .hero-act,html:not(.never) .hero-v5 .hero-act,html:not(.never) .lei-btn{border-radius:999px!important}
