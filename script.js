@@ -109,6 +109,16 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
     var hbb=document.getElementById('hbbtn');if(hbb){var dd=hbb.offsetLeft+hbb.offsetWidth/2-nav.clientWidth/2;hbb.style.transform=sc>1?'translateX('+(dd*(1/sc-1)).toFixed(1)+'px) scale('+(1/sc).toFixed(4)+')':'';hbb.style.pointerEvents='auto'}
     var hs=document.getElementById('hgslot'),hsOn=M.on&&hs&&hs.offsetParent!==null;hg.style.opacity='1';wm.style.opacity=M.on?'':e.toFixed(3);wm.style.pointerEvents=e<.6?'none':'';
     place(cx0+(M.W/2-cx0)*e,wc,k);
+    /* Der Text unter dem Schriftzug steigt mit dem Schriftzug auf und schiebt sich unter ihm hindurch nach oben weg */
+    (function(){var sv2=document.querySelector('.hero-service');if(!sv2)return;
+      if(!M.on||(M.W<=0)){sv2.style.transform='';sv2.style.webkitMaskImage=sv2.style.maskImage='';return}
+      var pr=P!==null?P:t;pr=Math.max(0,Math.min(1,pr));
+      if(pr<=0.001){sv2.style.transform='';sv2.style.webkitMaskImage=sv2.style.maskImage='';return}
+      sv2.style.transform='';var r0=sv2.getBoundingClientRect();
+      var edge=topC+30,D=r0.bottom-edge+8;
+      sv2.style.transform='translateY('+(-pr*D).toFixed(1)+'px)';
+      var r=sv2.getBoundingClientRect(),h=Math.max(0,edge-r.top),m='linear-gradient(180deg,transparent '+h.toFixed(1)+'px,#000 '+(h+12).toFixed(1)+'px)';
+      sv2.style.webkitMaskImage=sv2.style.maskImage=m})();
     var cx,cy,kk;
     if(col){cx=M.W-12-28;cy=M.top+28;kk=38/M.hh}
     else{cx=(M.W-M.pw)/2+M.padL+22;cy=pc;kk=44/M.hh}
