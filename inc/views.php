@@ -469,6 +469,7 @@ function ka_view_contact() {
       <p class="sum-contact kon-page-btns">
         <a class="btn hero-main" href="<?php echo esc_attr( ka_mail_href() ); ?>"><?php echo ka_icon( 'mail' ); ?><span>E-Mail</span></a>
         <a class="btn hero-main btn-wa-ico" href="<?php echo $sms; ?>" aria-label="WhatsApp"><?php echo ka_icon( 'whatsapp' ); ?></a>
+        <a class="btn hero-main kon-form-pill" href="#contact-form"><?php echo ka_icon( 'document' ); ?><span>Formular</span></a>
       </p>
     </div>
     <div class="div contact-div" aria-hidden="true"><span class="hgi"></span></div>

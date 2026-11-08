@@ -4148,3 +4148,10 @@ html:not(.never) .hero-act,html:not(.never) .hero-v5 .hero-act,html:not(.never) 
 .lei-btn-line .ico,html:not(.never) .lei-btn-line .ico{color:#004d17!important}
 /* v160f: Porträt auf dem Handy mittig (Desktop/Querformat bleibt rechts neben der Schrift) */
 @media (max-width:700px){html:not(.never) .home-page .hero-v5 .hero-portrait{margin-left:5vw!important}}
+/* v160g: Kontaktseite – WhatsApp in der Mitte, E-Mail und Formular als gleich große Pillen daneben, mit Abstand */
+html:not(.never) .kon-page-btns{display:flex!important;justify-content:center;align-items:center;gap:.9rem!important;max-width:none!important;flex-wrap:nowrap}
+html:not(.never) .kon-page-btns .btn.hero-main:not(.btn-wa-ico){flex:0 0 11rem;width:11rem!important;min-width:0!important;margin:0!important}
+html:not(.never) .kon-page-btns .btn.btn-wa-ico{flex:none;margin:0!important}
+html:not(.never) .kon-page-btns .btn.hero-main:last-child:not(.btn-wa-ico),html:not(.never) .kon-page-btns .btn.hero-main.btn-wa-ico{background:transparent!important;color:#012265!important}
+html:not(.never) .kon-page-btns .btn.hero-main.kon-form-pill .ico{color:#004d17!important}
+@media (max-width:480px){html:not(.never) .kon-page-btns{gap:.6rem!important}html:not(.never) .kon-page-btns .btn.hero-main:not(.btn-wa-ico){flex:1 1 0;width:auto!important}}
