@@ -32,10 +32,6 @@ function ka_chrome() {
 <div class="mast" id="mast">
   <nav class="mastnav" id="mastnav" aria-label="Hauptnavigation">
     <a class="pl" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="Zur Startseite"><span class="slot-hg"></span></a>
-    <ul class="nl nl-l">
-      <li><a href="<?php echo esc_url( ka_url( 'leistungen' ) ); ?>"><?php echo ka( 'nav_services' ); ?></a></li>
-    </ul>
-    <ul class="nl nl-r"><li><a href="<?php echo esc_url( ka_url( 'kontakt' ) ); ?>"><?php echo ka( 'kon_eyebrow' ); ?></a></li></ul>
     <button class="hb" id="hbbtn" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navmenu"><span></span></button>
     <button class="logo-btn" id="logobtn" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navmenu"></button>
   </nav>
@@ -187,6 +183,10 @@ function ka_view_home() {
         <h2 class="hero-name"><?php echo ka( 'hero_name' ); ?></h2>
         <p class="hero-sub"><?php echo ka( 'hero_sub' ); ?></p>
       </div>
+      <p class="hero-actions">
+        <a class="btn hero-act hero-act-main" href="<?php echo esc_url( ka_url( 'leistungen' ) ); ?>"><?php echo ka( 'lei_eyebrow' ); ?></a>
+        <a class="btn hero-act hero-act-line" href="<?php echo esc_url( ka_url( 'kontakt' ) ); ?>"><?php echo ka( 'kon_eyebrow' ); ?></a>
+      </p>
       <span class="hero-rule" aria-hidden="true"></span>
       <div class="div hero-div" aria-hidden="true"><span class="hgi"></span></div>
       <div class="hero-phil">
@@ -198,30 +198,8 @@ function ka_view_home() {
         </ul>
         <p class="hero-text"><?php echo ka( 'hero_text' ); ?></p>
       </div>
-      <p class="hero-cta hero-pills">
-        <a class="btn hero-main" href="<?php echo $mail; ?>"><?php echo ka_icon( 'mail' ); ?><span>E-Mail<span class="bt-long"> schreiben</span></span></a>
-        <a class="btn hero-main btn-wa-ico" href="<?php echo $sms; ?>" aria-label="WhatsApp"><?php echo ka_icon( 'whatsapp' ); ?></a>
-      </p>
     </div>
   </header>
-<?php
-	$slugs = array( 'leistungen', 'ueber-mich', 'ablauf', 'kontakt' );
-	$icons = array( 'syringe', 'person', 'question', 'bubble' );
-	$tz    = ka_teasers();
-	?>
-<div class="wrap divwrap qk-div" aria-hidden="true"><div class="div"><span class="hgi"></span></div></div>
-<nav class="qk-sec" aria-label="Bereiche">
-  <div class="qk">
-    <?php foreach ( $tz as $i => $t ) : if ( ! isset( $slugs[ $i ] ) ) { break; } ?>
-    <a class="qkc qkc-<?php echo (int) $i + 1; ?>" href="<?php echo esc_url( ka_url( $slugs[ $i ] ) ); ?>">
-      <span class="qkbg" aria-hidden="true"><?php echo ka_icon( $icons[ $i ] ); ?></span>
-            <span class="qkt"><?php echo esc_html( str_replace( ' und ', ' & ', $t[0] ) ); ?></span>
-      <span class="qkd"><?php echo esc_html( $t[1] ); ?></span>
-      <span class="qkm"><span class="qkm-t"><?php echo ka( 'tz_btn' ); ?></span> <i aria-hidden="true">&rarr;</i></span>
-    </a>
-    <?php endforeach; ?>
-  </div>
-</nav>
   </div></div>
 </div>
 
