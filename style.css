@@ -4138,3 +4138,15 @@ footer .ft-l:hover,footer .ft-r:hover,footer .ft-l:focus-visible,footer .ft-r:fo
 .lei-sum .lei-ico{background:none!important;border-radius:0!important;border:0!important;box-shadow:none!important}
 .steps li.step-card:hover h3 a.step-link .sl-t,.steps li.step-card:focus-within h3 a.step-link .sl-t,.steps li.step-card:hover .step-cta .cta-t,.steps li.step-card:focus-within .step-cta .cta-t,.steps li.step-card .step-cta:hover .cta-t{border-bottom-color:currentColor!important}
 html:not(.never) .hero-act,html:not(.never) .hero-v5 .hero-act,html:not(.never) .lei-btn{border-radius:999px!important}
+
+/* ===== v160e – Kommentare 8. November ===== */
+/* Kontakt-Knopf: Symbol grün, füllt sich beim Scrollen blassgrün; Zum-Chat-Symbol grün */
+.hero-act-line .ico,html:not(.never) .hero-act-line .ico{color:#004d17!important}
+.hero-act svg.fillable path.fl{fill:#b7d6bf!important;fill-opacity:1!important;clip-path:none!important;opacity:0;transition:opacity .6s ease}
+.hero-act svg.fillable.fill-on path.fl{opacity:1}
+.calm .hero-act svg.fillable path.fl{opacity:1!important}
+.lei-btn-line .ico,html:not(.never) .lei-btn-line .ico{color:#004d17!important}
+/* Porträt mehr in die Mitte des freien Platzes rechts neben dem Text */
+@media (min-width:701px){
+ html:not(.never) .home-page .hero-v5 .hero-portrait{left:calc(50.8 * var(--u))!important;width:calc(50 * var(--u))!important}
+}

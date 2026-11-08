@@ -77,6 +77,7 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
     var P=null;var t=M.done?1:M.on?Math.max(0,Math.min(1,(y-M.off)/PIN)):(FADE?Math.max(0,Math.min(1,y/200)):1),e=t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
     docked=t>=1;
     if(M.on&&docked&&!M.done){M.done=true;(function(){var it=document.querySelector('.hero-intro');if(!it)return;var h0=it.offsetHeight;document.body.classList.add('intro-collapsed');var d=h0-it.offsetHeight;if(d>0)window.scrollBy(0,-d);})();try{sessionStorage.setItem(HKEY,'1')}catch(e){}try{if(String(window.name).indexOf(HKEY)<0)window.name=String(window.name||'')+' '+HKEY}catch(e){}document.body.classList.remove('wmfly');var lg=slot&&slot.previousElementSibling;if(lg)lg.style.opacity=''}
+    (function(){var on=y>24;[].forEach.call(document.querySelectorAll('.hero-act svg.fillable'),function(s){s.classList.toggle('fill-on',on)})})();
     var dy=lastY===null?0:y-lastY;lastY=y;
     if(y<=2||!docked){col=false;upTravel=0;downTravel=0}
     else if(dy<0){upTravel-=dy;downTravel=0;if(upTravel>=12)col=false}
@@ -350,7 +351,7 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
 
 /* Füllen der Linien-Icons und Sanduhr-Trenner: die Füllung steht an der Bildschirmmitte. Beim Hochscrollen schiebt sie sich über einen längeren Scrollweg (dist) von oben nach unten ins Symbol, beim Zurückscrollen leert es sich wieder */
 (function(){
-  var items=[].slice.call(document.querySelectorAll('svg.fillable,.div .hgi,.btn-hg .hgi')).filter(function(el){return !el.closest('.hero-vals,.quals,.vlist')}).map(function(el){
+  var items=[].slice.call(document.querySelectorAll('svg.fillable,.div .hgi,.btn-hg .hgi')).filter(function(el){return !el.closest('.hero-vals,.quals,.vlist,.hero-act')}).map(function(el){
     return{el:el,ref:el.matches('svg')?el.querySelector('path.fl'):el,p:-1};
   }),tick=false;
   function check(){
