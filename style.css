@@ -4155,3 +4155,5 @@ html:not(.never) .kon-page-btns .btn.btn-wa-ico{flex:none;margin:0!important}
 html:not(.never) .kon-page-btns .btn.hero-main:last-child:not(.btn-wa-ico),html:not(.never) .kon-page-btns .btn.hero-main.btn-wa-ico{background:transparent!important;color:#012265!important}
 html:not(.never) .kon-page-btns .btn.hero-main.kon-form-pill .ico{color:#004d17!important}
 @media (max-width:480px){html:not(.never) .kon-page-btns{gap:.6rem!important}html:not(.never) .kon-page-btns .btn.hero-main:not(.btn-wa-ico){flex:1 1 0;width:auto!important}}
+/* v160h: Zeitstrahl am Desktop schneller */
+@media (min-width:701px){.sum-about .tl .node .nf{transition:opacity .3s ease!important}.sum-about .tl .wmk.wmk-node .lg-f{transition-duration:.8s!important}}

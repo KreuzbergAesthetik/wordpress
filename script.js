@@ -205,7 +205,7 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
 
 (function(){
   var tl=document.getElementById('tl');if(!tl)return;
-  function fill(){var r=tl.getBoundingClientRect(),vh=window.innerHeight,land=window.innerWidth>700&&vh<600,p=window.innerWidth>700?(vh*.92-r.top)/(land?Math.max(vh*.85,330):vh*.36):(vh*.75-r.top)/(r.height||1);var q=Math.min(1,Math.max(0,p));tl.style.setProperty('--tlp',Math.round(q*100)+'%');var li=tl.children,n=li.length;for(var i=0;i<n;i++){li[i].classList.toggle('hit',q>=(n>1?i/(n-1):0)-.001&&q>0)}}
+  function fill(){var r=tl.getBoundingClientRect(),vh=window.innerHeight,land=window.innerWidth>700&&vh<600,p=window.innerWidth>700?(vh*.97-r.top)/(land?Math.max(vh*.5,200):vh*.2):(vh*.75-r.top)/(r.height||1);var q=Math.min(1,Math.max(0,p));tl.style.setProperty('--tlp',Math.round(q*100)+'%');var li=tl.children,n=li.length;for(var i=0;i<n;i++){li[i].classList.toggle('hit',q>=(n>1?i/(n-1):0)-.001&&q>0)}}
   window.addEventListener('scroll',fill,{passive:true});window.addEventListener('resize',fill);fill();
 })();
 
