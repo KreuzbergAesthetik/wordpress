@@ -4021,3 +4021,21 @@ html:not(.never) .hero-v5 .hero-pills .btn.hero-main.btn-wa-ico{width:46px!impor
  .home-page .hero-v5 .hero-copy>.hero-vals.hero-vals{width:calc(40 * var(--u))!important}
  .home-page .hero-v5 .hero-vals li,.home-page .hero-v5 .hero-vals li span{font-size:calc(1.42 * var(--u))!important}
 }
+
+/* Kopfleiste: Logo von Anfang an fest links (kein Einflug), vor der Leiste; Startbereich bleibt stehen, bis die Leiste angedockt ist */
+.hero-intro .hg-slot{display:none!important}
+.pin::after{height:var(--pinlen,0px)!important}
+.mast .wmk#wmk{z-index:5}
+@media (min-width:701px){.home-page .hero-intro .hero-brand{font-size:calc(3.1 * var(--u))!important}}
+@media (max-width:700px){.hero-intro .hero-brand,.hero-v5 .hero-head .hero-brand{font-size:26px!important}}
+html:not(.never) .home-page .hero-v5 .hero-pills,html:not(.never) .hero-v5 .hero-pills{display:flex!important;flex-wrap:nowrap!important;align-items:center!important;gap:.7rem!important}
+
+/* Startbereich Desktop: Text links, Porträt rechts (gespiegelt, weicher Rand jetzt links) */
+@media (min-width:701px){
+ html:not(.never) .home-page .hero-v5 .hero-name,html:not(.never) .home-page .hero-v5 .hero-sub,html:not(.never) .home-page .hero-v5 .hero-phil-h,html:not(.never) .home-page .hero-v5 .hero-div,html:not(.never) .home-page .hero-v5 .hero-vals{left:calc(33.94 * var(--u))!important}
+ html:not(.never) .home-page .hero-v5 .hero-text{left:calc(14.5 * var(--u))!important}
+ html:not(.never) .home-page .hero-v5 .hero-pills{left:calc(14.5 * var(--u))!important}
+ html:not(.never) .home-page .hero-v5 .hero-portrait{left:calc(41.5 * var(--u))!important;-webkit-mask-image:linear-gradient(rgb(0,0,0) 62%,rgba(0,0,0,.45) 72%,rgba(0,0,0,0) 81%),linear-gradient(90deg,rgba(0,0,0,0) 9%,rgba(0,0,0,.45) 20%,rgb(0,0,0) 32%,rgb(0,0,0) 96%,rgba(0,0,0,0) 100%)!important;mask-image:linear-gradient(rgb(0,0,0) 62%,rgba(0,0,0,.45) 72%,rgba(0,0,0,0) 81%),linear-gradient(90deg,rgba(0,0,0,0) 9%,rgba(0,0,0,.45) 20%,rgb(0,0,0) 32%,rgb(0,0,0) 96%,rgba(0,0,0,0) 100%)!important;-webkit-mask-composite:source-in;mask-composite:intersect}
+ html:not(.never) .home-page .hero-v5 .hero-portrait::after{background:radial-gradient(42% 36% at 28% 74%,rgba(232,238,250,.78) 0%,rgba(232,238,250,.45) 55%,rgba(232,238,250,0) 100%)!important}
+}
+@media (max-width:700px){html:not(.never) .hero-v5 .hero-vals li span{font-size:.9rem!important}}
