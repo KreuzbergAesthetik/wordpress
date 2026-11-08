@@ -184,8 +184,8 @@ function ka_view_home() {
         <p class="hero-sub"><?php echo ka( 'hero_sub' ); ?></p>
       </div>
       <p class="hero-actions">
-        <a class="btn hero-act hero-act-main" href="<?php echo esc_url( ka_url( 'leistungen' ) ); ?>"><?php echo ka( 'lei_eyebrow' ); ?></a>
-        <a class="btn hero-act hero-act-line" href="<?php echo esc_url( ka_url( 'kontakt' ) ); ?>"><?php echo ka( 'kon_eyebrow' ); ?></a>
+        <a class="btn hero-act hero-act-main" href="<?php echo esc_url( ka_url( 'leistungen' ) ); ?>"><?php echo ka_icon( 'syringe' ); ?><span><?php echo ka( 'lei_eyebrow' ); ?></span></a>
+        <a class="btn hero-act hero-act-line" href="<?php echo esc_url( ka_url( 'kontakt' ) ); ?>"><?php echo ka_icon( 'mail' ); ?><span><?php echo ka( 'kon_eyebrow' ); ?></span></a>
       </p>
       <span class="hero-rule" aria-hidden="true"></span>
       <div class="div hero-div" aria-hidden="true"><span class="hgi"></span></div>

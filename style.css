@@ -4068,3 +4068,21 @@ html:not(.never) .home-page .hero-v5 .hero-pills,html:not(.never) .hero-v5 .hero
  html:not(.never) .home-page .hero-v5 .hero-portrait::after{background:radial-gradient(42% 30% at 30% 80%,rgba(232,238,250,.45) 0%,rgba(232,238,250,.2) 55%,rgba(232,238,250,0) 100%)!important}
 }
 @media (min-width:701px){html:not(.never) .home-page .hero-v5 .hero-vals{width:calc(39.1 * var(--u))!important}}
+
+/* ===== v160c – Aktionsknöpfe gleich breit mit Symbol, ohne Schatten, Kontakt transparent ===== */
+.hero-act{display:inline-flex!important;align-items:center;justify-content:center;gap:.55rem;min-width:11.5rem}
+.hero-act .ico{width:18px!important;height:18px!important;flex:none}
+.hero-act-main .ico{color:#fff!important}
+.hero-act-line .ico{color:#012265!important}
+html:not(.never) .hero-act,html:not(.never) .hero-act:hover,html:not(.never) .hero-act:focus-visible{box-shadow:none!important}
+html:not(.never) .hero-act-line,html:not(.never) .hero-act-line:hover,html:not(.never) .hero-act-line:focus-visible{background:transparent!important;color:#012265!important}
+html:not(.never) .hero-act-main,html:not(.never) .hero-act-main:hover,html:not(.never) .hero-act-main:focus-visible{background:#012265!important;color:#fff!important}
+@media (min-width:701px){
+ .home-page .hero-v5 .hero-act{width:calc(15.5 * var(--u))!important;min-width:0!important;padding:0 calc(1.2 * var(--u))!important;gap:calc(.7 * var(--u))!important}
+ .home-page .hero-v5 .hero-act .ico{width:calc(1.6 * var(--u))!important;height:calc(1.6 * var(--u))!important}
+}
+.hero-act .bt-in{display:inline-flex!important;flex-direction:row!important;align-items:center!important;justify-content:center;gap:.55rem}
+.hero-act .ico{display:inline-block!important}
+@media (max-width:700px){.hero-act{width:9.6rem!important;min-width:0!important}}
+@media (min-width:701px){.home-page .hero-v5 .hero-act .bt-in{gap:calc(.7 * var(--u))}}
+@media (max-width:700px){.hero-act{width:10.2rem!important;font-size:14px!important;padding:0 .6rem!important;gap:.45rem!important}.hero-act .bt-in{gap:.45rem}.hero-act .ico{width:16px!important;height:16px!important}}
