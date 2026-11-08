@@ -2,7 +2,7 @@
 Theme Name: Kreuzberg Ästhetik
 Description: Website der Privatpraxis Kreuzberg Ästhetik
 Author: Kreuzberg Ästhetik
-Version: 159
+Version: 160
 Requires at least: 6.0
 Requires PHP: 7.4
 Text Domain: kreuzberg-aesthetik
@@ -3946,3 +3946,214 @@ html:not(.calm) .chat-book:hover,html:not(.calm) .chat-book:focus-visible{transf
 }
 .kview[data-view=leistungen] .chat-help{margin-top:2.8rem!important}
 .kview[data-view=leistungen] .next-link{margin-top:3.2rem!important}
+
+/* ===== v160 – Startseite neu (8. November) ===== */
+
+/* WhatsApp überall nur als Symbol (runder Knopf) */
+.btn-wa-ico{display:inline-flex!important;align-items:center!important;justify-content:center!important;padding:0!important;aspect-ratio:1;border-radius:50%!important;flex:none!important;gap:0!important}
+.btn-wa-ico .bt-in{gap:0!important}
+.btn-wa-ico .ico{width:22px!important;height:22px!important;margin:0!important}
+.hero-v5 .hero-pills{display:flex!important;align-items:center;gap:.7rem!important}
+.hero-v5 .hero-pills .btn.hero-main:not(.btn-wa-ico){flex:1 1 auto!important}
+.hero-v5 .hero-pills .btn.hero-main.btn-wa-ico{width:auto!important;height:46px!important;min-height:0!important}
+.kon-page-btns{display:flex!important;justify-content:center;align-items:center;gap:.7rem!important;max-width:none!important}
+.kon-page-btns .btn.hero-main:not(.btn-wa-ico){width:auto!important;min-width:12rem}
+.kon-page-btns .btn.btn-wa-ico{width:3rem!important;height:3rem!important}
+.sum-kon .btn.btn-wa-ico{width:46px!important;height:46px!important;min-width:0!important}
+.side .side-contact .btn.btn-wa-ico{width:46px!important;height:46px!important;min-height:0!important;align-self:flex-start}
+.cbtn-two .cbtn.cbtn-wa{flex:0 0 auto!important;width:46px!important;min-width:0!important;padding:0!important;aspect-ratio:1}
+.cbtn-two .cbtn.cbtn-wa .ico{margin:0!important}
+.wa .wa-t{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap}
+.wa{width:56px!important;height:56px!important;padding:0!important;border-radius:50%!important;justify-content:center!important}
+.wa .ico{width:28px!important;height:28px!important}
+
+/* Startbereich: Knöpfe feiner und niedriger, normale Schrift; Abstand zum Trenner darunter */
+.hero-v5 .hero-pills .btn.hero-main{font-weight:500!important;height:46px!important;min-height:0!important}
+@media (min-width:701px){
+ .home-page .hero-v5 .hero-pills{grid-template-columns:none!important;width:auto!important}
+ .home-page .hero-v5 .hero-pills .btn.hero-main{height:calc(3.6 * var(--u))!important;min-height:40px!important}
+ .home-page .hero-v5 .hero-pills .btn.hero-main:not(.btn-wa-ico){width:calc(19.2 * var(--u))!important;flex:none!important}
+ .home-page .hero-v5 .hero-pills .btn.hero-main.btn-wa-ico{width:auto!important}
+ .pinned .qk-div{margin-top:calc(3 * var(--u))!important}
+}
+@media (max-width:700px){.pinned .qk-div{margin-top:1.4rem!important}}
+
+/* Werte im Startbereich: Beschriftung und Symbole größer */
+@media (min-width:701px){
+ .home-page .hero-v5 .hero-vals li,.home-page .hero-v5 .hero-vals li span{font-size:calc(1.5 * var(--u))!important}
+ .home-page .hero-v5 .hero-vals li .ico{width:calc(2.4 * var(--u))!important;height:calc(2.4 * var(--u))!important}
+}
+@media (max-width:700px){
+ .hero-v5 .hero-vals li span{font-size:1.02rem!important}
+ .hero-v5 .hero-vals li .ico{width:34px!important;height:34px!important}
+}
+
+/* „Kreuzberg Ästhetik“ oben deutlich kleiner – etwa so groß wie „Hi, ich bin Manuel.“ */
+@media (min-width:701px){.home-page .hero-intro .hero-brand{font-size:calc(3.94 * var(--u))!important}}
+@media (max-width:700px){.hero-intro .hero-brand,.hero-v5 .hero-head .hero-brand{font-size:30px!important}}
+
+/* Etiketten auf der Startseite als Knöpfe zur jeweiligen Seite, zoomen beim Überfahren */
+p.eyebrow:has(> .eyebrow-link){position:relative;cursor:pointer;transition:transform .3s cubic-bezier(.25,.8,.35,1)}
+.eyebrow .eyebrow-link{color:inherit!important;text-decoration:none!important}
+.eyebrow .eyebrow-link::after{content:"";position:absolute;inset:0;border-radius:inherit}
+html:not(.calm) p.eyebrow:has(> .eyebrow-link):hover,html:not(.calm) p.eyebrow:has(> .eyebrow-link:focus-visible){transform:scale(1.07)}
+.sum-kon .eyebrow .eyebrow-link:hover{transform:none!important}
+
+/* Behandlungsübersicht und „Unsicher?“ in einer hellen Karte, nicht über die volle Breite */
+.lei-two.lei-one{display:grid!important;grid-template-columns:1fr 1fr!important;gap:0!important;max-width:820px!important;margin-left:auto!important;margin-right:auto!important;background:#fff!important;border-radius:var(--r-card,22px)!important;border:1px solid rgba(1,34,101,.08)!important;overflow:hidden;transition:box-shadow .3s ease}
+html:not(.never) .lei-two.lei-one{box-shadow:var(--sh-ar)!important}
+html:not(.never) .lei-two.lei-one:hover{box-shadow:var(--sh-ar-h)!important}
+html:not(.never) .lei-one .lei-col,html:not(.never) .lei-one .lei-col:hover{background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;transform:none!important}
+.lei-one .lei-col+.lei-col{border-left:1px solid rgba(1,34,101,.1)!important}
+.lei-one .lei-col h3{color:#012265!important}
+.lei-one .lei-col p{color:var(--muted,#4a5f80)!important}
+.lei-one .lei-col>.lei-ico{color:rgba(1,34,101,.06)!important}
+.lei-one .lei-col::after{display:none!important}
+.lei-one .lei-col .btn,.lei-one .lei-col .btn.deep{background:#012265!important;color:#fff!important;border-color:#012265!important;font-weight:500!important;min-height:0!important;height:42px;padding:0 1.15rem!important}
+.lei-one .lei-col .btn .ico,.lei-one .lei-col .btn .bt-in{color:#fff!important}
+html:not(.never) .lei-one .lei-col .btn{box-shadow:0 6px 14px rgba(1,34,101,.25)!important}
+html:not(.never) .lei-one .lei-col .btn:hover{box-shadow:0 10px 20px rgba(1,34,101,.4)!important}
+@media (max-width:700px){.lei-two.lei-one{grid-template-columns:1fr!important}.lei-one .lei-col+.lei-col{border-left:0!important;border-top:1px solid rgba(1,34,101,.1)!important}}
+html:not(.never) .home-page .hero-v5 .hero-pills .btn.hero-main,html:not(.never) .hero-v5 .hero-pills .btn.hero-main,html:not(.never) .lei-one .lei-col .btn{font-weight:500!important}
+html:not(.never) .hero-v5 .hero-pills .btn.hero-main.btn-wa-ico{width:46px!important;max-width:46px!important;min-width:46px!important;height:46px!important;flex:none!important}
+@media (min-width:701px){
+ html:not(.never) .home-page .hero-v5 .hero-pills .btn.hero-main.btn-wa-ico{width:max(40px,calc(3.6 * var(--u)))!important;max-width:none!important;min-width:0!important;height:max(40px,calc(3.6 * var(--u)))!important}
+ .home-page .hero-v5 .hero-copy>.hero-vals.hero-vals{width:calc(40 * var(--u))!important}
+ .home-page .hero-v5 .hero-vals li,.home-page .hero-v5 .hero-vals li span{font-size:calc(1.42 * var(--u))!important}
+}
+
+/* Kopfleiste: Logo von Anfang an fest links (kein Einflug), vor der Leiste; Startbereich bleibt stehen, bis die Leiste angedockt ist */
+.hero-intro .hg-slot{display:none!important}
+.pin::after{height:var(--pinlen,0px)!important}
+.mast .wmk#wmk{z-index:5}
+@media (min-width:701px){.home-page .hero-intro .hero-brand{font-size:calc(3.1 * var(--u))!important}}
+@media (max-width:700px){.hero-intro .hero-brand,.hero-v5 .hero-head .hero-brand{font-size:26px!important}}
+html:not(.never) .home-page .hero-v5 .hero-pills,html:not(.never) .hero-v5 .hero-pills{display:flex!important;flex-wrap:nowrap!important;align-items:center!important;gap:.7rem!important}
+
+/* Startbereich Desktop: Text links, Porträt rechts (gespiegelt, weicher Rand jetzt links) */
+@media (min-width:701px){
+ html:not(.never) .home-page .hero-v5 .hero-name,html:not(.never) .home-page .hero-v5 .hero-sub,html:not(.never) .home-page .hero-v5 .hero-phil-h,html:not(.never) .home-page .hero-v5 .hero-div,html:not(.never) .home-page .hero-v5 .hero-vals{left:calc(33.94 * var(--u))!important}
+ html:not(.never) .home-page .hero-v5 .hero-text{left:calc(14.5 * var(--u))!important}
+ html:not(.never) .home-page .hero-v5 .hero-pills{left:calc(14.5 * var(--u))!important}
+ html:not(.never) .home-page .hero-v5 .hero-portrait{left:calc(41.5 * var(--u))!important;-webkit-mask-image:linear-gradient(rgb(0,0,0) 62%,rgba(0,0,0,.45) 72%,rgba(0,0,0,0) 81%),linear-gradient(90deg,rgba(0,0,0,0) 9%,rgba(0,0,0,.45) 20%,rgb(0,0,0) 32%,rgb(0,0,0) 96%,rgba(0,0,0,0) 100%)!important;mask-image:linear-gradient(rgb(0,0,0) 62%,rgba(0,0,0,.45) 72%,rgba(0,0,0,0) 81%),linear-gradient(90deg,rgba(0,0,0,0) 9%,rgba(0,0,0,.45) 20%,rgb(0,0,0) 32%,rgb(0,0,0) 96%,rgba(0,0,0,0) 100%)!important;-webkit-mask-composite:source-in;mask-composite:intersect}
+ html:not(.never) .home-page .hero-v5 .hero-portrait::after{background:radial-gradient(42% 36% at 28% 74%,rgba(232,238,250,.78) 0%,rgba(232,238,250,.45) 55%,rgba(232,238,250,0) 100%)!important}
+}
+@media (max-width:700px){html:not(.never) .hero-v5 .hero-vals li span{font-size:.9rem!important}}
+
+/* ===== v160b – Startbereich: Knöpfe unter dem Namen, ohne Karten und ohne Kopfleisten-Links ===== */
+.hero-actions{display:flex;justify-content:center;gap:.7rem;margin:0}
+.hero-act{height:42px;min-height:0!important;padding:0 1.5rem!important;font-weight:500!important;font-size:15px!important;border:1.5px solid #012265!important;white-space:nowrap}
+.hero-act-main{background:#012265!important;color:#fff!important}
+.hero-act-line{background:transparent!important;color:#012265!important}
+@media (max-width:700px){.hero-actions{margin:.9rem 0 .2rem}}
+@media (min-width:701px){
+ .home-page .hero-v5 .hero-actions{position:absolute!important;left:calc(33.94 * var(--u))!important;transform:translateX(-50%)!important;top:calc(15.3 * var(--u))!important;margin:0!important;z-index:2}
+ .home-page .hero-v5 .hero-act{height:calc(3.4 * var(--u))!important;min-height:38px!important;font-size:calc(1.35 * var(--u))!important;padding:0 calc(1.9 * var(--u))!important}
+ html:not(.never) .home-page .hero-v5 .hero-div,.home-page .hero-v5 .hero-copy>.hero-div.hero-div{top:calc(20.8 * var(--u))!important}
+ html:not(.never) .home-page .hero-v5 .hero-phil-h{top:calc(26 * var(--u))!important}
+ html:not(.never) .home-page .hero-v5 .hero-vals{top:calc(30.4 * var(--u))!important}
+ html:not(.never) .home-page .hero-v5 .hero-text{top:calc(40 * var(--u))!important}
+ .home-page .hero-v5 .hero-copy{height:calc(48.2 * var(--u))!important}
+ /* Werte genauso breit wie der Text darunter */
+ .home-page .hero-v5 .hero-copy>.hero-vals.hero-vals{width:calc(39.1 * var(--u))!important}
+ .home-page .hero-v5 .hero-vals li{padding-inline:0!important}
+}
+/* Werte: nichts ragt über die Trennlinien hinaus */
+.hero-v5 .hero-vals li{min-width:0}
+.hero-v5 .hero-vals li span{max-width:100%;overflow-wrap:anywhere;hyphens:auto;text-align:center}
+@media (max-width:700px){html:not(.never) .hero-v5 .hero-vals li span{font-size:.82rem!important}.hero-v5 .hero-vals li{padding-inline:3px!important}}
+/* Porträt: weniger Lichteinfall am Rand zum Text */
+@media (min-width:701px){
+ html:not(.never) .home-page .hero-v5 .hero-portrait{-webkit-mask-image:linear-gradient(rgb(0,0,0) 62%,rgba(0,0,0,.45) 72%,rgba(0,0,0,0) 81%),linear-gradient(90deg,rgba(0,0,0,0) 2%,rgba(0,0,0,.6) 9%,rgb(0,0,0) 17%,rgb(0,0,0) 96%,rgba(0,0,0,0) 100%)!important;mask-image:linear-gradient(rgb(0,0,0) 62%,rgba(0,0,0,.45) 72%,rgba(0,0,0,0) 81%),linear-gradient(90deg,rgba(0,0,0,0) 2%,rgba(0,0,0,.6) 9%,rgb(0,0,0) 17%,rgb(0,0,0) 96%,rgba(0,0,0,0) 100%)!important}
+ html:not(.never) .home-page .hero-v5 .hero-portrait::after{background:radial-gradient(42% 30% at 30% 80%,rgba(232,238,250,.45) 0%,rgba(232,238,250,.2) 55%,rgba(232,238,250,0) 100%)!important}
+}
+@media (min-width:701px){html:not(.never) .home-page .hero-v5 .hero-vals{width:calc(39.1 * var(--u))!important}}
+
+/* ===== v160c – Aktionsknöpfe gleich breit mit Symbol, ohne Schatten, Kontakt transparent ===== */
+.hero-act{display:inline-flex!important;align-items:center;justify-content:center;gap:.55rem;min-width:11.5rem}
+.hero-act .ico{width:18px!important;height:18px!important;flex:none}
+.hero-act-main .ico{color:#fff!important}
+.hero-act-line .ico{color:#012265!important}
+html:not(.never) .hero-act,html:not(.never) .hero-act:hover,html:not(.never) .hero-act:focus-visible{box-shadow:none!important}
+html:not(.never) .hero-act-line,html:not(.never) .hero-act-line:hover,html:not(.never) .hero-act-line:focus-visible{background:transparent!important;color:#012265!important}
+html:not(.never) .hero-act-main,html:not(.never) .hero-act-main:hover,html:not(.never) .hero-act-main:focus-visible{background:#012265!important;color:#fff!important}
+@media (min-width:701px){
+ .home-page .hero-v5 .hero-act{width:calc(15.5 * var(--u))!important;min-width:0!important;padding:0 calc(1.2 * var(--u))!important;gap:calc(.7 * var(--u))!important}
+ .home-page .hero-v5 .hero-act .ico{width:calc(1.6 * var(--u))!important;height:calc(1.6 * var(--u))!important}
+}
+.hero-act .bt-in{display:inline-flex!important;flex-direction:row!important;align-items:center!important;justify-content:center;gap:.55rem}
+.hero-act .ico{display:inline-block!important}
+@media (max-width:700px){.hero-act{width:9.6rem!important;min-width:0!important}}
+@media (min-width:701px){.home-page .hero-v5 .hero-act .bt-in{gap:calc(.7 * var(--u))}}
+@media (max-width:700px){.hero-act{width:10.2rem!important;font-size:14px!important;padding:0 .6rem!important;gap:.45rem!important}.hero-act .bt-in{gap:.45rem}.hero-act .ico{width:16px!important;height:16px!important}}
+
+/* ===== v160d – Karte „Was ich für Dich tun kann“, Schatten leiser, Unterstreichung nur beim Überfahren ===== */
+
+/* Eine Karte: Behandlungsübersicht + Beratung, unten zwei Knöpfe nebeneinander (links blau, rechts transparent) */
+.lei-sum{position:relative;max-width:760px;margin:0 auto;padding:2rem 2.2rem 1.9rem;background:#fff;border:1px solid rgba(1,34,101,.08);border-radius:var(--r-card,22px);overflow:hidden;text-align:center}
+.lei-sum h3{color:#012265;margin:0 0 .7rem}
+.lei-sum p{color:var(--muted,#4a5f80);margin:0 auto 1.4rem;max-width:34rem}
+.lei-sum .lei-ico{position:absolute;bottom:-14px;width:96px;height:96px;color:rgba(1,34,101,.06);pointer-events:none}
+.lei-sum .lei-ico svg{width:100%;height:100%}
+.lei-sum .lei-ico-a{left:12px}
+.lei-sum .lei-ico-b{right:12px}
+.lei-btns{display:flex;justify-content:center;gap:.8rem;position:relative}
+.lei-btn{display:inline-flex!important;align-items:center;justify-content:center;gap:.55rem;width:11.5rem;height:42px;min-height:0!important;padding:0 1rem!important;font-size:15px!important;font-weight:500!important;border:1.5px solid #012265!important}
+.lei-btn .ico{width:17px!important;height:17px!important;flex:none}
+.lei-btn .bt-in{display:inline-flex!important;flex-direction:row!important;align-items:center;gap:.55rem}
+.lei-btn-main{background:#012265!important;color:#fff!important}
+.lei-btn-main .ico{color:#fff!important}
+.lei-btn-line{background:transparent!important;color:#012265!important}
+.lei-btn-line .ico{color:#012265!important}
+html:not(.never) .lei-btn,html:not(.never) .lei-btn:hover{box-shadow:none!important}
+html:not(.never) .lei-btn-main,html:not(.never) .lei-btn-main:hover{background:#012265!important;color:#fff!important}
+html:not(.never) .lei-btn-line,html:not(.never) .lei-btn-line:hover{background:transparent!important;color:#012265!important}
+@media (max-width:700px){.lei-sum{padding:1.6rem 1.2rem 1.5rem}.lei-btns{gap:.6rem}.lei-btn{width:10rem;font-size:14px!important}.lei-sum .lei-ico{display:none}}
+
+/* Schatten insgesamt leiser */
+:root{--sh-card:0 10px 24px -10px rgba(1,34,101,.15),0 2px 8px rgba(1,34,101,.05);--sh-ar:0 0 16px 1px rgba(1,34,101,.12),0 4px 12px rgba(1,34,101,.08);--sh-ar-h:0 0 24px 3px rgba(1,34,101,.2),0 6px 16px rgba(1,34,101,.12)}
+html:not(.never) .lei-sum{box-shadow:var(--sh-ar)!important;transition:box-shadow .3s ease}
+html:not(.never) .lei-sum:hover{box-shadow:var(--sh-ar-h)!important}
+html:not(.never) .chat-window{box-shadow:0 0 18px 1px rgba(0,77,23,.16),0 4px 12px rgba(0,77,23,.1)!important}
+html:not(.never) .chat-window:hover{box-shadow:0 0 26px 3px rgba(0,77,23,.26),0 6px 16px rgba(0,77,23,.14)!important}
+html:not(.never) .kview form .btn.deep{box-shadow:0 3px 8px rgba(1,34,101,.14)!important}
+html:not(.never) .kview form .btn.deep:hover{box-shadow:0 5px 12px rgba(1,34,101,.2)!important}
+html:not(.never) .sum-kon .btn:hover{box-shadow:0 0 22px 4px rgba(255,255,255,.4)!important}
+.btn.deep{box-shadow:0 3px 8px rgba(1,34,101,.14)}
+
+/* Unterstreichungen erscheinen erst beim Überfahren */
+.steps h3 a.step-link .sl-t,.step-cta .cta-t{border-bottom-color:transparent!important;transition:border-color .2s}
+.step-card:hover .sl-t,.step-card:focus-within .sl-t,.step-card:hover .cta-t,.step-card:focus-within .cta-t,.step-cta:hover .cta-t{border-bottom-color:currentColor!important}
+.next-link .nl-t{border-bottom-color:transparent!important;transition:border-color .2s,transform .3s cubic-bezier(.25,.8,.35,1)}
+.next-link a:hover .nl-t,.next-link a:focus-visible .nl-t{border-bottom-color:#012265!important}
+:root[data-theme="dark"] .next-link a:hover .nl-t{border-bottom-color:#dce8f8!important}
+.next-link .nl-t::after{background:transparent!important}
+.next-link a:hover .nl-t::after{background:#012265!important}
+#leistungen details.all>summary{text-decoration:none!important}
+#leistungen details.all>summary:hover,#leistungen details.all>summary:focus-visible{text-decoration:underline!important}
+.qkc .qkm-t{border-bottom-color:transparent!important;transition:border-color .2s}
+.qkc:hover .qkm-t,.qkc:focus-visible .qkm-t{border-bottom-color:#012265!important}
+footer .ft-l,footer .ft-r{text-decoration:none!important}
+footer .ft-l:hover,footer .ft-r:hover,footer .ft-l:focus-visible,footer .ft-r:focus-visible{text-decoration:underline!important}
+.lei-sum .lei-ico{background:none!important;border-radius:0!important;border:0!important;box-shadow:none!important}
+.steps li.step-card:hover h3 a.step-link .sl-t,.steps li.step-card:focus-within h3 a.step-link .sl-t,.steps li.step-card:hover .step-cta .cta-t,.steps li.step-card:focus-within .step-cta .cta-t,.steps li.step-card .step-cta:hover .cta-t{border-bottom-color:currentColor!important}
+html:not(.never) .hero-act,html:not(.never) .hero-v5 .hero-act,html:not(.never) .lei-btn{border-radius:999px!important}
+
+/* ===== v160e – Kommentare 8. November ===== */
+/* Kontakt-Knopf: Symbol grün, füllt sich beim Scrollen blassgrün; Zum-Chat-Symbol grün */
+.hero-act-line .ico,html:not(.never) .hero-act-line .ico{color:#004d17!important}
+.hero-act svg.fillable path.fl{fill:#b7d6bf!important;fill-opacity:1!important;clip-path:none!important;opacity:0;transition:opacity .6s ease}
+.hero-act svg.fillable.fill-on path.fl{opacity:1}
+.calm .hero-act svg.fillable path.fl{opacity:1!important}
+.lei-btn-line .ico,html:not(.never) .lei-btn-line .ico{color:#004d17!important}
+/* v160f: Porträt auf dem Handy mittig (Desktop/Querformat bleibt rechts neben der Schrift) */
+@media (max-width:700px){html:not(.never) .home-page .hero-v5 .hero-portrait{margin-left:5vw!important}}
+/* v160g: Kontaktseite – WhatsApp in der Mitte, E-Mail und Formular als gleich große Pillen daneben, mit Abstand */
+html:not(.never) .kon-page-btns{display:flex!important;justify-content:center;align-items:center;gap:.9rem!important;max-width:none!important;flex-wrap:nowrap}
+html:not(.never) .kon-page-btns .btn.hero-main:not(.btn-wa-ico){flex:0 0 11rem;width:11rem!important;min-width:0!important;margin:0!important}
+html:not(.never) .kon-page-btns .btn.btn-wa-ico{flex:none;margin:0!important}
+html:not(.never) .kon-page-btns .btn.hero-main:last-child:not(.btn-wa-ico),html:not(.never) .kon-page-btns .btn.hero-main.btn-wa-ico{background:transparent!important;color:#012265!important}
+html:not(.never) .kon-page-btns .btn.hero-main.kon-form-pill .ico{color:#004d17!important}
+@media (max-width:480px){html:not(.never) .kon-page-btns{gap:.6rem!important}html:not(.never) .kon-page-btns .btn.hero-main:not(.btn-wa-ico){flex:1 1 0;width:auto!important}}
+/* v160h: Zeitstrahl am Desktop schneller */
+@media (min-width:701px){.sum-about .tl .node .nf{transition:opacity .3s ease!important}.sum-about .tl .wmk.wmk-node .lg-f{transition-duration:.8s!important}}

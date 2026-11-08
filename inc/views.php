@@ -32,10 +32,6 @@ function ka_chrome() {
 <div class="mast" id="mast">
   <nav class="mastnav" id="mastnav" aria-label="Hauptnavigation">
     <a class="pl" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="Zur Startseite"><span class="slot-hg"></span></a>
-    <ul class="nl nl-l">
-      <li><a href="<?php echo esc_url( ka_url( 'leistungen' ) ); ?>"><?php echo ka( 'nav_services' ); ?></a></li>
-    </ul>
-    <ul class="nl nl-r"><li><a href="<?php echo esc_url( ka_url( 'kontakt' ) ); ?>"><?php echo ka( 'kon_eyebrow' ); ?></a></li></ul>
     <button class="hb" id="hbbtn" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navmenu"><span></span></button>
     <button class="logo-btn" id="logobtn" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navmenu"></button>
   </nav>
@@ -80,7 +76,7 @@ function ka_footer() {
   </div>
   <label class="calm-control"><input type="checkbox" id="ka-calm"> <span>Animationen reduzieren</span></label>
   <div class="side-contact">
-    <a class="btn" href="<?php echo $sms; ?>"><?php echo ka_icon( 'whatsapp' ); ?><?php echo ka( 'msg_label' ); ?></a>
+    <a class="btn btn-wa-ico" href="<?php echo $sms; ?>" aria-label="<?php echo esc_attr( ka_raw( 'msg_label' ) ); ?>"><?php echo ka_icon( 'whatsapp' ); ?></a>
     <a class="mail" href="<?php echo $mail; ?>"><?php echo ka( 'email' ); ?></a>
   </div>
 </aside>
@@ -140,7 +136,7 @@ function ka_contact_band( $with_next = true ) {
     </div>
     <p class="sum-more sum-contact">
       <a class="btn deep" href="<?php echo $mail; ?>"><?php echo ka_icon( 'mail' ); ?>E-Mail</a>
-      <a class="btn deep" href="<?php echo $sms; ?>"><?php echo ka_icon( 'whatsapp' ); ?>WhatsApp</a>
+      <a class="btn deep btn-wa-ico" href="<?php echo $sms; ?>" aria-label="WhatsApp"><?php echo ka_icon( 'whatsapp' ); ?></a>
       <a class="btn deep" href="<?php echo esc_url( ka_url( 'kontakt' ) ); ?>"><?php echo ka_icon( 'document' ); ?>Formular</a>
     </p>
   </div>
@@ -181,12 +177,16 @@ function ka_view_home() {
         <p class="hero-service"><?php echo ka_inline( 'hero_h1' ); ?></p>
       </div>
       <figure class="hero-portrait">
-        <img class="hero-photo" src="<?php echo esc_url( get_theme_file_uri( 'assets/portrait-cutout.webp' ) ); ?>" width="900" height="1229" alt="<?php echo esc_attr( ka_raw( 'portrait_alt' ) ); ?>">
+        <img class="hero-photo" src="<?php echo esc_url( get_theme_file_uri( 'assets/portrait-hero.webp' ) ); ?>" width="900" height="1229" alt="<?php echo esc_attr( ka_raw( 'portrait_alt' ) ); ?>">
       </figure>
       <div class="hero-who">
         <h2 class="hero-name"><?php echo ka( 'hero_name' ); ?></h2>
         <p class="hero-sub"><?php echo ka( 'hero_sub' ); ?></p>
       </div>
+      <p class="hero-actions">
+        <a class="btn hero-act hero-act-main" href="<?php echo esc_url( ka_url( 'leistungen' ) ); ?>"><?php echo ka_icon( 'syringe' ); ?><span><?php echo ka( 'lei_eyebrow' ); ?></span></a>
+        <a class="btn hero-act hero-act-line" href="<?php echo esc_url( ka_url( 'kontakt' ) ); ?>"><?php echo ka_icon( 'mail', 'ico fillable' ); ?><span><?php echo ka( 'kon_eyebrow' ); ?></span></a>
+      </p>
       <span class="hero-rule" aria-hidden="true"></span>
       <div class="div hero-div" aria-hidden="true"><span class="hgi"></span></div>
       <div class="hero-phil">
@@ -198,30 +198,8 @@ function ka_view_home() {
         </ul>
         <p class="hero-text"><?php echo ka( 'hero_text' ); ?></p>
       </div>
-      <p class="hero-cta hero-pills">
-        <a class="btn hero-main" href="<?php echo $mail; ?>"><?php echo ka_icon( 'mail' ); ?><span>E-Mail<span class="bt-long"> schreiben</span></span></a>
-        <a class="btn hero-main" href="<?php echo $sms; ?>"><?php echo ka_icon( 'whatsapp' ); ?><span>WhatsApp<span class="bt-long"> schreiben</span></span></a>
-      </p>
     </div>
   </header>
-<?php
-	$slugs = array( 'leistungen', 'ueber-mich', 'ablauf', 'kontakt' );
-	$icons = array( 'syringe', 'person', 'question', 'bubble' );
-	$tz    = ka_teasers();
-	?>
-<div class="wrap divwrap qk-div" aria-hidden="true"><div class="div"><span class="hgi"></span></div></div>
-<nav class="qk-sec" aria-label="Bereiche">
-  <div class="qk">
-    <?php foreach ( $tz as $i => $t ) : if ( ! isset( $slugs[ $i ] ) ) { break; } ?>
-    <a class="qkc qkc-<?php echo (int) $i + 1; ?>" href="<?php echo esc_url( ka_url( $slugs[ $i ] ) ); ?>">
-      <span class="qkbg" aria-hidden="true"><?php echo ka_icon( $icons[ $i ] ); ?></span>
-            <span class="qkt"><?php echo esc_html( str_replace( ' und ', ' & ', $t[0] ) ); ?></span>
-      <span class="qkd"><?php echo esc_html( $t[1] ); ?></span>
-      <span class="qkm"><span class="qkm-t"><?php echo ka( 'tz_btn' ); ?></span> <i aria-hidden="true">&rarr;</i></span>
-    </a>
-    <?php endforeach; ?>
-  </div>
-</nav>
   </div></div>
 </div>
 
@@ -238,21 +216,17 @@ function ka_view_home() {
 <section class="sum sum-lei" aria-labelledby="sum-lei-h">
   <div class="wrap">
     <div class="intro">
-      <p class="eyebrow"><?php echo ka( 'lei_eyebrow' ); ?></p>
+      <p class="eyebrow"><a class="eyebrow-link" href="<?php echo esc_url( ka_url( 'leistungen' ) ); ?>"><?php echo ka( 'lei_eyebrow' ); ?></a></p>
       <h2 id="sum-lei-h"><?php echo ka( 'lei_h2' ); ?></h2>
     </div>
-    <div class="lei-two">
-      <div class="lei-col glow">
-        <span class="lei-ico"><?php echo ka_icon( 'document' ); ?></span>
-        <h3>Behandlungsübersicht</h3>
-        <p><?php echo ka( 'home_lei_intro' ); ?></p>
-        <a class="btn deep" href="<?php echo esc_url( ka_url( 'leistungen' ) ); ?>"><?php echo ka_icon( 'list' ); ?>Zur Liste <span aria-hidden="true">&rarr;</span></a>
-      </div>
-      <div class="lei-col glow">
-        <span class="lei-ico"><?php echo ka_icon( 'bubble' ); ?></span>
-        <h3>Unsicher?</h3>
-        <p>Lass Dich im interaktiven Chat beraten: ein paar Antworten antippen und Du siehst, was zu Dir passen könnte.</p>
-        <a class="btn deep" href="<?php echo esc_url( ka_url( 'leistungen' ) . '#chat-hilfe' ); ?>"><?php echo ka_icon( 'bubble' ); ?>Zum Chat <span aria-hidden="true">&rarr;</span></a>
+    <div class="lei-sum glow">
+      <span class="lei-ico lei-ico-a"><?php echo ka_icon( 'document' ); ?></span>
+      <span class="lei-ico lei-ico-b"><?php echo ka_icon( 'bubble' ); ?></span>
+      <h3>Behandlungsübersicht</h3>
+      <p><?php echo ka( 'home_lei_intro' ); ?> Bist Du unsicher, was zu Dir passt? Im interaktiven Chat tippst Du ein paar Antworten an und siehst, was für Dich in Frage kommt.</p>
+      <div class="lei-btns">
+        <a class="btn lei-btn lei-btn-main" href="<?php echo esc_url( ka_url( 'leistungen' ) ); ?>"><?php echo ka_icon( 'list' ); ?><span>Zur Liste</span></a>
+        <a class="btn lei-btn lei-btn-line" href="<?php echo esc_url( ka_url( 'leistungen' ) . '#chat-hilfe' ); ?>"><?php echo ka_icon( 'bubble' ); ?><span>Zum Chat</span></a>
       </div>
     </div>
   </div>
@@ -262,7 +236,7 @@ function ka_view_home() {
 <section class="sum sum-about" aria-labelledby="sum-about-h">
   <div class="wrap">
     <div class="intro">
-      <p class="eyebrow"><?php echo ka( 'about_eyebrow' ); ?></p>
+      <p class="eyebrow"><a class="eyebrow-link" href="<?php echo esc_url( ka_url( 'ueber-mich' ) ); ?>"><?php echo ka( 'about_eyebrow' ); ?></a></p>
       <h2 id="sum-about-h"><?php echo ka( 'home_tl_h' ); ?></h2>
     </div>
   </div>
@@ -275,14 +249,13 @@ function ka_view_home() {
     </ol>
   </div>
   <?php endif; ?>
-  <div class="wrap"><p class="sum-more"><a class="btn deep" href="<?php echo esc_url( ka_url( 'ueber-mich' ) ); ?>">Mehr über mich <span aria-hidden="true">&rarr;</span></a></p></div>
 </section>
 
 <?php echo $div; ?>
 <section class="sum sum-abl" aria-labelledby="sum-abl-h">
   <div class="wrap">
     <div class="intro">
-      <p class="eyebrow"><?php echo ka( 'abl_eyebrow' ); ?></p>
+      <p class="eyebrow"><a class="eyebrow-link" href="<?php echo esc_url( ka_url( 'ablauf' ) ); ?>"><?php echo ka( 'abl_eyebrow' ); ?></a></p>
       <h2 id="sum-abl-h"><?php echo ka( 'abl_h2' ); ?></h2>
     </div>
     <ol class="steps">
@@ -290,7 +263,6 @@ function ka_view_home() {
       <li<?php echo 0 === $i ? ' class="step-card"' : ''; ?>><span class="sico"><?php echo ka_icon( $si[ $i % count( $si ) ] ); ?></span><h3><?php $t = esc_html( trim( preg_replace( '/^.*&\s*/u', '', $s[0] ) ) ); echo ( 0 === $i ) ? '<a class="step-link" href="' . esc_url( ka_url( 'kontakt' ) ) . '"><span class="sl-t"><span class="sl-a">' . $t . '</span><span class="sl-k" aria-hidden="true">Kontakt</span></span> <span class="cta-arrow" aria-hidden="true">&rarr;</span></a>' : $t; ?></h3><p><?php echo esc_html( $s[1] ); ?></p></li>
       <?php endforeach; ?>
     </ol>
-    <p class="sum-more"><a class="btn deep" href="<?php echo esc_url( ka_url( 'ablauf' ) ); ?>">Ablauf und häufige Fragen <span aria-hidden="true">&rarr;</span></a></p>
   </div>
 </section>
 
@@ -496,7 +468,8 @@ function ka_view_contact() {
       <p><?php echo ka( 'kon_text' ); ?></p>
       <p class="sum-contact kon-page-btns">
         <a class="btn hero-main" href="<?php echo esc_attr( ka_mail_href() ); ?>"><?php echo ka_icon( 'mail' ); ?><span>E-Mail</span></a>
-        <a class="btn hero-main" href="<?php echo $sms; ?>"><?php echo ka_icon( 'whatsapp' ); ?><span>WhatsApp</span></a>
+        <a class="btn hero-main btn-wa-ico" href="<?php echo $sms; ?>" aria-label="WhatsApp"><?php echo ka_icon( 'whatsapp' ); ?></a>
+        <a class="btn hero-main kon-form-pill" href="#contact-form"><?php echo ka_icon( 'document' ); ?><span>Formular</span></a>
       </p>
     </div>
     <div class="div contact-div" aria-hidden="true"><span class="hgi"></span></div>

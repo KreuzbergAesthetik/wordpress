@@ -13,7 +13,7 @@ function ka_icon_paths() {
 		'document'  => 'M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v5h5M12 18c-1.8-1.2-3-2.2-3-3.4a1.6 1.6 0 0 1 3-.7 1.6 1.6 0 0 1 3 .7c0 1.2-1.2 2.2-3 3.4z',
 		'shield'    => 'M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6zM9 12l2 2 4-4',
 		'heart'     => 'M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z',
-		'people'    => 'M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM3 20v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1M17 11a2.5 2.5 0 1 0 0-5M16.5 14.2A4.5 4.5 0 0 1 21 18.7V20',
+		'people'    => 'M11.25 6.3a2.6 2.6 0 1 0-5.2 0 2.6 2.6 0 1 0 5.2 0zM3.3 19.8V16a5.35 5.35 0 0 1 10.7 0v3.8zM18.4 6.8a2.4 2.4 0 1 0-4.8 0 2.4 2.4 0 1 0 4.8 0zM14.1 10.6a4.9 4.9 0 0 1 6.7 4.8v4.4h-4.45V16a7.7 7.7 0 0 0-2.25-5.4z',
 		'hourglass' => 'M6 3h12M6 21h12M7 3c0 5 3.5 6 5 9-1.5 3-5 4-5 9M17 3c0 5-3.5 6-5 9 1.5 3 5 4 5 9',
 		'wave'      => 'M3 8c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 14c2-2 4-2 6 0s4 2 6 0 4-2 6 0',
 		'drop'      => 'M12 3c3.5 4.2 6 7.3 6 10.2A6 6 0 0 1 6 13.2C6 10.3 8.5 7.2 12 3z',
@@ -38,7 +38,12 @@ function ka_icon_paths() {
 function ka_icon( $name, $class = 'ico' ) {
 	$p = ka_icon_paths();
 	$d = isset( $p[ $name ] ) ? $p[ $name ] : $p['sparkle'];
-	$fillable = in_array( $name, array( 'star', 'heart', 'people', 'person', 'leaf', 'drop', 'sparkle', 'hourglass', 'bubble', 'shield' ), true );
+	$fillable = in_array( $name, array( 'star', 'heart', 'people', 'person', 'leaf', 'drop', 'sparkle', 'hourglass', 'bubble', 'shield' ), true ) || false !== strpos( $class, 'fillable' );
+	// Gefüllte Form: saubere, geschlossene Flächen (offene Linien würden komisch ausgefüllt)
+	$fill_d = array(
+		'people' => 'M11.25 6.3a2.6 2.6 0 1 0-5.2 0 2.6 2.6 0 1 0 5.2 0zM3.3 19.8V16a5.35 5.35 0 0 1 10.7 0v3.8zM18.4 6.8a2.4 2.4 0 1 0-4.8 0 2.4 2.4 0 1 0 4.8 0zM14.1 10.6a4.9 4.9 0 0 1 6.7 4.8v4.4h-4.45V16a7.7 7.7 0 0 0-2.25-5.4z',
+		'mail'   => 'M4 6h16v12H4z',
+	);
 	$cls      = esc_attr( $class ) . ( $fillable ? ' fillable' : '' );
 	$inner    = '';
 	if ( 'shield' === $name ) {
@@ -47,7 +52,8 @@ function ka_icon( $name, $class = 'ico' ) {
 		$check = 'M9 12l2 2 4-4';
 		$inner = '<path d="' . $body . '"/><path class="fl" d="' . $body . '"/><path class="chk" d="' . $check . '"/><path class="chkw" d="' . $check . '"/>';
 	} else {
-		$inner = '<path d="' . esc_attr( $d ) . '"/>' . ( $fillable ? '<path class="fl" d="' . esc_attr( $d ) . '"/>' : '' );
+		$fl    = $fillable ? '<path class="fl" d="' . esc_attr( isset( $fill_d[ $name ] ) ? $fill_d[ $name ] : $d ) . '"/>' : '';
+		$inner = 'mail' === $name ? $fl . '<path d="' . esc_attr( $d ) . '"/>' : '<path d="' . esc_attr( $d ) . '"/>' . $fl;
 	}
 	return '<svg class="' . $cls . '" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' . $inner . '</svg>';
 }
