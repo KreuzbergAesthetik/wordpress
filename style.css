@@ -3946,3 +3946,78 @@ html:not(.calm) .chat-book:hover,html:not(.calm) .chat-book:focus-visible{transf
 }
 .kview[data-view=leistungen] .chat-help{margin-top:2.8rem!important}
 .kview[data-view=leistungen] .next-link{margin-top:3.2rem!important}
+
+/* ===== v160 – Startseite neu (8. November) ===== */
+
+/* WhatsApp überall nur als Symbol (runder Knopf) */
+.btn-wa-ico{display:inline-flex!important;align-items:center!important;justify-content:center!important;padding:0!important;aspect-ratio:1;border-radius:50%!important;flex:none!important;gap:0!important}
+.btn-wa-ico .bt-in{gap:0!important}
+.btn-wa-ico .ico{width:22px!important;height:22px!important;margin:0!important}
+.hero-v5 .hero-pills{display:flex!important;align-items:center;gap:.7rem!important}
+.hero-v5 .hero-pills .btn.hero-main:not(.btn-wa-ico){flex:1 1 auto!important}
+.hero-v5 .hero-pills .btn.hero-main.btn-wa-ico{width:auto!important;height:46px!important;min-height:0!important}
+.kon-page-btns{display:flex!important;justify-content:center;align-items:center;gap:.7rem!important;max-width:none!important}
+.kon-page-btns .btn.hero-main:not(.btn-wa-ico){width:auto!important;min-width:12rem}
+.kon-page-btns .btn.btn-wa-ico{width:3rem!important;height:3rem!important}
+.sum-kon .btn.btn-wa-ico{width:46px!important;height:46px!important;min-width:0!important}
+.side .side-contact .btn.btn-wa-ico{width:46px!important;height:46px!important;min-height:0!important;align-self:flex-start}
+.cbtn-two .cbtn.cbtn-wa{flex:0 0 auto!important;width:46px!important;min-width:0!important;padding:0!important;aspect-ratio:1}
+.cbtn-two .cbtn.cbtn-wa .ico{margin:0!important}
+.wa .wa-t{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap}
+.wa{width:56px!important;height:56px!important;padding:0!important;border-radius:50%!important;justify-content:center!important}
+.wa .ico{width:28px!important;height:28px!important}
+
+/* Startbereich: Knöpfe feiner und niedriger, normale Schrift; Abstand zum Trenner darunter */
+.hero-v5 .hero-pills .btn.hero-main{font-weight:500!important;height:46px!important;min-height:0!important}
+@media (min-width:701px){
+ .home-page .hero-v5 .hero-pills{grid-template-columns:none!important;width:auto!important}
+ .home-page .hero-v5 .hero-pills .btn.hero-main{height:calc(3.6 * var(--u))!important;min-height:40px!important}
+ .home-page .hero-v5 .hero-pills .btn.hero-main:not(.btn-wa-ico){width:calc(19.2 * var(--u))!important;flex:none!important}
+ .home-page .hero-v5 .hero-pills .btn.hero-main.btn-wa-ico{width:auto!important}
+ .pinned .qk-div{margin-top:calc(3 * var(--u))!important}
+}
+@media (max-width:700px){.pinned .qk-div{margin-top:1.4rem!important}}
+
+/* Werte im Startbereich: Beschriftung und Symbole größer */
+@media (min-width:701px){
+ .home-page .hero-v5 .hero-vals li,.home-page .hero-v5 .hero-vals li span{font-size:calc(1.5 * var(--u))!important}
+ .home-page .hero-v5 .hero-vals li .ico{width:calc(2.4 * var(--u))!important;height:calc(2.4 * var(--u))!important}
+}
+@media (max-width:700px){
+ .hero-v5 .hero-vals li span{font-size:1.02rem!important}
+ .hero-v5 .hero-vals li .ico{width:34px!important;height:34px!important}
+}
+
+/* „Kreuzberg Ästhetik“ oben deutlich kleiner – etwa so groß wie „Hi, ich bin Manuel.“ */
+@media (min-width:701px){.home-page .hero-intro .hero-brand{font-size:calc(3.94 * var(--u))!important}}
+@media (max-width:700px){.hero-intro .hero-brand,.hero-v5 .hero-head .hero-brand{font-size:30px!important}}
+
+/* Etiketten auf der Startseite als Knöpfe zur jeweiligen Seite, zoomen beim Überfahren */
+p.eyebrow:has(> .eyebrow-link){position:relative;cursor:pointer;transition:transform .3s cubic-bezier(.25,.8,.35,1)}
+.eyebrow .eyebrow-link{color:inherit!important;text-decoration:none!important}
+.eyebrow .eyebrow-link::after{content:"";position:absolute;inset:0;border-radius:inherit}
+html:not(.calm) p.eyebrow:has(> .eyebrow-link):hover,html:not(.calm) p.eyebrow:has(> .eyebrow-link:focus-visible){transform:scale(1.07)}
+.sum-kon .eyebrow .eyebrow-link:hover{transform:none!important}
+
+/* Behandlungsübersicht und „Unsicher?“ in einer hellen Karte, nicht über die volle Breite */
+.lei-two.lei-one{display:grid!important;grid-template-columns:1fr 1fr!important;gap:0!important;max-width:820px!important;margin-left:auto!important;margin-right:auto!important;background:#fff!important;border-radius:var(--r-card,22px)!important;border:1px solid rgba(1,34,101,.08)!important;overflow:hidden;transition:box-shadow .3s ease}
+html:not(.never) .lei-two.lei-one{box-shadow:var(--sh-ar)!important}
+html:not(.never) .lei-two.lei-one:hover{box-shadow:var(--sh-ar-h)!important}
+html:not(.never) .lei-one .lei-col,html:not(.never) .lei-one .lei-col:hover{background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;transform:none!important}
+.lei-one .lei-col+.lei-col{border-left:1px solid rgba(1,34,101,.1)!important}
+.lei-one .lei-col h3{color:#012265!important}
+.lei-one .lei-col p{color:var(--muted,#4a5f80)!important}
+.lei-one .lei-col>.lei-ico{color:rgba(1,34,101,.06)!important}
+.lei-one .lei-col::after{display:none!important}
+.lei-one .lei-col .btn,.lei-one .lei-col .btn.deep{background:#012265!important;color:#fff!important;border-color:#012265!important;font-weight:500!important;min-height:0!important;height:42px;padding:0 1.15rem!important}
+.lei-one .lei-col .btn .ico,.lei-one .lei-col .btn .bt-in{color:#fff!important}
+html:not(.never) .lei-one .lei-col .btn{box-shadow:0 6px 14px rgba(1,34,101,.25)!important}
+html:not(.never) .lei-one .lei-col .btn:hover{box-shadow:0 10px 20px rgba(1,34,101,.4)!important}
+@media (max-width:700px){.lei-two.lei-one{grid-template-columns:1fr!important}.lei-one .lei-col+.lei-col{border-left:0!important;border-top:1px solid rgba(1,34,101,.1)!important}}
+html:not(.never) .home-page .hero-v5 .hero-pills .btn.hero-main,html:not(.never) .hero-v5 .hero-pills .btn.hero-main,html:not(.never) .lei-one .lei-col .btn{font-weight:500!important}
+html:not(.never) .hero-v5 .hero-pills .btn.hero-main.btn-wa-ico{width:46px!important;max-width:46px!important;min-width:46px!important;height:46px!important;flex:none!important}
+@media (min-width:701px){
+ html:not(.never) .home-page .hero-v5 .hero-pills .btn.hero-main.btn-wa-ico{width:max(40px,calc(3.6 * var(--u)))!important;max-width:none!important;min-width:0!important;height:max(40px,calc(3.6 * var(--u)))!important}
+ .home-page .hero-v5 .hero-copy>.hero-vals.hero-vals{width:calc(40 * var(--u))!important}
+ .home-page .hero-v5 .hero-vals li,.home-page .hero-v5 .hero-vals li span{font-size:calc(1.42 * var(--u))!important}
+}
