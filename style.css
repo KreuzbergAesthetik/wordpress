@@ -4086,3 +4086,54 @@ html:not(.never) .hero-act-main,html:not(.never) .hero-act-main:hover,html:not(.
 @media (max-width:700px){.hero-act{width:9.6rem!important;min-width:0!important}}
 @media (min-width:701px){.home-page .hero-v5 .hero-act .bt-in{gap:calc(.7 * var(--u))}}
 @media (max-width:700px){.hero-act{width:10.2rem!important;font-size:14px!important;padding:0 .6rem!important;gap:.45rem!important}.hero-act .bt-in{gap:.45rem}.hero-act .ico{width:16px!important;height:16px!important}}
+
+/* ===== v160d – Karte „Was ich für Dich tun kann“, Schatten leiser, Unterstreichung nur beim Überfahren ===== */
+
+/* Eine Karte: Behandlungsübersicht + Beratung, unten zwei Knöpfe nebeneinander (links blau, rechts transparent) */
+.lei-sum{position:relative;max-width:760px;margin:0 auto;padding:2rem 2.2rem 1.9rem;background:#fff;border:1px solid rgba(1,34,101,.08);border-radius:var(--r-card,22px);overflow:hidden;text-align:center}
+.lei-sum h3{color:#012265;margin:0 0 .7rem}
+.lei-sum p{color:var(--muted,#4a5f80);margin:0 auto 1.4rem;max-width:34rem}
+.lei-sum .lei-ico{position:absolute;bottom:-14px;width:96px;height:96px;color:rgba(1,34,101,.06);pointer-events:none}
+.lei-sum .lei-ico svg{width:100%;height:100%}
+.lei-sum .lei-ico-a{left:12px}
+.lei-sum .lei-ico-b{right:12px}
+.lei-btns{display:flex;justify-content:center;gap:.8rem;position:relative}
+.lei-btn{display:inline-flex!important;align-items:center;justify-content:center;gap:.55rem;width:11.5rem;height:42px;min-height:0!important;padding:0 1rem!important;font-size:15px!important;font-weight:500!important;border:1.5px solid #012265!important}
+.lei-btn .ico{width:17px!important;height:17px!important;flex:none}
+.lei-btn .bt-in{display:inline-flex!important;flex-direction:row!important;align-items:center;gap:.55rem}
+.lei-btn-main{background:#012265!important;color:#fff!important}
+.lei-btn-main .ico{color:#fff!important}
+.lei-btn-line{background:transparent!important;color:#012265!important}
+.lei-btn-line .ico{color:#012265!important}
+html:not(.never) .lei-btn,html:not(.never) .lei-btn:hover{box-shadow:none!important}
+html:not(.never) .lei-btn-main,html:not(.never) .lei-btn-main:hover{background:#012265!important;color:#fff!important}
+html:not(.never) .lei-btn-line,html:not(.never) .lei-btn-line:hover{background:transparent!important;color:#012265!important}
+@media (max-width:700px){.lei-sum{padding:1.6rem 1.2rem 1.5rem}.lei-btns{gap:.6rem}.lei-btn{width:10rem;font-size:14px!important}.lei-sum .lei-ico{display:none}}
+
+/* Schatten insgesamt leiser */
+:root{--sh-card:0 10px 24px -10px rgba(1,34,101,.15),0 2px 8px rgba(1,34,101,.05);--sh-ar:0 0 16px 1px rgba(1,34,101,.12),0 4px 12px rgba(1,34,101,.08);--sh-ar-h:0 0 24px 3px rgba(1,34,101,.2),0 6px 16px rgba(1,34,101,.12)}
+html:not(.never) .lei-sum{box-shadow:var(--sh-ar)!important;transition:box-shadow .3s ease}
+html:not(.never) .lei-sum:hover{box-shadow:var(--sh-ar-h)!important}
+html:not(.never) .chat-window{box-shadow:0 0 18px 1px rgba(0,77,23,.16),0 4px 12px rgba(0,77,23,.1)!important}
+html:not(.never) .chat-window:hover{box-shadow:0 0 26px 3px rgba(0,77,23,.26),0 6px 16px rgba(0,77,23,.14)!important}
+html:not(.never) .kview form .btn.deep{box-shadow:0 3px 8px rgba(1,34,101,.14)!important}
+html:not(.never) .kview form .btn.deep:hover{box-shadow:0 5px 12px rgba(1,34,101,.2)!important}
+html:not(.never) .sum-kon .btn:hover{box-shadow:0 0 22px 4px rgba(255,255,255,.4)!important}
+.btn.deep{box-shadow:0 3px 8px rgba(1,34,101,.14)}
+
+/* Unterstreichungen erscheinen erst beim Überfahren */
+.steps h3 a.step-link .sl-t,.step-cta .cta-t{border-bottom-color:transparent!important;transition:border-color .2s}
+.step-card:hover .sl-t,.step-card:focus-within .sl-t,.step-card:hover .cta-t,.step-card:focus-within .cta-t,.step-cta:hover .cta-t{border-bottom-color:currentColor!important}
+.next-link .nl-t{border-bottom-color:transparent!important;transition:border-color .2s,transform .3s cubic-bezier(.25,.8,.35,1)}
+.next-link a:hover .nl-t,.next-link a:focus-visible .nl-t{border-bottom-color:#012265!important}
+:root[data-theme="dark"] .next-link a:hover .nl-t{border-bottom-color:#dce8f8!important}
+.next-link .nl-t::after{background:transparent!important}
+.next-link a:hover .nl-t::after{background:#012265!important}
+#leistungen details.all>summary{text-decoration:none!important}
+#leistungen details.all>summary:hover,#leistungen details.all>summary:focus-visible{text-decoration:underline!important}
+.qkc .qkm-t{border-bottom-color:transparent!important;transition:border-color .2s}
+.qkc:hover .qkm-t,.qkc:focus-visible .qkm-t{border-bottom-color:#012265!important}
+footer .ft-l,footer .ft-r{text-decoration:none!important}
+footer .ft-l:hover,footer .ft-r:hover,footer .ft-l:focus-visible,footer .ft-r:focus-visible{text-decoration:underline!important}
+.lei-sum .lei-ico{background:none!important;border-radius:0!important;border:0!important;box-shadow:none!important}
+.steps li.step-card:hover h3 a.step-link .sl-t,.steps li.step-card:focus-within h3 a.step-link .sl-t,.steps li.step-card:hover .step-cta .cta-t,.steps li.step-card:focus-within .step-cta .cta-t,.steps li.step-card .step-cta:hover .cta-t{border-bottom-color:currentColor!important}

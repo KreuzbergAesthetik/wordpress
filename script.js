@@ -193,7 +193,7 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
 
 (function(){
   var tl=document.getElementById('tl');if(!tl)return;
-  function fill(){var r=tl.getBoundingClientRect(),vh=window.innerHeight,land=window.innerWidth>700&&vh<600,p=window.innerWidth>700?(vh*.92-r.top)/(land?Math.max(vh*.85,330):vh*.5):(vh*.75-r.top)/(r.height||1);var q=Math.min(1,Math.max(0,p));tl.style.setProperty('--tlp',Math.round(q*100)+'%');var li=tl.children,n=li.length;for(var i=0;i<n;i++){li[i].classList.toggle('hit',q>=(n>1?i/(n-1):0)-.001&&q>0)}}
+  function fill(){var r=tl.getBoundingClientRect(),vh=window.innerHeight,land=window.innerWidth>700&&vh<600,p=window.innerWidth>700?(vh*.92-r.top)/(land?Math.max(vh*.85,330):vh*.36):(vh*.75-r.top)/(r.height||1);var q=Math.min(1,Math.max(0,p));tl.style.setProperty('--tlp',Math.round(q*100)+'%');var li=tl.children,n=li.length;for(var i=0;i<n;i++){li[i].classList.toggle('hit',q>=(n>1?i/(n-1):0)-.001&&q>0)}}
   window.addEventListener('scroll',fill,{passive:true});window.addEventListener('resize',fill);fill();
 })();
 
@@ -415,7 +415,7 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
       var r=li.getBoundingClientRect();if(!r.width)return;
       var idx=[].indexOf.call(li.parentNode.children,li),home=!!li.closest('.sum-abl');
       /* jeder weitere Punkt braucht mehr Scrollweg; nie weiter, als das Seitenende erlaubt */
-      var mob,off,cy=r.top+Math.min(40,r.height/2),lim=cy-(maxS-sy)+30,mob=window.innerWidth<=700,off=mob?(home?-idx*40:idx*50):-idx*(home?80:95),line=Math.max(vh*(home?0.85:0.32)+off,lim);
+      var mob,off,cy=r.top+Math.min(40,r.height/2),lim=cy-(maxS-sy)+30,mob=window.innerWidth<=700,off=mob?(home?-idx*56:idx*50):-idx*(home?48:95),line=Math.max(vh*(home?0.85:0.32)+off,lim);
       li.classList.toggle('st-hit',cy<line);
     });
   }

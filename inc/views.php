@@ -219,18 +219,14 @@ function ka_view_home() {
       <p class="eyebrow"><a class="eyebrow-link" href="<?php echo esc_url( ka_url( 'leistungen' ) ); ?>"><?php echo ka( 'lei_eyebrow' ); ?></a></p>
       <h2 id="sum-lei-h"><?php echo ka( 'lei_h2' ); ?></h2>
     </div>
-    <div class="lei-two lei-one">
-      <div class="lei-col glow">
-        <span class="lei-ico"><?php echo ka_icon( 'document' ); ?></span>
-        <h3>Behandlungsübersicht</h3>
-        <p><?php echo ka( 'home_lei_intro' ); ?></p>
-        <a class="btn deep" href="<?php echo esc_url( ka_url( 'leistungen' ) ); ?>"><?php echo ka_icon( 'list' ); ?>Zur Liste <span aria-hidden="true">&rarr;</span></a>
-      </div>
-      <div class="lei-col glow">
-        <span class="lei-ico"><?php echo ka_icon( 'bubble' ); ?></span>
-        <h3>Unsicher?</h3>
-        <p>Lass Dich im interaktiven Chat beraten: ein paar Antworten antippen und Du siehst, was zu Dir passen könnte.</p>
-        <a class="btn deep" href="<?php echo esc_url( ka_url( 'leistungen' ) . '#chat-hilfe' ); ?>"><?php echo ka_icon( 'bubble' ); ?>Zum Chat <span aria-hidden="true">&rarr;</span></a>
+    <div class="lei-sum glow">
+      <span class="lei-ico lei-ico-a"><?php echo ka_icon( 'document' ); ?></span>
+      <span class="lei-ico lei-ico-b"><?php echo ka_icon( 'bubble' ); ?></span>
+      <h3>Behandlungsübersicht</h3>
+      <p><?php echo ka( 'home_lei_intro' ); ?> Bist Du unsicher, was zu Dir passt? Im interaktiven Chat tippst Du ein paar Antworten an und siehst, was für Dich in Frage kommt.</p>
+      <div class="lei-btns">
+        <a class="btn lei-btn lei-btn-main" href="<?php echo esc_url( ka_url( 'leistungen' ) ); ?>"><?php echo ka_icon( 'list' ); ?><span>Zur Liste</span></a>
+        <a class="btn lei-btn lei-btn-line" href="<?php echo esc_url( ka_url( 'leistungen' ) . '#chat-hilfe' ); ?>"><?php echo ka_icon( 'bubble' ); ?><span>Zum Chat</span></a>
       </div>
     </div>
   </div>
