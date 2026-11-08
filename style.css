@@ -4146,7 +4146,5 @@ html:not(.never) .hero-act,html:not(.never) .hero-v5 .hero-act,html:not(.never) 
 .hero-act svg.fillable.fill-on path.fl{opacity:1}
 .calm .hero-act svg.fillable path.fl{opacity:1!important}
 .lei-btn-line .ico,html:not(.never) .lei-btn-line .ico{color:#004d17!important}
-/* Porträt mehr in die Mitte des freien Platzes rechts neben dem Text */
-@media (min-width:701px){
- html:not(.never) .home-page .hero-v5 .hero-portrait{left:calc(50.8 * var(--u))!important;width:calc(50 * var(--u))!important}
-}
+/* v160f: Porträt auf dem Handy mittig (Desktop/Querformat bleibt rechts neben der Schrift) */
+@media (max-width:700px){html:not(.never) .home-page .hero-v5 .hero-portrait{margin-left:5vw!important}}
