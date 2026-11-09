@@ -4169,5 +4169,19 @@ html:not(.never) .kon-page-btns .btn.btn-wa-ico{width:2.5rem!important;height:2.
 @media (min-width:701px){body:not(.intro-collapsed):not(.head-done) .home-page .hero-intro,body.home-page:not(.intro-collapsed):not(.head-done) .hero-intro{padding-top:calc(1.1 * var(--u))!important}}
 @media (max-width:700px){body:not(.intro-collapsed):not(.head-done) .home-page .hero-intro,body.home-page:not(.intro-collapsed):not(.head-done) .hero-intro{padding-top:12px!important}}
 /* v161: Porträt etwas kleiner */
-@media (min-width:701px){html:not(.never) .home-page .hero-v5 .hero-portrait{width:calc(47 * var(--u))!important;left:calc(45.6 * var(--u))!important;top:calc(-6.2 * var(--u))!important}}
+@media (min-width:701px){html:not(.never) .home-page .hero-v5 .hero-portrait{width:calc(47 * var(--u))!important;left:calc(45.6 * var(--u))!important;top:calc(.4 * var(--u))!important}}
 @media (max-width:700px){html:not(.never) .home-page .hero-v5 .hero-portrait{width:88vw!important}}
+/* v161: Beratungs-Text zwischen Untertitel und Knöpfen, Philosophie ganz unten */
+@media (min-width:701px){
+ html:not(.never) .home-page .hero-v5 .hero-text,html:not(.never) .home-page .hero-v5 .hero-copy>.hero-text.hero-text{top:calc(15.4 * var(--u))!important;left:calc(33.94 * var(--u))!important;transform:translateX(-50%)!important;width:calc(37 * var(--u))!important;text-align:center!important;margin:0!important;font-size:max(13px,calc(1.4 * var(--u)))!important}
+}
+@media (max-width:700px){html:not(.never) .hero-v5 .hero-text{text-align:center!important;margin:.2rem 0 1rem!important}}
+@media (min-width:701px){
+ html:not(.never) .home-page .hero-v5 .hero-actions{top:calc(23.4 * var(--u))!important}
+ html:not(.never) .home-page .hero-v5 .hero-div,html:not(.never) .home-page .hero-v5 .hero-copy>.hero-div.hero-div{top:calc(28.9 * var(--u))!important}
+ html:not(.never) .home-page .hero-v5 .hero-phil-h{top:calc(34.1 * var(--u))!important}
+ html:not(.never) .home-page .hero-v5 .hero-vals{top:calc(38.5 * var(--u))!important}
+}
+/* v161: Porträt mit mehr Oberkörper – weicher, ovaler Auslauf ohne gerade Kanten */
+@media (min-width:701px){html:not(.never) .home-page .hero-v5 .hero-portrait{-webkit-mask-image:radial-gradient(ellipse 60% 46% at 52% 34%,#000 58%,rgba(0,0,0,.55) 76%,rgba(0,0,0,.18) 90%,transparent 100%)!important;mask-image:radial-gradient(ellipse 60% 46% at 52% 34%,#000 58%,rgba(0,0,0,.55) 76%,rgba(0,0,0,.18) 90%,transparent 100%)!important;-webkit-mask-composite:source-over;mask-composite:add}
+html:not(.never) .home-page .hero-v5 .hero-portrait::after{display:none!important}}
