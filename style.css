@@ -4023,11 +4023,10 @@ html:not(.never) .hero-v5 .hero-pills .btn.hero-main.btn-wa-ico{width:46px!impor
 }
 
 /* Kopfleiste: Logo von Anfang an fest links (kein Einflug), vor der Leiste; Startbereich bleibt stehen, bis die Leiste angedockt ist */
-.hero-intro .hg-slot{display:none!important}
 .pin::after{height:var(--pinlen,0px)!important}
 .mast .wmk#wmk{z-index:5}
-@media (min-width:701px){.home-page .hero-intro .hero-brand{font-size:calc(3.1 * var(--u))!important}}
-@media (max-width:700px){.hero-intro .hero-brand,.hero-v5 .hero-head .hero-brand{font-size:26px!important}}
+@media (min-width:701px){.home-page .hero-intro .hero-brand{font-size:calc(3.94 * var(--u))!important}}
+@media (max-width:700px){.hero-intro .hero-brand,.hero-v5 .hero-head .hero-brand{font-size:30px!important}}
 html:not(.never) .home-page .hero-v5 .hero-pills,html:not(.never) .hero-v5 .hero-pills{display:flex!important;flex-wrap:nowrap!important;align-items:center!important;gap:.7rem!important}
 
 /* Startbereich Desktop: Text links, Porträt rechts (gespiegelt, weicher Rand jetzt links) */
@@ -4147,7 +4146,7 @@ html:not(.never) .hero-act,html:not(.never) .hero-v5 .hero-act,html:not(.never) 
 .calm .hero-act svg.fillable path.fl{opacity:1!important}
 .lei-btn-line .ico,html:not(.never) .lei-btn-line .ico{color:#004d17!important}
 /* v160f: Porträt auf dem Handy mittig (Desktop/Querformat bleibt rechts neben der Schrift) */
-@media (max-width:700px){html:not(.never) .home-page .hero-v5 .hero-portrait{margin-left:5vw!important}}
+@media (max-width:700px){html:not(.never) .home-page .hero-v5 .hero-portrait{margin-left:1vw!important}}
 /* v160g: Kontaktseite – WhatsApp in der Mitte, E-Mail und Formular als gleich große Pillen daneben, mit Abstand */
 html:not(.never) .kon-page-btns{display:flex!important;justify-content:center;align-items:center;gap:.9rem!important;max-width:none!important;flex-wrap:nowrap}
 html:not(.never) .kon-page-btns .btn.hero-main:not(.btn-wa-ico){flex:0 0 11rem;width:11rem!important;min-width:0!important;margin:0!important}
@@ -4157,3 +4156,18 @@ html:not(.never) .kon-page-btns .btn.hero-main.kon-form-pill .ico{color:#004d17!
 @media (max-width:480px){html:not(.never) .kon-page-btns{gap:.6rem!important}html:not(.never) .kon-page-btns .btn.hero-main:not(.btn-wa-ico){flex:1 1 0;width:auto!important}}
 /* v160h: Zeitstrahl am Desktop schneller */
 @media (min-width:701px){.sum-about .tl .node .nf{transition:opacity .3s ease!important}.sum-about .tl .wmk.wmk-node .lg-f{transition-duration:.8s!important}}
+/* v161: flachere Knöpfe, Logo mittig über dem Namen, größere Wasserzeichen in der Behandlungskarte */
+html:not(.never) .hero-act{height:36px!important}
+html:not(.never) .home-page .hero-v5 .hero-act{height:calc(2.9 * var(--u))!important;min-height:34px!important}
+html:not(.never) .lei-btn{height:36px!important}
+html:not(.never) .kon-page-btns .btn.hero-main{height:2.5rem!important;min-height:0!important}
+html:not(.never) .kon-page-btns .btn.btn-wa-ico{width:2.5rem!important;height:2.5rem!important}
+.lei-sum .lei-ico{width:150px;height:150px;bottom:-14px}
+.lei-sum .lei-ico-a{left:6px}
+.lei-sum .lei-ico-b{right:6px}
+/* v161: Logo sitzt oben mittig, daher weniger Luft über dem Startbereich */
+@media (min-width:701px){body:not(.intro-collapsed):not(.head-done) .home-page .hero-intro,body.home-page:not(.intro-collapsed):not(.head-done) .hero-intro{padding-top:calc(1.1 * var(--u))!important}}
+@media (max-width:700px){body:not(.intro-collapsed):not(.head-done) .home-page .hero-intro,body.home-page:not(.intro-collapsed):not(.head-done) .hero-intro{padding-top:12px!important}}
+/* v161: Porträt etwas kleiner */
+@media (min-width:701px){html:not(.never) .home-page .hero-v5 .hero-portrait{width:calc(47 * var(--u))!important;left:calc(45.6 * var(--u))!important;top:calc(-6.2 * var(--u))!important}}
+@media (max-width:700px){html:not(.never) .home-page .hero-v5 .hero-portrait{width:88vw!important}}
