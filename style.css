@@ -4242,3 +4242,8 @@ html:not(.never) .home-page .hero-v5 .hero-portrait::after{display:none!importan
 :root[data-theme="dark"] .tinfo-pop dt{color:var(--dk-green)!important}
 :root[data-theme="dark"] .tinfo-pop .tinfo-note{color:var(--dk-mute)!important}
 :root[data-theme="dark"] .tinfo-pop .tinfo-x{color:var(--fg)!important}
+/* v162: Dunkelmodus – Porträt mit hellem Hemd, auf dem Handy gespiegelt */
+.hero-portrait .hero-photo-dk{display:none!important}
+:root[data-theme="dark"] .hero-portrait .hero-photo:not(.hero-photo-dk){display:none!important}
+:root[data-theme="dark"] .hero-portrait .hero-photo-dk{display:block!important}
+@media (max-width:700px){:root[data-theme="dark"] .hero-portrait .hero-photo-dk{transform:translateX(-7.5vw) scaleX(-1)!important}}

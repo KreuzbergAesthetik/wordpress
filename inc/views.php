@@ -178,6 +178,7 @@ function ka_view_home() {
       </div>
       <figure class="hero-portrait">
         <img class="hero-photo" src="<?php echo esc_url( get_theme_file_uri( 'assets/portrait-hero.webp' ) ); ?>" width="900" height="1229" alt="<?php echo esc_attr( ka_raw( 'portrait_alt' ) ); ?>">
+        <img class="hero-photo hero-photo-dk" src="<?php echo esc_url( get_theme_file_uri( 'assets/portrait-hero-hell.webp' ) ); ?>" width="900" height="1229" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </figure>
       <div class="hero-who">
         <h2 class="hero-name"><?php echo ka( 'hero_name' ); ?></h2>
