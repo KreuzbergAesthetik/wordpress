@@ -4459,3 +4459,9 @@ html:not(.never) .hero-act svg.fillable.fill-on path.fl{clip-path:inset(0 0 0 0)
 :root[data-theme="dark"] .hero-act-line,:root[data-theme="dark"] .lei-btn-line,:root[data-theme="dark"] .kon-page-btns .btn.hero-main:not(:first-child){box-shadow:none!important}
 /* v165: Dunkelmodus – Leiste am Anfang unsichtbar, schwebt mit dem Flug von Logo und Schriftzug ein */
 :root[data-theme="dark"] .mast .mastnav{border-color:rgba(229,235,246,calc(.25 * var(--na,1)))!important;box-shadow:0 0 22px 2px rgba(120,160,240,calc(.28 * var(--na,1))),0 0 6px rgba(160,190,245,calc(.18 * var(--na,1)))!important}
+/* v165: Dunkelmodus – die Leiste schwebt von oben ein (statt nur einzublenden) */
+:root[data-theme="dark"] .mast .mastnav{background:transparent!important;border-color:transparent!important;box-shadow:none!important;isolation:isolate}
+:root[data-theme="dark"] .mast .mastnav::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:inherit;
+ background:linear-gradient(180deg,rgb(70,108,190) 0%,rgb(22,58,138) 55%,rgb(1,24,74) 100%);border:1px solid rgba(229,235,246,.25);
+ box-shadow:0 0 22px 2px rgba(120,160,240,.28),0 0 6px rgba(160,190,245,.18);
+ opacity:calc(.97 * var(--na,1));transform:translateY(calc((1 - var(--na,1)) * -34px)) scale(calc(.92 + .08 * var(--na,1)));transform-origin:50% 0}
