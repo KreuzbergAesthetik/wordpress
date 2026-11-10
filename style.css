@@ -4235,3 +4235,10 @@ html:not(.never) .home-page .hero-v5 .hero-portrait::after{display:none!importan
 :root[data-theme="dark"] .chat-window .chat::before{background:rgba(255,255,255,.05)!important}
 :root[data-theme="dark"] .side-contact .btn-wa-ico,:root[data-theme="dark"] .side .side-contact .btn{border-color:rgba(229,235,246,.55)!important;color:var(--dk-green)!important}
 :root[data-theme="dark"] .side-contact .btn-wa-ico .ico,:root[data-theme="dark"] .side-contact .btn-wa-ico svg{color:var(--dk-green)!important}
+:root[data-theme="dark"] .tinfo-btn,:root[data-theme="dark"] .tinfo-btn .ico,:root[data-theme="dark"] .tinfo-btn svg{color:var(--dk-green)!important;border-color:var(--dk-green)!important}
+:root[data-theme="dark"] .hero-v5 .hero-portrait::after{display:none!important}
+:root[data-theme="dark"] .tinfo-pop{background:#16203f!important;border-color:rgba(168,220,182,.35)!important;border-top-color:var(--dk-green)!important}
+:root[data-theme="dark"] .tinfo-pop,:root[data-theme="dark"] .tinfo-pop p,:root[data-theme="dark"] .tinfo-pop dd,:root[data-theme="dark"] .tinfo-pop .tinfo-what{color:var(--fg)!important}
+:root[data-theme="dark"] .tinfo-pop dt{color:var(--dk-green)!important}
+:root[data-theme="dark"] .tinfo-pop .tinfo-note{color:var(--dk-mute)!important}
+:root[data-theme="dark"] .tinfo-pop .tinfo-x{color:var(--fg)!important}
