@@ -4408,3 +4408,9 @@ html:not(.never) .sum-abl .steps h3 a.step-link{white-space:nowrap!important}
 :root[data-theme="dark"] .sum-kon .eyebrow,:root[data-theme="dark"] .sum-kon .eyebrow a{-webkit-text-fill-color:var(--dk-green)!important}
 :root[data-theme="dark"] .sum-kon .eyebrow a{background:transparent!important}
 :root[data-theme="dark"] .eyebrow,:root[data-theme="dark"] .eyebrow a{-webkit-text-fill-color:currentColor}
+/* v164: Heller Modus – Chat-Kopfzeile dunkel mit heller Schrift, Logo größer */
+:root:not([data-theme="dark"]) html:not(.never) .chat-top,:root:not([data-theme="dark"]) .chat-window .chat-top{background:#012265!important;border-bottom-color:#012265!important}
+:root:not([data-theme="dark"]) .chat-window .chat-top .chat-who b{color:#fff!important}
+:root:not([data-theme="dark"]) .chat-window .chat-top .chat-who small,:root:not([data-theme="dark"]) .chat-window .chat-top .chat-who small::after{color:rgba(255,255,255,.75)!important}
+:root:not([data-theme="dark"]) .chat-window .chat-top::after{background:#fff!important}
+html:not(.never) .chat-window .chat-top::after{width:60px!important;height:60px!important}
