@@ -4432,3 +4432,5 @@ html:not(.never) .chat-window .chat-chips .cchip:hover,:root[data-theme="dark"] 
 html:not(.never) .chat-window .chat-chips .cchip .ico,:root[data-theme="dark"] .chat-window .chat-chips .cchip .ico{color:#9be8b0!important}
 html:not(.never) .chat-window .chat-book,:root[data-theme="dark"] .chat-window .chat-book{background:#e8eef9!important;color:#012265!important}
 html:not(.never) .chat-window .chat-book .ico,:root[data-theme="dark"] .chat-window .chat-book .ico{color:#004d17!important}
+/* v164: Kontakt-Symbol im Startbereich – Umrandung dunkel, sobald es sich füllt */
+html:not(.never) .hero-act svg.fillable.fill-on,:root[data-theme="dark"]:not(.never) .hero-act-line svg.fillable.fill-on{color:#004d17!important;transition:color .6s ease}
