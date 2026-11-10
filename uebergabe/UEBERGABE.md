@@ -1,6 +1,6 @@
 # Übergabe: Website Kreuzberg Ästhetik (WordPress-Theme)
 
-Stand: 10. November 2026. **Theme-Version 163 wird veröffentlicht** (Zeitleiste: „Kreuzberg Ästhetik“ blendet wie die anderen Beschriftungen ein). Nächste Version: 164.
+Stand: 10. November 2026. **Theme-Version 164 wird veröffentlicht** (Dunkelmodus-Feinschliff Handy, Chat-Kopf und Antwortzeile, grüne Knopf-Symbole, größere Wasserzeichen, Kontakt-Symbol, Ablauf-Pille ohne Sprung). Nächste Version: 165.
 
 ## ZUERST LESEN – Kurzfassung für die neue Sitzung
 
