@@ -15,12 +15,13 @@
     [.83, '#b0a8ca','#e8c4c7','#efe2ea'],
     [1,   '#8d9bbf','#c0bed9','#e3e4ef']
   ];
+  // Nacht: Töne aus dem Praxisblau #012265
   var night=[
-    [0,   '#273959','#3c4166','#252c4b'],
-    [.25, '#172943','#263754','#121d35'],
-    [.5,  '#080f23','#17233a','#0b1427'],
-    [.75, '#11172d','#232b4b','#141b35'],
-    [1,   '#263452','#4b4968','#27344e']
+    [0,   '#062a73','#0a2e78','#022468'],
+    [.25, '#032670','#072a72','#012265'],
+    [.5,  '#012162','#04256a','#011f5e'],
+    [.75, '#022468','#062a70','#012265'],
+    [1,   '#062a73','#0a2f79','#022468']
   ];
   function rgb(hex){return [parseInt(hex.slice(1,3),16),parseInt(hex.slice(3,5),16),parseInt(hex.slice(5,7),16)];}
   function blend(a,b,t){a=rgb(a);b=rgb(b);return 'rgb('+a.map(function(v,i){return Math.round(v+(b[i]-v)*t);}).join(',')+')';}

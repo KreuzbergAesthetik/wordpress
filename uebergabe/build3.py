@@ -20,6 +20,9 @@ css=re.sub(r'/\* [\w-]+ \*/\n@font-face\s*\{.*?\}\n','',css,flags=re.S)
 css=css.replace('url(assets/','url(')
 body=body.replace('assets/logo-light.png','logo-light.png').replace('assets/portrait.webp','portrait.jpg')
 js=open(T+'script.js',encoding='utf8').read()
+hdr=open(T+'header.php',encoding='utf8').read()
+headjs=''.join(m for m in re.findall(r'<script>.*?</script>',hdr,flags=re.S) if 'ka-appearance' in m)
+dayjs=open(T+'day-cycle.js',encoding='utf8').read()
 demo="""document.getElementById('contact-form').addEventListener('submit',function(e){e.preventDefault();var n=document.getElementById('note');n.hidden=false;n.textContent=this.checkValidity()?'Dies ist ein Entwurf. Das Formular sendet noch nichts ab.':'Bitte fülle alle Felder aus und stimme der Datenverarbeitung zu.'});\n"""
 router='''
 (function(){
@@ -39,6 +42,6 @@ router='''
   route();
 })();
 '''
-page='<title>Kreuzberg Ästhetik</title>\n<meta name="claude:viewport-fit-sides" content="cover">\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,400;0,500;1,400&family=Lora:ital,wght@0,400;1,400&family=Quicksand:wght@400;500;600;700&display=swap">\n<style>\n'+css+'</style>\n'+body+'\n<script>\n'+demo+data+'\n'+js+'\n'+router+'\n</script>\n'
+page=headjs+'\n<title>Kreuzberg Ästhetik</title>\n<meta name="claude:viewport-fit-sides" content="cover">\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,400;0,500;1,400&family=Lora:ital,wght@0,400;1,400&family=Quicksand:wght@400;500;600;700&display=swap">\n<style>\n'+css+'</style>\n'+body+'\n<script>\n'+demo+data+'\n'+js+'\n'+router+'\n</script>\n<script>\n'+dayjs+'\n</script>\n'
 open('kt3.html','w',encoding='utf8').write(page)
 print(len(page))

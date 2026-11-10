@@ -185,7 +185,7 @@ function ka_view_home() {
       </div>
       <p class="hero-text"><?php echo ka( 'hero_text' ); ?></p>
       <p class="hero-actions">
-        <a class="btn hero-act hero-act-main" href="<?php echo esc_url( ka_url( 'leistungen' ) ); ?>"><?php echo ka_icon( 'syringe' ); ?><span><?php echo ka( 'lei_eyebrow' ); ?></span></a>
+        <a class="btn hero-act hero-act-main" href="<?php echo esc_url( ka_url( 'leistungen' ) ); ?>"><?php echo ka_icon( 'sparkle' ); ?><span><?php echo ka( 'lei_eyebrow' ); ?></span></a>
         <a class="btn hero-act hero-act-line" href="<?php echo esc_url( ka_url( 'kontakt' ) ); ?>"><?php echo ka_icon( 'mail', 'ico fillable' ); ?><span><?php echo ka( 'kon_eyebrow' ); ?></span></a>
       </p>
       <span class="hero-rule" aria-hidden="true"></span>
@@ -271,8 +271,8 @@ function ka_view_home() {
 }
 
 function ka_view_about() {
-	$portrait = ka_raw( 'portrait_url' );
-	if ( '' === $portrait ) { $portrait = get_theme_file_uri( 'assets/portrait-cutout.webp' ); }
+	// Über mich: dasselbe Porträt mit Hemd wie im Startbereich
+	$portrait = get_theme_file_uri( 'assets/portrait-hero.webp' );
 	?>
 <section id="ueber-mich" class="sub-sec">
   <div class="wrap about">
@@ -395,7 +395,7 @@ function ka_view_services() {
     <div class="chat-help" id="chat-hilfe">
       <h3 class="chat-h"><?php echo ka( 'chat_h' ); ?></h3>
       <div class="chat-window">
-        <div class="chat-top"><span class="cav" aria-hidden="true"></span><span class="chat-who"><b>Manuel von Kreuzberg Ästhetik</b><small><i class="chat-dot" aria-hidden="true"></i>online</small></span></div>
+        <div class="chat-top"><span class="cav" aria-hidden="true"></span><span class="chat-who"><b>Manuel von Kreuzberg Ästhetik</b><small>Automatische Antworten, von mir persönlich verfasst</small></span></div>
         <div class="chat" id="chat" role="log" aria-live="polite" aria-relevant="additions"></div>
         <div class="chat-input"><div class="chat-chips" id="chat-chips"><span class="chat-ph">Wähle eine Antwort …</span></div><button type="button" class="chat-book" id="chat-book"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span>Termin</span></button></div>
       </div>

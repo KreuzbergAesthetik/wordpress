@@ -2,7 +2,7 @@
 Theme Name: Kreuzberg Ästhetik
 Description: Website der Privatpraxis Kreuzberg Ästhetik
 Author: Kreuzberg Ästhetik
-Version: 161
+Version: 162
 Requires at least: 6.0
 Requires PHP: 7.4
 Text Domain: kreuzberg-aesthetik
@@ -821,15 +821,15 @@ input:focus,textarea:focus{outline:2px solid rgba(0,77,23,.25);outline-offset:2p
   --page:none;--hgneg:none;color-scheme:light;
 }
 :root[data-theme="dark"]{
-  --cycle-top:#273959;--cycle-horizon:#3c4166;--cycle-bottom:#252c4b;
+  --cycle-top:#062a73;--cycle-horizon:#0a2e78;--cycle-bottom:#012265;
   --fg:#e5ebf6;--muted:#becadc;--head:#e6edf9;--link:#dce8fa;
   --line:rgba(213,227,247,.18);--jade:#83c7b2;--gold:#dfc86c;
-  --card:linear-gradient(150deg,rgba(26,39,65,.94),rgba(17,28,49,.94));
-  --nav:linear-gradient(150deg,rgba(31,45,72,.97),rgba(20,33,57,.97));
+  --card:linear-gradient(150deg,rgba(14,46,112,.94),rgba(6,38,98,.94));
+  --nav:linear-gradient(150deg,rgba(16,50,118,.97),rgba(5,38,100,.97));
   --deep-card:linear-gradient(125deg,#25436e,#0d254e);
   --deep:linear-gradient(125deg,#294971,#12345c);
   --shadow:0 12px 30px rgba(0,0,0,.15);--wm:url(assets/logo-light.png);
-  --bg:#252c4b;--field:#14213a;--page:none;--hgneg:none;color-scheme:dark;
+  --bg:#012265;--field:#082a6e;--page:none;--hgneg:none;color-scheme:dark;
 }
 body{background:var(--cycle-bottom);color:var(--fg)}
 .page{background:transparent}
@@ -4185,3 +4185,157 @@ html:not(.never) .kon-page-btns .btn.btn-wa-ico{width:2.5rem!important;height:2.
 /* v161: Porträt mit mehr Oberkörper – weicher, ovaler Auslauf ohne gerade Kanten */
 @media (min-width:701px){html:not(.never) .home-page .hero-v5 .hero-portrait{-webkit-mask-image:radial-gradient(ellipse 60% 46% at 52% 34%,#000 58%,rgba(0,0,0,.55) 76%,rgba(0,0,0,.18) 90%,transparent 100%)!important;mask-image:radial-gradient(ellipse 60% 46% at 52% 34%,#000 58%,rgba(0,0,0,.55) 76%,rgba(0,0,0,.18) 90%,transparent 100%)!important;-webkit-mask-composite:source-over;mask-composite:add}
 html:not(.never) .home-page .hero-v5 .hero-portrait::after{display:none!important}}
+/* v162: Dunkelmodus überarbeitet – dunkle Flächen statt heller Hintergründe, gut lesbare Texte */
+:root[data-theme="dark"]{--dk-card:rgba(255,255,255,.06);--dk-line:rgba(229,235,246,.14);--dk-mute:rgba(229,235,246,.72);--dk-green:#a8dcb6}
+:root[data-theme="dark"],:root[data-theme="dark"] body.home-page{background:var(--bg,#0b1427)!important}
+:root[data-theme="dark"] body.home-page{background:transparent!important}
+:root[data-theme="dark"] .home-page .hero-only{background:none!important}
+:root[data-theme="dark"] .loader{background:var(--bg,#0b1427)!important}
+/* Knöpfe */
+:root[data-theme="dark"] .hero-act-main,:root[data-theme="dark"] .lei-btn-main,:root[data-theme="dark"] .kon-page-btns .btn.hero-main:first-child{background:#1f3d86!important;border-color:rgba(229,235,246,.35)!important;color:#fff!important}
+:root[data-theme="dark"] .hero-act-line,:root[data-theme="dark"] .lei-btn-line,:root[data-theme="dark"] .kon-page-btns .btn.hero-main:not(:first-child),:root[data-theme="dark"] html:not(.never) .kon-page-btns .btn.hero-main.btn-wa-ico{background:transparent!important;border-color:rgba(229,235,246,.55)!important;color:var(--fg)!important}
+:root[data-theme="dark"] .hero-act-line .ico,:root[data-theme="dark"] .lei-btn-line .ico,:root[data-theme="dark"] .kon-page-btns .btn .ico{color:var(--dk-green)!important}
+:root[data-theme="dark"] .kon-page-btns .btn.hero-main:not(:first-child) span{color:var(--fg)!important}
+/* Etiketten und grüne Überschriften */
+:root[data-theme="dark"] .eyebrow,:root[data-theme="dark"] p.eyebrow{color:var(--dk-green)!important;background:rgba(168,220,182,.12)!important}
+:root[data-theme="dark"] .grp .tag,:root[data-theme="dark"] .grp .subgrp-h{color:var(--dk-green)!important}
+/* Behandlungskarte auf der Startseite */
+:root[data-theme="dark"] .lei-sum{background:var(--dk-card)!important;border-color:var(--dk-line)!important}
+:root[data-theme="dark"] .lei-sum h2,:root[data-theme="dark"] .lei-sum h3{color:var(--head)!important}
+:root[data-theme="dark"] .lei-sum p{color:var(--dk-mute)!important}
+:root[data-theme="dark"] .lei-sum .lei-ico{color:rgba(229,235,246,.07)!important}
+/* Ablauf-Pillen auf der Startseite */
+:root[data-theme="dark"] .sum-abl .steps li{background:var(--dk-card)!important;border-color:var(--dk-line)!important}
+:root[data-theme="dark"] .sum-abl .steps li h3,:root[data-theme="dark"] .sum-abl .steps li a{color:var(--fg)!important}
+:root[data-theme="dark"] .sum-abl .steps .sico{color:rgba(229,235,246,.18)!important}
+/* Preislisten */
+:root[data-theme="dark"] .grp .subgrp,:root[data-theme="dark"] .grp .subgrp:not(.has-h){background:var(--dk-card)!important}
+:root[data-theme="dark"] .grp .subgrp td{color:var(--fg)!important}
+:root[data-theme="dark"] .grp .subgrp small.ex,:root[data-theme="dark"] .grp .subgrp s,:root[data-theme="dark"] .grp .pk-note,:root[data-theme="dark"] .grp .row-sub td{color:var(--dk-mute)!important}
+:root[data-theme="dark"] details.all>summary,:root[data-theme="dark"] .lon-h,:root[data-theme="dark"] h3.lon-h,:root[data-theme="dark"] .step-cta .cta-t{color:var(--head)!important}
+:root[data-theme="dark"] .note,:root[data-theme="dark"] p.note{color:var(--dk-mute)!important}
+/* Chat */
+:root[data-theme="dark"] .chat-window{background:#131c37!important}
+:root[data-theme="dark"] .chat-window .chat{background:linear-gradient(180deg,#18223f,#131c37)!important}
+:root[data-theme="dark"] .cbub:not(.me){background:rgba(255,255,255,.09)!important;color:var(--fg)!important}
+:root[data-theme="dark"] .cbub:not(.me) p,:root[data-theme="dark"] .cbub:not(.me) b{color:var(--fg)!important}
+/* Über mich: Werte und Qualifikationen */
+:root[data-theme="dark"] .vlist{background:var(--dk-card)!important}
+:root[data-theme="dark"] .vrow,:root[data-theme="dark"] details.vrow{background:transparent!important;border-color:var(--dk-line)!important}
+:root[data-theme="dark"] .vrow summary,:root[data-theme="dark"] .vrow summary span{color:var(--fg)!important}
+:root[data-theme="dark"] .vrow p{color:var(--dk-mute)!important}
+:root[data-theme="dark"] .vrow .ico{color:var(--dk-green)!important}
+:root[data-theme="dark"] ul.quals{background:var(--dk-card)!important}
+:root[data-theme="dark"] ul.quals li,:root[data-theme="dark"] ul.quals li span{color:var(--fg)!important}
+:root[data-theme="dark"]:not(.never) body details.all>summary,:root[data-theme="dark"]:not(.never) body details.all>summary *{color:var(--head)!important}
+:root[data-theme="dark"]:not(.never) body .sum-about .tl li b{color:var(--fg)!important}
+:root[data-theme="dark"] .home-page .sum-lei,:root[data-theme="dark"] .home-page .sum-abl{background:linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.035) 30%,rgba(255,255,255,.035) 70%,rgba(255,255,255,0) 100%)!important}
+:root[data-theme="dark"] #leistungen details.all>summary{color:var(--head)!important}
+:root[data-theme="dark"] .sum-kon .eyebrow,:root[data-theme="dark"] .sum-kon p.eyebrow{color:#d3f2db!important;background:rgba(168,220,182,.22)!important}
+:root[data-theme="dark"] .chat-window .chat::before{background:rgba(255,255,255,.05)!important}
+:root[data-theme="dark"] .side-contact .btn-wa-ico,:root[data-theme="dark"] .side .side-contact .btn{border-color:rgba(229,235,246,.55)!important;color:var(--dk-green)!important}
+:root[data-theme="dark"] .side-contact .btn-wa-ico .ico,:root[data-theme="dark"] .side-contact .btn-wa-ico svg{color:var(--dk-green)!important}
+:root[data-theme="dark"] .tinfo-btn,:root[data-theme="dark"] .tinfo-btn .ico,:root[data-theme="dark"] .tinfo-btn svg{color:var(--dk-green)!important;border-color:var(--dk-green)!important}
+:root[data-theme="dark"] .hero-v5 .hero-portrait::after{display:none!important}
+:root[data-theme="dark"] .tinfo-pop{background:#16203f!important;border-color:rgba(168,220,182,.35)!important;border-top-color:var(--dk-green)!important}
+:root[data-theme="dark"] .tinfo-pop,:root[data-theme="dark"] .tinfo-pop p,:root[data-theme="dark"] .tinfo-pop dd,:root[data-theme="dark"] .tinfo-pop .tinfo-what{color:var(--fg)!important}
+:root[data-theme="dark"] .tinfo-pop dt{color:var(--dk-green)!important}
+:root[data-theme="dark"] .tinfo-pop .tinfo-note{color:var(--dk-mute)!important}
+:root[data-theme="dark"] .tinfo-pop .tinfo-x{color:var(--fg)!important}
+/* v162: Dunkelmodus – Originalfoto mit großem, weichem Gegenlicht dahinter */
+:root[data-theme="dark"] .home-page .hero-v5 .hero-portrait{-webkit-mask-image:none!important;mask-image:none!important}
+:root[data-theme="dark"] .home-page .hero-v5 .hero-portrait .hero-photo{position:relative;z-index:1;-webkit-mask-image:radial-gradient(60% 46% at 52% 34%,#000 58%,rgba(0,0,0,.55) 76%,rgba(0,0,0,.18) 90%,transparent 100%);mask-image:radial-gradient(60% 46% at 52% 34%,#000 58%,rgba(0,0,0,.55) 76%,rgba(0,0,0,.18) 90%,transparent 100%)}
+@media (max-width:700px){:root[data-theme="dark"] .home-page .hero-v5 .hero-portrait .hero-photo{-webkit-mask-image:linear-gradient(#000 55%,rgba(0,0,0,.5) 75%,transparent 97%);mask-image:linear-gradient(#000 55%,rgba(0,0,0,.5) 75%,transparent 97%)}}
+:root[data-theme="dark"]:not(.never) .home-page .hero-v5 .hero-portrait::before{content:""!important;display:block!important;position:absolute!important;left:-30%!important;right:-30%!important;top:-22%!important;bottom:-5%!important;z-index:0!important;pointer-events:none;background:radial-gradient(closest-side at 51% 36%,rgba(160,190,242,.30) 0%,rgba(150,182,236,.19) 35%,rgba(140,175,232,.08) 65%,rgba(140,175,232,0) 100%)!important;-webkit-mask:none!important;mask:none!important;border-radius:0!important;opacity:1!important;filter:none!important;transform:none!important}
+@media (max-width:700px){:root[data-theme="dark"]:not(.never) .home-page .hero-v5 .hero-portrait::before{left:-25%!important;right:-25%!important;top:-18%!important;bottom:0!important}}
+/* v162: Dunkelmodus im Praxisblau – Kontaktband in derselben Farbe, Sanduhr darüber einfarbig hell */
+:root[data-theme="dark"] section.sum.sum-kon{background:transparent!important}
+:root[data-theme="dark"] .kon-hg .hg-top,:root[data-theme="dark"] .kon-hg .hg-bot{color:#dbe6f8!important}
+/* v162: Kontaktband – E-Mail | WhatsApp | Formular symmetrisch um die Mitte */
+html:not(.never) section.sum-kon p.sum-contact{display:flex!important;justify-content:center!important;align-items:center!important;gap:.9rem!important;max-width:none!important;flex-wrap:nowrap!important;grid-template-columns:none!important}
+html:not(.never) section.sum-kon p.sum-contact .btn:not(.btn-wa-ico){flex:0 0 11rem!important;width:11rem!important;min-width:0!important;margin:0!important;justify-content:center!important}
+html:not(.never) section.sum-kon p.sum-contact .btn.btn-wa-ico{flex:none!important;margin:0!important}
+@media (max-width:480px){html:not(.never) section.sum-kon p.sum-contact{gap:.6rem!important}html:not(.never) section.sum-kon p.sum-contact .btn:not(.btn-wa-ico){flex:1 1 0!important;width:auto!important}}
+/* v162: Zeitstrahl im Dunkelmodus – erreichte Stationen färben sich kräftig blau, auch die letzte */
+:root[data-theme="dark"] .sum-about .tl .node .nf{background:#2f5fc0!important;color:#fff!important}
+:root[data-theme="dark"] .sum-about .tl li:last-child.hit .node{background:#2f5fc0!important;border-color:#2f5fc0!important}
+:root[data-theme="dark"] .sum-about .tl li:last-child.hit .wmk.wmk-node{color:#fff!important}
+:root[data-theme="dark"] .sum-about .tl li:last-child:not(.hit) .wmk.wmk-node{color:#012265!important}
+/* v162: Lichtstreifen hinter dem Startbereich laufen nach unten weich aus (keine Kante über dem Trenner) */
+html:not(.never) .home-page .hero-only::before{-webkit-mask-image:linear-gradient(90deg,#000 0%,rgba(0,0,0,.5) 45%,transparent 75%),linear-gradient(180deg,#000 0%,#000 50%,rgba(0,0,0,.4) 72%,transparent 90%)!important;mask-image:linear-gradient(90deg,#000 0%,rgba(0,0,0,.5) 45%,transparent 75%),linear-gradient(180deg,#000 0%,#000 50%,rgba(0,0,0,.4) 72%,transparent 90%)!important;-webkit-mask-composite:source-in!important;mask-composite:intersect!important}
+/* v162: Desktop/Querformat – Logo und Schriftzug größer, Untertitel kleiner */
+@media (min-width:701px){
+ html:not(.never) .home-page #hgslot{width:calc(6.6 * var(--u))!important;height:calc(6.6 * var(--u))!important}
+ html:not(.never) .home-page .hero-intro .hero-brand{font-size:calc(4.9 * var(--u))!important}
+ html:not(.never) .home-page .hero-intro .hero-service{font-size:calc(1.62 * var(--u))!important;max-width:calc(36 * var(--u))!important}
+}
+/* v162: Über mich – Porträt mit Hemd und fallendem Schatten dahinter */
+#ueber-mich .pframe{filter:drop-shadow(16px 20px 24px rgba(1,20,70,.30))!important}
+:root[data-theme="dark"] #ueber-mich .pframe{filter:drop-shadow(18px 22px 26px rgba(0,6,30,.55))!important}
+/* v162: Dunkelmodus – Intro-Box dunkel mit heller Schrift, Wasserzeichen sichtbar, Werte-Box ruhiger */
+:root[data-theme="dark"] .kview[data-view=ueber-mich] .about-head + p{background:rgba(255,255,255,.07)!important;color:var(--fg)!important;border-color:rgba(168,220,182,.5)!important}
+:root[data-theme="dark"] .kview[data-view=ueber-mich] .about-head + p::after{background:#fff!important;opacity:.07!important}
+:root[data-theme="dark"] .lon-box .lon-wm{color:rgba(255,255,255,.07)!important}
+:root[data-theme="dark"] .phil-box{background:rgba(255,255,255,.05)!important;border-color:var(--dk-line)!important}
+:root[data-theme="dark"] .phil-box h3,:root[data-theme="dark"] .phil-box>p{color:var(--fg)!important}
+/* v162: Unterseiten im selben Praxisblau wie die Startseite */
+:root[data-theme="dark"] .tint{background:linear-gradient(180deg,#062a73 0%,#03256c 50%,#012265 100%)!important}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tint{background:linear-gradient(180deg,#062a73 0%,#03256c 50%,#012265 100%)!important}}
+/* v162: Ablauf-Seite – Boxen im Dunkeln sichtbar, Pfeil hinter „Kontakt“ sichtbar, etwas höher, wächst beim Überfahren mit */
+:root[data-theme="dark"] #ablauf .steps li,:root[data-theme="dark"] .kview[data-view=ablauf] .steps li{background:rgba(255,255,255,.08)!important;border:1px solid rgba(229,235,246,.16)!important}
+:root[data-theme="dark"] #ablauf .steps li h3{color:var(--head)!important}
+:root[data-theme="dark"] #ablauf .steps li p{color:rgba(229,235,246,.8)!important}
+:root[data-theme="dark"] .step-cta,:root[data-theme="dark"] .step-cta .cta-arrow{color:var(--head)!important}
+html:not(.never) .steps .step-cta .cta-arrow{top:-.14em!important}
+html:not(.calm) .steps .step-cta{transform-origin:center center!important}
+html:not(.calm):not(.never) .steps li.step-card .step-cta:hover,html:not(.calm):not(.never) .steps li.step-card .step-cta:focus-visible{transform:scale(1.1)!important}
+:root[data-theme="dark"] #ablauf .steps .sico,:root[data-theme="dark"] .kview[data-view=ablauf] .steps .sico{color:rgba(229,235,246,.09)!important}
+/* v162: Chat neu – ruhiger, schmaler, ohne Grün-Glühen, ohne durchscheinendes Logo, blickdichte Sprechblasen */
+html:not(.never) .chat-window{max-width:620px!important;border:1px solid rgba(1,34,101,.12)!important;box-shadow:0 6px 18px rgba(1,34,101,.10)!important;border-radius:20px!important}
+html:not(.never) .chat-top{background:#f4f7fc!important;color:#012265!important;border-bottom:1px solid rgba(1,34,101,.08);padding:.65rem 1rem!important}
+html:not(.never) .chat-top .chat-who b{color:#012265!important}
+html:not(.never) .chat-top .chat-who small{color:rgba(1,34,101,.65)!important}
+html:not(.never) .chat-top .cav{box-shadow:0 0 0 2px #fff!important;width:38px!important;height:38px!important}
+html:not(.never) .chat-top .wmk,html:not(.never) .chat-top .chat-logo,html:not(.never) .chat-top>span:last-child:not(.chat-who){filter:none}
+html:not(.never) .chat-window .chat{background:#eef3fa!important}
+html:not(.never) .chat-window .chat::before{display:none!important}
+html:not(.never) .chat-window .cbub{background:#fff!important;color:#012265!important;opacity:1!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:0 1px 2px rgba(1,34,101,.12)!important}
+html:not(.never) .chat-window .crow.me .cbub{background:#012265!important;color:#fff!important}
+html:not(.never) .chat-book{background:#012265!important;color:#fff!important}
+html:not(.never) .chat-help .chat-h{font-size:1.35rem!important}
+/* Dunkelmodus: alles hell lesbar, Blasen blickdicht */
+:root[data-theme="dark"] .chat-window{background:#08296b!important;border-color:rgba(229,235,246,.16)!important;box-shadow:0 6px 18px rgba(0,8,40,.35)!important}
+:root[data-theme="dark"] .chat-top{background:#0c3079!important;border-bottom-color:rgba(229,235,246,.12)!important}
+:root[data-theme="dark"] .chat-top .chat-who b{color:#fff!important}
+:root[data-theme="dark"] .chat-top .chat-who small{color:rgba(229,235,246,.75)!important}
+:root[data-theme="dark"] .chat-window .chat{background:#06245f!important}
+:root[data-theme="dark"] .chat-window .cbub:not(.ctyping){background:#163c8a!important;color:#f2f6fd!important;box-shadow:none!important}
+:root[data-theme="dark"] .chat-window .crow:not(.me) .cbub *{color:#f2f6fd!important;border-color:rgba(229,235,246,.18)!important}
+:root[data-theme="dark"] .chat-window .crow:not(.me) .cbub small,:root[data-theme="dark"] .chat-window .crow:not(.me) .cbub .note{color:rgba(242,246,253,.75)!important}
+:root[data-theme="dark"] .chat-window .crow.me .cbub{background:#e8eef9!important;color:#012265!important}
+:root[data-theme="dark"] .chat-window .crow.me .cbub *{color:#012265!important}
+:root[data-theme="dark"] .chat-window .cbub.ctyping{background:#163c8a!important}
+:root[data-theme="dark"] .chat-input{background:#0c3079!important;border-top-color:rgba(229,235,246,.12)!important}
+:root[data-theme="dark"] .chat-chips button,:root[data-theme="dark"] .chat-chips .chat-ph{background:transparent!important;color:#f2f6fd!important;border-color:rgba(229,235,246,.45)!important}
+:root[data-theme="dark"] .chat-chips button .ico{color:var(--dk-green)!important}
+:root[data-theme="dark"] .chat-book{background:#e8eef9!important;color:#012265!important}
+:root[data-theme="dark"] .chat-book .ico{color:#012265!important}
+:root[data-theme="dark"] .cav-you{background:#e8eef9!important;color:#012265!important}
+html:not(.never) .chat-top::after{background:#012265!important;width:34px!important;height:34px!important}
+:root[data-theme="dark"] .chat-top::after{background:#fff!important}
+html:not(.never) .chat-chips{background:#fff!important}
+:root[data-theme="dark"] .chat-chips{background:#06245f!important}
+:root[data-theme="dark"] .chat-chips .cchip{background:transparent!important;color:#f2f6fd!important;border-color:rgba(229,235,246,.45)!important}
+:root[data-theme="dark"] .chat-chips .cchip:hover{background:rgba(255,255,255,.08)!important}
+:root[data-theme="dark"] .chat-chips .cchip.go{background:#e8eef9!important;color:#012265!important;border-color:#e8eef9!important}
+:root[data-theme="dark"] .chat-chips .cchip .ico{color:var(--dk-green)!important}
+html:not(.never) .chat-book{box-shadow:none!important}
+:root[data-theme="dark"] .chat-chips{background:#0c3079!important}
+/* v162: Chat – Bild in der Kopfzeile größer, neben den Sprechblasen kleiner */
+html:not(.never) .chat-top .cav{width:48px!important;height:48px!important}
+html:not(.never) .chat-window .crow .cav{width:30px!important;height:30px!important;flex:none}
+html:not(.never) .chat-window .crow .cav-you{width:30px!important;height:30px!important}
+/* v162: Wasserzeichen im Chat-Hintergrund wieder da – hinter blickdichten Sprechblasen */
+html:not(.never) .chat-window .chat{position:relative;isolation:isolate}
+html:not(.never) .chat-window .chat::before{display:block!important;background:rgba(1,34,101,.07)!important}
+:root[data-theme="dark"] .chat-window .chat::before{background:rgba(255,255,255,.06)!important}
