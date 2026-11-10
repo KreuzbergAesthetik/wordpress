@@ -4331,3 +4331,11 @@ html:not(.never) .chat-chips{background:#fff!important}
 :root[data-theme="dark"] .chat-chips .cchip .ico{color:var(--dk-green)!important}
 html:not(.never) .chat-book{box-shadow:none!important}
 :root[data-theme="dark"] .chat-chips{background:#0c3079!important}
+/* v162: Chat – Bild in der Kopfzeile größer, neben den Sprechblasen kleiner */
+html:not(.never) .chat-top .cav{width:48px!important;height:48px!important}
+html:not(.never) .chat-window .crow .cav{width:30px!important;height:30px!important;flex:none}
+html:not(.never) .chat-window .crow .cav-you{width:30px!important;height:30px!important}
+/* v162: Wasserzeichen im Chat-Hintergrund wieder da – hinter blickdichten Sprechblasen */
+html:not(.never) .chat-window .chat{position:relative;isolation:isolate}
+html:not(.never) .chat-window .chat::before{display:block!important;background:rgba(1,34,101,.07)!important}
+:root[data-theme="dark"] .chat-window .chat::before{background:rgba(255,255,255,.06)!important}
