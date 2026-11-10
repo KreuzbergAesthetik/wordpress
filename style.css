@@ -4465,3 +4465,5 @@ html:not(.never) .hero-act svg.fillable.fill-on path.fl{clip-path:inset(0 0 0 0)
  background:linear-gradient(180deg,rgb(70,108,190) 0%,rgb(22,58,138) 55%,rgb(1,24,74) 100%);border:1px solid rgba(229,235,246,.25);
  box-shadow:0 0 22px 2px rgba(120,160,240,.28),0 0 6px rgba(160,190,245,.18);
  opacity:calc(.97 * var(--na,1));transform:translateY(calc((1 - var(--na,1)) * -34px)) scale(calc(.92 + .08 * var(--na,1)));transform-origin:50% 0}
+/* v165: Leiste zoomt aus der Nähe heran und verdichtet sich zur Mitte */
+:root[data-theme="dark"] .mast .mastnav::before{transform:scale(calc(1.45 - .45 * var(--na,1)))!important;transform-origin:50% 50%!important;filter:blur(calc((1 - var(--na,1)) * 10px))}
