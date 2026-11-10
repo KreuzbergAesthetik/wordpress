@@ -124,10 +124,14 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
         /* Unterzeile der Leiste: sitzt direkt unter der Leiste; der Inhalt darunter (Kopf bzw. Startbereich) schiebt sie beim Weiterscrollen nach oben weg und nimmt sie beim Zurückscrollen wieder mit */
         var wr2=wm.getBoundingClientRect(),dockTop=Math.max(wr2.bottom+10,ed+4),hgt=rd.height;
         var anc=document.querySelector(M.W<=700?'.hero-photo':'.hero-v5'),at=anc?anc.getBoundingClientRect().top:1e4,gap=M.W<=700?(M.svGap!=null?M.svGap:14):18;
-        var off=Math.min(dockTop,at-gap-hgt)-rd.top;
-        sv2.style.transform=off?'translateY('+off.toFixed(1)+'px)':'';
-        var rr=sv2.getBoundingClientRect(),hd=Math.max(0,ed-rr.top);
-        sv2.style.webkitMaskImage=sv2.style.maskImage=hd>0?'linear-gradient(180deg,transparent '+hd.toFixed(1)+'px,#000 '+(hd+4).toFixed(1)+'px)':'';sv2.style.filter='';return}
+        /* Ruhig ohne Zittern: klebt er unter der Leiste, zeigt eine feste Kopie (position:fixed, kein Gegenscrollen per Skript); wird er vom Inhalt geschoben, bewegt er sich mit fester Verschiebung natürlich mit */
+        var cl=M.svClone;if(!cl){cl=sv2.cloneNode(true);cl.removeAttribute('id');cl.setAttribute('aria-hidden','true');cl.className=sv2.className+' sv-fixed';var cs=getComputedStyle(sv2);['fontFamily','fontSize','fontWeight','lineHeight','letterSpacing','color','textAlign'].forEach(function(k){cl.style[k]=cs[k]});cl.style.position='fixed';cl.style.margin='0';cl.style.pointerEvents='none';cl.style.zIndex='4';cl.style.display='none';document.body.appendChild(cl);M.svClone=cl}
+        var stuck=dockTop<=at-gap-hgt;
+        if(stuck){cl.style.display='block';cl.style.color=getComputedStyle(sv2).color;cl.style.top=dockTop+'px';cl.style.left=rd.left+'px';cl.style.width=rd.width+'px';sv2.style.visibility='hidden';sv2.style.transform='';sv2.style.webkitMaskImage=sv2.style.maskImage='';sv2.style.filter=''}
+        else{cl.style.display='none';sv2.style.visibility='';var off=Math.round((at-gap-hgt)-rd.top);sv2.style.transform=off?'translateY('+off+'px)':'';
+          var rr=sv2.getBoundingClientRect(),hd=Math.max(0,ed-rr.top);sv2.style.webkitMaskImage=sv2.style.maskImage=hd>0?'linear-gradient(180deg,transparent '+hd.toFixed(0)+'px,#000 '+(hd+4).toFixed(0)+'px)':'';sv2.style.filter=''}
+        return}
+      if(M.svClone)M.svClone.style.display='none';sv2.style.visibility='';
       if(pr<=0.001){sv2.style.transform='';sv2.style.filter='';sv2.style.webkitMaskImage=sv2.style.maskImage='';return}
       sv2.style.transform='';var r0=sv2.getBoundingClientRect();
       var edge=topC+30+0,D=r0.bottom-edge+8;
