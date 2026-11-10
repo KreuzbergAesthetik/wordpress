@@ -4339,3 +4339,8 @@ html:not(.never) .chat-window .crow .cav-you{width:30px!important;height:30px!im
 html:not(.never) .chat-window .chat{position:relative;isolation:isolate}
 html:not(.never) .chat-window .chat::before{display:block!important;background:rgba(1,34,101,.07)!important}
 :root[data-theme="dark"] .chat-window .chat::before{background:rgba(255,255,255,.06)!important}
+/* v163: „Kreuzberg Ästhetik“ in der Zeitleiste mit derselben Einblendung wie die anderen Beschriftungen */
+html:not(.never) .sum-about .tl li:last-child b{opacity:0!important;transform:translateY(8px)!important;transition:opacity .6s ease,transform .6s ease!important}
+html:not(.never) .sum-about .tl li:last-child.hit b{opacity:1!important;transform:none!important}
+html.calm:not(.never) .sum-about .tl li:last-child b{opacity:1!important;transform:none!important}
+@media (prefers-reduced-motion:reduce){html:not(.never) .sum-about .tl li:last-child b{opacity:1!important;transform:none!important;transition:none!important}}
