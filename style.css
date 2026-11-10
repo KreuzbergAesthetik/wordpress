@@ -4446,3 +4446,16 @@ html:not(.never) .lei-sum .lei-ico-b{right:-6px!important}
 :root[data-theme="dark"] .lei-sum,:root[data-theme="dark"] .chat-window,:root[data-theme="dark"] article.grp,:root[data-theme="dark"] .phil-box,:root[data-theme="dark"] .check,:root[data-theme="dark"] .faq details,:root[data-theme="dark"] .steps li,:root[data-theme="dark"] ul.quals,:root[data-theme="dark"] .vlist{box-shadow:0 0 22px 1px rgba(120,160,240,.18),0 0 6px rgba(160,190,245,.10)!important}
 :root[data-theme="dark"] .btn,:root[data-theme="dark"] .hero-act,:root[data-theme="dark"] .lei-btn,:root[data-theme="dark"] .chat-book{box-shadow:0 0 14px rgba(140,175,240,.22)!important}
 :root[data-theme="dark"] #wa-float{box-shadow:0 0 18px 2px rgba(140,175,240,.3)!important}
+/* v165: Kontakt-Symbol füllt sich von oben nach unten */
+html:not(.never) .hero-act svg.fillable path.fl{opacity:1!important;clip-path:inset(0 0 100% 0)!important;transition:clip-path .7s ease!important}
+html:not(.never) .hero-act svg.fillable.fill-on path.fl{clip-path:inset(0 0 0 0)!important}
+.calm .hero-act svg.fillable.fill-on path.fl{transition:none!important}
+/* v165: Behandlungskarte Startseite (Dunkelmodus) – „Zum Chat“ transparent mit heller Schrift */
+:root[data-theme="dark"] .lei-btn-line{background:transparent!important;color:#fff!important;border-color:rgba(255,255,255,.7)!important}
+:root[data-theme="dark"] .lei-btn-line span{color:#fff!important}
+:root[data-theme="dark"] .lei-btn-line .ico{color:#9be8b0!important}
+/* v165: Dunkelmodus – alle hellen Knöpfe mit sanftem Leuchten */
+:root[data-theme="dark"] .hero-act-main,:root[data-theme="dark"] .lei-btn-main,:root[data-theme="dark"] section.sum-kon p.sum-contact .btn,:root[data-theme="dark"] .kon-page-btns .btn.hero-main:first-child,:root[data-theme="dark"] .chat-window .chat-book,:root[data-theme="dark"] #wa-float{box-shadow:0 0 18px 3px rgba(170,198,245,.38),0 0 5px rgba(220,232,250,.3)!important}
+:root[data-theme="dark"] .hero-act-line,:root[data-theme="dark"] .lei-btn-line,:root[data-theme="dark"] .kon-page-btns .btn.hero-main:not(:first-child){box-shadow:none!important}
+/* v165: Dunkelmodus – Leiste am Anfang unsichtbar, schwebt mit dem Flug von Logo und Schriftzug ein */
+:root[data-theme="dark"] .mast .mastnav{border-color:rgba(229,235,246,calc(.25 * var(--na,1)))!important;box-shadow:0 0 22px 2px rgba(120,160,240,calc(.28 * var(--na,1))),0 0 6px rgba(160,190,245,calc(.18 * var(--na,1)))!important}
