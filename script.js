@@ -114,7 +114,14 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
       if(!M.on||(M.W<=0)){sv2.style.transform='';sv2.style.webkitMaskImage=sv2.style.maskImage='';return}
       var pr=P!==null?P:t;pr=Math.max(0,Math.min(1,pr));
       /* nach dem Andocken: Text scrollt normal mit und taucht beim Zurückscrollen wieder unter der Leiste auf */
-      if(M.done){sv2.style.transform='';var rd=sv2.getBoundingClientRect(),ed=topC+30,hd=Math.max(0,ed-rd.top);sv2.style.webkitMaskImage=sv2.style.maskImage=hd>0?'linear-gradient(180deg,transparent '+hd.toFixed(1)+'px,#000 '+(hd+12).toFixed(1)+'px)':'';return}
+      if(M.done){
+        /* Nach dem Andocken bleibt der Text unter der Leiste. Erst beim Zurückscrollen Richtung Seitenanfang gleitet er von oben unter der Leiste hervor – an den Scrollweg gekoppelt, ohne Sprung. */
+        sv2.style.transform='';var rd=sv2.getBoundingClientRect(),ed=topC+30;
+        if(!M.svDock){var d0=Math.max(0,rd.bottom-ed+8);M.svDock={y:Math.max(1,y||d0||1),d:d0}}
+        var q=Math.max(0,Math.min(1,y/M.svDock.y)),off=-M.svDock.d*q;
+        sv2.style.transform=off?'translateY('+off.toFixed(1)+'px)':'';
+        var rr=sv2.getBoundingClientRect(),hd=Math.max(0,ed-rr.top);
+        sv2.style.webkitMaskImage=sv2.style.maskImage=hd>0?'linear-gradient(180deg,transparent '+hd.toFixed(1)+'px,#000 '+(hd+12).toFixed(1)+'px)':'';return}
       if(pr<=0.001){sv2.style.transform='';sv2.style.webkitMaskImage=sv2.style.maskImage='';return}
       sv2.style.transform='';var r0=sv2.getBoundingClientRect();
       var edge=topC+30,D=r0.bottom-edge+8;
