@@ -4418,3 +4418,17 @@ html:not(.never) .chat-window .chat-top::after{width:60px!important;height:60px!
 :root[data-theme="dark"] .hero-act-line{background:transparent!important;color:#fff!important;border-color:rgba(255,255,255,.7)!important}
 :root[data-theme="dark"] .hero-act-line span{color:#fff!important}
 :root[data-theme="dark"] .hero-act-line .ico{color:var(--dk-green)!important}
+/* v164: Alle Symbole in Knöpfen grün – auf hellen Knöpfen Praxisgrün, auf dunklen Knöpfen Hellgrün */
+html:not(.never) .btn .ico,html:not(.never) .hero-act .ico,html:not(.never) .lei-btn .ico,html:not(.never) .chat-book .ico{color:#004d17!important}
+html:not(.never) .hero-act-main .ico,html:not(.never) .lei-btn-main .ico,html:not(.never) .kon-page-btns .btn.hero-main:first-child .ico{color:#9be8b0!important}
+:root[data-theme="dark"] .hero-act-main .ico,:root[data-theme="dark"] .lei-btn-main .ico,:root[data-theme="dark"] .lei-btn-line .ico,:root[data-theme="dark"] section.sum-kon .btn .ico,:root[data-theme="dark"] .chat-book .ico{color:#004d17!important}
+:root[data-theme="dark"] .hero-act-line .ico,:root[data-theme="dark"] .kon-page-btns .btn.hero-main:not(:first-child) .ico,:root[data-theme="dark"] .kon-page-btns .btn.hero-main:first-child .ico{color:#9be8b0!important}
+/* Chat-Antwortzeile: Leiste dunkel, Auswahlfeld hell, Auswahl-Knöpfe dunkel mit weißer Schrift und grünem Symbol, Termin hell */
+html:not(.never) .chat-window .chat-input,:root[data-theme="dark"] .chat-window .chat-input{background:#012265!important;border-top-color:#012265!important}
+html:not(.never) .chat-window .chat-chips,:root[data-theme="dark"] .chat-window .chat-chips{background:#e8eef9!important}
+html:not(.never) .chat-window .chat-chips .chat-ph{color:#012265!important;border:0!important;background:transparent!important}
+html:not(.never) .chat-window .chat-chips .cchip,:root[data-theme="dark"] .chat-window .chat-chips .cchip{background:#012265!important;color:#fff!important;border-color:#012265!important}
+html:not(.never) .chat-window .chat-chips .cchip:hover,:root[data-theme="dark"] .chat-window .chat-chips .cchip:hover{background:#0c3079!important}
+html:not(.never) .chat-window .chat-chips .cchip .ico,:root[data-theme="dark"] .chat-window .chat-chips .cchip .ico{color:#9be8b0!important}
+html:not(.never) .chat-window .chat-book,:root[data-theme="dark"] .chat-window .chat-book{background:#e8eef9!important;color:#012265!important}
+html:not(.never) .chat-window .chat-book .ico,:root[data-theme="dark"] .chat-window .chat-book .ico{color:#004d17!important}
