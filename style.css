@@ -4503,3 +4503,12 @@ html:not(.calm)[data-theme="dark"] .sum-about .tl li:hover .node{transform:scale
 :root[data-theme="dark"] .lei-btn-line:hover,:root[data-theme="dark"] .lei-btn-line:focus-visible,:root[data-theme="dark"] .hero-act-line:hover,:root[data-theme="dark"] .hero-act-line:focus-visible{background:transparent!important;color:#fff!important;border-color:rgba(255,255,255,.7)!important}
 :root[data-theme="dark"] .lei-btn-line:hover span,:root[data-theme="dark"] .hero-act-line:hover span{color:#fff!important}
 :root[data-theme="dark"]:not(.calm) .lei-btn-line:hover,:root[data-theme="dark"]:not(.calm) .hero-act-line:hover{transform:scale(1.05)!important}
+/* v166: Dunkelmodus – Chat-Antwortzeile umgekehrt: helle Leiste, dunkles Auswahlfeld, helle Auswahl-Knöpfe mit dunkler Schrift und grünem Symbol, Termin dunkel */
+:root[data-theme="dark"] .chat-window .chat-input{background:#e8eef9!important;border-top-color:#e8eef9!important}
+:root[data-theme="dark"] .chat-window .chat-chips{background:#012265!important}
+:root[data-theme="dark"] .chat-window .chat-chips .chat-ph{color:#e8eef9!important}
+:root[data-theme="dark"] .chat-window .chat-chips .cchip{background:#e8eef9!important;color:#012265!important;border-color:#e8eef9!important}
+:root[data-theme="dark"] .chat-window .chat-chips .cchip:hover{background:#fff!important;color:#012265!important}
+:root[data-theme="dark"] .chat-window .chat-chips .cchip .ico{color:#004d17!important}
+:root[data-theme="dark"] .chat-window .chat-book,:root[data-theme="dark"] .chat-window .chat-book:hover,:root[data-theme="dark"] .chat-window .chat-book:focus-visible{background:#012265!important;color:#fff!important;box-shadow:none!important}
+:root[data-theme="dark"] .chat-window .chat-book .ico,:root[data-theme="dark"] .chat-window .chat-book:hover .ico{color:#9be8b0!important}
