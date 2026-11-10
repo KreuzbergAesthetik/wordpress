@@ -107,7 +107,7 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
     var pc=pcn;
     var eh=(P===null)?e:P;var sc=1;nav.style.setProperty('--sc',sc.toFixed(4));nav.style.opacity='';nav.style.setProperty('--na',eh.toFixed(3));nav.style.pointerEvents=eh<.6?'none':'';
     var hbb=document.getElementById('hbbtn');if(hbb){var dd=hbb.offsetLeft+hbb.offsetWidth/2-nav.clientWidth/2;hbb.style.transform=sc>1?'translateX('+(dd*(1/sc-1)).toFixed(1)+'px) scale('+(1/sc).toFixed(4)+')':'';hbb.style.pointerEvents='auto'}
-    var hs=document.getElementById('hgslot'),hsOn=M.on&&hs&&hs.offsetParent!==null;hg.style.opacity='1';wm.style.opacity=M.on?'':e.toFixed(3);wm.style.pointerEvents=e<.6?'none':'';
+    var hs=document.getElementById('hgslot'),hsOn=M.on&&hs&&hs.offsetParent!==null;hg.style.opacity=hsOn?'1':e.toFixed(3);wm.style.opacity=M.on?'':e.toFixed(3);wm.style.pointerEvents=e<.6?'none':'';
     place(cx0+(M.W/2-cx0)*e,wc,k);
     /* Der Text unter dem Schriftzug steigt mit dem Schriftzug auf und schiebt sich unter ihm hindurch nach oben weg */
     (function(){var sv2=document.querySelector('.hero-service');if(!sv2)return;
@@ -122,7 +122,7 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
     var cx,cy,kk;
     if(col){cx=M.W-12-28;cy=M.top+28;kk=38/M.hh}
     else{cx=(M.W-M.pw)/2+M.padL+22;cy=pc;kk=44/M.hh}
-    if(false&&hsOn&&eh<1){var hr=hs.getBoundingClientRect();if(!M.H0){M.H0={x:hr.left+hr.width/2,y:hr.top+hr.height/2+(window.scrollY||0),k:hr.height/M.hh}}var hx=M.H0.x,hy=M.H0.y,hk=M.H0.k;cx=hx+(cx-hx)*eh;cy=hy+(cy-hy)*eh;kk=hk+(kk-hk)*eh}
+    if(hsOn&&eh<1){var hr=hs.getBoundingClientRect();M.H0={w:M.W,x:hr.left+hr.width/2,y:hr.top+hr.height/2,k:hr.height/M.hh};var hx=M.H0.x,hy=M.H0.y,hk=M.H0.k;cx=hx+(cx-hx)*eh;cy=hy+(cy-hy)*eh;kk=hk+(kk-hk)*eh}
     hg.style.transform='translate('+(cx-M.hw/2).toFixed(1)+'px,'+(cy-M.hh/2).toFixed(1)+'px) scale('+kk.toFixed(4)+')';
     window.KA_COLLAPSED=docked;
     mast.classList.toggle('live',docked);

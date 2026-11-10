@@ -1,6 +1,6 @@
 # Übergabe: Website Kreuzberg Ästhetik (WordPress-Theme)
 
-Stand: 8. November 2026. **Theme-Version 160 wird veröffentlicht** (Startseite: Porträt, Kontakt-Knöpfe, Icons, Untertitel unter der Leiste, Zeitstrahl schneller). Nächste Version: 161.
+Stand: 10. November 2026. **Theme-Version 161 wird veröffentlicht** (Startseite: Logo mittig mit Flug in die Leiste, größerer Schriftzug, „Hallo, ich bin Manuel.“, Beratungstext über den Knöpfen, Philosophie unten, flachere Knöpfe, größere Wasserzeichen, Porträt mit mehr Oberkörper). Nächste Version: 162.
 
 ## ZUERST LESEN – Kurzfassung für die neue Sitzung
 

@@ -34,7 +34,7 @@ function ka_fields() {
 	$s = 'Startbereich';
 	$add( $s, 'hero_h1', 'Praxisbeschreibung unter dem Namen (fett mit <strong>…</strong>)', 'inline', 'Privatpraxis für ästhetische Medizin &amp; Longevity in Berlin-Kreuzberg' );
 	$add( $s, 'hero_brand', 'Praxisname groß im Startbereich', 'text', 'Kreuzberg Ästhetik' );
-	$add( $s, 'hero_name', 'Satz neben dem Bild', 'text', 'Hi, ich bin Manuel.' );
+	$add( $s, 'hero_name', 'Satz neben dem Bild', 'text', 'Hallo, ich bin Manuel.' );
 	$add( $s, 'hero_sub', 'Kleine Zeile unter dem Satz neben dem Bild', 'text', 'Ich lebe und arbeite in Berlin-Kreuzberg.' );
 	$add( $s, 'hero_phil_h', 'Startbereich: Zwischenüberschrift', 'text', 'Meine Philosophie:' );
 	$add( $s, 'hero_vals', 'Startbereich: drei Werte als Kacheln (eine Zeile je Wert)', 'lines', "Professionalität\nAuthentizität\nInklusivität" );
