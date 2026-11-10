@@ -4483,3 +4483,6 @@ html:not(.never) .home-page .hero-intro .hero-service{text-wrap:balance}
 :root[data-theme="dark"] .sum-about .tl li:last-child:not(.hit) .wmk.wmk-node{color:#e8eef9!important}
 :root[data-theme="dark"] .sum-about .tl li:last-child.hit .node{background:#fff!important;border-color:#fff!important}
 :root[data-theme="dark"] .sum-about .tl li:last-child.hit .wmk.wmk-node{color:#012265!important}
+/* v165: Dunkelmodus – Behandlungskarte auf der Startseite richtig dunkelblau statt heller */
+:root[data-theme="dark"] .lei-sum{background:#00143f!important;border-color:rgba(229,235,246,.14)!important}
+:root[data-theme="dark"] .lei-sum .lei-ico{color:rgba(229,235,246,.06)!important}
