@@ -110,7 +110,7 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
     var hs=document.getElementById('hgslot'),hsOn=M.on&&hs&&hs.offsetParent!==null;hg.style.opacity=hsOn?'1':e.toFixed(3);wm.style.opacity=M.on?'':e.toFixed(3);wm.style.pointerEvents=e<.6?'none':'';
     place(cx0+(M.W/2-cx0)*e,wc,k);
     /* Andocken ohne Sprung: der eingeklappte Begrüßungsbereich wird durch eine Verschiebung ausgeglichen, die sich beim Weiterscrollen (und zum Seitenanfang hin) sanft auflöst */
-    if(pinned&&M.done&&M.cdD){var cp=y<=M.cdY?M.cdD*y/M.cdY:Math.max(0,M.cdD-(y-M.cdY)*.6);pinned.style.transform=cp>.5?'translateY('+cp.toFixed(1)+'px)':''}
+    if(pinned&&M.done&&M.cdD){var cp=y<=M.cdY?M.cdD:Math.max(0,M.cdD-(y-M.cdY)*.6);pinned.style.transform=cp>.5?'translateY('+cp.toFixed(1)+'px)':''}
     /* Der Text unter dem Schriftzug steigt mit dem Schriftzug auf und schiebt sich unter ihm hindurch nach oben weg */
     (function(){var sv2=document.querySelector('.hero-service');if(!sv2)return;
       if(!M.on||(M.W<=0)){sv2.style.transform='';sv2.style.webkitMaskImage=sv2.style.maskImage='';return}
