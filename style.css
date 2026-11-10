@@ -4434,3 +4434,8 @@ html:not(.never) .chat-window .chat-book,:root[data-theme="dark"] .chat-window .
 html:not(.never) .chat-window .chat-book .ico,:root[data-theme="dark"] .chat-window .chat-book .ico{color:#004d17!important}
 /* v164: Kontakt-Symbol im Startbereich – Umrandung dunkel, sobald es sich füllt */
 html:not(.never) .hero-act svg.fillable.fill-on,:root[data-theme="dark"]:not(.never) .hero-act-line svg.fillable.fill-on{color:#004d17!important;transition:color .6s ease}
+/* v164: Wasserzeichen in der Behandlungsübersicht größer */
+html:not(.never) .lei-sum .lei-ico{width:200px!important;height:200px!important;bottom:-34px!important}
+html:not(.never) .lei-sum .lei-ico-a{left:-6px!important}
+html:not(.never) .lei-sum .lei-ico-b{right:-6px!important}
+@media (max-width:700px){html:not(.never) .lei-sum .lei-ico{width:130px!important;height:130px!important;bottom:-20px!important}html:not(.never) .lei-sum .lei-ico-a{left:-14px!important}html:not(.never) .lei-sum .lei-ico-b{right:-14px!important}}
