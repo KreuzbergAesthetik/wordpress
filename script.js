@@ -51,7 +51,7 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
     mast.classList.toggle('pc',M.on);
     M.top=parseFloat(getComputedStyle(nav).top)||12;
     M.w0=wm.offsetWidth||1;M.h0=wm.offsetHeight||1;
-    M.k1=((W<=370?1:(W<=700?1.2:1.5))*rem)/(parseFloat(getComputedStyle(wm).fontSize)||48);
+    M.k1=((W<=370?1.2:(W<=700?1.4:1.6))*rem)/(parseFloat(getComputedStyle(wm).fontSize)||48);
     M.k0=1;M.c0=null;M.c1=null;
     if(M.on&&slot&&slot.classList.contains('hero-brand')){
       var r0=document.createRange();r0.selectNodeContents(slot);var rr0=r0.getBoundingClientRect();M.k0=(rr0.width||M.w0)/M.w0;M.S0=rr0.top+rr0.height/2+(window.scrollY||0);
