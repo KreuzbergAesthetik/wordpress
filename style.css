@@ -4185,3 +4185,53 @@ html:not(.never) .kon-page-btns .btn.btn-wa-ico{width:2.5rem!important;height:2.
 /* v161: Porträt mit mehr Oberkörper – weicher, ovaler Auslauf ohne gerade Kanten */
 @media (min-width:701px){html:not(.never) .home-page .hero-v5 .hero-portrait{-webkit-mask-image:radial-gradient(ellipse 60% 46% at 52% 34%,#000 58%,rgba(0,0,0,.55) 76%,rgba(0,0,0,.18) 90%,transparent 100%)!important;mask-image:radial-gradient(ellipse 60% 46% at 52% 34%,#000 58%,rgba(0,0,0,.55) 76%,rgba(0,0,0,.18) 90%,transparent 100%)!important;-webkit-mask-composite:source-over;mask-composite:add}
 html:not(.never) .home-page .hero-v5 .hero-portrait::after{display:none!important}}
+/* v162: Dunkelmodus überarbeitet – dunkle Flächen statt heller Hintergründe, gut lesbare Texte */
+:root[data-theme="dark"]{--dk-card:rgba(255,255,255,.06);--dk-line:rgba(229,235,246,.14);--dk-mute:rgba(229,235,246,.72);--dk-green:#a8dcb6}
+:root[data-theme="dark"],:root[data-theme="dark"] body.home-page{background:var(--bg,#0b1427)!important}
+:root[data-theme="dark"] body.home-page{background:transparent!important}
+:root[data-theme="dark"] .home-page .hero-only{background:none!important}
+:root[data-theme="dark"] .loader{background:var(--bg,#0b1427)!important}
+/* Knöpfe */
+:root[data-theme="dark"] .hero-act-main,:root[data-theme="dark"] .lei-btn-main,:root[data-theme="dark"] .kon-page-btns .btn.hero-main:first-child{background:#1f3d86!important;border-color:rgba(229,235,246,.35)!important;color:#fff!important}
+:root[data-theme="dark"] .hero-act-line,:root[data-theme="dark"] .lei-btn-line,:root[data-theme="dark"] .kon-page-btns .btn.hero-main:not(:first-child),:root[data-theme="dark"] html:not(.never) .kon-page-btns .btn.hero-main.btn-wa-ico{background:transparent!important;border-color:rgba(229,235,246,.55)!important;color:var(--fg)!important}
+:root[data-theme="dark"] .hero-act-line .ico,:root[data-theme="dark"] .lei-btn-line .ico,:root[data-theme="dark"] .kon-page-btns .btn .ico{color:var(--dk-green)!important}
+:root[data-theme="dark"] .kon-page-btns .btn.hero-main:not(:first-child) span{color:var(--fg)!important}
+/* Etiketten und grüne Überschriften */
+:root[data-theme="dark"] .eyebrow,:root[data-theme="dark"] p.eyebrow{color:var(--dk-green)!important;background:rgba(168,220,182,.12)!important}
+:root[data-theme="dark"] .grp .tag,:root[data-theme="dark"] .grp .subgrp-h{color:var(--dk-green)!important}
+/* Behandlungskarte auf der Startseite */
+:root[data-theme="dark"] .lei-sum{background:var(--dk-card)!important;border-color:var(--dk-line)!important}
+:root[data-theme="dark"] .lei-sum h2,:root[data-theme="dark"] .lei-sum h3{color:var(--head)!important}
+:root[data-theme="dark"] .lei-sum p{color:var(--dk-mute)!important}
+:root[data-theme="dark"] .lei-sum .lei-ico{color:rgba(229,235,246,.07)!important}
+/* Ablauf-Pillen auf der Startseite */
+:root[data-theme="dark"] .sum-abl .steps li{background:var(--dk-card)!important;border-color:var(--dk-line)!important}
+:root[data-theme="dark"] .sum-abl .steps li h3,:root[data-theme="dark"] .sum-abl .steps li a{color:var(--fg)!important}
+:root[data-theme="dark"] .sum-abl .steps .sico{color:rgba(229,235,246,.18)!important}
+/* Preislisten */
+:root[data-theme="dark"] .grp .subgrp,:root[data-theme="dark"] .grp .subgrp:not(.has-h){background:var(--dk-card)!important}
+:root[data-theme="dark"] .grp .subgrp td{color:var(--fg)!important}
+:root[data-theme="dark"] .grp .subgrp small.ex,:root[data-theme="dark"] .grp .subgrp s,:root[data-theme="dark"] .grp .pk-note,:root[data-theme="dark"] .grp .row-sub td{color:var(--dk-mute)!important}
+:root[data-theme="dark"] details.all>summary,:root[data-theme="dark"] .lon-h,:root[data-theme="dark"] h3.lon-h,:root[data-theme="dark"] .step-cta .cta-t{color:var(--head)!important}
+:root[data-theme="dark"] .note,:root[data-theme="dark"] p.note{color:var(--dk-mute)!important}
+/* Chat */
+:root[data-theme="dark"] .chat-window{background:#131c37!important}
+:root[data-theme="dark"] .chat-window .chat{background:linear-gradient(180deg,#18223f,#131c37)!important}
+:root[data-theme="dark"] .cbub:not(.me){background:rgba(255,255,255,.09)!important;color:var(--fg)!important}
+:root[data-theme="dark"] .cbub:not(.me) p,:root[data-theme="dark"] .cbub:not(.me) b{color:var(--fg)!important}
+/* Über mich: Werte und Qualifikationen */
+:root[data-theme="dark"] .vlist{background:var(--dk-card)!important}
+:root[data-theme="dark"] .vrow,:root[data-theme="dark"] details.vrow{background:transparent!important;border-color:var(--dk-line)!important}
+:root[data-theme="dark"] .vrow summary,:root[data-theme="dark"] .vrow summary span{color:var(--fg)!important}
+:root[data-theme="dark"] .vrow p{color:var(--dk-mute)!important}
+:root[data-theme="dark"] .vrow .ico{color:var(--dk-green)!important}
+:root[data-theme="dark"] ul.quals{background:var(--dk-card)!important}
+:root[data-theme="dark"] ul.quals li,:root[data-theme="dark"] ul.quals li span{color:var(--fg)!important}
+:root[data-theme="dark"]:not(.never) body details.all>summary,:root[data-theme="dark"]:not(.never) body details.all>summary *{color:var(--head)!important}
+:root[data-theme="dark"]:not(.never) body .sum-about .tl li b{color:var(--fg)!important}
+:root[data-theme="dark"] .home-page .sum-lei,:root[data-theme="dark"] .home-page .sum-abl{background:linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.035) 30%,rgba(255,255,255,.035) 70%,rgba(255,255,255,0) 100%)!important}
+:root[data-theme="dark"] #leistungen details.all>summary{color:var(--head)!important}
+:root[data-theme="dark"] .sum-kon .eyebrow,:root[data-theme="dark"] .sum-kon p.eyebrow{color:#d3f2db!important;background:rgba(168,220,182,.22)!important}
+:root[data-theme="dark"] .chat-window .chat::before{background:rgba(255,255,255,.05)!important}
+:root[data-theme="dark"] .side-contact .btn-wa-ico,:root[data-theme="dark"] .side .side-contact .btn{border-color:rgba(229,235,246,.55)!important;color:var(--dk-green)!important}
+:root[data-theme="dark"] .side-contact .btn-wa-ico .ico,:root[data-theme="dark"] .side-contact .btn-wa-ico svg{color:var(--dk-green)!important}
