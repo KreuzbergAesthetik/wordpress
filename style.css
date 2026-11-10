@@ -4476,3 +4476,10 @@ html:not(.never) .hero-act svg.fillable.fill-on path.fl{clip-path:inset(0 0 0 0)
 /* v165: Porträt im Hochformat – Kopf genau in der Bildschirmmitte */
 @media (max-width:700px){html:not(.never) .home-page .hero-v5 .hero-portrait{margin-left:9.2vw!important}}
 html:not(.never) .home-page .hero-intro .hero-service{text-wrap:balance}
+/* v165: Zeitachse Startseite (Dunkelmodus) – erst durchsichtig mit hellem Kreis und hellem Symbol, beim Erreichen weiß mit dunklem Symbol */
+:root[data-theme="dark"] .sum-about .tl li .node,:root[data-theme="dark"] .sum-about .tl li:not(:last-child) .node,:root[data-theme="dark"] .home-page .sum-about .tl .node{background:transparent!important;border:1.5px solid rgba(232,238,249,.85)!important;color:#e8eef9!important}
+:root[data-theme="dark"] .sum-about .tl .node .nf{background:#fff!important;color:#012265!important}
+:root[data-theme="dark"] .sum-about .tl li:last-child:not(.hit) .node{background:transparent!important}
+:root[data-theme="dark"] .sum-about .tl li:last-child:not(.hit) .wmk.wmk-node{color:#e8eef9!important}
+:root[data-theme="dark"] .sum-about .tl li:last-child.hit .node{background:#fff!important;border-color:#fff!important}
+:root[data-theme="dark"] .sum-about .tl li:last-child.hit .wmk.wmk-node{color:#012265!important}
