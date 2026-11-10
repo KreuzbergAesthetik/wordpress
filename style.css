@@ -4269,3 +4269,65 @@ html:not(.never) .home-page .hero-only::before{-webkit-mask-image:linear-gradien
  html:not(.never) .home-page .hero-intro .hero-brand{font-size:calc(4.9 * var(--u))!important}
  html:not(.never) .home-page .hero-intro .hero-service{font-size:calc(1.62 * var(--u))!important;max-width:calc(36 * var(--u))!important}
 }
+/* v162: Über mich – Porträt mit Hemd und fallendem Schatten dahinter */
+#ueber-mich .pframe{filter:drop-shadow(16px 20px 24px rgba(1,20,70,.30))!important}
+:root[data-theme="dark"] #ueber-mich .pframe{filter:drop-shadow(18px 22px 26px rgba(0,6,30,.55))!important}
+/* v162: Dunkelmodus – Intro-Box dunkel mit heller Schrift, Wasserzeichen sichtbar, Werte-Box ruhiger */
+:root[data-theme="dark"] .kview[data-view=ueber-mich] .about-head + p{background:rgba(255,255,255,.07)!important;color:var(--fg)!important;border-color:rgba(168,220,182,.5)!important}
+:root[data-theme="dark"] .kview[data-view=ueber-mich] .about-head + p::after{background:#fff!important;opacity:.07!important}
+:root[data-theme="dark"] .lon-box .lon-wm{color:rgba(255,255,255,.07)!important}
+:root[data-theme="dark"] .phil-box{background:rgba(255,255,255,.05)!important;border-color:var(--dk-line)!important}
+:root[data-theme="dark"] .phil-box h3,:root[data-theme="dark"] .phil-box>p{color:var(--fg)!important}
+/* v162: Unterseiten im selben Praxisblau wie die Startseite */
+:root[data-theme="dark"] .tint{background:linear-gradient(180deg,#062a73 0%,#03256c 50%,#012265 100%)!important}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tint{background:linear-gradient(180deg,#062a73 0%,#03256c 50%,#012265 100%)!important}}
+/* v162: Ablauf-Seite – Boxen im Dunkeln sichtbar, Pfeil hinter „Kontakt“ sichtbar, etwas höher, wächst beim Überfahren mit */
+:root[data-theme="dark"] #ablauf .steps li,:root[data-theme="dark"] .kview[data-view=ablauf] .steps li{background:rgba(255,255,255,.08)!important;border:1px solid rgba(229,235,246,.16)!important}
+:root[data-theme="dark"] #ablauf .steps li h3{color:var(--head)!important}
+:root[data-theme="dark"] #ablauf .steps li p{color:rgba(229,235,246,.8)!important}
+:root[data-theme="dark"] .step-cta,:root[data-theme="dark"] .step-cta .cta-arrow{color:var(--head)!important}
+html:not(.never) .steps .step-cta .cta-arrow{top:-.14em!important}
+html:not(.calm) .steps .step-cta{transform-origin:center center!important}
+html:not(.calm):not(.never) .steps li.step-card .step-cta:hover,html:not(.calm):not(.never) .steps li.step-card .step-cta:focus-visible{transform:scale(1.1)!important}
+:root[data-theme="dark"] #ablauf .steps .sico,:root[data-theme="dark"] .kview[data-view=ablauf] .steps .sico{color:rgba(229,235,246,.09)!important}
+/* v162: Chat neu – ruhiger, schmaler, ohne Grün-Glühen, ohne durchscheinendes Logo, blickdichte Sprechblasen */
+html:not(.never) .chat-window{max-width:620px!important;border:1px solid rgba(1,34,101,.12)!important;box-shadow:0 6px 18px rgba(1,34,101,.10)!important;border-radius:20px!important}
+html:not(.never) .chat-top{background:#f4f7fc!important;color:#012265!important;border-bottom:1px solid rgba(1,34,101,.08);padding:.65rem 1rem!important}
+html:not(.never) .chat-top .chat-who b{color:#012265!important}
+html:not(.never) .chat-top .chat-who small{color:rgba(1,34,101,.65)!important}
+html:not(.never) .chat-top .cav{box-shadow:0 0 0 2px #fff!important;width:38px!important;height:38px!important}
+html:not(.never) .chat-top .wmk,html:not(.never) .chat-top .chat-logo,html:not(.never) .chat-top>span:last-child:not(.chat-who){filter:none}
+html:not(.never) .chat-window .chat{background:#eef3fa!important}
+html:not(.never) .chat-window .chat::before{display:none!important}
+html:not(.never) .chat-window .cbub{background:#fff!important;color:#012265!important;opacity:1!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:0 1px 2px rgba(1,34,101,.12)!important}
+html:not(.never) .chat-window .crow.me .cbub{background:#012265!important;color:#fff!important}
+html:not(.never) .chat-book{background:#012265!important;color:#fff!important}
+html:not(.never) .chat-help .chat-h{font-size:1.35rem!important}
+/* Dunkelmodus: alles hell lesbar, Blasen blickdicht */
+:root[data-theme="dark"] .chat-window{background:#08296b!important;border-color:rgba(229,235,246,.16)!important;box-shadow:0 6px 18px rgba(0,8,40,.35)!important}
+:root[data-theme="dark"] .chat-top{background:#0c3079!important;border-bottom-color:rgba(229,235,246,.12)!important}
+:root[data-theme="dark"] .chat-top .chat-who b{color:#fff!important}
+:root[data-theme="dark"] .chat-top .chat-who small{color:rgba(229,235,246,.75)!important}
+:root[data-theme="dark"] .chat-window .chat{background:#06245f!important}
+:root[data-theme="dark"] .chat-window .cbub:not(.ctyping){background:#163c8a!important;color:#f2f6fd!important;box-shadow:none!important}
+:root[data-theme="dark"] .chat-window .crow:not(.me) .cbub *{color:#f2f6fd!important;border-color:rgba(229,235,246,.18)!important}
+:root[data-theme="dark"] .chat-window .crow:not(.me) .cbub small,:root[data-theme="dark"] .chat-window .crow:not(.me) .cbub .note{color:rgba(242,246,253,.75)!important}
+:root[data-theme="dark"] .chat-window .crow.me .cbub{background:#e8eef9!important;color:#012265!important}
+:root[data-theme="dark"] .chat-window .crow.me .cbub *{color:#012265!important}
+:root[data-theme="dark"] .chat-window .cbub.ctyping{background:#163c8a!important}
+:root[data-theme="dark"] .chat-input{background:#0c3079!important;border-top-color:rgba(229,235,246,.12)!important}
+:root[data-theme="dark"] .chat-chips button,:root[data-theme="dark"] .chat-chips .chat-ph{background:transparent!important;color:#f2f6fd!important;border-color:rgba(229,235,246,.45)!important}
+:root[data-theme="dark"] .chat-chips button .ico{color:var(--dk-green)!important}
+:root[data-theme="dark"] .chat-book{background:#e8eef9!important;color:#012265!important}
+:root[data-theme="dark"] .chat-book .ico{color:#012265!important}
+:root[data-theme="dark"] .cav-you{background:#e8eef9!important;color:#012265!important}
+html:not(.never) .chat-top::after{background:#012265!important;width:34px!important;height:34px!important}
+:root[data-theme="dark"] .chat-top::after{background:#fff!important}
+html:not(.never) .chat-chips{background:#fff!important}
+:root[data-theme="dark"] .chat-chips{background:#06245f!important}
+:root[data-theme="dark"] .chat-chips .cchip{background:transparent!important;color:#f2f6fd!important;border-color:rgba(229,235,246,.45)!important}
+:root[data-theme="dark"] .chat-chips .cchip:hover{background:rgba(255,255,255,.08)!important}
+:root[data-theme="dark"] .chat-chips .cchip.go{background:#e8eef9!important;color:#012265!important;border-color:#e8eef9!important}
+:root[data-theme="dark"] .chat-chips .cchip .ico{color:var(--dk-green)!important}
+html:not(.never) .chat-book{box-shadow:none!important}
+:root[data-theme="dark"] .chat-chips{background:#0c3079!important}

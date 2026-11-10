@@ -271,8 +271,8 @@ function ka_view_home() {
 }
 
 function ka_view_about() {
-	$portrait = ka_raw( 'portrait_url' );
-	if ( '' === $portrait ) { $portrait = get_theme_file_uri( 'assets/portrait-cutout.webp' ); }
+	// Über mich: dasselbe Porträt mit Hemd wie im Startbereich
+	$portrait = get_theme_file_uri( 'assets/portrait-hero.webp' );
 	?>
 <section id="ueber-mich" class="sub-sec">
   <div class="wrap about">
