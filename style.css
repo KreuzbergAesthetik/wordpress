@@ -4486,3 +4486,11 @@ html:not(.never) .home-page .hero-intro .hero-service{text-wrap:balance}
 /* v165: Dunkelmodus – Behandlungskarte auf der Startseite richtig dunkelblau statt heller */
 :root[data-theme="dark"] .lei-sum{background:#00143f!important;border-color:rgba(229,235,246,.14)!important}
 :root[data-theme="dark"] .lei-sum .lei-ico{color:rgba(229,235,246,.06)!important}
+/* v165: Zeitachse Dunkelmodus – Stationen bleiben durchsichtig und hell; beim Erreichen/Überfahren nur ein leichtes Herauspoppen */
+:root[data-theme="dark"] .sum-about .tl .node .nf{opacity:0!important}
+:root[data-theme="dark"] .sum-about .tl li:last-child.hit .node{background:transparent!important;border-color:rgba(232,238,249,.85)!important}
+:root[data-theme="dark"] .sum-about .tl li:last-child.hit .wmk.wmk-node{color:#e8eef9!important}
+@keyframes ka-tlpop{0%{transform:scale(1)}45%{transform:scale(1.16)}100%{transform:scale(1)}}
+html:not(.calm) :root[data-theme="dark"] .sum-about .tl li.hit .node,html:not(.calm)[data-theme="dark"] .sum-about .tl li.hit .node{animation:ka-tlpop .5s cubic-bezier(.25,.8,.35,1) 1}
+html:not(.calm)[data-theme="dark"] .sum-about .tl li .node{transition:transform .3s cubic-bezier(.25,.8,.35,1)}
+html:not(.calm)[data-theme="dark"] .sum-about .tl li:hover .node{transform:scale(1.1)}
