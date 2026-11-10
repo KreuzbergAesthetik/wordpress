@@ -2,7 +2,7 @@
 Theme Name: Kreuzberg Ästhetik
 Description: Website der Privatpraxis Kreuzberg Ästhetik
 Author: Kreuzberg Ästhetik
-Version: 163
+Version: 164
 Requires at least: 6.0
 Requires PHP: 7.4
 Text Domain: kreuzberg-aesthetik
@@ -4344,3 +4344,99 @@ html:not(.never) .sum-about .tl li:last-child b{opacity:0!important;transform:tr
 html:not(.never) .sum-about .tl li:last-child.hit b{opacity:1!important;transform:none!important}
 html.calm:not(.never) .sum-about .tl li:last-child b{opacity:1!important;transform:none!important}
 @media (prefers-reduced-motion:reduce){html:not(.never) .sum-about .tl li:last-child b{opacity:1!important;transform:none!important;transition:none!important}}
+/* v164: Dunkelmodus Feinschliff nach Handy-Screenshots */
+/* Kopfleiste: Praxisblau statt Grau, Schriftzug größer (script.js) */
+:root[data-theme="dark"] .mast .mastnav{background:linear-gradient(180deg,rgba(16,52,128,calc(.9 * var(--na,1))),rgba(4,36,104,calc(.9 * var(--na,1))))!important;border-color:rgba(229,235,246,.14)!important}
+/* Startbereich: Knöpfe hell mit dunkler Schrift, Trennlinien zwischen den Werten */
+:root[data-theme="dark"] .hero-act-main,:root[data-theme="dark"] .hero-act-line{background:#e8eef9!important;color:#012265!important;border-color:#e8eef9!important}
+:root[data-theme="dark"] .hero-act-main .ico,:root[data-theme="dark"] .hero-act-main span{color:#012265!important}
+:root[data-theme="dark"] .hero-act-line span{color:#012265!important}
+:root[data-theme="dark"] .hero-act-line .ico{color:#004d17!important}
+:root[data-theme="dark"] .hero-vals li+li{border-left:1px solid rgba(229,235,246,.28)!important}
+/* Handy: mehr Licht hinter dem Porträt, früher ausblenden */
+@media (max-width:700px){
+ :root[data-theme="dark"]:not(.never) .home-page .hero-v5 .hero-portrait::before{background:radial-gradient(closest-side at 50% 34%,rgba(170,198,245,.42) 0%,rgba(150,182,236,.26) 38%,rgba(140,175,232,.1) 68%,rgba(140,175,232,0) 100%)!important}
+ :root[data-theme="dark"] .home-page .hero-v5 .hero-portrait .hero-photo{-webkit-mask-image:linear-gradient(#000 40%,rgba(0,0,0,.45) 60%,transparent 80%)!important;mask-image:linear-gradient(#000 40%,rgba(0,0,0,.45) 60%,transparent 80%)!important}
+}
+/* Behandlungskarte Startseite: Knöpfe weiß mit dunkler Schrift, Wasserzeichen auch im Hochformat */
+:root[data-theme="dark"] .lei-btn-main,:root[data-theme="dark"] .lei-btn-line{background:#fff!important;color:#012265!important;border-color:#fff!important}
+:root[data-theme="dark"] .lei-btn-main .ico,:root[data-theme="dark"] .lei-btn-main span{color:#012265!important}
+:root[data-theme="dark"] .lei-btn-line span{color:#012265!important}
+:root[data-theme="dark"] .lei-btn-line .ico{color:#004d17!important}
+@media (max-width:700px){html:not(.never) .lei-sum .lei-ico{display:block!important;width:96px;height:96px;bottom:-12px}html:not(.never) .lei-sum .lei-ico-a{left:-8px}html:not(.never) .lei-sum .lei-ico-b{right:-8px}}
+/* Ablauf-Pillen Startseite: nur die Schrift animieren, nicht die Karte */
+html:not(.never) .sum-abl .steps li.step-card,html:not(.never) .sum-abl .steps li.step-card:hover,html:not(.never) .sum-abl .steps li.step-card:focus-within{transform:none!important}
+html:not(.never) .sum-abl .steps li.step-card .sl-t{display:inline-grid!important;justify-items:center}
+html:not(.calm):not(.never) .sum-abl .steps li.step-card h3 a.step-link{display:inline-block;transition:transform .3s cubic-bezier(.25,.8,.35,1);transform-origin:center center}
+html:not(.calm):not(.never) .sum-abl .steps li.step-card:hover h3 a.step-link,html:not(.calm):not(.never) .sum-abl .steps li.step-card:focus-within h3 a.step-link{transform:scale(1.08)}
+/* Kontaktband: Etikett wie die anderen, Linien neben der Sanduhr, Knopf-Inhalt mittig */
+:root[data-theme="dark"] .sum-kon .eyebrow,:root[data-theme="dark"] .sum-kon p.eyebrow,:root[data-theme="dark"] .sum-kon .eyebrow a{color:var(--dk-green)!important;background:rgba(168,220,182,.12)!important}
+:root[data-theme="dark"] .kon-hg{width:min(560px,80vw)!important;display:flex!important;align-items:center;justify-content:center}
+:root[data-theme="dark"] .kon-hg::before,:root[data-theme="dark"] .kon-hg::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(229,235,246,.35))}
+:root[data-theme="dark"] .kon-hg::after{background:linear-gradient(90deg,rgba(229,235,246,.35),transparent)}
+:root[data-theme="dark"] .kon-hg .hgi{position:relative!important;inset:auto!important;width:22px!important;height:32px!important;flex:none;margin:0 1rem}
+:root[data-theme="dark"] .kon-hg .hg-bot{position:absolute!important;left:50%!important;top:0!important;transform:translateX(-50%);margin:0!important}
+html:not(.never) section.sum-kon p.sum-contact .btn{justify-content:center!important;text-align:center!important}
+html:not(.never) section.sum-kon p.sum-contact .btn .bt-in{justify-content:center!important;width:100%}
+/* Behandlungsseite: Karten klar abgesetzt, Grün kräftiger */
+:root[data-theme="dark"] article.grp{background:rgba(255,255,255,.07)!important;border:1px solid rgba(229,235,246,.18)!important}
+:root[data-theme="dark"] .grp .subgrp,:root[data-theme="dark"] .grp .subgrp:not(.has-h){background:rgba(255,255,255,.07)!important;border:1px solid rgba(229,235,246,.1)!important}
+:root[data-theme="dark"]{--dk-green:#9be8b0}
+/* Ablauf: Erstgespräch-Karte sichtbar, FAQ-Plus hell, Kontakt oben rechts */
+:root[data-theme="dark"] .check{background:rgba(255,255,255,.07)!important;border:1px solid rgba(229,235,246,.18)!important}
+:root[data-theme="dark"] .faq details{background:rgba(255,255,255,.06)!important;border-color:rgba(229,235,246,.2)!important}
+:root[data-theme="dark"] .faq details summary::after{color:#e8eef9!important}
+@media (max-width:700px){html:not(.never) #ablauf .steps li.step-card .step-cta{top:1.15rem!important;bottom:auto!important;right:1.2rem!important}}
+/* Ablauf: erster Punkt wie die anderen (erst dunkel, dann hell) */
+:root[data-theme="dark"] #ablauf .steps li::before{background:#0a2e78!important;border-color:rgba(229,235,246,.7)!important}
+:root[data-theme="dark"] #ablauf .steps li.st-hit::before{background:#e8eef9!important}
+/* Über mich – Werte: Zeilen dunkler, Pfeile hell */
+:root[data-theme="dark"] .vlist{background:rgba(0,10,50,.25)!important}
+:root[data-theme="dark"] .vrow>summary i{border-color:#e8eef9!important}
+/* Chat: Kopfzeile hell mit dunkler Schrift, Logo größer, Untertitel im Hochformat kürzer, Blasen in der Mitte, Tipp-Punkte hell */
+:root[data-theme="dark"] .chat-top{background:#e8eef9!important}
+:root[data-theme="dark"] .chat-top .chat-who b{color:#012265!important}
+:root[data-theme="dark"] .chat-top .chat-who small{color:rgba(1,34,101,.7)!important}
+:root[data-theme="dark"] .chat-top::after{background:#012265!important}
+html:not(.never) .chat-top::after{width:46px!important;height:46px!important}
+@media (max-width:700px){html:not(.never) .chat-top .chat-who small{font-size:0!important}html:not(.never) .chat-top .chat-who small::after{content:"Automatische Antworten";font-size:12px}}
+html:not(.never) .chat-window .crow:not(.me){padding-right:38px}
+html:not(.never) .chat-window .crow.me{padding-left:38px}
+:root[data-theme="dark"] .chat-window .ctyping i{background:#e8eef9!important}
+html:not(.never) .sum-abl .steps h3 a.step-link{white-space:nowrap!important}
+:root[data-theme="dark"] .kon-hg::before{background:linear-gradient(90deg,transparent,rgba(229,235,246,.5))!important}
+:root[data-theme="dark"] .kon-hg::after{background:linear-gradient(90deg,rgba(229,235,246,.5),transparent)!important}
+:root[data-theme="dark"] .sum-kon .eyebrow,:root[data-theme="dark"] .sum-kon .eyebrow a{-webkit-text-fill-color:var(--dk-green)!important}
+:root[data-theme="dark"] .sum-kon .eyebrow a{background:transparent!important}
+:root[data-theme="dark"] .eyebrow,:root[data-theme="dark"] .eyebrow a{-webkit-text-fill-color:currentColor}
+/* v164: Heller Modus – Chat-Kopfzeile dunkel mit heller Schrift, Logo größer */
+:root:not([data-theme="dark"]) html:not(.never) .chat-top,:root:not([data-theme="dark"]) .chat-window .chat-top{background:#012265!important;border-bottom-color:#012265!important}
+:root:not([data-theme="dark"]) .chat-window .chat-top .chat-who b{color:#fff!important}
+:root:not([data-theme="dark"]) .chat-window .chat-top .chat-who small,:root:not([data-theme="dark"]) .chat-window .chat-top .chat-who small::after{color:rgba(255,255,255,.75)!important}
+:root:not([data-theme="dark"]) .chat-window .chat-top::after{background:#fff!important}
+html:not(.never) .chat-window .chat-top::after{width:60px!important;height:60px!important}
+/* v164: Dunkelmodus – Kontakt-Knopf im Startbereich transparent mit weißer Schrift */
+:root[data-theme="dark"] .hero-act-line{background:transparent!important;color:#fff!important;border-color:rgba(255,255,255,.7)!important}
+:root[data-theme="dark"] .hero-act-line span{color:#fff!important}
+:root[data-theme="dark"] .hero-act-line .ico{color:var(--dk-green)!important}
+/* v164: Alle Symbole in Knöpfen grün – auf hellen Knöpfen Praxisgrün, auf dunklen Knöpfen Hellgrün */
+html:not(.never) .btn .ico,html:not(.never) .hero-act .ico,html:not(.never) .lei-btn .ico,html:not(.never) .chat-book .ico{color:#004d17!important}
+html:not(.never) .hero-act-main .ico,html:not(.never) .lei-btn-main .ico,html:not(.never) .kon-page-btns .btn.hero-main:first-child .ico{color:#9be8b0!important}
+:root[data-theme="dark"] .hero-act-main .ico,:root[data-theme="dark"] .lei-btn-main .ico,:root[data-theme="dark"] .lei-btn-line .ico,:root[data-theme="dark"] section.sum-kon .btn .ico,:root[data-theme="dark"] .chat-book .ico{color:#004d17!important}
+:root[data-theme="dark"] .hero-act-line .ico,:root[data-theme="dark"] .kon-page-btns .btn.hero-main:not(:first-child) .ico,:root[data-theme="dark"] .kon-page-btns .btn.hero-main:first-child .ico{color:#9be8b0!important}
+/* Chat-Antwortzeile: Leiste dunkel, Auswahlfeld hell, Auswahl-Knöpfe dunkel mit weißer Schrift und grünem Symbol, Termin hell */
+html:not(.never) .chat-window .chat-input,:root[data-theme="dark"] .chat-window .chat-input{background:#012265!important;border-top-color:#012265!important}
+html:not(.never) .chat-window .chat-chips,:root[data-theme="dark"] .chat-window .chat-chips{background:#e8eef9!important}
+html:not(.never) .chat-window .chat-chips .chat-ph{color:#012265!important;border:0!important;background:transparent!important}
+html:not(.never) .chat-window .chat-chips .cchip,:root[data-theme="dark"] .chat-window .chat-chips .cchip{background:#012265!important;color:#fff!important;border-color:#012265!important}
+html:not(.never) .chat-window .chat-chips .cchip:hover,:root[data-theme="dark"] .chat-window .chat-chips .cchip:hover{background:#0c3079!important}
+html:not(.never) .chat-window .chat-chips .cchip .ico,:root[data-theme="dark"] .chat-window .chat-chips .cchip .ico{color:#9be8b0!important}
+html:not(.never) .chat-window .chat-book,:root[data-theme="dark"] .chat-window .chat-book{background:#e8eef9!important;color:#012265!important}
+html:not(.never) .chat-window .chat-book .ico,:root[data-theme="dark"] .chat-window .chat-book .ico{color:#004d17!important}
+/* v164: Kontakt-Symbol im Startbereich – Umrandung dunkel, sobald es sich füllt */
+html:not(.never) .hero-act svg.fillable.fill-on,:root[data-theme="dark"]:not(.never) .hero-act-line svg.fillable.fill-on{color:#004d17!important;transition:color .6s ease}
+/* v164: Wasserzeichen in der Behandlungsübersicht größer */
+html:not(.never) .lei-sum .lei-ico{width:200px!important;height:200px!important;bottom:-34px!important}
+html:not(.never) .lei-sum .lei-ico-a{left:-6px!important}
+html:not(.never) .lei-sum .lei-ico-b{right:-6px!important}
+@media (max-width:700px){html:not(.never) .lei-sum .lei-ico{width:130px!important;height:130px!important;bottom:-20px!important}html:not(.never) .lei-sum .lei-ico-a{left:-14px!important}html:not(.never) .lei-sum .lei-ico-b{right:-14px!important}}
