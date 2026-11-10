@@ -4366,8 +4366,9 @@ html.calm:not(.never) .sum-about .tl li:last-child b{opacity:1!important;transfo
 @media (max-width:700px){html:not(.never) .lei-sum .lei-ico{display:block!important;width:96px;height:96px;bottom:-12px}html:not(.never) .lei-sum .lei-ico-a{left:-8px}html:not(.never) .lei-sum .lei-ico-b{right:-8px}}
 /* Ablauf-Pillen Startseite: nur die Schrift animieren, nicht die Karte */
 html:not(.never) .sum-abl .steps li.step-card,html:not(.never) .sum-abl .steps li.step-card:hover,html:not(.never) .sum-abl .steps li.step-card:focus-within{transform:none!important}
-html:not(.calm):not(.never) .sum-abl .steps li.step-card .sl-t{display:inline-block;transition:transform .3s cubic-bezier(.25,.8,.35,1)}
-html:not(.calm):not(.never) .sum-abl .steps li.step-card:hover .sl-t,html:not(.calm):not(.never) .sum-abl .steps li.step-card:focus-within .sl-t{transform:scale(1.08)}
+html:not(.never) .sum-abl .steps li.step-card .sl-t{display:inline-grid!important;justify-items:center}
+html:not(.calm):not(.never) .sum-abl .steps li.step-card h3 a.step-link{display:inline-block;transition:transform .3s cubic-bezier(.25,.8,.35,1);transform-origin:center center}
+html:not(.calm):not(.never) .sum-abl .steps li.step-card:hover h3 a.step-link,html:not(.calm):not(.never) .sum-abl .steps li.step-card:focus-within h3 a.step-link{transform:scale(1.08)}
 /* Kontaktband: Etikett wie die anderen, Linien neben der Sanduhr, Knopf-Inhalt mittig */
 :root[data-theme="dark"] .sum-kon .eyebrow,:root[data-theme="dark"] .sum-kon p.eyebrow,:root[data-theme="dark"] .sum-kon .eyebrow a{color:var(--dk-green)!important;background:rgba(168,220,182,.12)!important}
 :root[data-theme="dark"] .kon-hg{width:min(560px,80vw)!important;display:flex!important;align-items:center;justify-content:center}
