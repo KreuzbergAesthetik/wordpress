@@ -4414,3 +4414,7 @@ html:not(.never) .sum-abl .steps h3 a.step-link{white-space:nowrap!important}
 :root:not([data-theme="dark"]) .chat-window .chat-top .chat-who small,:root:not([data-theme="dark"]) .chat-window .chat-top .chat-who small::after{color:rgba(255,255,255,.75)!important}
 :root:not([data-theme="dark"]) .chat-window .chat-top::after{background:#fff!important}
 html:not(.never) .chat-window .chat-top::after{width:60px!important;height:60px!important}
+/* v164: Dunkelmodus – Kontakt-Knopf im Startbereich transparent mit weißer Schrift */
+:root[data-theme="dark"] .hero-act-line{background:transparent!important;color:#fff!important;border-color:rgba(255,255,255,.7)!important}
+:root[data-theme="dark"] .hero-act-line span{color:#fff!important}
+:root[data-theme="dark"] .hero-act-line .ico{color:var(--dk-green)!important}
