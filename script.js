@@ -156,6 +156,8 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
     anim(y);
   }
   measure();
+  /* Farbwechsel hell/dunkel: Schriftzug-Farben neu messen, damit er nicht in der alten Farbe startet */
+  try{new MutationObserver(function(){measure();upd()}).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']})}catch(e){}
   window.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',function(){measure();upd()});if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){measure();upd()});
   upd();
   requestAnimationFrame(function(){requestAnimationFrame(function(){ready=true;mast.classList.add('anim')})});
