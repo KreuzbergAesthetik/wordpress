@@ -4570,3 +4570,6 @@ html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn-wa .ico,html:not(.neve
 :root[data-theme="dark"]:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn-wa .ico,:root[data-theme="dark"]:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn-wa .ico *{color:#9be8b0!important}
 html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn,html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn .bt-in{font-size:14px!important;line-height:1!important}
 html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn{padding:0 .4rem!important}html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn .bt-in{gap:.35rem!important}html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn .ico{width:15px!important;height:15px!important}
+/* v168: Chat-Termin-Knöpfe ohne Symbol – mehr Luft für die Beschriftung */
+html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn .ico{display:none!important}
+html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn{font-size:15px!important}
