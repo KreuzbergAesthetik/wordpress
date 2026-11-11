@@ -137,6 +137,8 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
       var edge=topC+30+0,D=r0.bottom-edge+8;
       /* nie über den fliegenden Schriftzug schieben: Text bleibt mit etwas Abstand darunter (steigt langsamer) */
       var wr=wm.getBoundingClientRect(),minTop=Math.max(wr.bottom+10,edge+4),ofs=-pr*D;if(r0.top+ofs<minTop)ofs=Math.min(0,minTop-r0.top);
+      /* nie absinken: beim Runterscrollen geht der Untertitel nur nach oben */
+      var vt=r0.top+ofs;if(M.svLY!=null&&y>M.svLY&&vt>M.svLT){ofs-=vt-M.svLT;vt=M.svLT}M.svLY=y;M.svLT=vt;
       sv2.style.transform='translateY('+ofs.toFixed(1)+'px)';
       var r=sv2.getBoundingClientRect(),h=Math.max(0,edge-r.top),m='linear-gradient(180deg,transparent '+h.toFixed(1)+'px,#000 '+(h+4).toFixed(1)+'px)';
       sv2.style.filter='';
@@ -156,6 +158,8 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
     anim(y);
   }
   measure();
+  /* Farbwechsel hell/dunkel: Schriftzug-Farben neu messen, damit er nicht in der alten Farbe startet */
+  try{var thPrev=document.documentElement.getAttribute('data-theme');new MutationObserver(function(){var th=document.documentElement.getAttribute('data-theme');if(th===thPrev)return;thPrev=th;if(M.done)return;measure();upd()}).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']})}catch(e){}
   window.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',function(){measure();upd()});if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){measure();upd()});
   upd();
   requestAnimationFrame(function(){requestAnimationFrame(function(){ready=true;mast.classList.add('anim')})});
