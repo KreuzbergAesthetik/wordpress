@@ -4573,6 +4573,3 @@ html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn{padding:0 .4rem!import
 /* v168: Chat-Termin-Knöpfe ohne Symbol – mehr Luft für die Beschriftung */
 html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn .ico{display:none!important}
 html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn{font-size:15px!important}
-/* v168: Zeitachse – nur die Sanduhr (ohne Schriftring) dreht sich einmal um 180°, sobald die Linie sie erreicht */
-@keyframes ka-tlspin{0%{rotate:0deg}100%{rotate:180deg}}
-html:not(.calm) .sum-about .tl .wmk.wmk-node.tl-spin>.lg-f{animation:ka-tlspin 1.3s cubic-bezier(.65,0,.3,1) 1 both!important}

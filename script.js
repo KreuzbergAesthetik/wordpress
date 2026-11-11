@@ -515,7 +515,7 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
   function check(){
     tick=false;
     if(done)return;
-    if(last.classList.contains('hit')){done=true;window.removeEventListener('scroll',req);var f=last.querySelector('.wmk-node');if(f)setTimeout(function(){f.classList.add('tl-spin')},450)}
+    if(last.classList.contains('hit')){done=true;window.removeEventListener('scroll',req);var f=last.querySelector('.wmk-node .lg-f');if(f)setTimeout(function(){f.style.transform='rotate(180deg)'},500)}
   }
   function req(){if(!tick){tick=true;requestAnimationFrame(check)}}
   window.addEventListener('scroll',req,{passive:true});check();
