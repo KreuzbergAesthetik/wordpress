@@ -4377,7 +4377,7 @@ html:not(.calm):not(.never) .sum-abl .steps li.step-card:hover h3 a.step-link,ht
 :root[data-theme="dark"] .kon-hg .hgi{position:relative!important;inset:auto!important;width:22px!important;height:32px!important;flex:none;margin:0 1rem}
 :root[data-theme="dark"] .kon-hg .hg-bot{position:absolute!important;left:50%!important;top:0!important;transform:translateX(-50%);margin:0!important}
 html:not(.never) section.sum-kon p.sum-contact .btn{justify-content:center!important;text-align:center!important}
-html:not(.never) section.sum-kon p.sum-contact .btn .bt-in{justify-content:center!important;width:100%}
+html:not(.never) section.sum-kon p.sum-contact .btn:not(.btn-wa-ico) .bt-in{justify-content:center!important;width:100%}
 /* Behandlungsseite: Karten klar abgesetzt, Grün kräftiger */
 :root[data-theme="dark"] article.grp{background:rgba(255,255,255,.07)!important;border:1px solid rgba(229,235,246,.18)!important}
 :root[data-theme="dark"] .grp .subgrp,:root[data-theme="dark"] .grp .subgrp:not(.has-h){background:rgba(255,255,255,.07)!important;border:1px solid rgba(229,235,246,.1)!important}
@@ -4537,3 +4537,9 @@ html:not(.never) .kon-page-btns .btn.hero-main.kon-wa .ico{color:#004d17!importa
 /* v167: Kontakt-Knöpfe – Schrift genau mittig, Symbol links daneben */
 html:not(.never) .kon-page-btns .btn.hero-main .bt-in{position:relative;display:inline-flex!important;width:auto!important;gap:0!important}
 html:not(.never) .kon-page-btns .btn.hero-main .bt-in>.ico{position:absolute!important;right:calc(100% + .55rem)!important;left:auto!important;top:0!important;bottom:0!important;margin:auto 0!important;transform:none!important}
+/* v167: Alle Knöpfe mit Symbol – Schrift genau mittig, Symbol links daneben */
+html:not(.never) .hero-act .bt-in,html:not(.never) .lei-btn .bt-in,html:not(.never) section.sum-kon p.sum-contact .btn:not(.btn-wa-ico) .bt-in{position:relative;display:inline-flex!important;width:auto!important;gap:0!important;justify-content:center}
+html:not(.never) .hero-act .bt-in>.ico,html:not(.never) .lei-btn .bt-in>.ico,html:not(.never) section.sum-kon p.sum-contact .btn:not(.btn-wa-ico) .bt-in>.ico{position:absolute!important;right:calc(100% + .55rem)!important;left:auto!important;top:0!important;bottom:0!important;margin:auto 0!important;transform:none!important}
+html:not(.never) .hero-act,html:not(.never) .lei-btn,html:not(.never) section.sum-kon p.sum-contact .btn{justify-content:center!important}
+html:not(.never) .chat-window .chat-book{justify-content:center!important}
+html:not(.never) .chat-window .chat-book::after{content:"";flex:none;width:calc(1em + .45rem)}
