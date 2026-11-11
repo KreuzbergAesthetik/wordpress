@@ -2,7 +2,7 @@
 Theme Name: Kreuzberg Ästhetik
 Description: Website der Privatpraxis Kreuzberg Ästhetik
 Author: Kreuzberg Ästhetik
-Version: 167
+Version: 168
 Requires at least: 6.0
 Requires PHP: 7.4
 Text Domain: kreuzberg-aesthetik
@@ -4540,3 +4540,36 @@ html:not(.never) .hero-act .bt-in,html:not(.never) .lei-btn .bt-in,html:not(.nev
 html:not(.never) .hero-act .bt-in>.ico,html:not(.never) .lei-btn .bt-in>.ico,html:not(.never) section.sum-kon p.sum-contact .btn .bt-in>.ico,html:not(.never) .kon-page-btns .btn.hero-main .bt-in>.ico,html:not(.never) .chat-window .chat-book>.ico{position:static!important;margin:0!important;transform:none!important;display:block;flex:none}
 html:not(.never) .hero-act .bt-in>span,html:not(.never) .lei-btn .bt-in>span,html:not(.never) section.sum-kon p.sum-contact .btn .bt-in>span,html:not(.never) .kon-page-btns .btn.hero-main .bt-in>span,html:not(.never) .chat-window .chat-book>span{display:block;line-height:1.1!important;padding:0!important;margin:0!important}
 html:not(.never) .chat-window .chat-book{gap:.45rem!important}
+/* v168: Chat-Antwort „Termin“ – E-Mail und WhatsApp wie auf der Kontaktseite: gleich groß, Einheit mittig, nichts überdeckt den Text */
+html:not(.never) .chat-window .cbtn-two{display:flex!important;gap:.6rem!important;flex-wrap:nowrap!important;margin:.9rem 0 .6rem!important;position:static!important}
+html:not(.never) .chat-window .cbtn-two .cbtn{flex:1 1 0!important;width:auto!important;min-width:0!important;aspect-ratio:auto!important;height:2.6rem!important;padding:0 .6rem!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;border-radius:999px!important;font-weight:600!important;position:static!important;transform:none;box-shadow:none!important}
+html:not(.never) .chat-window .cbtn-two .cbtn .bt-in{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:.45rem!important;line-height:1!important}
+html:not(.never) .chat-window .cbtn-two .cbtn .ico{width:17px!important;height:17px!important;margin:0!important;flex:none}
+html:not(.never) .chat-window .cbtn-two .cbtn-mail{background:#012265!important;color:#fff!important;border:1.5px solid #012265!important}
+html:not(.never) .chat-window .cbtn-two .cbtn-mail .ico{color:#9be8b0!important}
+html:not(.never) .chat-window .cbtn-two .cbtn-wa{background:transparent!important;color:#012265!important;border:1.5px solid #012265!important}
+html:not(.never) .chat-window .cbtn-two .cbtn-wa .ico{color:#004d17!important}
+:root[data-theme="dark"] .chat-window .cbtn-two .cbtn-mail{background:#fff!important;color:#012265!important;border-color:#fff!important}
+:root[data-theme="dark"] .chat-window .cbtn-two .cbtn-mail .ico{color:#004d17!important}
+:root[data-theme="dark"] .chat-window .cbtn-two .cbtn-wa{background:transparent!important;color:#fff!important;border-color:rgba(255,255,255,.7)!important}
+:root[data-theme="dark"] .chat-window .cbtn-two .cbtn-wa .ico{color:#9be8b0!important}
+:root[data-theme="dark"] .chat-window .crow:not(.me) .cbub .cbtn-mail,:root[data-theme="dark"] .chat-window .crow:not(.me) .cbub .cbtn-mail *{color:#012265!important}
+:root[data-theme="dark"] .chat-window .crow:not(.me) .cbub .cbtn-mail .ico{color:#004d17!important}
+:root[data-theme="dark"] .chat-window .crow:not(.me) .cbub .cbtn-wa,:root[data-theme="dark"] .chat-window .crow:not(.me) .cbub .cbtn-wa *{color:#fff!important}
+:root[data-theme="dark"] .chat-window .crow:not(.me) .cbub .cbtn-wa .ico{color:#9be8b0!important}
+html:not(.calm) .chat-window .cbtn-two .cbtn{transition:transform .3s cubic-bezier(.25,.8,.35,1)!important}
+html:not(.calm) .chat-window .cbtn-two .cbtn:hover{transform:scale(1.04)}
+html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn{font-size:.9rem!important;letter-spacing:0!important}
+html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn-wa,html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn-wa *{color:#012265!important}
+html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn-mail,html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn-mail *{color:#fff!important}
+html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn-mail .ico,html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn-mail .ico *{color:#9be8b0!important}
+html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn-wa .ico,html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn-wa .ico *{color:#004d17!important}
+:root[data-theme="dark"]:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn-mail,:root[data-theme="dark"]:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn-mail *{color:#012265!important}
+:root[data-theme="dark"]:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn-mail .ico,:root[data-theme="dark"]:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn-mail .ico *{color:#004d17!important}
+:root[data-theme="dark"]:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn-wa,:root[data-theme="dark"]:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn-wa *{color:#fff!important}
+:root[data-theme="dark"]:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn-wa .ico,:root[data-theme="dark"]:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn-wa .ico *{color:#9be8b0!important}
+html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn,html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn .bt-in{font-size:14px!important;line-height:1!important}
+html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn{padding:0 .4rem!important}html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn .bt-in{gap:.35rem!important}html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn .ico{width:15px!important;height:15px!important}
+/* v168: Chat-Termin-Knöpfe ohne Symbol – mehr Luft für die Beschriftung */
+html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn .ico{display:none!important}
+html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn{font-size:15px!important}
