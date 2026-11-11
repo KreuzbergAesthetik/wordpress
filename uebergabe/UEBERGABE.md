@@ -1,6 +1,6 @@
 # Übergabe: Website Kreuzberg Ästhetik (WordPress-Theme)
 
-Stand: 11. November 2026. **Theme-Version 166 wird veröffentlicht** (Schriftzug im hellen Modus von Anfang an dunkel, kein Absinken beim Scrollen, Chat-Antwortzeile im Dunkelmodus umgekehrt). Nächste Version: 167.
+Stand: 11. November 2026. **Theme-Version 167 wird veröffentlicht** (Kontaktseite nur E-Mail und WhatsApp, Kontaktformular im Dunkelmodus lesbar, Chat-Wasserzeichen heller Modus, Knöpfe: Symbol und Schrift als Einheit mittig, „Hier geht’s zurück zur Startseite“). Nächste Version: 168.
 
 ## ZUERST LESEN – Kurzfassung für die neue Sitzung
 

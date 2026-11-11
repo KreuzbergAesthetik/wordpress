@@ -112,8 +112,8 @@ function ka_next_link() {
 		'contact'  => array( home_url( '/' ), 'Startseite' ),
 		'legal'    => array( home_url( '/' ), 'Startseite' ),
 	);
-	if ( isset( $next[ $view ] ) ) : ?>
-<p class="next-link"><a href="<?php echo esc_url( $next[ $view ][0] ); ?>"><span class="nl-pre">Hier geht&rsquo;s weiter zu:</span> <span class="nl-t"><?php echo esc_html( $next[ $view ][1] ); ?></span> <span class="nl-arrow" aria-hidden="true">&rarr;</span></a></p>
+	if ( isset( $next[ $view ] ) ) : $pre = ( 'contact' === $view || 'legal' === $view ) ? 'Hier geht&rsquo;s zur&uuml;ck zur' : 'Hier geht&rsquo;s weiter zu:'; ?>
+<p class="next-link"><a href="<?php echo esc_url( $next[ $view ][0] ); ?>"><span class="nl-pre"><?php echo $pre; ?></span> <span class="nl-t"><?php echo esc_html( $next[ $view ][1] ); ?></span> <span class="nl-arrow" aria-hidden="true">&rarr;</span></a></p>
 <?php endif;
 }
 
@@ -468,8 +468,7 @@ function ka_view_contact() {
       <p><?php echo ka( 'kon_text' ); ?></p>
       <p class="sum-contact kon-page-btns">
         <a class="btn hero-main" href="<?php echo esc_attr( ka_mail_href() ); ?>"><?php echo ka_icon( 'mail' ); ?><span>E-Mail</span></a>
-        <a class="btn hero-main btn-wa-ico" href="<?php echo $sms; ?>" aria-label="WhatsApp"><?php echo ka_icon( 'whatsapp' ); ?></a>
-        <a class="btn hero-main kon-form-pill" href="#contact-form"><?php echo ka_icon( 'document' ); ?><span>Formular</span></a>
+        <a class="btn hero-main kon-wa" href="<?php echo $sms; ?>"><?php echo ka_icon( 'whatsapp' ); ?><span>WhatsApp</span></a>
       </p>
     </div>
     <div class="div contact-div" aria-hidden="true"><span class="hgi"></span></div>
