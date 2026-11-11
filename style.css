@@ -4534,12 +4534,9 @@ html:not(.never) .kon-page-btns .btn.hero-main.kon-wa .ico{color:#004d17!importa
 :root[data-theme="dark"] #contact-form a{color:#fff!important}
 /* v167: Heller Modus – Wasserzeichen im Chat-Hintergrund deutlicher */
 :root:not([data-theme="dark"]) .chat-window .chat::before{background:rgba(1,34,101,.12)!important}
-/* v167: Kontakt-Knöpfe – Schrift genau mittig, Symbol links daneben */
-html:not(.never) .kon-page-btns .btn.hero-main .bt-in{position:relative;display:inline-flex!important;width:auto!important;gap:0!important}
-html:not(.never) .kon-page-btns .btn.hero-main .bt-in>.ico{position:absolute!important;right:calc(100% + .55rem)!important;left:auto!important;top:0!important;bottom:0!important;margin:auto 0!important;transform:none!important}
-/* v167: Alle Knöpfe mit Symbol – Schrift genau mittig, Symbol links daneben */
-html:not(.never) .hero-act .bt-in,html:not(.never) .lei-btn .bt-in,html:not(.never) section.sum-kon p.sum-contact .btn:not(.btn-wa-ico) .bt-in{position:relative;display:inline-flex!important;width:auto!important;gap:0!important;justify-content:center}
-html:not(.never) .hero-act .bt-in>.ico,html:not(.never) .lei-btn .bt-in>.ico,html:not(.never) section.sum-kon p.sum-contact .btn:not(.btn-wa-ico) .bt-in>.ico{position:absolute!important;right:calc(100% + .55rem)!important;left:auto!important;top:0!important;bottom:0!important;margin:auto 0!important;transform:none!important}
-html:not(.never) .hero-act,html:not(.never) .lei-btn,html:not(.never) section.sum-kon p.sum-contact .btn{justify-content:center!important}
-html:not(.never) .chat-window .chat-book{justify-content:center!important}
-html:not(.never) .chat-window .chat-book::after{content:"";flex:none;width:calc(1em + .45rem)}
+/* v167: Knöpfe – Symbol und Schrift als Einheit genau in der Mitte, auch in der Höhe */
+html:not(.never) .hero-act,html:not(.never) .lei-btn,html:not(.never) section.sum-kon p.sum-contact .btn,html:not(.never) .kon-page-btns .btn.hero-main,html:not(.never) .chat-window .chat-book{display:inline-flex!important;align-items:center!important;justify-content:center!important;text-align:center!important}
+html:not(.never) .hero-act .bt-in,html:not(.never) .lei-btn .bt-in,html:not(.never) section.sum-kon p.sum-contact .btn .bt-in,html:not(.never) .kon-page-btns .btn.hero-main .bt-in{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:.5rem!important;width:auto!important;line-height:1!important}
+html:not(.never) .hero-act .bt-in>.ico,html:not(.never) .lei-btn .bt-in>.ico,html:not(.never) section.sum-kon p.sum-contact .btn .bt-in>.ico,html:not(.never) .kon-page-btns .btn.hero-main .bt-in>.ico,html:not(.never) .chat-window .chat-book>.ico{position:static!important;margin:0!important;transform:none!important;display:block;flex:none}
+html:not(.never) .hero-act .bt-in>span,html:not(.never) .lei-btn .bt-in>span,html:not(.never) section.sum-kon p.sum-contact .btn .bt-in>span,html:not(.never) .kon-page-btns .btn.hero-main .bt-in>span,html:not(.never) .chat-window .chat-book>span{display:block;line-height:1.1!important;padding:0!important;margin:0!important}
+html:not(.never) .chat-window .chat-book{gap:.45rem!important}
