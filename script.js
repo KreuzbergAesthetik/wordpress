@@ -575,9 +575,13 @@ document.addEventListener('click',function(e){
     document.head.appendChild(css);
     function update(){
       var order=cards.slice();
+      cards.forEach(function(c){c.classList.remove('col2-start')});
       if(mq.matches && neuro && filler){
-        var a=order.indexOf(neuro),b=order.indexOf(filler);
-        order[a]=filler;order[b]=neuro;
+        /* Zwei unabhängige Spalten: links Filler und Haut, rechts Neuromodulator und Pakete */
+        var haut=cards.find(function(el){return /^Haut\b/i.test((el.querySelector('h3')||{}).textContent||'')});
+        var pak=cards.find(function(el){return /^Pakete\b/i.test((el.querySelector('h3')||{}).textContent||'')});
+        var left=[filler,haut].filter(Boolean),right=[neuro,pak].filter(Boolean),rest=cards.filter(function(c){return left.indexOf(c)<0&&right.indexOf(c)<0});
+        order=left.concat(right,rest);neuro.classList.add('col2-start');
       }
       order.forEach(function(card){grid.appendChild(card);});
     }

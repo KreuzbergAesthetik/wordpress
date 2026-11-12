@@ -4599,10 +4599,11 @@ body.intro-quiet .hero-intro .hero-greeting,body.intro-quiet .hero-intro .hero-b
 html:not(.never) .lon-box p:has(+ .lon-cta){display:block!important}
 html:not(.never) .lon-box .lon-cta{display:block!important;margin-top:.8rem!important}
 html:not(.never) .lon-box .lon-cta::before{content:none!important}
-/* v170: Behandlungskarten nebeneinander (Desktop und Querformat): Filler | Neuromodulator, Haut | Pakete, Longevity darunter */
+/* v172: Behandlungskarten nebeneinander (Desktop und Querformat): zwei unabhängige Spalten – links Filler, Haut; rechts Neuromodulator, Pakete. Aufgeklappt dürfen sie auf unterschiedlicher Höhe beginnen. */
 @media (min-width:701px){
- html:not(.never) #leistungen .groups{display:grid!important;columns:auto!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:1.25rem!important;align-items:start!important}
- html:not(.never) #leistungen .groups>.grp{display:block!important;width:auto!important;margin:0!important}
+ html:not(.never) #leistungen .groups{display:block!important;columns:2!important;column-gap:1.25rem!important}
+ html:not(.never) #leistungen .groups>.grp{display:inline-block!important;width:100%!important;margin:0 0 1.25rem!important;break-inside:avoid;-webkit-column-break-inside:avoid}
+ html:not(.never) #leistungen .groups>.grp.col2-start{break-before:column;-webkit-column-break-before:always}
 }
 /* v172: Während des Einflugs keine Transform-Übergänge an Leiste, Schriftzug und Logo – sie folgen direkt dem Scrollen (kein Nachziehen/Zurückspringen am Handy) */
 body.home-page.wmfly .mast .mastnav,body.home-page.wmfly .mast .wm,body.home-page.wmfly .mast .wmk{transition-property:opacity,background,border-color,box-shadow,color!important}
