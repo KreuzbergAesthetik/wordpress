@@ -560,7 +560,7 @@ document.addEventListener('click',function(e){
     var cards=Array.from(grid.children);
     var neuro=cards.find(function(el){return /^Neuromodulator\b/i.test((el.querySelector('h3')||{}).textContent||'');});
     var filler=cards.find(function(el){return /^Filler und Booster\b/i.test((el.querySelector('h3')||{}).textContent||'');});
-    var mq=window.matchMedia('(min-width:901px)');
+    var mq=window.matchMedia('(min-width:701px)');
     var css=document.createElement('style');
     css.textContent='@media (min-width:901px){#leistungen .groups{display:block;columns:2;column-gap:1.25rem}#leistungen .groups>.grp{display:inline-block;width:100%;box-sizing:border-box;break-inside:avoid;page-break-inside:avoid;margin:0 0 1.25rem;padding:1.5rem 1.7rem;vertical-align:top}#leistungen .groups>.grp.wide{grid-column:auto}#leistungen .groups>.grp.wide tbody{display:table-row-group}#leistungen .groups>.grp.wide tr{display:table-row;border:0}#leistungen .groups>.grp.wide td{display:table-cell;border-top:1px solid var(--line)}#leistungen .groups>.grp.wide td.pr{text-align:right}#leistungen .groups>.grp .about-g{margin:.45rem 0 .7rem}#leistungen .groups>.grp td{padding:.46rem 0}#leistungen .groups>.grp .tag{margin-bottom:.25rem}}';
     document.head.appendChild(css);

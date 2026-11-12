@@ -92,14 +92,23 @@ Für eine bessere Hautqualität arbeite ich mit Peelings, Needling und Polynukle
 - TCA-Peeling | ab 149,-
 - Retinol-Peeling | ab 199,-
 - Microneedling | ab 249,-
+- Microneedling mit Exosomen | ab 399,-
+- Mesotherapie (Hyaluron, Vitamine, Aminosäurenkomplex) | ab 249,-
 - Polynukleotide 2 ml | ab 349,-
+- Skinbooster 1 ml | ab 199,-
 
 ## Volumen und Kontur
-Mit Hyaluron lassen sich Kontur und Volumen sanft anpassen. Ich wähle das Produkt passend zu Deiner Anatomie und erkläre Dir, warum.
+Mit Hyaluron und Biostimulatoren lassen sich Kontur und Volumen sanft anpassen, Kieferlinie und Hals auch mit einem Neuromodulator. Ich wähle das Produkt passend zu Deiner Anatomie und erkläre Dir, warum.
 - Hyaluron-Filler 0,5 ml | ab 249,-
 - Hyaluron-Filler 0,7 ml | ab 299,-
-- Hyaluron-Filler 1 ml | ab 349,-
-- Hyaluronidase, Auflösen von Hyaluron | ab 149,-
+- Hyaluron-Filler 1,0 ml | ab 349,-
+- Calciumhydroxylapatit 1,5 ml | ab 449,-
+- Poly-L-Milchsäure 1 Vial | ab 599,-
+- Nefertiti (Nofretete-Lift) | ab 399,-
+- Jawline | ab 269,-
+- Platysma (Hals-Straffung) | ab 269,-
+- Trapezius („Barbie-Botox“) | ab 349,-
+- Hyaluronidase (Auflösen von Hyaluron) | ab 149,-
 
 ## Schwitzen oder Zähneknirschen
 Auch dafür gibt es eine Behandlung. Wir klären im Gespräch, ob sie für Dich passt.
@@ -110,7 +119,6 @@ Auch dafür gibt es eine Behandlung. Wir klären im Gespräch, ob sie für Dich 
 Die Fett-weg-Spritze (Lipolyse) ist für kleine, umschriebene Areale gedacht. Wir schauen gemeinsam, ob sie bei Dir sinnvoll ist.
 - Lipolyse, enzymatisch | ab 499,-
 - Lipolyse, chemisch (traditionell) | ab 249,-
-- Lipolyse, lymphatisch | ab 249,-
 
 ## Longevity
 Ästhetik und Gesundheit gehören für mich zusammen. Longevity-Medizin schaut auf die kommenden Jahre und nicht nur auf das Aussehen: Wie bleiben Gesundheit, Ausstrahlung und Lebensqualität langfristig erhalten?

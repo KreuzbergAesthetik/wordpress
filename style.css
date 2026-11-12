@@ -2,7 +2,7 @@
 Theme Name: Kreuzberg Ästhetik
 Description: Website der Privatpraxis Kreuzberg Ästhetik
 Author: Kreuzberg Ästhetik
-Version: 169
+Version: 170
 Requires at least: 6.0
 Requires PHP: 7.4
 Text Domain: kreuzberg-aesthetik
@@ -4588,3 +4588,19 @@ body.intro-quiet .hero-intro .hero-greeting,body.intro-quiet .hero-intro .hero-b
 @media (max-width:700px){:root:not([data-theme="dark"]):not(.never) .home-page .hero-v5 .hero-portrait{-webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,1.000) 70.0%,rgba(0,0,0,0.980) 72.2%,rgba(0,0,0,0.926) 74.3%,rgba(0,0,0,0.844) 76.5%,rgba(0,0,0,0.741) 78.7%,rgba(0,0,0,0.624) 80.8%,rgba(0,0,0,0.500) 83.0%,rgba(0,0,0,0.376) 85.2%,rgba(0,0,0,0.259) 87.3%,rgba(0,0,0,0.156) 89.5%,rgba(0,0,0,0.074) 91.7%,rgba(0,0,0,0.020) 93.8%,rgba(0,0,0,0.000) 96.0%)!important;mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,1.000) 70.0%,rgba(0,0,0,0.980) 72.2%,rgba(0,0,0,0.926) 74.3%,rgba(0,0,0,0.844) 76.5%,rgba(0,0,0,0.741) 78.7%,rgba(0,0,0,0.624) 80.8%,rgba(0,0,0,0.500) 83.0%,rgba(0,0,0,0.376) 85.2%,rgba(0,0,0,0.259) 87.3%,rgba(0,0,0,0.156) 89.5%,rgba(0,0,0,0.074) 91.7%,rgba(0,0,0,0.020) 93.8%,rgba(0,0,0,0.000) 96.0%)!important}}
 /* v169: Handy – etwas Abstand zwischen Porträt und Text darunter */
 @media (max-width:700px){html:not(.never) .home-page .hero-v5 .hero-who{margin-top:2.2rem!important}}
+/* v170: Desktop und Querformat – Porträt endet vor dem Trenner unter dem Startbereich (weich, ohne Streifen) */
+@media (min-width:701px){
+ :root:not(.never) .home-page .hero-v5 .hero-portrait{-webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,1.000) 54.0%,rgba(0,0,0,0.980) 55.7%,rgba(0,0,0,0.926) 57.3%,rgba(0,0,0,0.844) 59.0%,rgba(0,0,0,0.741) 60.7%,rgba(0,0,0,0.624) 62.3%,rgba(0,0,0,0.500) 64.0%,rgba(0,0,0,0.376) 65.7%,rgba(0,0,0,0.259) 67.3%,rgba(0,0,0,0.156) 69.0%,rgba(0,0,0,0.074) 70.7%,rgba(0,0,0,0.020) 72.3%,rgba(0,0,0,0.000) 74.0%),linear-gradient(90deg,transparent 0%,rgba(0,0,0,.5) 5%,#000 12%,#000 88%,rgba(0,0,0,.5) 95%,transparent 100%)!important;mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,1.000) 54.0%,rgba(0,0,0,0.980) 55.7%,rgba(0,0,0,0.926) 57.3%,rgba(0,0,0,0.844) 59.0%,rgba(0,0,0,0.741) 60.7%,rgba(0,0,0,0.624) 62.3%,rgba(0,0,0,0.500) 64.0%,rgba(0,0,0,0.376) 65.7%,rgba(0,0,0,0.259) 67.3%,rgba(0,0,0,0.156) 69.0%,rgba(0,0,0,0.074) 70.7%,rgba(0,0,0,0.020) 72.3%,rgba(0,0,0,0.000) 74.0%),linear-gradient(90deg,transparent 0%,rgba(0,0,0,.5) 5%,#000 12%,#000 88%,rgba(0,0,0,.5) 95%,transparent 100%)!important;-webkit-mask-composite:source-in!important;mask-composite:intersect!important}
+ :root:not([data-theme="dark"]):not(.never) .home-page .hero-v5 .hero-portrait{-webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,1.000) 54.0%,rgba(0,0,0,0.980) 55.7%,rgba(0,0,0,0.926) 57.3%,rgba(0,0,0,0.844) 59.0%,rgba(0,0,0,0.741) 60.7%,rgba(0,0,0,0.624) 62.3%,rgba(0,0,0,0.500) 64.0%,rgba(0,0,0,0.376) 65.7%,rgba(0,0,0,0.259) 67.3%,rgba(0,0,0,0.156) 69.0%,rgba(0,0,0,0.074) 70.7%,rgba(0,0,0,0.020) 72.3%,rgba(0,0,0,0.000) 74.0%),linear-gradient(90deg,transparent 0%,rgba(0,0,0,.5) 5%,#000 12%,#000 88%,rgba(0,0,0,.5) 95%,transparent 100%)!important;mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,1.000) 54.0%,rgba(0,0,0,0.980) 55.7%,rgba(0,0,0,0.926) 57.3%,rgba(0,0,0,0.844) 59.0%,rgba(0,0,0,0.741) 60.7%,rgba(0,0,0,0.624) 62.3%,rgba(0,0,0,0.500) 64.0%,rgba(0,0,0,0.376) 65.7%,rgba(0,0,0,0.259) 67.3%,rgba(0,0,0,0.156) 69.0%,rgba(0,0,0,0.074) 70.7%,rgba(0,0,0,0.020) 72.3%,rgba(0,0,0,0.000) 74.0%),linear-gradient(90deg,transparent 0%,rgba(0,0,0,.5) 5%,#000 12%,#000 88%,rgba(0,0,0,.5) 95%,transparent 100%)!important;-webkit-mask-composite:source-in!important;mask-composite:intersect!important}
+ :root[data-theme="dark"]:not(.never) .home-page .hero-v5 .hero-portrait .hero-photo{-webkit-mask-image:none!important;mask-image:none!important}
+ :root[data-theme="dark"]:not(.never) .home-page .hero-v5 .hero-portrait::before{bottom:24%!important}
+}
+/* v170: Longevity – letzter Satz in eigener Zeile */
+html:not(.never) .lon-box p:has(+ .lon-cta){display:block!important}
+html:not(.never) .lon-box .lon-cta{display:block!important;margin-top:.8rem!important}
+html:not(.never) .lon-box .lon-cta::before{content:none!important}
+/* v170: Behandlungskarten nebeneinander (Desktop und Querformat): Filler | Neuromodulator, Haut | Pakete, Longevity darunter */
+@media (min-width:701px){
+ html:not(.never) #leistungen .groups{display:grid!important;columns:auto!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:1.25rem!important;align-items:start!important}
+ html:not(.never) #leistungen .groups>.grp{display:block!important;width:auto!important;margin:0!important}
+}
