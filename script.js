@@ -1,3 +1,10 @@
+/* Stabile Bildschirmhöhe: Auf- und Abtauchen der Browserleiste am Handy ändert die Höhe nur um einige Pixel –
+   das soll keine Animation neu berechnen. Neu gemessen wird nur bei anderer Breite oder deutlich anderer Höhe (Drehen). */
+(function(){var w=window.innerWidth,h=window.innerHeight;window.KA_VH=h;
+  window.addEventListener('resize',function(){var nw=window.innerWidth,nh=window.innerHeight;if(nw!==w||Math.abs(nh-h)>160){w=nw;h=nh;window.KA_VH=nh}},{passive:true});
+  window.kaVH=function(){return window.KA_VH||window.innerHeight};
+  window.kaWidthChanged=(function(){var lw=window.innerWidth,lh=window.innerHeight;return function(){var nw=window.innerWidth,nh=window.innerHeight;if(nw!==lw||Math.abs(nh-lh)>160){lw=nw;lh=nh;return true}return false}})();
+})();
 /* Bewegung reduzieren (System) gilt wie der Schalter "Animationen reduzieren" */
 try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches)document.documentElement.classList.add('calm')}catch(e){}
 
@@ -31,7 +38,7 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
   var lastY=null,upTravel=0,downTravel=0,docked=true,col=false,mvTimer=0,ready=false,tyApplied=null,measured=false;
   var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches||document.documentElement.classList.contains('calm');
   function measure(){
-    var vh=window.innerHeight,W=mast.clientWidth,rem=parseFloat(getComputedStyle(document.documentElement).fontSize)||16;
+    var vh=kaVH(),W=mast.clientWidth,rem=parseFloat(getComputedStyle(document.documentElement).fontSize)||16;
     document.body.classList.remove('nowm');
     /* Startpunkt des Schriftzugs: der sichtbare Praxisname (Handy über dem Porträt, sonst in der Karte) */
     [document.getElementById('wmslot'),document.getElementById('wmslot2')].forEach(function(el){if(!el)return;el.classList.remove('is-slot');if(el.offsetParent!==null)slot=el});
@@ -156,7 +163,7 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
   measure();
   /* Farbwechsel hell/dunkel: Schriftzug-Farben neu messen, damit er nicht in der alten Farbe startet */
   try{var thPrev=document.documentElement.getAttribute('data-theme');new MutationObserver(function(){var th=document.documentElement.getAttribute('data-theme');if(th===thPrev)return;thPrev=th;if(M.done)return;measure();upd()}).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']})}catch(e){}
-  window.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',function(){measure();upd()});if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){measure();upd()});
+  window.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',function(){if(kaWidthChanged()){measure();upd()}});if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){measure();upd()});
   upd();
   requestAnimationFrame(function(){requestAnimationFrame(function(){ready=true;mast.classList.add('anim')})});
 })();
@@ -227,7 +234,7 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
 
 (function(){
   var tl=document.getElementById('tl');if(!tl)return;
-  function fill(){var r=tl.getBoundingClientRect(),vh=window.innerHeight,land=window.innerWidth>700&&vh<600,p=window.innerWidth>700?(vh*.75-r.top)/(vh*.55):(vh*.75-r.top)/(r.height||1);var q=Math.min(1,Math.max(0,p));tl.style.setProperty('--tlp',Math.round(q*100)+'%');var li=tl.children,n=li.length;for(var i=0;i<n;i++){li[i].classList.toggle('hit',q>=(n>1?i/(n-1):0)-.001&&q>0)}}
+  function fill(){var r=tl.getBoundingClientRect(),vh=kaVH(),land=window.innerWidth>700&&vh<600,p=window.innerWidth>700?(vh*.75-r.top)/(vh*.55):(vh*.75-r.top)/(r.height||1);var q=Math.min(1,Math.max(0,p));tl.style.setProperty('--tlp',Math.round(q*100)+'%');var li=tl.children,n=li.length;for(var i=0;i<n;i++){li[i].classList.toggle('hit',q>=(n>1?i/(n-1):0)-.001&&q>0)}}
   window.addEventListener('scroll',fill,{passive:true});window.addEventListener('resize',fill);fill();
 })();
 
@@ -389,7 +396,7 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
   }),tick=false;
   function check(){
     tick=false;
-    var line=window.innerHeight*0.5,dist=Math.max(180,Math.min(340,window.innerHeight*0.38));
+    var line=kaVH()*0.5,dist=Math.max(180,Math.min(340,kaVH()*0.38));
     items.forEach(function(it){
       var r=it.ref.getBoundingClientRect();
       if(!r.height)return;
@@ -444,7 +451,7 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
   var steps=[].slice.call(document.querySelectorAll('#ablauf .steps li,.sum-abl .steps li')),tick=false;
   function check(){
     tick=false;
-    var vh=window.innerHeight,de=document.documentElement,maxS=Math.max(0,de.scrollHeight-vh),sy=window.pageYOffset||0;
+    var vh=kaVH(),de=document.documentElement,maxS=Math.max(0,de.scrollHeight-window.innerHeight),sy=window.pageYOffset||0;
     /* Ablauf: Start, wenn die Liste 25 % in den Bildschirm geschoben ist, fertig bei 80 %; am Seitenende alles gefüllt */
     steps.forEach(function(li){
       var home=!!li.closest('.sum-abl');
@@ -486,8 +493,8 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
   });
   function check(){
     tick=false;
-    var line=window.innerHeight*0.65;
-    var vh=window.innerHeight;
+    var line=kaVH()*0.65;
+    var vh=kaVH();
     ic=ic.filter(function(el){
       var r=el.getBoundingClientRect(),cy=r.top+r.height/2,ok;
       if(!r.width)return true;
