@@ -4595,3 +4595,7 @@ body.intro-quiet .hero-intro .hero-greeting,body.intro-quiet .hero-intro .hero-b
  :root[data-theme="dark"]:not(.never) .home-page .hero-v5 .hero-portrait .hero-photo{-webkit-mask-image:none!important;mask-image:none!important}
  :root[data-theme="dark"]:not(.never) .home-page .hero-v5 .hero-portrait::before{bottom:24%!important}
 }
+/* v170: Longevity – letzter Satz in eigener Zeile */
+html:not(.never) .lon-box p:has(+ .lon-cta){display:block!important}
+html:not(.never) .lon-box .lon-cta{display:block!important;margin-top:.8rem!important}
+html:not(.never) .lon-box .lon-cta::before{content:none!important}
