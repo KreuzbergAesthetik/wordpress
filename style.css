@@ -4599,3 +4599,8 @@ body.intro-quiet .hero-intro .hero-greeting,body.intro-quiet .hero-intro .hero-b
 html:not(.never) .lon-box p:has(+ .lon-cta){display:block!important}
 html:not(.never) .lon-box .lon-cta{display:block!important;margin-top:.8rem!important}
 html:not(.never) .lon-box .lon-cta::before{content:none!important}
+/* v170: Behandlungskarten nebeneinander (Desktop und Querformat): Filler | Neuromodulator, Haut | Pakete, Longevity darunter */
+@media (min-width:701px){
+ html:not(.never) #leistungen .groups{display:grid!important;columns:auto!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:1.25rem!important;align-items:start!important}
+ html:not(.never) #leistungen .groups>.grp{display:block!important;width:auto!important;margin:0!important}
+}
