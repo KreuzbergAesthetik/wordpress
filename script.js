@@ -77,7 +77,7 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
     var FADE=false;
     var P=null;var t=M.done?1:M.on?Math.max(0,Math.min(1,(y-M.off)/PIN)):(FADE?Math.max(0,Math.min(1,y/200)):1),e=t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
     docked=t>=1;
-    if(M.on&&docked&&!M.done){M.done=true;(function(){var it=document.querySelector('.hero-intro');if(!it)return;var ref=document.querySelector('.hero-photo')||it,b0=ref.getBoundingClientRect().top;document.body.classList.add('intro-collapsed');var b1=ref.getBoundingClientRect().top;M.cdD=Math.max(0,b0-b1);M.cdY=Math.max(1,y);})();try{sessionStorage.setItem(HKEY,'1')}catch(e){}try{if(String(window.name).indexOf(HKEY)<0)window.name=String(window.name||'')+' '+HKEY}catch(e){}document.body.classList.remove('wmfly');var lg=slot&&slot.previousElementSibling;if(lg)lg.style.opacity=''}
+    if(M.on&&docked&&!M.done){M.done=true;document.body.classList.add('intro-quiet');try{sessionStorage.setItem(HKEY,'1')}catch(e){}try{if(String(window.name).indexOf(HKEY)<0)window.name=String(window.name||'')+' '+HKEY}catch(e){}document.body.classList.remove('wmfly');var lg=slot&&slot.previousElementSibling;if(lg)lg.style.opacity=''}
     (function(){var d=lastY===null?0:y-lastY,on=y>24&&(d>0||(d===0&&actOn));if(y>24&&d<0)on=false;actOn=on;[].forEach.call(document.querySelectorAll('.hero-act svg.fillable'),function(s){s.classList.toggle('fill-on',on)})})();
     var dy=lastY===null?0:y-lastY;lastY=y;
     if(y<=2||!docked){col=false;upTravel=0;downTravel=0}
@@ -109,8 +109,6 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
     var hbb=document.getElementById('hbbtn');if(hbb){var dd=hbb.offsetLeft+hbb.offsetWidth/2-nav.clientWidth/2;hbb.style.transform=sc>1?'translateX('+(dd*(1/sc-1)).toFixed(1)+'px) scale('+(1/sc).toFixed(4)+')':'';hbb.style.pointerEvents='auto'}
     var hs=document.getElementById('hgslot'),hsOn=M.on&&hs&&hs.offsetParent!==null;hg.style.opacity=hsOn?'1':e.toFixed(3);wm.style.opacity=M.on?'':e.toFixed(3);wm.style.pointerEvents=e<.6?'none':'';
     place(cx0+(M.W/2-cx0)*e,wc,k);
-    /* Andocken ohne Sprung: der eingeklappte Begrüßungsbereich wird durch eine Verschiebung ausgeglichen, die sich beim Weiterscrollen (und zum Seitenanfang hin) sanft auflöst */
-    if(pinned&&M.done&&M.cdD){var cp=y<=M.cdY?M.cdD:Math.max(0,M.cdD-(y-M.cdY)*.6);pinned.style.transform=cp>.5?'translateY('+cp.toFixed(1)+'px)':''}
     /* Der Text unter dem Schriftzug steigt mit dem Schriftzug auf und schiebt sich unter ihm hindurch nach oben weg */
     (function(){var sv2=document.querySelector('.hero-service');if(!sv2)return;
       if(!M.on||(M.W<=0)){sv2.style.transform='';sv2.style.webkitMaskImage=sv2.style.maskImage='';return}
@@ -118,20 +116,18 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
       if(M.svGap==null&&!M.done&&y<=2){var ph0=document.querySelector('.hero-photo');sv2.style.transform='';if(ph0){var g0=ph0.getBoundingClientRect().top-sv2.getBoundingClientRect().bottom;M.svGap=Math.max(12,Math.min(80,g0))}}
       /* nach dem Andocken: Text scrollt normal mit und taucht beim Zurückscrollen wieder unter der Leiste auf */
       if(M.done){
-        /* Nach dem Andocken bleibt der Text unter der Leiste. Erst beim Zurückscrollen Richtung Seitenanfang gleitet er von oben unter der Leiste hervor – an den Scrollweg gekoppelt, ohne Sprung. */
-        sv2.style.transform='';var rd=sv2.getBoundingClientRect(),ed=topC+30;
-        /* Untertitel hängt mit festem Abstand über dem Kopf im Porträt und bewegt sich mit ihm */
-        /* Unterzeile der Leiste: sitzt direkt unter der Leiste; der Inhalt darunter (Kopf bzw. Startbereich) schiebt sie beim Weiterscrollen nach oben weg und nimmt sie beim Zurückscrollen wieder mit */
-        var wr2=wm.getBoundingClientRect(),dockTop=Math.max(wr2.bottom+10,ed+4),hgt=rd.height;
-        var anc=document.querySelector(M.W<=700?'.hero-photo':'.hero-v5'),at=anc?anc.getBoundingClientRect().top:1e4,gap=M.W<=700?(M.svGap!=null?M.svGap:14):18;
-        /* Ruhig ohne Zittern: klebt er unter der Leiste, zeigt eine feste Kopie (position:fixed, kein Gegenscrollen per Skript); wird er vom Inhalt geschoben, bewegt er sich mit fester Verschiebung natürlich mit */
-        var cl=M.svClone;if(!cl){cl=sv2.cloneNode(true);cl.removeAttribute('id');cl.setAttribute('aria-hidden','true');cl.className=sv2.className+' sv-fixed';var cs=getComputedStyle(sv2);['fontFamily','fontSize','fontWeight','fontStyle','lineHeight','letterSpacing','wordSpacing','color','textAlign','textWrap','textWrapStyle','whiteSpace','paddingLeft','paddingRight','boxSizing','fontFeatureSettings','textTransform'].forEach(function(k){if(cs[k]!=null)cl.style[k]=cs[k]});cl.style.maxWidth='none';cl.style.position='fixed';cl.style.margin='0';cl.style.pointerEvents='none';cl.style.zIndex='4';cl.style.display='none';document.body.appendChild(cl);M.svClone=cl}
-        var stuck=dockTop<=at-gap-hgt;
-        if(stuck){cl.style.display='block';cl.style.color=getComputedStyle(sv2).color;cl.style.top=dockTop+'px';cl.style.left=rd.left+'px';cl.style.width=rd.width+'px';cl.style.fontSize=getComputedStyle(sv2).fontSize;sv2.style.visibility='hidden';sv2.style.transform='';sv2.style.webkitMaskImage=sv2.style.maskImage='';sv2.style.filter=''}
-        else{cl.style.display='none';sv2.style.visibility='';var off=Math.round((at-gap-hgt)-rd.top);sv2.style.transform=off?'translateY('+off+'px)':'';
-          var rr=sv2.getBoundingClientRect(),hd=Math.max(0,ed-rr.top);sv2.style.webkitMaskImage=sv2.style.maskImage=hd>0?'linear-gradient(180deg,transparent '+hd.toFixed(0)+'px,#000 '+(hd+4).toFixed(0)+'px)':'';sv2.style.filter=''}
+        /* Unterzeile der Leiste: eine feste Zeile direkt unter der Leiste (gleiche Stelle wie beim Andocken, kein Umspringen).
+           Sie wird nicht pro Scrollschritt verschoben, sondern gleitet nur per CSS-Übergang weg (Inhalt erreicht sie) oder wieder herein. */
+        var cl=M.svClone;
+        if(!cl){sv2.style.transform='';var rd=sv2.getBoundingClientRect(),cs=getComputedStyle(sv2);cl=sv2.cloneNode(true);cl.removeAttribute('id');cl.setAttribute('aria-hidden','true');cl.className='sv-fixed';
+          ['fontFamily','fontSize','fontWeight','fontStyle','lineHeight','letterSpacing','wordSpacing','textAlign','textWrap','whiteSpace','paddingLeft','paddingRight','boxSizing','textTransform'].forEach(function(k){if(cs[k]!=null)cl.style[k]=cs[k]});
+          var wr2=wm.getBoundingClientRect(),ed=topC+30;M.svTop=Math.round(Math.max(wr2.bottom+10,ed+4));M.svH=rd.height;
+          cl.style.top=M.svTop+'px';cl.style.left=Math.round(rd.left)+'px';cl.style.width=Math.round(rd.width)+'px';document.body.appendChild(cl);M.svClone=cl;
+          sv2.style.visibility='hidden';sv2.style.transform='';sv2.style.webkitMaskImage=sv2.style.maskImage=''}
+        cl.style.color=getComputedStyle(sv2).color;
+        var anc=document.querySelector(M.W<=700?'.hero-photo':'.hero-v5'),at=anc?anc.getBoundingClientRect().top:1e4;
+        cl.classList.toggle('away',at<M.svTop+M.svH+14);
         return}
-      if(M.svClone)M.svClone.style.display='none';sv2.style.visibility='';
       if(pr<=0.001){sv2.style.transform='';sv2.style.filter='';sv2.style.webkitMaskImage=sv2.style.maskImage='';return}
       sv2.style.transform='';var r0=sv2.getBoundingClientRect();
       var edge=topC+30+0,D=r0.bottom-edge+8;

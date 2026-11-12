@@ -1,6 +1,6 @@
 # Übergabe: Website Kreuzberg Ästhetik (WordPress-Theme)
 
-Stand: 11. November 2026. **Theme-Version 168 wird veröffentlicht** (Chat-Termin-Knöpfe E-Mail/WhatsApp ohne Symbol, gleich groß; Zeitachse: Sanduhr dreht sich wie das Logo in der Leiste). Nächste Version: 169.
+Stand: 12. November 2026. **Theme-Version 169 wird veröffentlicht** (Kopfbereich neu: Andocken ohne Umbau, Untertitel als feste Unterzeile der Leiste; Porträt-Ausblendung weich; Handy: Abstand Porträt/Text). Nächste Version: 170.
 
 ## ZUERST LESEN – Kurzfassung für die neue Sitzung
 
