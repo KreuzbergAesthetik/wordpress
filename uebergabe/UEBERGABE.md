@@ -1,6 +1,6 @@
 # Übergabe: Website Kreuzberg Ästhetik (WordPress-Theme)
 
-Stand: 12. November 2026. **Theme-Version 170 wird veröffentlicht** (Chat-Preise an Preisliste angeglichen, Porträt endet vor dem Trenner, Longevity letzter Satz eigene Zeile, Kartenreihenfolge Desktop/Querformat). Nächste Version: 171.
+Stand: 12. November 2026. **Theme-Version 171 wird veröffentlicht** (Handy: Ein-/Ausblenden der Browserleiste lässt die Animationen nicht mehr springen). Nächste Version: 172.
 
 ## ZUERST LESEN – Kurzfassung für die neue Sitzung
 
