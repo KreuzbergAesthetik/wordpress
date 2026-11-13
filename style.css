@@ -4679,3 +4679,5 @@ html:not(.calm) .chat-window .chat-book:hover{transform:scale(1.06)}
 /* v173: Name und Rolle in der Chat-Kopfzeile etwas eingerückt (bündig zum Text in der Pille) */
 :root[data-theme]:not(.never) .chat-name{margin-left:.7rem}
 :root[data-theme]:not(.never) .chat-who small{margin-left:.7rem}
+/* v173: Chat-Wasserzeichen wächst nicht mit dem Gespräch – feste Größe, bei langem Gespräch kommt ein zweites mit gleichmäßigem Abstand dazu */
+:root[data-theme]:not(.never) .chat-window .chat::before{-webkit-mask-size:auto 15rem!important;mask-size:auto 15rem!important;-webkit-mask-repeat:no-repeat space!important;mask-repeat:no-repeat space!important;-webkit-mask-position:50% 50%!important;mask-position:50% 50%!important}

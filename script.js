@@ -132,7 +132,9 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
           ['fontFamily','fontSize','fontWeight','fontStyle','lineHeight','letterSpacing','wordSpacing','textAlign','textWrap','whiteSpace','paddingLeft','paddingRight','boxSizing','textTransform'].forEach(function(k){if(cs[k]!=null)cl.style[k]=cs[k]});
           var wr2=wm.getBoundingClientRect(),ed=topC+30;M.svTop=Math.round(Math.max(wr2.bottom+10,ed+4));M.svH=rd.height;
           cl.style.top=M.svTop+'px';cl.style.left=Math.round(rd.left)+'px';cl.style.width=Math.round(rd.width)+'px';document.body.appendChild(cl);M.svClone=cl;
-          sv2.style.visibility='hidden';sv2.style.transform='';sv2.style.webkitMaskImage=sv2.style.maskImage=''}
+          sv2.style.visibility='hidden';sv2.style.transform='';sv2.style.webkitMaskImage=sv2.style.maskImage='';
+          /* Abstand zwischen Unterzeile und Startbereich: nach dem Andocken schließt sich die leere Bühne des Schriftzugs, gekoppelt an den Scrollweg (am Andock-Punkt 0, ganz oben voll geschlossen – kein Sprung) */
+          var ph0=document.querySelector('.hero-photo');if(ph0){var tgt=M.W<=700?16:26;M.G=Math.max(0,Math.round(ph0.getBoundingClientRect().top-(M.svTop+M.svH)-tgt));M.dockY=Math.max(1,y)}}
         cl.style.color=getComputedStyle(sv2).color;
         var anc=document.querySelector(M.W<=700?'.hero-photo':'.hero-v5'),at=anc?anc.getBoundingClientRect().top:1e4;
         cl.classList.toggle('away',at<M.svTop+M.svH+14);
@@ -148,6 +150,7 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
       var r=sv2.getBoundingClientRect(),h=Math.max(0,edge-r.top),m='linear-gradient(180deg,transparent '+h.toFixed(1)+'px,#000 '+(h+4).toFixed(1)+'px)';
       sv2.style.filter='';
       sv2.style.webkitMaskImage=sv2.style.maskImage=m})();
+    if(M.done&&M.G>0&&M.dockY){var gi=document.querySelector('.hero-intro');if(gi){var gv=Math.round(M.G*(1-Math.min(1,y/M.dockY)));if(M.gv!==gv){M.gv=gv;if(gv)gi.style.setProperty('margin-bottom',(-gv)+'px','important');else gi.style.removeProperty('margin-bottom')}}}
     var cx,cy,kk;
     if(col){cx=M.W-12-28;cy=M.top+28;kk=38/M.hh}
     else{cx=(M.W-M.pw)/2+M.padL+22;cy=pc;kk=44/M.hh}
