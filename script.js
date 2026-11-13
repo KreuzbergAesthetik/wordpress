@@ -218,8 +218,8 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
   function pr(rows){return '<table class="cprices"><tbody>'+rows.map(function(r){return '<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>'}).join('')+'</tbody></table><p class="cfine">'+(D.chatFine||'')+'</p>'}
   function menu(){chips(order.filter(function(k){return !asked[k]}).map(function(k){return{label:T[k].label,icon:T[k].icon,fn:function(){topic(k)}}}))}
   function after(){
-    var l=[{label:'Wie läuft ein Termin ab?',fn:flow},{label:'Was soll ich mitbringen?',fn:bring}];
-    if(order.some(function(k){return !asked[k]}))l.push({label:'Noch ein anderes Thema',fn:function(){say(['Gern. Was noch?'],menu)}});
+    var l=[{label:'Wie läuft ein Termin ab?',icon:IC.list,fn:flow},{label:'Was soll ich mitbringen?',icon:IC.clipboard,fn:bring}];
+    if(order.some(function(k){return !asked[k]}))l.push({label:'Noch ein anderes Thema',icon:IC.bubble,fn:function(){say(['Gern. Was noch?'],menu)}});
     chips(l)}
   function topic(k){asked[k]=1;topics.push(dec(T[k].label));var t=T[k],parts=t.text.map(function(x){return '<p>'+x+'</p>'});if(t.prices)parts[parts.length-1]+=pr(t.prices);say(parts,after)}
   function flow(){say([(D.steps||[]).map(function(st,i){return '<p><b>'+(i+1)+'. '+st[0]+':</b> '+st[1]+'</p>'}).join('')],after)}
