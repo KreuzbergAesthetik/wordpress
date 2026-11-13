@@ -137,7 +137,7 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
           var ph0=document.querySelector('.hero-photo');if(ph0){var tgt=M.W<=700?16:26;M.G=Math.max(0,Math.round(ph0.getBoundingClientRect().top-(M.svTop+M.svH)-tgt));M.dockY=Math.max(1,y)}}
         cl.style.color=getComputedStyle(sv2).color;
         var anc=document.querySelector(M.W<=700?'.hero-photo':'.hero-v5'),at=anc?anc.getBoundingClientRect().top:1e4;
-        cl.classList.toggle('away',at<M.svTop+M.svH+14);
+        var lim=M.svTop+M.svH;if(at<lim+14)M.svAway=true;else if(at>lim+70)M.svAway=false;cl.classList.toggle('away',!!M.svAway);
         return}
       if(pr<=0.001){sv2.style.transform='';sv2.style.filter='';sv2.style.webkitMaskImage=sv2.style.maskImage='';return}
       sv2.style.transform='';var r0=sv2.getBoundingClientRect();
