@@ -75,14 +75,16 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
   var rest=[];(function(){if(!pin)return;var n=pin;while(n&&n!==document.body){var x=n.nextElementSibling;while(x){if(x.tagName!=='SCRIPT'&&x.tagName!=='FOOTER'&&x.id!=='navmenu'&&!x.classList.contains('wa')&&x.tagName!=='ASIDE')rest.push(x);x=x.nextElementSibling}n=n.parentElement;if(n&&n.tagName==='MAIN')break}})();
   function place(cx,cy,k){wm.style.transform='translate('+(cx-M.w0/2).toFixed(1)+'px,'+(cy-M.h0/2).toFixed(1)+'px) scale('+k.toFixed(4)+')'}
   function moved(){
-    if(!ready)return;
+    if(!ready||M.on)return;
     mast.classList.add('mv');clearTimeout(mvTimer);mvTimer=setTimeout(function(){mast.classList.remove('mv')},1600);
   }
   var actOn=false;
   function anim(y){
     var wasDocked=docked,wasCol=col;
     var FADE=false;
-    var P=null;var t=M.done?1:M.on?Math.max(0,Math.min(1,(y-M.off)/PIN)):(FADE?Math.max(0,Math.min(1,y/200)):1),e=t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+    /* Gegen Zittern am Handy: kleine Rückwärtsbewegungen (z. B. wenn die Browserleiste ein-/ausfährt) lassen die Einflug-Animation nicht zurückspringen */
+    var ya=y;if(M.on&&!M.done){if(M.ymax==null||y>M.ymax)M.ymax=y;else if(M.ymax-y<60)ya=M.ymax;else M.ymax=y}
+    var P=null;var t=M.done?1:M.on?Math.max(0,Math.min(1,(ya-M.off)/PIN)):(FADE?Math.max(0,Math.min(1,y/200)):1),e=t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
     docked=t>=1;
     if(M.on&&docked&&!M.done){M.done=true;document.body.classList.add('intro-quiet');try{sessionStorage.setItem(HKEY,'1')}catch(e){}try{if(String(window.name).indexOf(HKEY)<0)window.name=String(window.name||'')+' '+HKEY}catch(e){}document.body.classList.remove('wmfly');var lg=slot&&slot.previousElementSibling;if(lg)lg.style.opacity=''}
     (function(){var d=lastY===null?0:y-lastY,on=y>24&&(d>0||(d===0&&actOn));if(y>24&&d<0)on=false;actOn=on;[].forEach.call(document.querySelectorAll('.hero-act svg.fillable'),function(s){s.classList.toggle('fill-on',on)})})();
@@ -108,7 +110,7 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
     var slotC=M.on?slot.getBoundingClientRect().top+slot.offsetHeight/2:topC;
     var pcn=topC,wc=slotC+(topC-slotC)*e,k=M.on?M.k0+(M.k1-M.k0)*e:M.k1;
     var cx0=M.W/2;
-    if(M.on&&M.c0){var rg=document.createRange();rg.selectNodeContents(slot);var rb=rg.getBoundingClientRect();cx0=rb.left+rb.width/2;if(M.S0>topC+1){var L=Math.min(PIN||9999,(M.S0-topC)*2.4),q=M.done?1:Math.max(0,Math.min(1,y/L));q=q<.5?2*q*q:1-Math.pow(-2*q+2,2)/2;wc=M.S0+(topC-M.S0)*q;k=M.k0+(M.k1-M.k0)*q;P=q;}else{var sy0=Math.max(topC,rb.top+rb.height/2);wc=sy0+(topC-sy0)*e;}
+    if(M.on&&M.c0){var rg=document.createRange();rg.selectNodeContents(slot);var rb=rg.getBoundingClientRect();cx0=rb.left+rb.width/2;if(M.S0>topC+1){var L=Math.min(PIN||9999,(M.S0-topC)*2.4),q=M.done?1:Math.max(0,Math.min(1,ya/L));q=q<.5?2*q*q:1-Math.pow(-2*q+2,2)/2;wc=M.S0+(topC-M.S0)*q;k=M.k0+(M.k1-M.k0)*q;P=q;}else{var sy0=Math.max(topC,rb.top+rb.height/2);wc=sy0+(topC-sy0)*e;}
       wm.style.color=e>=1?'':'rgb('+[0,1,2].map(function(j){return Math.round(M.c0[j]+(M.c1[j]-M.c0[j])*e)}).join(',')+')'}
     nav.style.setProperty('--ty',(pcn-topC).toFixed(1)+'px');tyApplied=(pcn-topC).toFixed(1)+'px';
     var pc=pcn;
@@ -216,8 +218,8 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
   function pr(rows){return '<table class="cprices"><tbody>'+rows.map(function(r){return '<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>'}).join('')+'</tbody></table><p class="cfine">'+(D.chatFine||'')+'</p>'}
   function menu(){chips(order.filter(function(k){return !asked[k]}).map(function(k){return{label:T[k].label,icon:T[k].icon,fn:function(){topic(k)}}}))}
   function after(){
-    var l=[{label:'Wie läuft ein Termin ab?',fn:flow},{label:'Was soll ich mitbringen?',fn:bring}];
-    if(order.some(function(k){return !asked[k]}))l.push({label:'Noch ein anderes Thema',fn:function(){say(['Gern. Was noch?'],menu)}});
+    var l=[{label:'Wie läuft ein Termin ab?',icon:IC.list,fn:flow},{label:'Was soll ich mitbringen?',icon:IC.clipboard,fn:bring}];
+    if(order.some(function(k){return !asked[k]}))l.push({label:'Noch ein anderes Thema',icon:IC.bubble,fn:function(){say(['Gern. Was noch?'],menu)}});
     chips(l)}
   function topic(k){asked[k]=1;topics.push(dec(T[k].label));var t=T[k],parts=t.text.map(function(x){return '<p>'+x+'</p>'});if(t.prices)parts[parts.length-1]+=pr(t.prices);say(parts,after)}
   function flow(){say([(D.steps||[]).map(function(st,i){return '<p><b>'+(i+1)+'. '+st[0]+':</b> '+st[1]+'</p>'}).join('')],after)}
@@ -573,9 +575,13 @@ document.addEventListener('click',function(e){
     document.head.appendChild(css);
     function update(){
       var order=cards.slice();
+      cards.forEach(function(c){c.classList.remove('col2-start')});
       if(mq.matches && neuro && filler){
-        var a=order.indexOf(neuro),b=order.indexOf(filler);
-        order[a]=filler;order[b]=neuro;
+        /* Zwei unabhängige Spalten: links Filler und Haut, rechts Neuromodulator und Pakete */
+        var haut=cards.find(function(el){return /^Haut\b/i.test((el.querySelector('h3')||{}).textContent||'')});
+        var pak=cards.find(function(el){return /^Pakete\b/i.test((el.querySelector('h3')||{}).textContent||'')});
+        var left=[filler,haut].filter(Boolean),right=[neuro,pak].filter(Boolean),rest=cards.filter(function(c){return left.indexOf(c)<0&&right.indexOf(c)<0});
+        order=left.concat(right,rest);neuro.classList.add('col2-start');
       }
       order.forEach(function(card){grid.appendChild(card);});
     }

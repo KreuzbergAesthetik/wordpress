@@ -395,9 +395,10 @@ function ka_view_services() {
     <div class="chat-help" id="chat-hilfe">
       <h3 class="chat-h"><?php echo ka( 'chat_h' ); ?></h3>
       <div class="chat-window">
-        <div class="chat-top"><span class="cav" aria-hidden="true"></span><span class="chat-who"><b>Manuel von Kreuzberg Ästhetik</b><small>Automatische Antworten, von mir persönlich verfasst</small></span></div>
+        <div class="chat-top"><span class="cav" aria-hidden="true"></span><span class="chat-who"><span class="chat-badge"><?php echo ka( 'brand' ); ?></span><a class="chat-name" href="<?php echo esc_url( ka_url( 'ueber-mich' ) ); ?>"><b><?php echo ka( 'chat_name' ); ?></b><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a><small><?php echo ka( 'chat_role' ); ?></small></span></div>
+        <p class="chat-auto"><?php echo ka( 'chat_auto' ); ?></p>
         <div class="chat" id="chat" role="log" aria-live="polite" aria-relevant="additions"></div>
-        <div class="chat-input"><div class="chat-chips" id="chat-chips"><span class="chat-ph">Wähle eine Antwort …</span></div><button type="button" class="chat-book" id="chat-book"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span>Termin</span></button></div>
+        <div class="chat-input"><div class="chat-chips" id="chat-chips"><span class="chat-ph">Wähle eine Antwort …</span></div><button type="button" class="chat-book" id="chat-book" aria-label="<?php echo ka( 'chat_book_label' ); ?>" title="<?php echo ka( 'chat_book_label' ); ?>"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span class="chat-tip"><?php echo ka( 'chat_book_label' ); ?></span></button></div>
       </div>
     </div>
   </div>

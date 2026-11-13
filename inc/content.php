@@ -78,6 +78,10 @@ function ka_fields() {
 	$add( $s, 'lei_intro', 'Einleitung', 'area', 'Hier siehst Du alle Behandlungen mit Preisen. Nach einem ausführlichen Gespräch entscheiden wir gemeinsam, was für Dich sinnvoll ist.' );
 	$add( $s, 'chat_h', 'Überschrift über dem Gespräch', 'text', 'Unsicher, was zu Dir passt?' );
 	$add( $s, 'chat_intro', 'Erste Frage im Chat', 'text', 'Was beschäftigt Dich gerade?' );
+	$add( $s, 'chat_name', 'Chat: Name in der Kopfzeile', 'text', 'Manuel' );
+	$add( $s, 'chat_role', 'Chat: Zeile unter dem Namen', 'text', 'Arzt für ästhetische Medizin' );
+	$add( $s, 'chat_auto', 'Chat: Hinweis über dem Gespräch', 'text', 'Automatische Antworten' );
+	$add( $s, 'chat_book_label', 'Chat: Hilfetext am Termin-Knopf', 'text', 'Termin vereinbaren' );
 	$add( $s, 'chat_fine', 'Kleingedrucktes unter den Preisen im Chat', 'text', 'Preise inklusive 19 % MwSt., Abrechnung auf Honorarbasis.' );
 	$add( $s, 'chat_topics', 'Themen im Chat', 'area',
 "## Falten und Mimik
@@ -419,7 +423,7 @@ function ka_js_data() {
 	return array(
 		'phone'      => ka_digits( ka_raw( 'phone_link' ) ),
 		'mail'       => ka_raw( 'email' ),
-		'icons'      => array( 'mail' => ka_icon( 'mail' ), 'whatsapp' => ka_icon( 'whatsapp' ), 'person' => ka_icon( 'person' ) ),
+		'icons'      => array( 'mail' => ka_icon( 'mail' ), 'whatsapp' => ka_icon( 'whatsapp' ), 'person' => ka_icon( 'person' ), 'list' => ka_icon( 'list' ), 'clipboard' => ka_icon( 'clipboard' ), 'bubble' => ka_icon( 'bubble' ) ),
 		'smsText'    => ka_raw( 'sms_text' ),
 		'btn'        => ka_raw( 'msg_label' ),
 		'chatIntro'  => esc_html( ka_raw( 'chat_intro' ) ),
