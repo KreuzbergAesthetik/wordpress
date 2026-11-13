@@ -1,6 +1,6 @@
 # Übergabe: Website Kreuzberg Ästhetik (WordPress-Theme)
 
-Stand: 13. November 2026. **Theme-Version 172 wird veröffentlicht** (Chat im neuen Design: Verlaufskopf mit Name und Link zu Über mich, runder Termin-Knopf, Icons, Wasserzeichen; Behandlungskarten in zwei Spalten; Einflug-Animation springt am Handy nicht mehr zurück). Nächste Version: 173.
+Stand: 13. November 2026. **Theme-Version 173 wird veröffentlicht** (Abstand zwischen Unterzeile und Startbereich nach der Animation kleiner, Chat-Wasserzeichen fest, Dunkelmodus: helle Knöpfe ohne Schatten mit Halo beim Überfahren, ruhigeres Scrollen). Nächste Version: 174.
 
 ## ZUERST LESEN – Kurzfassung für die neue Sitzung
 
