@@ -4668,3 +4668,5 @@ html:not(.calm) .chat-window .chat-book:hover{transform:scale(1.06)}
 :root[data-theme]:not(.never) .chat-window .chat-input{background:linear-gradient(180deg,#012265 0%,#143a9c 40%,#5b83dc 100%)!important}
 /* v173: Sprechblasen von Manuel in deutlich hellerem Grau */
 :root[data-theme]:not(.never) .chat-window .crow:not(.me) .cbub,:root[data-theme]:not(.never) .chat-window .cbub.ctyping{background:#eeeff2!important}
+/* v173: Antwortleiste genau gespiegelt zur Kopfzeile – oben hell, unten dunkel im Markenblau */
+:root[data-theme]:not(.never) .chat-window .chat-input{background:linear-gradient(180deg,#3a63c7 0%,#0c3290 62%,#012265 100%)!important}
