@@ -4670,3 +4670,12 @@ html:not(.calm) .chat-window .chat-book:hover{transform:scale(1.06)}
 :root[data-theme]:not(.never) .chat-window .crow:not(.me) .cbub,:root[data-theme]:not(.never) .chat-window .cbub.ctyping{background:#eeeff2!important}
 /* v173: Antwortleiste genau gespiegelt zur Kopfzeile – oben hell, unten dunkel im Markenblau */
 :root[data-theme]:not(.never) .chat-window .chat-input{background:linear-gradient(180deg,#3a63c7 0%,#0c3290 62%,#012265 100%)!important}
+/* v173: Wasserzeichen im Chat-Hintergrund – immer vollständig sichtbar, auch im Hochformat (feste Mindesthöhe, Logo nach Höhe skaliert) */
+:root[data-theme]:not(.never) .chat-window .chat{min-height:19rem!important;position:relative}
+:root[data-theme]:not(.never) .chat-window .chat::before{-webkit-mask-size:auto 82%!important;mask-size:auto 82%!important;-webkit-mask-position:50% 50%!important;mask-position:50% 50%!important}
+:root[data-theme="dark"]:not(.never) .chat-window .chat::before{background:rgba(255,255,255,.1)!important}
+:root:not([data-theme="dark"]) .chat-window .chat::before{background:rgba(1,34,101,.13)!important}
+@media (max-width:700px){:root[data-theme]:not(.never) .chat-window .chat{min-height:21rem!important}}
+/* v173: Name und Rolle in der Chat-Kopfzeile etwas eingerückt (bündig zum Text in der Pille) */
+:root[data-theme]:not(.never) .chat-name{margin-left:.7rem}
+:root[data-theme]:not(.never) .chat-who small{margin-left:.7rem}
