@@ -8,6 +8,8 @@ Stand: 13. November 2026. **Theme-Version 173 wird veröffentlicht** (Abstand zw
 
 ### So arbeitet Manuel mit Dir (wichtig)
 
+- **Gestaltungs-Standards:** Vor jeder Gestaltungsänderung `README.txt` → „GESTALTUNGS-STANDARDS“ lesen (Farben, Schriften, Knöpfe, Animationen, Geräte, Prüfliste). Manuels Leitsatz: im Zweifel die elegantere, stilvollere Variante. Prüfskript: `uebergabe/audit.js`.
+
 - **Nicht nerven:** Er will wenig Rückfragen und keine langen Erklärungen. Nur bei echter Unsicherheit fragen („Frage bei Unsicherheit“ war seine Ansage), vor allem bei unleserlichen Handschrift-Markierungen in Screenshots. Kurz sagen, wie Du es gelesen hast, und weitermachen.
 - **Unklare Kommentare:** Er tippt per Sprache und mit Tippfehlern („unsxgatd“ = „unscharf“, „Landgamer“ = „Langsamer“). Sinn erschließen, in der Antwort kurz nennen, wie gelesen.
 - **Veröffentlichen nur auf Befehl (Regel von Manuel, 5. November, gilt vor allem anderen):** Nichts geht automatisch auf die Website. Eine gewünschte Änderung wird umgesetzt und getestet und bleibt **unveröffentlicht** auf dem Arbeitszweig. Eine **Vorschau** wird erst auf Nachfrage gemacht. Erst auf einen ausdrücklichen Befehl wie „Veröffentliche“ folgt der Ablauf unten (Version erhöhen, Pull Request, Übertragung). Nicht von selbst nachfragen „soll ich veröffentlichen?“ und nicht aus Sätzen wie „ja“ oder „okay“ auf Veröffentlichen schließen, wenn sie sich auf etwas anderes beziehen. Eine Übertragung nur starten, wenn der Befehl eindeutig dazu da ist. Auch ein Pull Request nach `main` mit Theme-Änderungen zählt zum Veröffentlichen und kommt erst auf den Befehl (reine Dokumentation wie diese Datei ist ausgenommen, damit sie im nächsten Chat ankommt).
@@ -149,12 +151,14 @@ Vorschau (Artifact, privat): https://claude.ai/artifact/Rdvj7GY2bT1qWwiSXGoRHZ
 
 ## Einheitliche Gestaltung (seit 132)
 
+**Verbindlich sind seit Version 174 die „GESTALTUNGS-STANDARDS“ in `README.txt` (Hauptordner).** Wo dieser ältere Abschnitt abweicht (z. B. Knopf-Schriftstärke), gilt die README.
+
 Am Ende von `style.css` stehen Gestaltungs-Variablen: `--r-card` (Karten-Rundung 22 px, Handy 18 px), `--r-small` (12/11 px für Aufklapper und Eingabefelder), `--sh-card` (einheitlicher Kartenschatten), `--bd-card` (Kartenrand). Regeln:
 - Alle Karten (Kacheln, Behandlungskarten, Schritte, Preisgruppen, Checkliste, Formular, Rechtstexte) nutzen dieselbe Rundung, denselben Schatten und denselben Rand.
 - Etiketten über Überschriften überall als grüne Pille.
 - Abschnittsüberschriften (h2) Literata 42/31 px, mittig; nur auf den zweispaltigen Seiten "Über mich" und "Kontakt" linksbündig.
 - Zwischenüberschriften (h3) Literata 400, 24/22 px; Schritt-Titel Quicksand 700.
-- Alle Knöpfe Schriftstärke 700, Pillenform.
+- Alle Textknöpfe: Pillenform, 36 px hoch, Schrift 15 px, Stärke 500 (seit 174; vorher 700).
 - Ablaufseite: Schritte wie Startseite (Symbol als Wasserzeichen, keine Nummer).
 - Bewusste Ausnahme: "Hi, ich bin Manuel." und "Meine Philosophie" im Startbereich in Quicksand (nach Manuels Vorlage).
 - Werte Startseite: Professionalität / Authentizität / Inklusivität (Erklärung auf "Über mich").
