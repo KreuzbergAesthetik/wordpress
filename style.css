@@ -4753,10 +4753,10 @@ html:not(#ka) .home-page .hero-v5 .hero-act{min-height:36px!important}
 :root[data-theme="dark"] article.grp{background:linear-gradient(180deg,#1a45a6 0%,#123a98 100%)!important;border:1px solid rgba(170,198,245,.4)!important;box-shadow:0 0 28px 2px rgba(110,150,235,.22)!important}
 :root[data-theme="dark"] .grp .subgrp,:root[data-theme="dark"] .grp .subgrp:not(.has-h){background:rgba(255,255,255,.08)!important;border:1px solid rgba(220,232,250,.16)!important}
 :root[data-theme="dark"] .grp .subgrp small.ex,:root[data-theme="dark"] .grp .subgrp s,:root[data-theme="dark"] .grp .pk-note,:root[data-theme="dark"] .grp .row-sub td{color:rgba(236,242,252,.8)!important}
-/* v174: Ablauf und Fragen (Ablauf-Seite und Startseiten-Abschnitt) – Punkte an der Leiste zuerst durchscheinend (nur ein dunkelblauer Ring), beim Scrollen füllt sich einer nach dem anderen: hell dunkelblau, dunkel hellgrau-blau */
-html:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps li::before{background:transparent!important;border-color:#012265!important}
+/* v174: Ablauf und Fragen (Ablauf-Seite und Startseiten-Abschnitt) – Punkte an der Leiste zuerst leer (nur ein Ring in der Farbe des Hintergrunds, die Linie läuft nicht hindurch), beim Scrollen füllt sich einer nach dem anderen: hell dunkelblau, dunkel hellgrau-blau */
+html:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps li::before{background:#eff3fb!important;border-color:#012265!important}
 html:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps li.st-hit::before,html.calm:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps li::before{background:#012265!important}
-html:not(#ka)[data-theme="dark"] :is(#ablauf,.sum-abl) .steps li::before{background:transparent!important;border-color:rgba(229,235,246,.75)!important}
+html:not(#ka)[data-theme="dark"] :is(#ablauf,.sum-abl) .steps li::before{background:#0a2e78!important;border-color:rgba(229,235,246,.75)!important}
 html:not(#ka)[data-theme="dark"] :is(#ablauf,.sum-abl) .steps li.st-hit::before,html.calm:not(#ka)[data-theme="dark"] :is(#ablauf,.sum-abl) .steps li::before{background:#dfe7f5!important}
 /* v174: Auslaufende Punkte hinter dem Zeitstrahl (Startseite) – zunächst unsichtbar; sobald die Sanduhr erreicht ist, blenden sie einer nach dem anderen ein, jeder schwächer als der vorige, bis sie auslaufen */
 @supports selector(:has(*)){
@@ -4773,3 +4773,5 @@ html:not(#ka)[data-theme="dark"] :is(#ablauf,.sum-abl) .steps li.st-hit::before,
  html:not(#ka) .home-page .hero-v5 .hero-portrait{height:auto!important;min-height:0!important;padding-bottom:0!important;margin-bottom:0!important}
  html:not(#ka) .home-page .hero-v5{padding-top:calc((100vw - 36px) * .66 - 30vw)!important}
 }
+/* v174: Ablauf und Fragen (hell) – Leiste und Striche zu den Karten von Anfang an dunkelblau */
+html:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps::before,html:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps li::after{background:#012265!important}
