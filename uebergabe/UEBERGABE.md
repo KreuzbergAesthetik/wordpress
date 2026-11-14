@@ -1,6 +1,6 @@
 # Übergabe: Website Kreuzberg Ästhetik (WordPress-Theme)
 
-Stand: 14. November 2026. **Theme-Version 174 wird veröffentlicht** (Animationen vereinheitlicht: ein Tempo für alle Knöpfe, weiches Aufklappen, Zeitstrahl hell wie dunkel; Tablet hochkant: Startbereich in voller Breite; heller Hintergrund überall Hellblau; größere Mindestschrift und Tippflächen; Preisliste mit besserem Kontrast; Textknöpfe einheitlich 36 px; Gestaltungs-Standards in README.txt). Nächste Version: 175.
+Stand: 14. November 2026. **Theme-Version 175 wird veröffentlicht** (Dunkelmodus: Chat-Verlauf mit höchstem Kontrast nach außen, hellere Behandlungskarten mit dunkleren Preistabellen; Ablauf und FAQ: Punkte leer, dann gefüllt, Striche dunkelblau; Zeitstrahl: auslaufende Punkte blenden nacheinander ein, Sanduhr dreht bei jedem Erreichen; Startbereich Handy: Porträt breiter und kürzer, Text näher). Nächste Version: 176.
 
 ## ZUERST LESEN – Kurzfassung für die neue Sitzung
 

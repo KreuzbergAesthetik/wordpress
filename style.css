@@ -2,7 +2,7 @@
 Theme Name: Kreuzberg Ästhetik
 Description: Website der Privatpraxis Kreuzberg Ästhetik
 Author: Kreuzberg Ästhetik
-Version: 174
+Version: 175
 Requires at least: 6.0
 Requires PHP: 7.4
 Text Domain: kreuzberg-aesthetik
@@ -4744,3 +4744,37 @@ html:not(#ka) .home-page .hero-v5 .hero-act{min-height:36px!important}
 /* Tippfläche bleibt trotz flacher Form groß genug */
 :is(section.sum-kon p.sum-contact .btn,.kon-page-btns .btn.hero-main,#contact-form .btn,.cbtn-two .cbtn){position:relative}
 :is(section.sum-kon p.sum-contact .btn,.kon-page-btns .btn.hero-main,#contact-form .btn,.cbtn-two .cbtn)::after{content:"";position:absolute;inset:-5px 0}
+/* v174 (Versuch): Chat im Dunkelmodus – Verlauf mit dem höchsten Kontrast nach außen, also genau umgekehrt zur hellen Ansicht:
+   Kopfzeile oben hellblau, nach unten ins Markenblau; Antwortleiste oben ins Markenblau, unten hellblau. */
+:root[data-theme="dark"]:not(.never) .chat-top{background:linear-gradient(180deg,#8fb0ea 0%,#4f78d0 34%,#1b449f 70%,#0a2c82 100%)!important}
+:root[data-theme="dark"]:not(.never) .chat-window .chat-input{background:linear-gradient(180deg,#0a2c82 0%,#1b449f 30%,#4f78d0 66%,#8fb0ea 100%)!important}
+:root[data-theme="dark"]:not(.never) .chat-top .chat-name,:root[data-theme="dark"]:not(.never) .chat-top small{text-shadow:0 1px 6px rgba(1,20,70,.45)}
+/* v174 (Versuch): Behandlungskarten im Dunkelmodus heller und klarer vom Hintergrund abgesetzt – hellere Blaufläche, deutlicherer Rand, sanfter Halo */
+:root[data-theme="dark"] article.grp{background:linear-gradient(180deg,#1a45a6 0%,#123a98 100%)!important;border:1px solid rgba(170,198,245,.4)!important;box-shadow:0 0 28px 2px rgba(110,150,235,.22)!important}
+:root[data-theme="dark"] .grp .subgrp,:root[data-theme="dark"] .grp .subgrp:not(.has-h){background:rgba(255,255,255,.08)!important;border:1px solid rgba(220,232,250,.16)!important}
+:root[data-theme="dark"] .grp .subgrp small.ex,:root[data-theme="dark"] .grp .subgrp s,:root[data-theme="dark"] .grp .pk-note,:root[data-theme="dark"] .grp .row-sub td{color:rgba(236,242,252,.8)!important}
+/* v174: Ablauf und Fragen (Ablauf-Seite und Startseiten-Abschnitt) – Punkte an der Leiste zuerst leer (nur ein Ring in der Farbe des Hintergrunds, die Linie läuft nicht hindurch), beim Scrollen füllt sich einer nach dem anderen: hell dunkelblau, dunkel hellgrau-blau */
+html:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps li::before{background:#eff3fb!important;border-color:#012265!important}
+html:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps li.st-hit::before,html.calm:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps li::before{background:#012265!important}
+html:not(#ka)[data-theme="dark"] :is(#ablauf,.sum-abl) .steps li::before{background:#0a2e78!important;border-color:rgba(229,235,246,.75)!important}
+html:not(#ka)[data-theme="dark"] :is(#ablauf,.sum-abl) .steps li.st-hit::before,html.calm:not(#ka)[data-theme="dark"] :is(#ablauf,.sum-abl) .steps li::before{background:#dfe7f5!important}
+/* v174: Auslaufende Punkte hinter dem Zeitstrahl (Startseite) – zunächst unsichtbar; sobald die Sanduhr erreicht ist, blenden sie einer nach dem anderen ein, jeder schwächer als der vorige, bis sie auslaufen */
+@supports selector(:has(*)){
+ html:not(.calm) .sum-about .tl::after{opacity:0;clip-path:inset(0 100% 0 0);transition:opacity .5s ease,clip-path .45s ease}
+ html:not(.calm) .sum-about .tl:has(>li:last-child.hit)::after{opacity:.55;clip-path:inset(0 0 0 0);transition:opacity .9s ease .7s,clip-path 2.4s cubic-bezier(.3,.55,.3,1) .7s}
+ @media (max-width:700px){
+  html:not(.calm) .sum-about .tl::after{clip-path:inset(0 0 100% 0)}
+  html:not(.calm) .sum-about .tl:has(>li:last-child.hit)::after{clip-path:inset(0 0 0 0)}
+ }
+}
+/* v174: Startbereich am Handy – Porträt breiter, zeigt etwas weniger Körper (unten gekürzt, die Ausblendung rückt mit nach oben) und der Text folgt dicht darunter */
+@media (max-width:700px){
+ html:not(#ka) .home-page .hero-v5 .hero-portrait{width:100vw!important;margin-left:4.1vw!important;height:auto!important;min-height:0!important;padding-bottom:0!important;margin-bottom:0!important}
+ html:not(#ka) .home-page .hero-v5 .hero-portrait .hero-photo{width:100%!important;aspect-ratio:900/880!important;height:auto!important;object-fit:cover!important;object-position:50% 0!important;margin-bottom:0!important}
+ html:not(#ka) .home-page .hero-v5{padding-top:calc((100vw - 36px) * .66 - 39vw)!important}
+ html:not(#ka) .home-page .hero-only{overflow-x:clip}
+}
+/* v174: Ablauf und Fragen (hell) – Leiste und Striche zu den Karten von Anfang an dunkelblau */
+html:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps::before,html:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps li::after{background:#012265!important}
+/* v174: Preistabellen auf den Behandlungskarten im Dunkelmodus wieder dunkler – mehr Kontrast zur helleren Karte */
+:root[data-theme="dark"] .grp .subgrp,:root[data-theme="dark"] .grp .subgrp:not(.has-h){background:rgba(2,22,78,.42)!important;border:1px solid rgba(190,212,248,.16)!important}
