@@ -4744,3 +4744,12 @@ html:not(#ka) .home-page .hero-v5 .hero-act{min-height:36px!important}
 /* Tippfläche bleibt trotz flacher Form groß genug */
 :is(section.sum-kon p.sum-contact .btn,.kon-page-btns .btn.hero-main,#contact-form .btn,.cbtn-two .cbtn){position:relative}
 :is(section.sum-kon p.sum-contact .btn,.kon-page-btns .btn.hero-main,#contact-form .btn,.cbtn-two .cbtn)::after{content:"";position:absolute;inset:-5px 0}
+/* v174 (Versuch): Chat im Dunkelmodus – Verlauf mit dem höchsten Kontrast nach außen, also genau umgekehrt zur hellen Ansicht:
+   Kopfzeile oben hellblau, nach unten ins Markenblau; Antwortleiste oben ins Markenblau, unten hellblau. */
+:root[data-theme="dark"]:not(.never) .chat-top{background:linear-gradient(180deg,#8fb0ea 0%,#4f78d0 34%,#1b449f 70%,#0a2c82 100%)!important}
+:root[data-theme="dark"]:not(.never) .chat-window .chat-input{background:linear-gradient(180deg,#0a2c82 0%,#1b449f 30%,#4f78d0 66%,#8fb0ea 100%)!important}
+:root[data-theme="dark"]:not(.never) .chat-top .chat-name,:root[data-theme="dark"]:not(.never) .chat-top small{text-shadow:0 1px 6px rgba(1,20,70,.45)}
+/* v174 (Versuch): Behandlungskarten im Dunkelmodus heller und klarer vom Hintergrund abgesetzt – hellere Blaufläche, deutlicherer Rand, sanfter Halo */
+:root[data-theme="dark"] article.grp{background:linear-gradient(180deg,#1a45a6 0%,#123a98 100%)!important;border:1px solid rgba(170,198,245,.4)!important;box-shadow:0 0 28px 2px rgba(110,150,235,.22)!important}
+:root[data-theme="dark"] .grp .subgrp,:root[data-theme="dark"] .grp .subgrp:not(.has-h){background:rgba(255,255,255,.08)!important;border:1px solid rgba(220,232,250,.16)!important}
+:root[data-theme="dark"] .grp .subgrp small.ex,:root[data-theme="dark"] .grp .subgrp s,:root[data-theme="dark"] .grp .pk-note,:root[data-theme="dark"] .grp .row-sub td{color:rgba(236,242,252,.8)!important}
