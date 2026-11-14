@@ -4707,3 +4707,29 @@ html:not(.calm) .faq details[open]>*:not(summary),html:not(.calm) .vrow[open]>*:
 html:not(#ka):not(.calm) .sum-about .tl li .node{transition:transform .3s cubic-bezier(.25,.8,.35,1),background-color .3s ease,border-color .3s ease,color .3s ease!important}
 html:not(#ka):not(.calm) .sum-about .tl li.hit .node{animation:ka-tlpop .5s cubic-bezier(.25,.8,.35,1) 1}
 html:not(#ka):not(.calm) .sum-about .tl li:hover .node{transform:scale(1.1)}
+/* v174: Lesbarkeit, Bedienung und Einheitlichkeit (Recap) */
+/* 1) Tablet hochkant: Der Startbereich nutzt die Breite aus, statt als verkleinerter Desktop mit 10-px-Schrift zu erscheinen.
+      Alle Maße des Startbereichs hängen an --u; die leeren Seitenränder der Vorlage fallen dabei weg. */
+@media (min-width:701px) and (max-width:900px) and (orientation:portrait){
+ .home-page{--u:1.22vw}
+ .home-page .hero-v5{margin-left:calc((100% - 100 * var(--u)) / 2 - 4 * var(--u))!important}
+ .home-page .hero-only{overflow-x:clip}
+}
+/* 2) Heller Modus: Seitenhintergrund überall das Hellblau der Startseite (vorher auf Unterseiten Beige bis Lavendel am Seitenrand) */
+:root:not([data-theme="dark"]) body{background:#f5f8fd!important}
+/* 3) Mindest-Schriftgrößen */
+.chat-window .chat-badge{font-size:.6875rem!important}
+.chat-window .chat-chips .cchip{font-size:.8125rem!important;min-height:36px!important}
+.grp td small.ex{font-size:max(.78em,11.5px)!important}
+#contact-form .consent{font-size:.75rem!important}
+@media (max-width:700px){#contact-form label:not(.consent){font-size:.8125rem!important}}
+/* 3) Tippflächen: Die Knöpfe bleiben optisch so flach wie sie sind, die berührbare Fläche wird unsichtbar auf gut 44 px erweitert */
+.hero-act,.lei-btn,footer .ft-l,footer .ft-r,.tinfo-btn:not(.sd-i){position:relative}
+.hero-act::after,.lei-btn::after{content:"";position:absolute;inset:-5px 0}
+footer .ft-l::after,footer .ft-r::after{content:"";position:absolute;inset:-10px -8px}
+.tinfo-btn::after{content:"";position:absolute;inset:-8px -13px}
+.side-close::after{content:"";position:absolute;inset:-4px}
+/* 4) Kontraste in der Preisliste (hell): Nebenzeilen und Hinweis gut lesbar (mind. 4,5:1) */
+:root:not([data-theme="dark"]) .grp .row-sub td,:root:not([data-theme="dark"]) .grp .pk-note,:root:not([data-theme="dark"]) .grp .pr.pr-note,:root:not([data-theme="dark"]) #leistungen .note-bottom{color:#5b6b8c!important}
+/* 6) Schwebender Nachrichtenknopf am Handy etwas kleiner, damit er weniger Inhalt verdeckt */
+@media (max-width:700px){#wa-float{width:48px!important;height:48px!important}}

@@ -297,12 +297,12 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
 /* Ladeanimation nur beim ersten Besuch pro Sitzung */
 try{sessionStorage.setItem('ka_seen','1')}catch(e){}
 
-/* Schwebender Nachrichtenknopf: ausblenden, wenn Kontaktkarten oder Fußzeile sichtbar sind */
+/* Schwebender Nachrichtenknopf: ausblenden, wenn Kontaktkarten, Fußzeile oder der Text des Startbereichs (mit eigenem Kontakt-Knopf) sichtbar sind */
 (function(){
   var wa=document.getElementById('wa-float');if(!wa||!('IntersectionObserver' in window))return;
   var seen=new Set();
   var io=new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?seen.add(e.target):seen.delete(e.target)});wa.classList.toggle('wa-hide',seen.size>0)},{rootMargin:'0px 0px -12% 0px'});
-  [].forEach.call(document.querySelectorAll('.pills,#contact-form,.contact .txt,footer'),function(el){io.observe(el)});
+  [].forEach.call(document.querySelectorAll('.pills,#contact-form,.contact .txt,footer,.hero-v5 .hero-who,.hero-v5 .hero-text,.hero-v5 .hero-actions'),function(el){io.observe(el)});
 })();
 
 /* Schwebenden Kontakt-Knopf ausblenden, sobald das Kontakt-Band oder die Fußzeile im Bild ist */
