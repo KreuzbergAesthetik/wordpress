@@ -448,7 +448,7 @@ function ka_view_faq() {
     </div>
     <div class="faq">
       <?php foreach ( ka_faq() as $i => $qa ) : ?>
-      <details<?php echo 0 === $i ? ' open' : ''; ?>><summary><?php echo esc_html( $qa[0] ); ?></summary><p><?php echo ka_mark( esc_html( $qa[1] ) ); ?></p></details>
+      <details name="ka-faq"<?php echo 0 === $i ? ' open' : ''; ?>><summary><?php echo esc_html( $qa[0] ); ?></summary><p><?php echo ka_mark( esc_html( $qa[1] ) ); ?></p></details>
       <?php endforeach; ?>
     </div>
   </div>

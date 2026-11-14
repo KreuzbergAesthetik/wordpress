@@ -2,7 +2,7 @@
 Theme Name: Kreuzberg Ästhetik
 Description: Website der Privatpraxis Kreuzberg Ästhetik
 Author: Kreuzberg Ästhetik
-Version: 173
+Version: 174
 Requires at least: 6.0
 Requires PHP: 7.4
 Text Domain: kreuzberg-aesthetik
@@ -4688,3 +4688,59 @@ html:not(.calm) :root[data-theme="dark"] #wa-float:hover{transform:scale(1.06)}
 :root[data-theme="dark"]:not(.calm):not(.never) #wa-float:hover,:root[data-theme="dark"]:not(.calm):not(.never) .chat-window .chat-chips .cchip:hover{transform:scale(1.06)}
 /* v173: kein automatisches Scroll-Nachführen des Browsers beim Verändern der Höhe oberhalb (verhindert Hoch-/Runterspringen) */
 html,body,.page,.hero-only,.pin,.pinned,main{overflow-anchor:none}
+/* v174: Animationen vereinheitlicht.
+   1) Alle Knöpfe, Chips und Text-Links reagieren gleich: 0,3 s, eine Kurve, kein Nachfedern – in hell und dunkel.
+      Im Dunkelmodus blenden jetzt auch Hintergrund und Schriftfarbe weich um (vorher sprang die Farbe, während der Knopf wuchs). */
+html:not(#ka):not(.calm) :is(.btn,.cbtn,.cchip,.chat-book,.next-link a,.nl-t,.vrow>summary,.vrow-t,.bt-in,.btn .ico,.cbtn .ico,.mastnav .nl a,.side-links a,.tinfo-btn,.step-cta){transition-duration:.3s!important;transition-timing-function:cubic-bezier(.25,.8,.35,1)!important}
+html:not(#ka):not(.calm) :is(.btn,.cbtn,.cchip,.chat-book){transition-property:transform,box-shadow,background-color,color,border-color!important}
+html:not(#ka):not(.calm) :is(.btn,.cbtn) :is(.bt-in,.bt-in>span,.ico){transition-property:transform,color!important}
+/* 2) Aufklapper (Fragen, Werte, Behandlungskarten): Inhalt blendet weich ein statt hart zu erscheinen;
+      wo der Browser es kann, fährt auch die Höhe weich auf und zu. */
+@keyframes ka-open{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+html:not(.calm) .faq details[open]>*:not(summary),html:not(.calm) .vrow[open]>*:not(summary),html:not(.calm) #leistungen .grp.open>*:not(.tag):not(h3){animation:ka-open .35s cubic-bezier(.25,.8,.35,1)}
+@supports (interpolate-size:allow-keywords){
+ html:not(.calm) .faq details,html:not(.calm) .vrow{interpolate-size:allow-keywords}
+ html:not(.calm) .faq details::details-content,html:not(.calm) .vrow::details-content{block-size:0;overflow:clip;transition:block-size .35s cubic-bezier(.25,.8,.35,1),content-visibility .35s allow-discrete}
+ html:not(.calm) .faq details[open]::details-content,html:not(.calm) .vrow[open]::details-content{block-size:auto}
+}
+/* 3) Zeitstrahl: Stationen „poppen“ beim Erreichen und beim Überfahren in hell genauso wie in dunkel */
+html:not(#ka):not(.calm) .sum-about .tl li .node{transition:transform .3s cubic-bezier(.25,.8,.35,1),background-color .3s ease,border-color .3s ease,color .3s ease!important}
+html:not(#ka):not(.calm) .sum-about .tl li.hit .node{animation:ka-tlpop .5s cubic-bezier(.25,.8,.35,1) 1}
+html:not(#ka):not(.calm) .sum-about .tl li:hover .node{transform:scale(1.1)}
+/* v174: Lesbarkeit, Bedienung und Einheitlichkeit (Recap) */
+/* 1) Tablet hochkant: Der Startbereich nutzt die Breite aus, statt als verkleinerter Desktop mit 10-px-Schrift zu erscheinen.
+      Alle Maße des Startbereichs hängen an --u; die leeren Seitenränder der Vorlage fallen dabei weg. */
+@media (min-width:701px) and (max-width:900px) and (orientation:portrait){
+ .home-page{--u:1.22vw}
+ .home-page .hero-v5{margin-left:calc((100% - 100 * var(--u)) / 2 - 4 * var(--u))!important}
+ .home-page .hero-only{overflow-x:clip}
+}
+/* 2) Heller Modus: Seitenhintergrund überall das Hellblau der Startseite (vorher auf Unterseiten Beige bis Lavendel am Seitenrand) */
+:root:not([data-theme="dark"]) body{background:#f5f8fd!important}
+/* 3) Mindest-Schriftgrößen */
+.chat-window .chat-badge{font-size:.6875rem!important}
+.chat-window .chat-chips .cchip{font-size:.8125rem!important;min-height:36px!important}
+.grp td small.ex{font-size:max(.78em,11.5px)!important}
+#contact-form .consent{font-size:.75rem!important}
+@media (max-width:700px){#contact-form label:not(.consent){font-size:.8125rem!important}}
+/* 3) Tippflächen: Die Knöpfe bleiben optisch so flach wie sie sind, die berührbare Fläche wird unsichtbar auf gut 44 px erweitert */
+.hero-act,.lei-btn,footer .ft-l,footer .ft-r,.tinfo-btn:not(.sd-i){position:relative}
+.hero-act::after,.lei-btn::after{content:"";position:absolute;inset:-5px 0}
+footer .ft-l::after,footer .ft-r::after{content:"";position:absolute;inset:-10px -8px}
+.tinfo-btn::after{content:"";position:absolute;inset:-8px -13px}
+.side-close::after{content:"";position:absolute;inset:-4px}
+/* 4) Kontraste in der Preisliste (hell): Nebenzeilen und Hinweis gut lesbar (mind. 4,5:1) */
+:root:not([data-theme="dark"]) .grp .row-sub td,:root:not([data-theme="dark"]) .grp .pk-note,:root:not([data-theme="dark"]) .grp .pr.pr-note,:root:not([data-theme="dark"]) #leistungen .note-bottom{color:#5b6b8c!important}
+/* 6) Schwebender Nachrichtenknopf am Handy etwas kleiner, damit er weniger Inhalt verdeckt */
+@media (max-width:700px){#wa-float{width:48px!important;height:48px!important}}
+/* v174: Knöpfe einheitlich – eine flache, ruhige Form für alle Textknöpfe: 36 px hoch, Schrift 15 px in mittlerer Stärke, Symbol 17 px.
+   (Vorher 34/36/40/42/47 px und teils fett.) Der Startbereich am Desktop behält seine größere, mit dem Bild skalierte Form. */
+html:not(#ka) :is(.lei-btn,section.sum-kon p.sum-contact .btn,.kon-page-btns .btn.hero-main,#contact-form .btn,.cbtn-two .cbtn){height:36px!important;min-height:0!important;padding-top:0!important;padding-bottom:0!important;font-size:.9375rem!important;font-weight:500!important;line-height:1.2!important;align-items:center!important;justify-content:center!important}
+html:not(#ka) #contact-form .btn{display:inline-flex!important;padding-left:1.6rem!important;padding-right:1.6rem!important}
+html:not(#ka) :is(.lei-btn,section.sum-kon p.sum-contact .btn,.kon-page-btns .btn.hero-main) svg{width:17px!important;height:17px!important}
+html:not(#ka) section.sum-kon p.sum-contact .btn.btn-wa-ico{width:36px!important;min-width:36px!important;padding:0!important}
+html:not(#ka) section.sum-kon p.sum-contact .btn.btn-wa-ico svg{width:18px!important;height:18px!important}
+html:not(#ka) .home-page .hero-v5 .hero-act{min-height:36px!important}
+/* Tippfläche bleibt trotz flacher Form groß genug */
+:is(section.sum-kon p.sum-contact .btn,.kon-page-btns .btn.hero-main,#contact-form .btn,.cbtn-two .cbtn){position:relative}
+:is(section.sum-kon p.sum-contact .btn,.kon-page-btns .btn.hero-main,#contact-form .btn,.cbtn-two .cbtn)::after{content:"";position:absolute;inset:-5px 0}

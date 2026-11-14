@@ -1,12 +1,14 @@
 # Übergabe: Website Kreuzberg Ästhetik (WordPress-Theme)
 
-Stand: 13. November 2026. **Theme-Version 173 wird veröffentlicht** (Abstand zwischen Unterzeile und Startbereich nach der Animation kleiner, Chat-Wasserzeichen fest, Dunkelmodus: helle Knöpfe ohne Schatten mit Halo beim Überfahren, ruhigeres Scrollen). Nächste Version: 174.
+Stand: 14. November 2026. **Theme-Version 174 wird veröffentlicht** (Animationen vereinheitlicht: ein Tempo für alle Knöpfe, weiches Aufklappen, Zeitstrahl hell wie dunkel; Tablet hochkant: Startbereich in voller Breite; heller Hintergrund überall Hellblau; größere Mindestschrift und Tippflächen; Preisliste mit besserem Kontrast; Textknöpfe einheitlich 36 px; Gestaltungs-Standards in README.txt). Nächste Version: 175.
 
 ## ZUERST LESEN – Kurzfassung für die neue Sitzung
 
 **Wer/was:** Manuel Fella, Privatpraxis „Kreuzberg Ästhetik“ (Berlin-Kreuzberg). Er möchte **geduzt** werden und Antworten auf Deutsch, kurz und ohne Fachjargon. Eigenes klassisches PHP-Theme für kreuzberg-aesthetik.de (WordPress bei IONOS). Repo: `KreuzbergAesthetik/wordpress` (Theme liegt im Hauptordner des Repos). Arbeitszweig der Sitzung: `ccr-a91dd6cf-p9csol`. Feedback kommt als Kommentar in der Vorschau oder als markierter Screenshot im Chat.
 
 ### So arbeitet Manuel mit Dir (wichtig)
+
+- **Gestaltungs-Standards:** Vor jeder Gestaltungsänderung `README.txt` → „GESTALTUNGS-STANDARDS“ lesen (Farben, Schriften, Knöpfe, Animationen, Geräte, Prüfliste). Manuels Leitsatz: im Zweifel die elegantere, stilvollere Variante. Prüfskript: `uebergabe/audit.js`.
 
 - **Nicht nerven:** Er will wenig Rückfragen und keine langen Erklärungen. Nur bei echter Unsicherheit fragen („Frage bei Unsicherheit“ war seine Ansage), vor allem bei unleserlichen Handschrift-Markierungen in Screenshots. Kurz sagen, wie Du es gelesen hast, und weitermachen.
 - **Unklare Kommentare:** Er tippt per Sprache und mit Tippfehlern („unsxgatd“ = „unscharf“, „Landgamer“ = „Langsamer“). Sinn erschließen, in der Antwort kurz nennen, wie gelesen.
@@ -149,12 +151,14 @@ Vorschau (Artifact, privat): https://claude.ai/artifact/Rdvj7GY2bT1qWwiSXGoRHZ
 
 ## Einheitliche Gestaltung (seit 132)
 
+**Verbindlich sind seit Version 174 die „GESTALTUNGS-STANDARDS“ in `README.txt` (Hauptordner).** Wo dieser ältere Abschnitt abweicht (z. B. Knopf-Schriftstärke), gilt die README.
+
 Am Ende von `style.css` stehen Gestaltungs-Variablen: `--r-card` (Karten-Rundung 22 px, Handy 18 px), `--r-small` (12/11 px für Aufklapper und Eingabefelder), `--sh-card` (einheitlicher Kartenschatten), `--bd-card` (Kartenrand). Regeln:
 - Alle Karten (Kacheln, Behandlungskarten, Schritte, Preisgruppen, Checkliste, Formular, Rechtstexte) nutzen dieselbe Rundung, denselben Schatten und denselben Rand.
 - Etiketten über Überschriften überall als grüne Pille.
 - Abschnittsüberschriften (h2) Literata 42/31 px, mittig; nur auf den zweispaltigen Seiten "Über mich" und "Kontakt" linksbündig.
 - Zwischenüberschriften (h3) Literata 400, 24/22 px; Schritt-Titel Quicksand 700.
-- Alle Knöpfe Schriftstärke 700, Pillenform.
+- Alle Textknöpfe: Pillenform, 36 px hoch, Schrift 15 px, Stärke 500 (seit 174; vorher 700).
 - Ablaufseite: Schritte wie Startseite (Symbol als Wasserzeichen, keine Nummer).
 - Bewusste Ausnahme: "Hi, ich bin Manuel." und "Meine Philosophie" im Startbereich in Quicksand (nach Manuels Vorlage).
 - Werte Startseite: Professionalität / Authentizität / Inklusivität (Erklärung auf "Über mich").
