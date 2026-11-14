@@ -515,18 +515,20 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
   window.addEventListener('scroll',req,{passive:true});window.addEventListener('resize',req);check();
 })();
 
-/* Zeitstrahl Startseite: nur die Sanduhr im letzten Schild dreht sich einmalig, sobald das Schild blau wird */
+/* Zeitstrahl Startseite: Die Sanduhr im letzten Schild dreht sich jedes Mal um eine halbe Drehung, sobald das Schild blau wird (auch beim erneuten Hochscrollen und wieder Herunterscrollen) */
 (function(){
   var tl=document.getElementById('tl');if(!tl)return;
-  var last=tl.lastElementChild,done=false,tick=false;
+  var last=tl.lastElementChild,was=false,tick=false,angle=0,timer=0;
   if(!last)return;
   function check(){
     tick=false;
-    if(done)return;
-    if(last.classList.contains('hit')){done=true;window.removeEventListener('scroll',req);var f=last.querySelector('.wmk-node .lg-f');if(f)setTimeout(function(){f.style.transform='rotate(180deg)'},500)}
+    var now=last.classList.contains('hit');
+    if(now&&!was){var f=last.querySelector('.wmk-node .lg-f');clearTimeout(timer);if(f)timer=setTimeout(function(){angle+=180;f.style.transform='rotate('+angle+'deg)'},500)}
+    if(!now)clearTimeout(timer);
+    was=now;
   }
   function req(){if(!tick){tick=true;requestAnimationFrame(check)}}
-  window.addEventListener('scroll',req,{passive:true});check();
+  window.addEventListener('scroll',req,{passive:true});window.addEventListener('resize',req);check();
 })();
 
 /* Anfrage-Karte: ein Klick irgendwo auf die Karte öffnet die Kontaktseite */
