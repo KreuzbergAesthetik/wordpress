@@ -4757,3 +4757,12 @@ html:not(#ka) .home-page .hero-v5 .hero-act{min-height:36px!important}
 :root:not([data-theme="dark"]) #ablauf .steps li::before{background:#fff!important;border-color:#012265!important}
 :root:not([data-theme="dark"]) #ablauf .steps li.st-hit::before{background:#aebcd6!important}
 :root:not([data-theme="dark"]) .calm #ablauf .steps li::before,:root:not([data-theme="dark"]).calm #ablauf .steps li::before{background:#aebcd6!important}
+/* v174: Auslaufende Punkte hinter dem Zeitstrahl (Startseite) – zunächst unsichtbar; sobald die Sanduhr erreicht ist, blenden sie einer nach dem anderen ein, jeder schwächer als der vorige, bis sie auslaufen */
+@supports selector(:has(*)){
+ html:not(.calm) .sum-about .tl::after{opacity:0;clip-path:inset(0 100% 0 0);transition:opacity .5s ease,clip-path .45s ease}
+ html:not(.calm) .sum-about .tl:has(>li:last-child.hit)::after{opacity:.55;clip-path:inset(0 0 0 0);transition:opacity .9s ease .7s,clip-path 2.4s cubic-bezier(.3,.55,.3,1) .7s}
+ @media (max-width:700px){
+  html:not(.calm) .sum-about .tl::after{clip-path:inset(0 0 100% 0)}
+  html:not(.calm) .sum-about .tl:has(>li:last-child.hit)::after{clip-path:inset(0 0 0 0)}
+ }
+}
