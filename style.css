@@ -4774,8 +4774,8 @@ html:not(#ka)[data-theme="dark"] :is(#ablauf,.sum-abl) .steps li.st-hit::before,
  html:not(#ka) .home-page .hero-v5{padding-top:calc((100vw - 36px) * .66 - 39vw)!important}
  html:not(#ka) .home-page .hero-only{overflow-x:clip}
 }
-/* v174: Ablauf und Fragen (hell) – Leiste und Striche zu den Karten von Anfang an dunkelblau */
-html:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps::before,html:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps li::after{background:#012265!important}
+/* v174: Ablauf und Fragen (hell) – Leiste und Striche zu den Karten von Anfang an hellgrau (Versuch; vorher dunkelblau #012265) */
+html:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps::before,html:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps li::after{background:#c5d1e3!important}
 /* v174: Preistabellen auf den Behandlungskarten im Dunkelmodus wieder dunkler – mehr Kontrast zur helleren Karte */
 :root[data-theme="dark"] .grp .subgrp,:root[data-theme="dark"] .grp .subgrp:not(.has-h){background:rgba(2,22,78,.42)!important;border:1px solid rgba(190,212,248,.16)!important}
 /* v175: Startbereich am Handy nach Rückmeldung – Halo hinter dem Porträt (Dunkelmodus) deutlich größer, mehr Abstand zwischen der Kursivzeile (Unterüberschrift) und dem Fließtext */
