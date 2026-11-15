@@ -4787,3 +4787,8 @@ html:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps::before,html
 .hero-name .name-link{color:inherit;text-decoration:underline;text-decoration-color:transparent;text-decoration-thickness:.06em;text-underline-offset:.16em;display:inline-block;transition:transform .3s cubic-bezier(.25,.8,.35,1),text-decoration-color .3s ease}
 html:not(.calm) .hero-name .name-link:hover,html:not(.calm) .hero-name .name-link:focus-visible{transform:scale(1.07);text-decoration-color:currentColor}
 .calm .hero-name .name-link:hover,.calm .hero-name .name-link:focus-visible{text-decoration-color:currentColor}
+/* v175: „Meine Philosophie:" grün; Ablauf-Karten der Startseite mit Rahmen in der Farbe der Zeitleiste (hell dunkelblau, dunkel hellgrau), die Striche setzen sich im Rahmen fort */
+html:not(#ka):not([data-theme="dark"]) .hero-v5 .hero-phil-h{color:#004d17!important}
+html:not(#ka)[data-theme="dark"] .hero-v5 .hero-phil-h{color:#9be8b0!important}
+html:not(#ka):not([data-theme="dark"]) .sum-abl .steps li{border:2px solid #012265!important}
+html:not(#ka)[data-theme="dark"] .sum-abl .steps li{border:2px solid #c5d1e3!important}
