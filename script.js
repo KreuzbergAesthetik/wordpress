@@ -337,7 +337,11 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
 (function(){
   var rows=[].slice.call(document.querySelectorAll('.vlist .vrow'));
   function fillIcon(r){var ic=r.querySelector('.vrow-ico svg.fillable');if(ic)ic.classList.add('fill-on')}
-  rows.forEach(function(r){if(r.open)fillIcon(r);r.addEventListener('toggle',function(){if(r.open){fillIcon(r);rows.forEach(function(o){if(o!==r&&o.open)o.open=false})}})});
+  /* Alle Werte-Symbole starten als Umriss; das vorgeöffnete füllt sich, sobald die Liste im Bild ist (auch ohne Beobachter-Unterstützung sofort) */
+  function fillOpen(){rows.forEach(function(r){if(r.open)fillIcon(r)})}
+  rows.forEach(function(r){r.addEventListener('toggle',function(){if(r.open){fillIcon(r);rows.forEach(function(o){if(o!==r&&o.open)o.open=false})}})});
+  var vl=document.querySelector('.vlist');
+  if(vl&&'IntersectionObserver' in window){var io=new IntersectionObserver(function(es){if(es.some(function(e){return e.isIntersecting})){io.disconnect();setTimeout(fillOpen,350)}},{threshold:.6});io.observe(vl)}else fillOpen();
 })();
 
 /* Knöpfe: gesamten Inhalt (Symbol + Text) in einen Rahmen packen, damit er beim Überfahren als Ganzes wächst */

@@ -4852,3 +4852,7 @@ html.calm:not(#ka) :is(#ablauf,.sum-abl) .steps li::before{background-size:100% 
 :root[data-theme="dark"] .home-page .hero-v5 .hero-portrait{-webkit-mask-image:none!important;mask-image:none!important}
 /* v177: Startseite – „Hier geht's weiter zu: Behandlungen" gehört zum Ablauf darüber (nur noch ca. 44 px unter den Karten statt ca. 100 px) und hat unten Luft zum Trenner */
 .view-home .next-link{margin-top:calc(2.6rem - 55px)!important;padding-bottom:24px!important}
+/* v177: Über mich im Dunkelmodus – Qualifikationen und „Philosophie und Werte" im selben helleren Blau wie die übrigen Karten; die Haken der Qualifikationen in Mintgrün (vorher dunkelgrün und kaum zu sehen) */
+html:not(#ka)[data-theme="dark"] :is(ul.quals,.phil-box){background:linear-gradient(180deg,#1a45a6 0%,#123a98 100%)!important;border:1px solid rgba(170,198,245,.4)!important;box-shadow:0 0 28px 2px rgba(110,150,235,.22)!important}
+html:not(#ka)[data-theme="dark"] ul.quals :is(svg,.ico){color:#9be8b0!important}
+html:not(#ka)[data-theme="dark"] ul.quals svg path{stroke:currentColor}
