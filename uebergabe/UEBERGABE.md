@@ -1,6 +1,6 @@
 # Übergabe: Website Kreuzberg Ästhetik (WordPress-Theme)
 
-Stand: 15. November 2026. **Theme-Version 176 wird veröffentlicht** (Startbereich Handy: größerer Halo im Dunkelmodus, mehr Abstand zwischen Unterüberschrift und Text; „Manuel“ verlinkt auf Über mich mit Unterstreichen und Zoom beim Überfahren; „Meine Philosophie“ als grüne Pille mit Link zur Philosophie-Box (id philosophie); Sanduhr-Trenner 44 px oben und unten; Ablauf und FAQ: Leiste, Striche und Punkte in einer graublauen Farbe, Preistabellen im Dunkelmodus dunkler). Nächste Version: 177.
+Stand: 15. November 2026. **Theme-Version 177 wird veröffentlicht** (Trenner überall mit ca. 60 px oben und 66 px unten; Ablauf-Karten: Schatten und Pop der ersten Karte, Karten poppen beim Füllen des Punkts, Punktfüllung wächst aus der Mitte; WhatsApp im Kontaktband als Ring mit weißem Symbol; Halo-Kante im Querformat behoben; Weiter-Link auf der Startseite näher am Ablauf; Dunkelmodus: Behandlungsübersicht, Impressum, Datenschutz, Qualifikationen und Philosophie-Box im helleren Blau, Haken in gedämpftem Grün, Werte-Symbol erst leer dann gefüllt). Nächste Version: 178.
 
 ## ZUERST LESEN – Kurzfassung für die neue Sitzung
 
