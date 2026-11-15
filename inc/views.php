@@ -191,7 +191,7 @@ function ka_view_home() {
       <span class="hero-rule" aria-hidden="true"></span>
       <div class="div hero-div" aria-hidden="true"><span class="hgi"></span></div>
       <div class="hero-phil">
-        <h3 class="hero-phil-h"><?php echo ka( 'hero_phil_h' ); ?></h3>
+        <h3 class="hero-phil-h"><a class="eyebrow phil-pill" href="<?php echo esc_url( ka_url( 'ueber-mich' ) . '#philosophie' ); ?>"><?php echo rtrim( ka( 'hero_phil_h' ), ':' ); ?></a></h3>
         <ul class="hero-vals">
           <?php $vi = array( 'star', 'heart', 'people' ); foreach ( ka_lines( 'hero_vals' ) as $i => $hv ) : ?>
           <li><?php echo ka_icon( $vi[ $i % 3 ] ); ?><span><?php echo esc_html( $hv ); ?></span></li>
@@ -293,7 +293,7 @@ function ka_view_about() {
       <?php $pimg = ka_raw( 'about_practice_img' ); if ( '' !== $pimg ) : ?>
       <figure class="practice-img"><img src="<?php echo esc_url( $pimg ); ?>" alt="Praxis Kreuzberg Ästhetik" loading="lazy"></figure>
       <?php endif; ?>
-      <div class="phil-box">
+      <div class="phil-box" id="philosophie">
       <h3 class="about-h"><?php echo ka( 'about_values_h' ); ?></h3>
       <p><?php echo ka( 'about_values_intro' ); ?></p>
       <?php

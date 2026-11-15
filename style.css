@@ -4792,3 +4792,8 @@ html:not(#ka):not([data-theme="dark"]) .hero-v5 .hero-phil-h{color:#004d17!impor
 html:not(#ka)[data-theme="dark"] .hero-v5 .hero-phil-h{color:#9be8b0!important}
 html:not(#ka):not([data-theme="dark"]) .sum-abl .steps li{border:2px solid #012265!important}
 html:not(#ka)[data-theme="dark"] .sum-abl .steps li{border:2px solid #c5d1e3!important}
+/* v175: „Meine Philosophie" als grüne Pille wie die anderen Überschriften, verlinkt auf die Philosophie-Box bei „Über mich" (die frühere grüne Textfarbe der Überschrift entfällt) */
+html:not(#ka) .hero-v5 .hero-phil-h{color:inherit!important}
+.hero-phil-h .phil-pill{display:inline-block!important;margin:0!important;padding:.3rem .8rem!important;font-size:.8rem!important;line-height:1.3!important;text-decoration:none!important;white-space:nowrap;transition:transform .3s cubic-bezier(.25,.8,.35,1)}
+html:not(.calm) .hero-phil-h .phil-pill:hover,html:not(.calm) .hero-phil-h .phil-pill:focus-visible{transform:scale(1.07)}
+@media (min-width:701px){.hero-phil-h .phil-pill{font-size:max(.7rem,calc(1.2 * var(--u)))!important}}
