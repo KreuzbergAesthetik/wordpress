@@ -4795,8 +4795,6 @@ html:not(#ka) .hero-v5 .hero-phil-h{color:inherit!important}
 .hero-phil-h .phil-pill{display:inline-block!important;margin:0!important;padding:.3rem .8rem!important;font-size:.8rem!important;line-height:1.3!important;text-decoration:none!important;white-space:nowrap;transition:transform .3s cubic-bezier(.25,.8,.35,1)}
 html:not(.calm) .hero-phil-h .phil-pill:hover,html:not(.calm) .hero-phil-h .phil-pill:focus-visible{transform:scale(1.07)}
 @media (min-width:701px){.hero-phil-h .phil-pill{font-size:max(.7rem,calc(1.2 * var(--u)))!important}}
-/* v175 (Versuch): Ablauf – Kartenrahmen wie vorher und ohne die waagerechten Striche von der Zeitleiste zu den Karten */
-html:not(#ka) :is(#ablauf,.sum-abl) .steps li::after{display:none!important}
 /* v175: Sanduhr-Trenner auf der Startseite – Abstand zum Text oben und unten gleich, je 44 px */
 .home-page :is(section,div):has(.lei-sum,.tl)+.divwrap{margin-top:-17px;margin-bottom:6px}
 .home-page :is(section,div):has(.hero-vals)+.divwrap{margin-top:-4px;margin-bottom:6px}
