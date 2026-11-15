@@ -4831,3 +4831,20 @@ html:not(.calm):not(#ka) :is(#ablauf,.sum-abl) .steps li.st-hit{animation:ka-car
 html:not(.calm):not(#ka) :is(#ablauf,.sum-abl) .steps li.step-card:hover{scale:1.025}
 html:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps li.step-card:hover{box-shadow:0 0 30px 4px rgba(1,34,101,.34),0 8px 22px rgba(1,34,101,.26)!important}
 html:not(#ka)[data-theme="dark"] :is(#ablauf,.sum-abl) .steps li.step-card:hover{box-shadow:0 0 34px 5px rgba(130,170,245,.5),0 0 10px rgba(170,198,250,.35)!important}
+/* v177: Kontaktband – der runde WhatsApp-Knopf genau umgekehrt: nicht weiß hinterlegt, sondern nur ein Ring (hell dunkelblau, dunkel hellgrau-blau) mit weißem Symbol */
+html:not(#ka) section.sum-kon p.sum-contact .btn.btn-wa-ico{background:transparent!important;border:2px solid #c5d1e3!important;color:#fff!important;box-shadow:none!important}
+html:not(#ka) section.sum-kon p.sum-contact .btn.btn-wa-ico :is(svg,.ico){color:#fff!important}
+html:not(#ka)[data-theme="dark"] section.sum-kon p.sum-contact .btn.btn-wa-ico{border-color:#c5d1e3!important}
+/* Ablauf-Karten: nur die Karte poppt, der Punkt mit seiner Linie bleibt ruhig – die Karte wächst von der Seite der Linie weg; der Punkt füllt sich stattdessen mit einer eigenen Animation (die Füllung wächst aus der Mitte) */
+html:not(.calm):not(#ka) .sum-abl .steps li:nth-child(odd){transform-origin:right center}
+html:not(.calm):not(#ka) .sum-abl .steps li:nth-child(even){transform-origin:left center}
+html:not(.calm):not(#ka) #ablauf .steps li{transform-origin:left center}
+@keyframes ka-cardpop{0%{scale:1}45%{scale:1.025}100%{scale:1}}
+html:not(.calm):not(#ka) :is(#ablauf,.sum-abl) .steps li.step-card:hover{scale:1.02}
+:is(#ablauf,.sum-abl) .steps li::before{background-repeat:no-repeat!important;background-position:center!important}
+html:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps li::before{background-color:#eff3fb!important;background-image:radial-gradient(circle closest-side,#93a6c8 98%,transparent 100%)!important;background-size:0% 0%!important}
+html:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps li.st-hit::before{background-color:#eff3fb!important;background-image:radial-gradient(circle closest-side,#93a6c8 98%,transparent 100%)!important;background-size:100% 100%!important}
+html:not(#ka)[data-theme="dark"] :is(#ablauf,.sum-abl) .steps li::before{background-color:#0a2e78!important;background-image:radial-gradient(circle closest-side,#c5d1e3 98%,transparent 100%)!important;background-size:0% 0%!important}
+html:not(#ka)[data-theme="dark"] :is(#ablauf,.sum-abl) .steps li.st-hit::before{background-color:#0a2e78!important;background-image:radial-gradient(circle closest-side,#c5d1e3 98%,transparent 100%)!important;background-size:100% 100%!important}
+html:not(.calm):not(#ka) :is(#ablauf,.sum-abl) .steps li::before{transition:background-size .55s cubic-bezier(.25,.8,.35,1)!important}
+html.calm:not(#ka) :is(#ablauf,.sum-abl) .steps li::before{background-size:100% 100%!important}
