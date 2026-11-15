@@ -180,7 +180,7 @@ function ka_view_home() {
         <img class="hero-photo" src="<?php echo esc_url( get_theme_file_uri( 'assets/portrait-hero.webp' ) ); ?>" width="900" height="1229" alt="<?php echo esc_attr( ka_raw( 'portrait_alt' ) ); ?>">
       </figure>
       <div class="hero-who">
-        <h2 class="hero-name"><?php echo ka( 'hero_name' ); ?></h2>
+        <h2 class="hero-name"><?php echo preg_replace( '/Manuel/', '<a class="name-link" href="' . esc_url( ka_url( 'ueber-mich' ) ) . '">Manuel</a>', ka( 'hero_name' ), 1 ); ?></h2>
         <p class="hero-sub"><?php echo ka( 'hero_sub' ); ?></p>
       </div>
       <p class="hero-text"><?php echo ka( 'hero_text' ); ?></p>
