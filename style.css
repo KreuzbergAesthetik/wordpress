@@ -4848,3 +4848,7 @@ html:not(#ka)[data-theme="dark"] :is(#ablauf,.sum-abl) .steps li::before{backgro
 html:not(#ka)[data-theme="dark"] :is(#ablauf,.sum-abl) .steps li.st-hit::before{background-color:#0a2e78!important;background-image:radial-gradient(circle closest-side,#c5d1e3 98%,transparent 100%)!important;background-size:100% 100%!important}
 html:not(.calm):not(#ka) :is(#ablauf,.sum-abl) .steps li::before{transition:background-size .55s cubic-bezier(.25,.8,.35,1)!important}
 html.calm:not(#ka) :is(#ablauf,.sum-abl) .steps li::before{background-size:100% 100%!important}
+/* v177: Dunkelmodus Querformat/Tablet/Desktop – die Maske des Porträt-Rahmens schnitt den Halo oben mit einer harten Kante ab; im Dunkelmodus hat das Foto seine eigene weiche Maske, der Rahmen braucht keine */
+:root[data-theme="dark"] .home-page .hero-v5 .hero-portrait{-webkit-mask-image:none!important;mask-image:none!important}
+/* v177: Startseite – „Hier geht's weiter zu: Behandlungen" gehört zum Ablauf darüber (nur noch ca. 44 px unter den Karten statt ca. 100 px) und hat unten Luft zum Trenner */
+.view-home .next-link{margin-top:calc(2.6rem - 55px)!important;padding-bottom:24px!important}
