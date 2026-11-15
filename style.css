@@ -2,7 +2,7 @@
 Theme Name: Kreuzberg Ästhetik
 Description: Website der Privatpraxis Kreuzberg Ästhetik
 Author: Kreuzberg Ästhetik
-Version: 175
+Version: 176
 Requires at least: 6.0
 Requires PHP: 7.4
 Text Domain: kreuzberg-aesthetik
@@ -4753,11 +4753,13 @@ html:not(#ka) .home-page .hero-v5 .hero-act{min-height:36px!important}
 :root[data-theme="dark"] article.grp{background:linear-gradient(180deg,#1a45a6 0%,#123a98 100%)!important;border:1px solid rgba(170,198,245,.4)!important;box-shadow:0 0 28px 2px rgba(110,150,235,.22)!important}
 :root[data-theme="dark"] .grp .subgrp,:root[data-theme="dark"] .grp .subgrp:not(.has-h){background:rgba(255,255,255,.08)!important;border:1px solid rgba(220,232,250,.16)!important}
 :root[data-theme="dark"] .grp .subgrp small.ex,:root[data-theme="dark"] .grp .subgrp s,:root[data-theme="dark"] .grp .pk-note,:root[data-theme="dark"] .grp .row-sub td{color:rgba(236,242,252,.8)!important}
-/* v174: Ablauf und Fragen (Ablauf-Seite und Startseiten-Abschnitt) – Punkte an der Leiste zuerst leer (nur ein Ring in der Farbe des Hintergrunds, die Linie läuft nicht hindurch), beim Scrollen füllt sich einer nach dem anderen: hell dunkelblau, dunkel hellgrau-blau */
-html:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps li::before{background:#eff3fb!important;border-color:#012265!important}
-html:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps li.st-hit::before,html.calm:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps li::before{background:#012265!important}
-html:not(#ka)[data-theme="dark"] :is(#ablauf,.sum-abl) .steps li::before{background:#0a2e78!important;border-color:rgba(229,235,246,.75)!important}
-html:not(#ka)[data-theme="dark"] :is(#ablauf,.sum-abl) .steps li.st-hit::before,html.calm:not(#ka)[data-theme="dark"] :is(#ablauf,.sum-abl) .steps li::before{background:#dfe7f5!important}
+/* v174/v175: Ablauf und Fragen (Ablauf-Seite und Startseiten-Abschnitt) – die ganze Leiste in EINER graublauen Farbe: Linie, Striche zu den Karten, Ringe und gefüllte Punkte (hell #93a6c8, dunkel #c5d1e3). Punkte zuerst leer (Ring in Hintergrundfarbe gefüllt), beim Scrollen füllt sich einer nach dem anderen. */
+html:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps::before,html:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps li::after{background:#93a6c8!important}
+html:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps li::before{background:#eff3fb!important;border-color:#93a6c8!important}
+html:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps li.st-hit::before,html.calm:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps li::before{background:#93a6c8!important}
+html:not(#ka)[data-theme="dark"] :is(#ablauf,.sum-abl) .steps::before,html:not(#ka)[data-theme="dark"] :is(#ablauf,.sum-abl) .steps li::after{background:#c5d1e3!important}
+html:not(#ka)[data-theme="dark"] :is(#ablauf,.sum-abl) .steps li::before{background:#0a2e78!important;border-color:#c5d1e3!important}
+html:not(#ka)[data-theme="dark"] :is(#ablauf,.sum-abl) .steps li.st-hit::before,html.calm:not(#ka)[data-theme="dark"] :is(#ablauf,.sum-abl) .steps li::before{background:#c5d1e3!important}
 /* v174: Auslaufende Punkte hinter dem Zeitstrahl (Startseite) – zunächst unsichtbar; sobald die Sanduhr erreicht ist, blenden sie einer nach dem anderen ein, jeder schwächer als der vorige, bis sie auslaufen */
 @supports selector(:has(*)){
  html:not(.calm) .sum-about .tl::after{opacity:0;clip-path:inset(0 100% 0 0);transition:opacity .5s ease,clip-path .45s ease}
@@ -4774,7 +4776,29 @@ html:not(#ka)[data-theme="dark"] :is(#ablauf,.sum-abl) .steps li.st-hit::before,
  html:not(#ka) .home-page .hero-v5{padding-top:calc((100vw - 36px) * .66 - 39vw)!important}
  html:not(#ka) .home-page .hero-only{overflow-x:clip}
 }
-/* v174: Ablauf und Fragen (hell) – Leiste und Striche zu den Karten von Anfang an dunkelblau */
-html:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps::before,html:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps li::after{background:#012265!important}
 /* v174: Preistabellen auf den Behandlungskarten im Dunkelmodus wieder dunkler – mehr Kontrast zur helleren Karte */
 :root[data-theme="dark"] .grp .subgrp,:root[data-theme="dark"] .grp .subgrp:not(.has-h){background:rgba(2,22,78,.42)!important;border:1px solid rgba(190,212,248,.16)!important}
+/* v175: Startbereich am Handy nach Rückmeldung – Halo hinter dem Porträt (Dunkelmodus) deutlich größer, mehr Abstand zwischen der Kursivzeile (Unterüberschrift) und dem Fließtext */
+@media (max-width:700px){
+ :root[data-theme="dark"]:not(.never) .home-page .hero-v5 .hero-portrait::before{left:-40%!important;right:-40%!important;top:-34%!important;bottom:-14%!important;background:radial-gradient(closest-side at 50% 42%,rgba(170,198,245,.5) 0%,rgba(150,182,236,.34) 40%,rgba(140,175,232,.14) 72%,rgba(140,175,232,0) 100%)!important}
+ html:not(#ka) .home-page .hero-v5 .hero-text{margin-top:.95rem!important}
+}
+/* v175: „Manuel" im Startbereich verlinkt auf „Über mich" – beim Überfahren unterstrichen und leicht größer */
+.hero-name .name-link{color:inherit;text-decoration:underline;text-decoration-color:transparent;text-decoration-thickness:.06em;text-underline-offset:.16em;display:inline-block;transition:transform .3s cubic-bezier(.25,.8,.35,1),text-decoration-color .3s ease}
+html:not(.calm) .hero-name .name-link:hover,html:not(.calm) .hero-name .name-link:focus-visible{transform:scale(1.07);text-decoration-color:currentColor}
+.calm .hero-name .name-link:hover,.calm .hero-name .name-link:focus-visible{text-decoration-color:currentColor}
+/* v175: „Meine Philosophie:" grün; (Rahmen der Ablauf-Karten wieder entfernt) */
+html:not(#ka):not([data-theme="dark"]) .hero-v5 .hero-phil-h{color:#004d17!important}
+html:not(#ka)[data-theme="dark"] .hero-v5 .hero-phil-h{color:#9be8b0!important}
+/* v175: „Meine Philosophie" als grüne Pille wie die anderen Überschriften, verlinkt auf die Philosophie-Box bei „Über mich" (die frühere grüne Textfarbe der Überschrift entfällt) */
+html:not(#ka) .hero-v5 .hero-phil-h{color:inherit!important}
+.hero-phil-h .phil-pill{display:inline-block!important;margin:0!important;padding:.3rem .8rem!important;font-size:.8rem!important;line-height:1.3!important;text-decoration:none!important;white-space:nowrap;transition:transform .3s cubic-bezier(.25,.8,.35,1)}
+html:not(.calm) .hero-phil-h .phil-pill:hover,html:not(.calm) .hero-phil-h .phil-pill:focus-visible{transform:scale(1.07)}
+@media (min-width:701px){.hero-phil-h .phil-pill{font-size:max(.7rem,calc(1.2 * var(--u)))!important}}
+/* v175: Sanduhr-Trenner auf der Startseite – Abstand zum Text oben und unten gleich, je 44 px */
+.home-page :is(section,div):has(.lei-sum,.tl)+.divwrap{margin-top:-17px;margin-bottom:6px}
+.home-page :is(section,div):has(.hero-vals)+.divwrap{margin-top:-4px;margin-bottom:6px}
+@media (min-width:701px){
+ .home-page :is(section,div):has(.lei-sum,.tl)+.divwrap{margin-top:-36px}
+ .home-page :is(section,div):has(.hero-vals)+.divwrap{margin-top:-20px}
+}

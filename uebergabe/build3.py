@@ -10,7 +10,7 @@ html=out.stdout
 open('wptest/raw.html','w',encoding='utf8').write(html)
 open('wptest/index.html','w',encoding='utf8').write(html)
 body=html[:html.index('<script>window.KA_DATA')]
-body=re.sub(r'href="/(ueber-mich|leistungen|ablauf|kontakt|impressum|datenschutz)/"',r'href="#\1"',body)
+body=re.sub(r'href="/(ueber-mich|leistungen|ablauf|kontakt|impressum|datenschutz)/(#[\w-]+)?"',r'href="#\1\2"',body)
 body=body.replace('href="/leistungen/#chat-hilfe"','href="#leistungen" data-kachat="1"')
 body=body.replace('href="/"','href="#"')
 data=re.search(r'<script>(window\.KA_DATA=.*?;)</script>',html,flags=re.S).group(1)
