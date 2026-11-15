@@ -2,7 +2,7 @@
 Theme Name: Kreuzberg Ästhetik
 Description: Website der Privatpraxis Kreuzberg Ästhetik
 Author: Kreuzberg Ästhetik
-Version: 176
+Version: 177
 Requires at least: 6.0
 Requires PHP: 7.4
 Text Domain: kreuzberg-aesthetik
@@ -4802,3 +4802,57 @@ html:not(.calm) .hero-phil-h .phil-pill:hover,html:not(.calm) .hero-phil-h .phil
  .home-page :is(section,div):has(.lei-sum,.tl)+.divwrap{margin-top:-36px}
  .home-page :is(section,div):has(.hero-vals)+.divwrap{margin-top:-20px}
 }
+/* v176: Trenner überall mit gleichem, großzügigem Abstand zum Text (ungefähr 60 px oben, 66 px unten, gemessen bis zur Schrift). Zusätzlicher Platz als Innenabstand der Sanduhr-Zeile. */
+html:not(#ka) .hero-div{padding-top:26px!important;padding-bottom:39px!important}
+html:not(#ka) .lon-div{padding-bottom:34px!important}
+html:not(#ka) .wrap.divwrap .div{padding-bottom:0}
+html:not(#ka) .view-process .wrap.divwrap .div{padding-bottom:28px!important}
+html:not(#ka) #leistungen .wrap.divwrap .div{padding-top:6px!important;padding-bottom:24px!important}
+html:not(#ka) .step-check-div{padding-top:6px!important;padding-bottom:17px!important}
+html:not(#ka) .about-div{padding-top:40px!important;padding-bottom:26px!important}
+html:not(#ka) .contact-div{padding-top:25px!important;padding-bottom:12px!important}
+@media (min-width:701px){
+ html:not(#ka) .hero-div{padding:0!important}
+ html:not(#ka) .step-check-div{padding-top:0!important;padding-bottom:0!important}
+ html:not(#ka) .about-div{padding-top:39px!important;padding-bottom:24px!important}
+ html:not(#ka) .contact-div{padding-top:19px!important;padding-bottom:0!important}
+ /* Startbereich Desktop: Trenner und „Meine Philosophie" rücken in Schritten nach unten, damit oben und unten mehr Luft ist */
+ html:not(#ka) .home-page .hero-v5 .hero-div{translate:0 calc(.9 * var(--u))}
+ html:not(#ka) .home-page .hero-v5 .hero-phil-h{translate:0 calc(1.8 * var(--u))}
+ html:not(#ka) .home-page .hero-v5 .hero-vals{translate:0 calc(1.8 * var(--u))}
+ .home-page :is(section,div):has(.hero-vals)+.divwrap{margin-top:calc(-20px + 1.8 * var(--u))}
+}
+/* Dunkelmodus: Behandlungsübersicht (Startseite) sowie Impressum und Datenschutz im selben helleren Blau wie die Behandlungskarten */
+html:not(#ka)[data-theme="dark"] :is(.lei-sum,article.legal-card){background:linear-gradient(180deg,#1a45a6 0%,#123a98 100%)!important;border:1px solid rgba(170,198,245,.4)!important;box-shadow:0 0 28px 2px rgba(110,150,235,.22)!important}
+/* v176: Ablauf (Startseite und Ablauf-Seite) – die anklickbare erste Karte („Anfrage") bekommt beim Überfahren einen deutlich dunkleren Schatten (dunkel: stärkeren Halo) und poppt leicht; alle Karten poppen einmal, wenn sich ihr Punkt füllt (wie die Zeitleiste auf der Startseite) */
+@keyframes ka-cardpop{0%{scale:1}45%{scale:1.03}100%{scale:1}}
+html:not(.calm):not(#ka) :is(#ablauf,.sum-abl) .steps li{transition:transform .3s cubic-bezier(.25,.8,.35,1),box-shadow .3s ease,scale .3s cubic-bezier(.25,.8,.35,1)!important}
+html:not(.calm):not(#ka) :is(#ablauf,.sum-abl) .steps li.st-hit{animation:ka-cardpop .5s cubic-bezier(.25,.8,.35,1) 1}
+html:not(.calm):not(#ka) :is(#ablauf,.sum-abl) .steps li.step-card:hover{scale:1.025}
+html:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps li.step-card:hover{box-shadow:0 0 30px 4px rgba(1,34,101,.34),0 8px 22px rgba(1,34,101,.26)!important}
+html:not(#ka)[data-theme="dark"] :is(#ablauf,.sum-abl) .steps li.step-card:hover{box-shadow:0 0 34px 5px rgba(130,170,245,.5),0 0 10px rgba(170,198,250,.35)!important}
+/* v177: Kontaktband – der runde WhatsApp-Knopf genau umgekehrt: nicht weiß hinterlegt, sondern nur ein Ring (hell dunkelblau, dunkel hellgrau-blau) mit weißem Symbol */
+html:not(#ka) section.sum-kon p.sum-contact .btn.btn-wa-ico{background:transparent!important;border:2px solid #c5d1e3!important;color:#fff!important;box-shadow:none!important}
+html:not(#ka) section.sum-kon p.sum-contact .btn.btn-wa-ico :is(svg,.ico){color:#fff!important}
+html:not(#ka)[data-theme="dark"] section.sum-kon p.sum-contact .btn.btn-wa-ico{border-color:#c5d1e3!important}
+/* Ablauf-Karten: nur die Karte poppt, der Punkt mit seiner Linie bleibt ruhig – die Karte wächst von der Seite der Linie weg; der Punkt füllt sich stattdessen mit einer eigenen Animation (die Füllung wächst aus der Mitte) */
+html:not(.calm):not(#ka) .sum-abl .steps li:nth-child(odd){transform-origin:right center}
+html:not(.calm):not(#ka) .sum-abl .steps li:nth-child(even){transform-origin:left center}
+html:not(.calm):not(#ka) #ablauf .steps li{transform-origin:left center}
+@keyframes ka-cardpop{0%{scale:1}45%{scale:1.025}100%{scale:1}}
+html:not(.calm):not(#ka) :is(#ablauf,.sum-abl) .steps li.step-card:hover{scale:1.02}
+:is(#ablauf,.sum-abl) .steps li::before{background-repeat:no-repeat!important;background-position:center!important}
+html:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps li::before{background-color:#eff3fb!important;background-image:radial-gradient(circle closest-side,#93a6c8 98%,transparent 100%)!important;background-size:0% 0%!important}
+html:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps li.st-hit::before{background-color:#eff3fb!important;background-image:radial-gradient(circle closest-side,#93a6c8 98%,transparent 100%)!important;background-size:100% 100%!important}
+html:not(#ka)[data-theme="dark"] :is(#ablauf,.sum-abl) .steps li::before{background-color:#0a2e78!important;background-image:radial-gradient(circle closest-side,#c5d1e3 98%,transparent 100%)!important;background-size:0% 0%!important}
+html:not(#ka)[data-theme="dark"] :is(#ablauf,.sum-abl) .steps li.st-hit::before{background-color:#0a2e78!important;background-image:radial-gradient(circle closest-side,#c5d1e3 98%,transparent 100%)!important;background-size:100% 100%!important}
+html:not(.calm):not(#ka) :is(#ablauf,.sum-abl) .steps li::before{transition:background-size .55s cubic-bezier(.25,.8,.35,1)!important}
+html.calm:not(#ka) :is(#ablauf,.sum-abl) .steps li::before{background-size:100% 100%!important}
+/* v177: Dunkelmodus Querformat/Tablet/Desktop – die Maske des Porträt-Rahmens schnitt den Halo oben mit einer harten Kante ab; im Dunkelmodus hat das Foto seine eigene weiche Maske, der Rahmen braucht keine */
+:root[data-theme="dark"] .home-page .hero-v5 .hero-portrait{-webkit-mask-image:none!important;mask-image:none!important}
+/* v177: Startseite – „Hier geht's weiter zu: Behandlungen" gehört zum Ablauf darüber (nur noch ca. 44 px unter den Karten statt ca. 100 px) und hat unten Luft zum Trenner */
+.view-home .next-link{margin-top:calc(2.6rem - 55px)!important;padding-bottom:24px!important}
+/* v177: Über mich im Dunkelmodus – Qualifikationen und „Philosophie und Werte" im selben helleren Blau wie die übrigen Karten; die Haken der Qualifikationen in Mintgrün (vorher dunkelgrün und kaum zu sehen) */
+html:not(#ka)[data-theme="dark"] :is(ul.quals,.phil-box){background:linear-gradient(180deg,#1a45a6 0%,#123a98 100%)!important;border:1px solid rgba(170,198,245,.4)!important;box-shadow:0 0 28px 2px rgba(110,150,235,.22)!important}
+html:not(#ka)[data-theme="dark"] ul.quals :is(svg,.ico){color:#6fb98a!important}
+html:not(#ka)[data-theme="dark"] ul.quals svg path{stroke:currentColor}
