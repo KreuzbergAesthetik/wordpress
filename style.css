@@ -4778,9 +4778,8 @@ html:not(#ka)[data-theme="dark"] :is(#ablauf,.sum-abl) .steps li.st-hit::before,
 html:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps::before,html:not(#ka):not([data-theme="dark"]) :is(#ablauf,.sum-abl) .steps li::after{background:#012265!important}
 /* v174: Preistabellen auf den Behandlungskarten im Dunkelmodus wieder dunkler – mehr Kontrast zur helleren Karte */
 :root[data-theme="dark"] .grp .subgrp,:root[data-theme="dark"] .grp .subgrp:not(.has-h){background:rgba(2,22,78,.42)!important;border:1px solid rgba(190,212,248,.16)!important}
-/* v175: Startbereich am Handy nach Rückmeldung – Halo hinter dem Porträt (Dunkelmodus) deutlich größer, mehr Abstand zwischen Porträt und Text, etwas Luft zwischen Kursivzeile und Fließtext */
+/* v175: Startbereich am Handy nach Rückmeldung – Halo hinter dem Porträt (Dunkelmodus) deutlich größer, mehr Abstand zwischen der Kursivzeile (Unterüberschrift) und dem Fließtext */
 @media (max-width:700px){
  :root[data-theme="dark"]:not(.never) .home-page .hero-v5 .hero-portrait::before{left:-40%!important;right:-40%!important;top:-34%!important;bottom:-14%!important;background:radial-gradient(closest-side at 50% 42%,rgba(170,198,245,.5) 0%,rgba(150,182,236,.34) 40%,rgba(140,175,232,.14) 72%,rgba(140,175,232,0) 100%)!important}
- html:not(#ka) .home-page .hero-v5{padding-top:calc((100vw - 36px) * .66 - 32vw)!important}
- html:not(#ka) .home-page .hero-v5 .hero-text{margin-top:.55rem!important}
+ html:not(#ka) .home-page .hero-v5 .hero-text{margin-top:.95rem!important}
 }
