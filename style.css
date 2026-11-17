@@ -4862,3 +4862,11 @@ html:not(#ka) section.sum-kon p.sum-contact .btn :is(span,.bt-in,.ico,svg){color
 html:not(#ka) section.sum-kon p.sum-contact .btn.btn-wa-ico{border-color:#fff!important}
 html:not(#ka) section.sum-kon p.sum-contact .btn:hover,html:not(#ka) section.sum-kon p.sum-contact .btn:focus-visible{background:#fff!important;color:#012265!important}
 html:not(#ka) section.sum-kon p.sum-contact .btn:hover :is(span,.bt-in,.ico,svg),html:not(#ka) section.sum-kon p.sum-contact .btn:focus-visible :is(span,.bt-in,.ico,svg){color:#012265!important}
+/* v178: Dunkelmodus Desktop/Tablet/Querformat – das Porträt blendet unten wieder aus. Die Ausblendung sitzt jetzt direkt am Foto (die Maske am Rahmen schnitt den Halo oben ab und fehlt seit Version 177). */
+@media (min-width:701px){
+ html:not(#ka)[data-theme="dark"] .home-page .hero-v5 .hero-portrait .hero-photo{-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 60%,rgba(0,0,0,.6) 70%,rgba(0,0,0,.2) 78%,transparent 86%)!important;mask-image:linear-gradient(180deg,#000 0%,#000 60%,rgba(0,0,0,.6) 70%,rgba(0,0,0,.2) 78%,transparent 86%)!important}
+}
+/* v178: Kontaktband – der runde WhatsApp-Knopf in der Mitte weiß hinterlegt mit dunklem Symbol (E-Mail und Formular bleiben durchsichtig mit weißem Rand) */
+html:not(#ka) section.sum-kon p.sum-contact .btn.btn-wa-ico{background:#fff!important;border-color:#fff!important;color:#012265!important}
+html:not(#ka) section.sum-kon p.sum-contact .btn.btn-wa-ico :is(span,.bt-in,.ico,svg){color:#012265!important}
+html:not(#ka) section.sum-kon p.sum-contact .btn.btn-wa-ico:hover,html:not(#ka) section.sum-kon p.sum-contact .btn.btn-wa-ico:focus-visible{background:#fff!important}
