@@ -4772,8 +4772,8 @@ html:not(#ka)[data-theme="dark"] :is(#ablauf,.sum-abl) .steps li.st-hit::before,
 /* v174: Startbereich am Handy – Porträt breiter, zeigt etwas weniger Körper (unten gekürzt, die Ausblendung rückt mit nach oben) und der Text folgt dicht darunter */
 @media (max-width:700px){
  html:not(#ka) .home-page .hero-v5 .hero-portrait{width:100vw!important;margin-left:4.1vw!important;height:auto!important;min-height:0!important;padding-bottom:0!important;margin-bottom:0!important}
- html:not(#ka) .home-page .hero-v5 .hero-portrait .hero-photo{width:100%!important;aspect-ratio:900/880!important;height:auto!important;object-fit:cover!important;object-position:50% 0!important;margin-bottom:0!important}
- html:not(#ka) .home-page .hero-v5{padding-top:calc((100vw - 36px) * .66 - 39vw)!important}
+ html:not(#ka) .home-page .hero-v5 .hero-portrait .hero-photo{width:100%!important;aspect-ratio:900/960!important;height:auto!important;object-fit:cover!important;object-position:50% 0!important;margin-bottom:0!important}
+ html:not(#ka) .home-page .hero-v5{padding-top:calc((100vw - 36px) * .66 - 30vw)!important}
  html:not(#ka) .home-page .hero-only{overflow-x:clip}
 }
 /* v174: Preistabellen auf den Behandlungskarten im Dunkelmodus wieder dunkler – mehr Kontrast zur helleren Karte */
