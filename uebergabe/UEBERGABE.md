@@ -1,6 +1,6 @@
 # Übergabe: Website Kreuzberg Ästhetik (WordPress-Theme)
 
-Stand: 15. November 2026. **Theme-Version 177 wird veröffentlicht** (Trenner überall mit ca. 60 px oben und 66 px unten; Ablauf-Karten: Schatten und Pop der ersten Karte, Karten poppen beim Füllen des Punkts, Punktfüllung wächst aus der Mitte; WhatsApp im Kontaktband als Ring mit weißem Symbol; Halo-Kante im Querformat behoben; Weiter-Link auf der Startseite näher am Ablauf; Dunkelmodus: Behandlungsübersicht, Impressum, Datenschutz, Qualifikationen und Philosophie-Box im helleren Blau, Haken in gedämpftem Grün, Werte-Symbol erst leer dann gefüllt). Nächste Version: 178.
+Stand: 17. November 2026. **Theme-Version 178 wird veröffentlicht** (Startbildschirm-Symbol: Logo mit www. in Praxisblau auf Weiß, Dateien assets/app-icon-*.png und manifest.webmanifest, Einbindung in functions.php; Kontaktband: E-Mail und Formular durchsichtig mit weißem Rand, WhatsApp-Kreis weiß, Knöpfe poppen nur; Dunkelmodus Desktop: Porträt blendet unten wieder aus; Startbereich Handy: Porträt länger). Nächste Version: 179.
 
 ## ZUERST LESEN – Kurzfassung für die neue Sitzung
 
