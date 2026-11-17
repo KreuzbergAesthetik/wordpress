@@ -48,6 +48,14 @@ remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 remove_action( 'wp_print_styles', 'print_emoji_styles' );
 
 /* Beschreibung und strukturierte Daten für Suchmaschinen */
+/* Symbol für den Startbildschirm (Handy: „Zum Startbildschirm hinzufügen“): Logo mit „www.“ als Apple-Symbol und über das Manifest (Android/Chrome). Das Symbol im Browser-Tab bleibt unverändert. */
+add_action( 'wp_head', function () {
+	$u = get_theme_file_uri( 'assets/' );
+	echo '<link rel="apple-touch-icon" sizes="180x180" href="' . esc_url( $u . 'app-icon-180.png' ) . '">' . "\n";
+	echo '<link rel="manifest" href="' . esc_url( $u . 'manifest.webmanifest' ) . '">' . "\n";
+	echo '<meta name="theme-color" content="#012265">' . "\n";
+}, 1 );
+
 add_action( 'wp_head', function () {
 	if ( ! is_front_page() ) { return; }
 	$desc = wp_strip_all_tags( ka_raw( 'hero_h1' ) ) . '. ' . ka_raw( 'hero_text' );

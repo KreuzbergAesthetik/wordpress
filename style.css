@@ -2,7 +2,7 @@
 Theme Name: Kreuzberg Ästhetik
 Description: Website der Privatpraxis Kreuzberg Ästhetik
 Author: Kreuzberg Ästhetik
-Version: 177
+Version: 178
 Requires at least: 6.0
 Requires PHP: 7.4
 Text Domain: kreuzberg-aesthetik
@@ -4772,8 +4772,8 @@ html:not(#ka)[data-theme="dark"] :is(#ablauf,.sum-abl) .steps li.st-hit::before,
 /* v174: Startbereich am Handy – Porträt breiter, zeigt etwas weniger Körper (unten gekürzt, die Ausblendung rückt mit nach oben) und der Text folgt dicht darunter */
 @media (max-width:700px){
  html:not(#ka) .home-page .hero-v5 .hero-portrait{width:100vw!important;margin-left:4.1vw!important;height:auto!important;min-height:0!important;padding-bottom:0!important;margin-bottom:0!important}
- html:not(#ka) .home-page .hero-v5 .hero-portrait .hero-photo{width:100%!important;aspect-ratio:900/880!important;height:auto!important;object-fit:cover!important;object-position:50% 0!important;margin-bottom:0!important}
- html:not(#ka) .home-page .hero-v5{padding-top:calc((100vw - 36px) * .66 - 39vw)!important}
+ html:not(#ka) .home-page .hero-v5 .hero-portrait .hero-photo{width:100%!important;aspect-ratio:900/960!important;height:auto!important;object-fit:cover!important;object-position:50% 0!important;margin-bottom:0!important}
+ html:not(#ka) .home-page .hero-v5{padding-top:calc((100vw - 36px) * .66 - 30vw)!important}
  html:not(#ka) .home-page .hero-only{overflow-x:clip}
 }
 /* v174: Preistabellen auf den Behandlungskarten im Dunkelmodus wieder dunkler – mehr Kontrast zur helleren Karte */
@@ -4856,3 +4856,17 @@ html.calm:not(#ka) :is(#ablauf,.sum-abl) .steps li::before{background-size:100% 
 html:not(#ka)[data-theme="dark"] :is(ul.quals,.phil-box){background:linear-gradient(180deg,#1a45a6 0%,#123a98 100%)!important;border:1px solid rgba(170,198,245,.4)!important;box-shadow:0 0 28px 2px rgba(110,150,235,.22)!important}
 html:not(#ka)[data-theme="dark"] ul.quals :is(svg,.ico){color:#6fb98a!important}
 html:not(#ka)[data-theme="dark"] ul.quals svg path{stroke:currentColor}
+/* v178: Kontaktband – E-Mail und Formular genau umgekehrt: durchsichtig mit weißem Rand, weiße Schrift und weiße Symbole; der runde WhatsApp-Knopf ebenfalls mit weißem Rand und weißem Symbol. Beim Überfahren poppen sie nur, ohne sich zu füllen. */
+html:not(#ka) section.sum-kon p.sum-contact .btn{background:transparent!important;border:1.5px solid #fff!important;color:#fff!important;box-shadow:none!important}
+html:not(#ka) section.sum-kon p.sum-contact .btn :is(span,.bt-in,.ico,svg){color:#fff!important}
+html:not(#ka) section.sum-kon p.sum-contact .btn.btn-wa-ico{border-color:#fff!important}
+html:not(#ka) section.sum-kon p.sum-contact .btn:not(.btn-wa-ico):hover,html:not(#ka) section.sum-kon p.sum-contact .btn:not(.btn-wa-ico):focus-visible{background:transparent!important;color:#fff!important;box-shadow:none!important}
+html:not(#ka) section.sum-kon p.sum-contact .btn:not(.btn-wa-ico):hover :is(span,.bt-in,.ico,svg),html:not(#ka) section.sum-kon p.sum-contact .btn:not(.btn-wa-ico):focus-visible :is(span,.bt-in,.ico,svg){color:#fff!important}
+/* v178: Dunkelmodus Desktop/Tablet/Querformat – das Porträt blendet unten wieder aus. Die Ausblendung sitzt jetzt direkt am Foto (die Maske am Rahmen schnitt den Halo oben ab und fehlt seit Version 177). */
+@media (min-width:701px){
+ html:not(#ka)[data-theme="dark"] .home-page .hero-v5 .hero-portrait .hero-photo{-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 60%,rgba(0,0,0,.6) 70%,rgba(0,0,0,.2) 78%,transparent 86%)!important;mask-image:linear-gradient(180deg,#000 0%,#000 60%,rgba(0,0,0,.6) 70%,rgba(0,0,0,.2) 78%,transparent 86%)!important}
+}
+/* v178: Kontaktband – der runde WhatsApp-Knopf in der Mitte weiß hinterlegt mit dunklem Symbol (E-Mail und Formular bleiben durchsichtig mit weißem Rand) */
+html:not(#ka) section.sum-kon p.sum-contact .btn.btn-wa-ico{background:#fff!important;border-color:#fff!important;color:#012265!important}
+html:not(#ka) section.sum-kon p.sum-contact .btn.btn-wa-ico :is(span,.bt-in,.ico,svg){color:#012265!important}
+html:not(#ka) section.sum-kon p.sum-contact .btn.btn-wa-ico:hover,html:not(#ka) section.sum-kon p.sum-contact .btn.btn-wa-ico:focus-visible{background:#fff!important}
