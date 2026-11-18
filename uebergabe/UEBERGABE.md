@@ -1,6 +1,6 @@
 # Übergabe: Website Kreuzberg Ästhetik (WordPress-Theme)
 
-Stand: 17. November 2026. **Theme-Version 178 wird veröffentlicht** (Startbildschirm-Symbol: Logo mit www. in Praxisblau auf Weiß, Dateien assets/app-icon-*.png und manifest.webmanifest, Einbindung in functions.php; Kontaktband: E-Mail und Formular durchsichtig mit weißem Rand, WhatsApp-Kreis weiß, Knöpfe poppen nur; Dunkelmodus Desktop: Porträt blendet unten wieder aus; Startbereich Handy: Porträt länger). Nächste Version: 179.
+Stand: 18. November 2026. **Theme-Version 179 wird veröffentlicht** (App-Manifest kommt jetzt von der Startadresse ?ka-manifest=1 mit Gültigkeitsbereich ganze Seite und Anzeige standalone, damit Chrome „Installieren“ anbietet; Logo-Symbole bleiben). Nächste Version: 180.
 
 ## ZUERST LESEN – Kurzfassung für die neue Sitzung
 

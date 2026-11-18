@@ -48,11 +48,33 @@ remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 remove_action( 'wp_print_styles', 'print_emoji_styles' );
 
 /* Beschreibung und strukturierte Daten für Suchmaschinen */
-/* Symbol für den Startbildschirm (Handy: „Zum Startbildschirm hinzufügen“): Logo mit „www.“ als Apple-Symbol und über das Manifest (Android/Chrome). Das Symbol im Browser-Tab bleibt unverändert. */
+/* Symbol für den Startbildschirm (Handy: „Zum Startbildschirm hinzufügen“ bzw. „Installieren“): Logo mit „www.“ als Apple-Symbol und über ein Web-App-Manifest (Android/Chrome). Das Manifest kommt von der Startadresse der Website, damit sein Gültigkeitsbereich die ganze Seite umfasst. Das Symbol im Browser-Tab bleibt unverändert. */
+add_action( 'template_redirect', function () {
+	if ( ! isset( $_GET['ka-manifest'] ) ) { return; }
+	$u = get_theme_file_uri( 'assets/' );
+	nocache_headers();
+	header( 'Content-Type: application/manifest+json; charset=utf-8' );
+	echo wp_json_encode( array(
+		'id'               => home_url( '/' ),
+		'name'             => 'Kreuzberg Ästhetik',
+		'short_name'       => 'Kreuzberg Ästhetik',
+		'start_url'        => home_url( '/' ),
+		'scope'            => home_url( '/' ),
+		'display'          => 'standalone',
+		'background_color' => '#ffffff',
+		'theme_color'      => '#012265',
+		'lang'             => 'de',
+		'icons'            => array(
+			array( 'src' => $u . 'app-icon-192.png', 'sizes' => '192x192', 'type' => 'image/png', 'purpose' => 'any' ),
+			array( 'src' => $u . 'app-icon-512.png', 'sizes' => '512x512', 'type' => 'image/png', 'purpose' => 'any' ),
+		),
+	), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES );
+	exit;
+}, 0 );
 add_action( 'wp_head', function () {
 	$u = get_theme_file_uri( 'assets/' );
 	echo '<link rel="apple-touch-icon" sizes="180x180" href="' . esc_url( $u . 'app-icon-180.png' ) . '">' . "\n";
-	echo '<link rel="manifest" href="' . esc_url( $u . 'manifest.webmanifest' ) . '">' . "\n";
+	echo '<link rel="manifest" href="' . esc_url( home_url( '/?ka-manifest=1' ) ) . '">' . "\n";
 	echo '<meta name="theme-color" content="#012265">' . "\n";
 }, 1 );
 
