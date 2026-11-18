@@ -4870,3 +4870,25 @@ html:not(#ka) section.sum-kon p.sum-contact .btn:not(.btn-wa-ico):hover :is(span
 html:not(#ka) section.sum-kon p.sum-contact .btn.btn-wa-ico{background:#fff!important;border-color:#fff!important;color:#012265!important}
 html:not(#ka) section.sum-kon p.sum-contact .btn.btn-wa-ico :is(span,.bt-in,.ico,svg){color:#012265!important}
 html:not(#ka) section.sum-kon p.sum-contact .btn.btn-wa-ico:hover,html:not(#ka) section.sum-kon p.sum-contact .btn.btn-wa-ico:focus-visible{background:#fff!important}
+/* v180: Über mich (Desktop und Querformat) – durchsichtiger Zeitstrahl mit den Stationen hinter dem mitlaufenden Porträt. Die Stationen laufen beim Scrollen hinter dem Bild hindurch (nur durch die weichen Ränder und die Ausblendung unten zu sehen); sobald eine Station das Bild nach oben verlassen hat, füllt sich ihr Symbol. */
+.about-tl{display:none}
+@media (min-width:701px){
+ .kview[data-view=ueber-mich] .wrap.about{position:relative}
+ .kview[data-view=ueber-mich] .about-tl{display:block;grid-column:1;grid-row:1;align-self:stretch;justify-self:stretch;position:relative;z-index:0;pointer-events:none}
+ .kview[data-view=ueber-mich] .about-tl+.pframe{grid-column:1;grid-row:1;position:sticky;z-index:1}
+ .about-tl-line{position:absolute;left:50%;top:7%;bottom:6%;width:2px;margin-left:-1px;background:linear-gradient(180deg,transparent 0,rgba(1,34,101,.2) 8%,rgba(1,34,101,.2) 92%,transparent 100%)}
+ .about-tl-node{position:absolute;left:50%;top:calc(11% + var(--i) * (78% / (var(--n) - 1)));width:38px;height:38px;margin:-19px 0 0 -19px;border-radius:50%;display:grid;place-items:center;color:#012265;background:rgba(238,243,251,.55);border:1.5px solid rgba(1,34,101,.32);opacity:.8}
+ .about-tl-node svg{width:20px;height:20px}
+ .about-tl-node svg.fillable path.fl{clip-path:none!important;opacity:0;fill:#012265;fill-opacity:.9;transition:opacity .6s ease}
+ .about-tl-node svg.fillable.fill-on path.fl{opacity:1}
+ html:not(.calm) .about-tl-node{transition:transform .5s cubic-bezier(.25,.8,.35,1),border-color .5s ease,background-color .5s ease}
+ html:not(.calm) .about-tl-node.passed{transform:scale(1.12);border-color:rgba(1,34,101,.7);background:rgba(1,34,101,.9);color:#fff}
+ .about-tl-node.passed{border-color:rgba(1,34,101,.7);background:rgba(1,34,101,.9);color:#fff}
+ .about-tl-node.passed svg.fillable path.fl{fill:#fff}
+ :root[data-theme="dark"] .about-tl-line{background:linear-gradient(180deg,transparent 0,rgba(197,209,227,.35) 8%,rgba(197,209,227,.35) 92%,transparent 100%)}
+ :root[data-theme="dark"] .about-tl-node{color:#e8eef9;background:rgba(10,46,120,.5);border-color:rgba(197,209,227,.45)}
+ :root[data-theme="dark"] .about-tl-node.passed{border-color:#c5d1e3;background:#c5d1e3;color:#012265}
+ :root[data-theme="dark"] .about-tl-node svg.fillable path.fl{fill:#e8eef9}
+ :root[data-theme="dark"] .about-tl-node.passed svg.fillable path.fl{fill:#012265}
+ .calm .about-tl-node svg.fillable path.fl{opacity:1!important}
+}

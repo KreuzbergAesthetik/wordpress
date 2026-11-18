@@ -601,3 +601,18 @@ document.addEventListener('click',function(e){
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
   else init();
 })();
+
+/* Über mich: Zeitstrahl hinter dem Porträt – eine Station gilt als „durchfahren“, sobald sie das Porträt nach oben verlassen hat (oberhalb von Kopf und Haar); dann füllt sich ihr Symbol */
+(function(){
+  var tl=document.getElementById('about-tl');if(!tl)return;
+  var nodes=[].slice.call(tl.querySelectorAll('.about-tl-node')),tick=false;
+  function check(){
+    tick=false;
+    if(!tl.offsetParent&&getComputedStyle(tl).display==='none')return;
+    var pf=tl.parentNode.querySelector('.pframe');if(!pf)return;
+    var r=pf.getBoundingClientRect(),limit=r.top+r.height*.12;
+    nodes.forEach(function(n){var b=n.getBoundingClientRect(),c=b.top+b.height/2,done=c<limit&&b.height>0;if(done!==n.classList.contains('passed')){n.classList.toggle('passed',done);var sv=n.querySelector('svg.fillable');if(sv)sv.classList.toggle('fill-on',done)}});
+  }
+  function req(){if(!tick){tick=true;requestAnimationFrame(check)}}
+  window.addEventListener('scroll',req,{passive:true});window.addEventListener('resize',req);window.addEventListener('hashchange',function(){setTimeout(check,80)});check();
+})();

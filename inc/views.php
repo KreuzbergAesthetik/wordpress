@@ -276,6 +276,14 @@ function ka_view_about() {
 	?>
 <section id="ueber-mich" class="sub-sec">
   <div class="wrap about">
+    <?php $atl = ka_timeline(); if ( $atl ) : $ati = array( 'cap', 'plane', 'microscope', 'face', 'hourglass' ); ?>
+    <div class="about-tl" id="about-tl" aria-hidden="true">
+      <span class="about-tl-line"></span>
+      <?php foreach ( $atl as $i => $e ) : ?>
+      <span class="about-tl-node" style="--i:<?php echo (int) $i; ?>;--n:<?php echo (int) count( $atl ); ?>"><?php echo ka_icon( $ati[ $i % count( $ati ) ], 'ico fillable' ); ?></span>
+      <?php endforeach; ?>
+    </div>
+    <?php endif; ?>
     <div class="pframe"><img class="portrait" src="<?php echo esc_url( $portrait ); ?>" width="900" height="1229" alt="<?php echo esc_attr( ka_raw( 'portrait_alt' ) ); ?>"></div>
     <div>
       <div class="about-head">
@@ -314,14 +322,6 @@ function ka_view_about() {
         <?php endforeach; ?>
       </div>
       </div>
-      <div class="div lon-div" aria-hidden="true"><span class="hgi"></span></div>
-      <div class="lon-box">
-      <span class="lon-wm" aria-hidden="true"><?php echo ka_icon( 'leaf' ); ?></span>
-      <?php foreach ( $plain as $pl ) : ?>
-      <h3 class="lon-h"><?php echo esc_html( $pl ); ?></h3>
-      <?php endforeach; ?>
-      <?php echo ka_html( 'about_after' ); ?>
-      <p class="lon-cta"><?php echo ka( 'about_lon_cta' ); ?></p>
       </div>
     </div>
   </div>
