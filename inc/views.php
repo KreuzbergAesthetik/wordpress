@@ -270,6 +270,51 @@ function ka_view_home() {
 <?php
 }
 
+/** Über mich: Den Werdegang-Text nach den Stationen des Zeitstrahls gliedern.
+ *  Jeder Satz wird der Station zugeordnet, deren kennzeichnende Wörter (Titel und Text der Station, ohne Wörter, die in mehreren Stationen vorkommen) er enthält.
+ *  Ohne Treffer bleibt der Text unverändert. Der erste Absatz (Haltung der Praxis) bleibt als Zitat stehen. */
+function ka_story_blocks( $html, $tl ) {
+	if ( ! $tl || ! preg_match_all( '#<p>(.*?)</p>#us', $html, $m ) || count( $m[1] ) < 2 ) { return $html; }
+	$stems = array(); $df = array();
+	foreach ( $tl as $i => $e ) {
+		$w = preg_split( '/[^\p{L}\p{N}]+/u', mb_strtolower( $e[0] . ' ' . $e[1] ), -1, PREG_SPLIT_NO_EMPTY );
+		$set = array();
+		foreach ( $w as $x ) {
+			if ( ( mb_strlen( $x ) >= 6 ) || preg_match( '/^\d{4}$/', $x ) ) { $set[ mb_substr( $x, 0, 7 ) ] = true; }
+		}
+		$stems[ $i ] = array_keys( $set );
+		foreach ( $stems[ $i ] as $x ) { $df[ $x ] = isset( $df[ $x ] ) ? $df[ $x ] + 1 : 1; }
+	}
+	foreach ( $stems as $i => $set ) { $stems[ $i ] = array_values( array_filter( $set, function ( $x ) use ( $df ) { return 1 === $df[ $x ]; } ) ); }
+	$last = count( $tl ) - 1; $groups = array(); $any = false; $cur = null;
+	foreach ( array_slice( $m[1], 1 ) as $para ) {
+		foreach ( preg_split( '/(?<=[.!?])\s+/u', trim( $para ), -1, PREG_SPLIT_NO_EMPTY ) as $sent ) {
+			$low = mb_strtolower( wp_strip_all_tags( $sent ) ); $best = 0; $hit = array();
+			foreach ( $stems as $i => $set ) {
+				if ( $i === $last ) { continue; }
+				$sc = 0; foreach ( $set as $x ) { if ( false !== mb_strpos( $low, $x ) ) { $sc++; } }
+				if ( $sc > $best ) { $best = $sc; $hit = array( $i ); } elseif ( $sc === $best && $sc > 0 ) { $hit[] = $i; }
+			}
+			if ( $hit ) { $any = true; $cur = $hit[0]; }
+			$groups[] = array( null === $cur ? -1 : $cur, $sent );
+		}
+	}
+	if ( ! $any ) { return $html; }
+	$out = $m[0][0]; $open = null; $buf = '';
+	$flush = function () use ( &$out, &$open, &$buf, $tl ) {
+		if ( '' === $buf ) { return; }
+		if ( null === $open || $open < 0 ) { $out .= '<p>' . trim( $buf ) . '</p>'; }
+		else { $t = str_replace( ' / ', ' ', $tl[ $open ][0] ); $out .= '<div class="st-block" data-st="' . (int) $open . '"><h4 class="st-h">' . esc_html( $t ) . '</h4><p>' . trim( $buf ) . '</p></div>'; }
+		$buf = '';
+	};
+	foreach ( $groups as $g ) {
+		if ( $g[0] !== $open ) { $flush(); $open = $g[0]; }
+		$buf .= $g[1] . ' ';
+	}
+	$flush();
+	return $out;
+}
+
 function ka_view_about() {
 	// Über mich: dasselbe Porträt mit Hemd wie im Startbereich
 	$portrait = get_theme_file_uri( 'assets/portrait-hero.webp' );
@@ -292,7 +337,7 @@ function ka_view_about() {
         <p class="about-sub"><span><?php echo ka( 'hero_sub' ); ?></span></p>
         <div class="div about-div" aria-hidden="true"><span class="hgi"></span></div>
       </div>
-      <?php echo preg_replace( '#^\s*<p>\s*Ich lebe und arbeite in Berlin-Kreuzberg\.?\s*</p>#u', '', ka_html( 'about_main' ), 1 ); ?>
+      <?php echo ka_story_blocks( preg_replace( '#^\s*<p>\s*Ich lebe und arbeite in Berlin-Kreuzberg\.?\s*</p>#u', '', ka_html( 'about_main' ), 1 ), ka_timeline() ); ?>
       <?php $quals = ka_lines( 'about_quals' ); if ( $quals ) : ?>
       <ul class="quals">
         <?php foreach ( $quals as $q ) : ?><li><?php echo ka_icon( 'shield' ); ?><span><?php echo esc_html( $q ); ?></span></li><?php endforeach; ?>

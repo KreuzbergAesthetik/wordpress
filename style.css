@@ -4892,3 +4892,19 @@ html:not(#ka) section.sum-kon p.sum-contact .btn.btn-wa-ico:hover,html:not(#ka) 
  :root[data-theme="dark"] .about-tl-node.passed svg.fillable path.fl{fill:#012265}
  .calm .about-tl-node svg.fillable path.fl{opacity:1!important}
 }
+
+/* v180: Über mich – Werdegang nach Stationen gegliedert; der Abschnitt, dessen Station gerade hinter dem Porträt liegt, ist hervorgehoben. Station füllt sich leise (ohne Pop). */
+.st-block{margin:1.1rem 0;padding:.1rem 0 .1rem 1rem;border-left:2px solid rgba(1,34,101,.14);transition:border-color .5s ease,background-color .5s ease}
+.st-block p{margin:.25rem 0 0!important}
+.st-h{margin:0;font:700 .72rem/1.35 Quicksand,"Segoe UI",system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#4d6a96;transition:color .5s ease}
+.st-block.on{border-left-color:#012265}
+.st-block.on .st-h{color:#012265}
+:root[data-theme="dark"] .st-block{border-left-color:rgba(197,209,227,.2)}
+:root[data-theme="dark"] .st-h{color:#9fb3d6}
+:root[data-theme="dark"] .st-block.on{border-left-color:#c5d1e3}
+:root[data-theme="dark"] .st-block.on .st-h{color:#e8eef9}
+@media (min-width:701px){
+ html:not(.calm) .about-tl-node.passed{transform:none!important}
+ .about-tl-node.passed{border-color:rgba(1,34,101,.45)!important;background:rgba(1,34,101,.55)!important}
+ :root[data-theme="dark"] .about-tl-node.passed{border-color:rgba(197,209,227,.7)!important;background:rgba(197,209,227,.65)!important}
+}

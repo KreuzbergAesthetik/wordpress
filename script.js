@@ -602,17 +602,29 @@ document.addEventListener('click',function(e){
   else init();
 })();
 
-/* Über mich: Zeitstrahl hinter dem Porträt – eine Station gilt als „durchfahren“, sobald sie das Porträt nach oben verlassen hat (oberhalb von Kopf und Haar); dann füllt sich ihr Symbol */
+/* Über mich: Zeitstrahl hinter dem Porträt. Jede Station sitzt auf der Höhe ihres Textabschnitts. Sobald sie beim Scrollen die Mitte des Porträts erreicht hat (also hinter dem Bild), füllt sich ihr Symbol leise, und ihr Abschnitt wird hervorgehoben. */
 (function(){
   var tl=document.getElementById('about-tl');if(!tl)return;
-  var nodes=[].slice.call(tl.querySelectorAll('.about-tl-node')),tick=false;
+  var nodes=[].slice.call(tl.querySelectorAll('.about-tl-node')),blocks=[].slice.call(document.querySelectorAll('.st-block')),tick=false,pos=[];
+  function visible(){return tl.offsetParent!==null&&getComputedStyle(tl).display!=='none'}
+  function measure(){
+    if(!visible())return;var t0=tl.getBoundingClientRect().top,h=tl.offsetHeight,last=null;
+    nodes.forEach(function(n,i){
+      var b=blocks.filter(function(x){return +x.getAttribute('data-st')===i})[0],y;
+      if(b){var hd=b.querySelector('.st-h')||b,r=hd.getBoundingClientRect();y=r.top-t0+r.height/2}
+      else y=(last===null?h*.12:last+Math.max(110,h*.07));
+      last=y;pos[i]=y;n.style.top=Math.round(Math.min(y,h-40))+'px';
+    });
+  }
   function check(){
-    tick=false;
-    if(!tl.offsetParent&&getComputedStyle(tl).display==='none')return;
+    tick=false;if(!visible())return;
     var pf=tl.parentNode.querySelector('.pframe');if(!pf)return;
-    var r=pf.getBoundingClientRect(),limit=r.top+r.height*.12;
-    nodes.forEach(function(n){var b=n.getBoundingClientRect(),c=b.top+b.height/2,done=c<limit&&b.height>0;if(done!==n.classList.contains('passed')){n.classList.toggle('passed',done);var sv=n.querySelector('svg.fillable');if(sv)sv.classList.toggle('fill-on',done)}});
+    var r=pf.getBoundingClientRect(),limit=r.top+r.height*.5,act=-1;
+    nodes.forEach(function(n,i){var b=n.getBoundingClientRect(),c=b.top+b.height/2,done=c<limit;if(done)act=i;if(done!==n.classList.contains('passed')){n.classList.toggle('passed',done);var sv=n.querySelector('svg.fillable');if(sv)sv.classList.toggle('fill-on',done)}});
+    blocks.forEach(function(b){b.classList.toggle('on',+b.getAttribute('data-st')===act)});
   }
   function req(){if(!tick){tick=true;requestAnimationFrame(check)}}
-  window.addEventListener('scroll',req,{passive:true});window.addEventListener('resize',req);window.addEventListener('hashchange',function(){setTimeout(check,80)});check();
+  function all(){measure();check()}
+  window.addEventListener('scroll',req,{passive:true});window.addEventListener('resize',all);window.addEventListener('hashchange',function(){setTimeout(all,120)});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(all);window.addEventListener('load',all);setTimeout(all,300);all();
 })();
