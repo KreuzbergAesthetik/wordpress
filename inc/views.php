@@ -300,7 +300,7 @@ function ka_story_blocks( $html, $tl ) {
 		}
 	}
 	if ( ! $any ) { return $html; }
-	$out = $m[0][0]; $open = null; $buf = '';
+	$out = ''; $open = null; $buf = '';
 	$flush = function () use ( &$out, &$open, &$buf, $tl ) {
 		if ( '' === $buf ) { return; }
 		if ( null === $open || $open < 0 ) { $out .= '<p>' . trim( $buf ) . '</p>'; }
@@ -312,6 +312,9 @@ function ka_story_blocks( $html, $tl ) {
 		$buf .= $g[1] . ' ';
 	}
 	$flush();
+	/* Der erste Absatz (Haltung der Praxis) rückt ans Ende, auf die Höhe der letzten Station (Kreuzberg Ästhetik) – ohne Rahmen. */
+	$t = str_replace( ' / ', ' ', $tl[ $last ][0] );
+	$out .= '<div class="st-block st-last" data-st="' . (int) $last . '"><h4 class="st-h">' . esc_html( $t ) . '</h4><p>' . trim( $m[1][0] ) . '</p></div>';
 	return $out;
 }
 
