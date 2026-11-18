@@ -261,7 +261,7 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
     if(!col){if(phase!=='idle'){phase='idle';sand(false);set(0)}since=0}
     else if(phase==='idle'){
       if(!since)since=now;
-      if(now-since>700){phase='flip';start=now;angle+=180;f.style.transform='rotate('+angle+'deg)'}
+      if(now-since>700){phase='flip';start=now;angle-=180;f.style.transform='rotate('+angle+'deg)'}
     }else if(phase==='flip'&&now-start>1900){phase='run';start=now;set(0);sand(true)}
     else if(phase==='run'){
       var p=Math.min(1,(now-start)/D);set(p);
@@ -285,7 +285,7 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
   function stop(){timers.forEach(clearTimeout);timers=[];cancelAnimationFrame(raf);s.classList.remove('on');t.classList.remove('on');set(0);started=false}
   function run(){
     started=true;
-    timers.push(setTimeout(function(){angle+=180;f.style.transform='rotate('+angle+'deg)';
+    timers.push(setTimeout(function(){angle-=180;f.style.transform='rotate('+angle+'deg)';
       timers.push(setTimeout(function(){s.classList.add('on');t.classList.add('on');var t0=performance.now(),D=5500;
         (function step(now){var p=Math.min(1,(now-t0)/D);set(p);if(p<1){raf=requestAnimationFrame(step)}else{s.classList.remove('on');t.classList.remove('on')}})(t0);
       },1900));
@@ -442,7 +442,7 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
       var parts=h.slice(1).split('#'),v=parts[0]||'home',anc=parts[1],cur=(location.hash||'#').slice(1)||'home';
       if((v===cur&&!anc)||!document.querySelector('.kview[data-view="'+v+'"]'))return;
       e.preventDefault();busy=true;
-      play(function(){location.hash=v==='home'?'':'#'+v;root.classList.remove('pgt-spin');setTimeout(function(){root.classList.remove('pgt-on');busy=false;var t=anc&&document.getElementById(anc);if(t)window.scrollTo(0,t.getBoundingClientRect().top+(window.pageYOffset||0)-90)},60)});
+      play(function(){location.hash=v==='home'?'':'#'+v;root.classList.remove('pgt-spin');setTimeout(function(){root.classList.remove('pgt-on');busy=false;var t=anc&&document.getElementById(anc);if(t){if(t.tagName==='DETAILS')t.open=true;window.scrollTo(0,t.getBoundingClientRect().top+(window.pageYOffset||0)-90)}},60)});
       return;
     }
     var u;try{u=new URL(a.href,location.href)}catch(x){return}
@@ -527,7 +527,7 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
   function check(){
     tick=false;
     var now=last.classList.contains('hit');
-    if(now&&!was){var f=last.querySelector('.wmk-node .lg-f');clearTimeout(timer);if(f)timer=setTimeout(function(){angle+=180;f.style.transform='rotate('+angle+'deg)'},500)}
+    if(now&&!was){var f=last.querySelector('.wmk-node .lg-f');clearTimeout(timer);if(f)timer=setTimeout(function(){angle-=180;f.style.transform='rotate('+angle+'deg)'},500)}
     if(!now)clearTimeout(timer);
     was=now;
   }
@@ -600,4 +600,52 @@ document.addEventListener('click',function(e){
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
   else init();
+})();
+
+/* Über mich: Zeitstrahl hinter dem Porträt. Jede Station sitzt auf der Höhe ihres Textabschnitts. Sobald sie beim Scrollen die Mitte des Porträts erreicht hat (also hinter dem Bild), füllt sich ihr Symbol leise, und ihr Abschnitt wird hervorgehoben. */
+(function(){
+  var tl=document.getElementById('about-tl');if(!tl)return;
+  var nodes=[].slice.call(tl.querySelectorAll('.about-tl-node')),blocks=[].slice.call(document.querySelectorAll('.st-block')),tick=false,pos=[];
+  function visible(){return tl.offsetParent!==null&&getComputedStyle(tl).display!=='none'}
+  function measure(){
+    if(!visible())return;var t0=tl.getBoundingClientRect().top,h=tl.offsetHeight,last=null;
+    nodes.forEach(function(n,i){
+      var b=blocks.filter(function(x){return +x.getAttribute('data-st')===i})[0],y;
+      if(b){var hd=b.querySelector('.st-h')||b,r=hd.getBoundingClientRect();y=r.top-t0+r.height/2}
+      else y=(last===null?h*.12:last+Math.max(110,h*.07));
+      last=y;pos[i]=y;n.style.top=Math.round(Math.min(y,h-40))+'px';
+    });
+  }
+  function check(){
+    tick=false;if(!visible())return;
+    var pf=tl.parentNode.querySelector('.pframe');if(!pf)return;
+    var r=pf.getBoundingClientRect(),limit=r.top+r.height*.5,act=-1;
+    nodes.forEach(function(n,i){var b=n.getBoundingClientRect(),c=b.top+b.height/2,done=c<limit;if(done)act=i;if(done!==n.classList.contains('passed')){n.classList.toggle('passed',done);var sv=n.querySelector('svg.fillable');if(sv)sv.classList.toggle('fill-on',done)}});
+    blocks.forEach(function(b){b.classList.toggle('on',+b.getAttribute('data-st')===act)});
+  }
+  function req(){if(!tick){tick=true;requestAnimationFrame(check)}}
+  function all(){measure();check()}
+  window.addEventListener('scroll',req,{passive:true});window.addEventListener('resize',all);window.addEventListener('hashchange',function(){setTimeout(all,120)});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(all);window.addEventListener('load',all);setTimeout(all,300);all();
+})();
+
+/* Werte im Startbereich verlinken auf die Werte-Tabelle bei „Über mich": #wert-N öffnet den passenden Reiter und scrollt dorthin (auch beim direkten Aufruf der Adresse) */
+(function(){
+  function go(){
+    var m=/^#wert-(\d+)$/.exec(location.hash||'');if(!m)return;
+    var d=document.getElementById('wert-'+m[1]);if(!d||d.tagName!=='DETAILS')return;
+    d.open=true;
+    var y=d.getBoundingClientRect().top+(window.pageYOffset||0)-110;window.scrollTo(0,y);
+  }
+  window.addEventListener('hashchange',function(){setTimeout(go,80)});
+  if(/^#wert-\d+$/.test(location.hash||'')){window.addEventListener('load',function(){setTimeout(go,150);setTimeout(go,700)})}
+})();
+
+/* „Zur Liste": Das Symbol färbt sich grün, sobald der Knopf beim normalen Scrollen in den Bildschirm kommt (nicht erst beim Überfahren) und wird beim Zurückscrollen wieder hell bzw. dunkelblau */
+(function(){
+  var btn=document.querySelector('.lei-btn-main');if(!btn)return;
+  var tick=false;
+  function check(){tick=false;var r=btn.getBoundingClientRect(),vh=kaVH();if(!r.height)return;btn.classList.toggle('ico-on',r.top<vh*.7&&r.bottom>0)}
+  function req(){if(!tick){tick=true;requestAnimationFrame(check)}}
+  window.addEventListener('scroll',req,{passive:true});window.addEventListener('resize',req);check();
 })();

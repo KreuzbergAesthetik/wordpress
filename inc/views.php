@@ -194,7 +194,7 @@ function ka_view_home() {
         <h3 class="hero-phil-h"><a class="eyebrow phil-pill" href="<?php echo esc_url( ka_url( 'ueber-mich' ) . '#philosophie' ); ?>"><?php echo rtrim( ka( 'hero_phil_h' ), ':' ); ?></a></h3>
         <ul class="hero-vals">
           <?php $vi = array( 'star', 'heart', 'people' ); foreach ( ka_lines( 'hero_vals' ) as $i => $hv ) : ?>
-          <li><?php echo ka_icon( $vi[ $i % 3 ] ); ?><span><?php echo esc_html( $hv ); ?></span></li>
+          <li><a class="hv-link" href="<?php echo esc_url( ka_url( 'ueber-mich' ) . '#wert-' . (int) $i ); ?>"><?php echo ka_icon( $vi[ $i % 3 ] ); ?><span><?php echo esc_html( $hv ); ?></span></a></li>
           <?php endforeach; ?>
         </ul>
       </div>
@@ -270,12 +270,69 @@ function ka_view_home() {
 <?php
 }
 
+/** Über mich: Den Werdegang-Text nach den Stationen des Zeitstrahls gliedern.
+ *  Jeder Satz wird der Station zugeordnet, deren kennzeichnende Wörter (Titel und Text der Station, ohne Wörter, die in mehreren Stationen vorkommen) er enthält.
+ *  Ohne Treffer bleibt der Text unverändert. Der erste Absatz (Haltung der Praxis) bleibt als Zitat stehen. */
+function ka_story_blocks( $html, $tl ) {
+	if ( ! $tl || ! preg_match_all( '#<p>(.*?)</p>#us', $html, $m ) || count( $m[1] ) < 2 ) { return $html; }
+	$stems = array(); $df = array();
+	foreach ( $tl as $i => $e ) {
+		$w = preg_split( '/[^\p{L}\p{N}]+/u', mb_strtolower( $e[0] . ' ' . $e[1] ), -1, PREG_SPLIT_NO_EMPTY );
+		$set = array();
+		foreach ( $w as $x ) {
+			if ( ( mb_strlen( $x ) >= 6 ) || preg_match( '/^\d{4}$/', $x ) ) { $set[ mb_substr( $x, 0, 7 ) ] = true; }
+		}
+		$stems[ $i ] = array_keys( $set );
+		foreach ( $stems[ $i ] as $x ) { $df[ $x ] = isset( $df[ $x ] ) ? $df[ $x ] + 1 : 1; }
+	}
+	foreach ( $stems as $i => $set ) { $stems[ $i ] = array_values( array_filter( $set, function ( $x ) use ( $df ) { return 1 === $df[ $x ]; } ) ); }
+	$last = count( $tl ) - 1; $groups = array(); $any = false; $cur = null;
+	foreach ( array_slice( $m[1], 1 ) as $pi => $para ) {
+		foreach ( preg_split( '/(?<=[.!?])\s+/u', trim( $para ), -1, PREG_SPLIT_NO_EMPTY ) as $si => $sent ) {
+			$low = mb_strtolower( wp_strip_all_tags( $sent ) ); $best = 0; $hit = array();
+			foreach ( $stems as $i => $set ) {
+				if ( $i === $last ) { continue; }
+				$sc = 0; foreach ( $set as $x ) { if ( false !== mb_strpos( $low, $x ) ) { $sc++; } }
+				if ( $sc > $best ) { $best = $sc; $hit = array( $i ); } elseif ( $sc === $best && $sc > 0 ) { $hit[] = $i; }
+			}
+			if ( $hit ) { $any = true; $cur = $hit[0]; }
+			$groups[] = array( null === $cur ? -1 : $cur, $sent, 0 === $si && $pi > 0 );
+		}
+	}
+	if ( ! $any ) { return $html; }
+	$out = ''; $open = null; $buf = '';
+	$newp = false;
+	$flush = function () use ( &$out, &$open, &$buf, &$newp, $tl ) {
+		if ( '' === $buf ) { return; }
+		if ( null === $open || $open < 0 ) { $out .= '<p>' . trim( $buf ) . '</p>'; }
+		else { $t = str_replace( ' / ', ' ', $tl[ $open ][0] ); $out .= '<div class="st-block' . ( $newp ? ' st-newp' : '' ) . '" data-st="' . (int) $open . '"><h4 class="st-h">' . esc_html( $t ) . '</h4><p>' . trim( $buf ) . '</p></div>'; }
+		$buf = '';
+	};
+	foreach ( $groups as $g ) {
+		if ( $g[0] !== $open ) { $flush(); $open = $g[0]; $newp = $g[2]; }
+		$buf .= $g[1] . ' ';
+	}
+	$flush();
+	/* Der erste Absatz (Haltung der Praxis) rückt ans Ende, auf die Höhe der letzten Station (Kreuzberg Ästhetik) – ohne Rahmen. */
+	$t = str_replace( ' / ', ' ', $tl[ $last ][0] );
+	$out .= '<div class="st-block st-last" data-st="' . (int) $last . '"><h4 class="st-h">' . esc_html( $t ) . '</h4><p>' . trim( $m[1][0] ) . '</p></div>';
+	return $out;
+}
+
 function ka_view_about() {
 	// Über mich: dasselbe Porträt mit Hemd wie im Startbereich
 	$portrait = get_theme_file_uri( 'assets/portrait-hero.webp' );
 	?>
 <section id="ueber-mich" class="sub-sec">
   <div class="wrap about">
+    <?php $atl = ka_timeline(); if ( $atl ) : $ati = array( 'cap', 'plane', 'microscope', 'face', 'hourglass' ); ?>
+    <div class="about-tl" id="about-tl" aria-hidden="true">
+      <span class="about-tl-line"></span>
+      <?php foreach ( $atl as $i => $e ) : ?>
+      <span class="about-tl-node" style="--i:<?php echo (int) $i; ?>;--n:<?php echo (int) count( $atl ); ?>"><?php echo ka_icon( $ati[ $i % count( $ati ) ], 'ico fillable' ); ?></span>
+      <?php endforeach; ?>
+    </div>
+    <?php endif; ?>
     <div class="pframe"><img class="portrait" src="<?php echo esc_url( $portrait ); ?>" width="900" height="1229" alt="<?php echo esc_attr( ka_raw( 'portrait_alt' ) ); ?>"></div>
     <div>
       <div class="about-head">
@@ -284,7 +341,7 @@ function ka_view_about() {
         <p class="about-sub"><span><?php echo ka( 'hero_sub' ); ?></span></p>
         <div class="div about-div" aria-hidden="true"><span class="hgi"></span></div>
       </div>
-      <?php echo preg_replace( '#^\s*<p>\s*Ich lebe und arbeite in Berlin-Kreuzberg\.?\s*</p>#u', '', ka_html( 'about_main' ), 1 ); ?>
+      <?php echo ka_story_blocks( preg_replace( '#^\s*<p>\s*Ich lebe und arbeite in Berlin-Kreuzberg\.?\s*</p>#u', '', ka_html( 'about_main' ), 1 ), ka_timeline() ); ?>
       <?php $quals = ka_lines( 'about_quals' ); if ( $quals ) : ?>
       <ul class="quals">
         <?php foreach ( $quals as $q ) : ?><li><?php echo ka_icon( 'shield' ); ?><span><?php echo esc_html( $q ); ?></span></li><?php endforeach; ?>
@@ -307,21 +364,13 @@ function ka_view_about() {
       ?>
       <div class="vlist">
         <?php foreach ( $vals as $i => $v ) : ?>
-        <details class="vrow"<?php echo 0 === $i ? ' open' : ''; ?>>
+        <details class="vrow" id="wert-<?php echo (int) $i; ?>"<?php echo 0 === $i ? ' open' : ''; ?>>
           <summary><span class="vrow-ico"><?php echo ka_icon( ka_icon_for( $v['name'] ) ); ?></span><span class="vrow-t"><?php echo esc_html( $v['name'] ); ?></span><i aria-hidden="true"></i></summary>
           <p><?php echo ka_mark( esc_html( $v['text'] ) ); ?></p>
         </details>
         <?php endforeach; ?>
       </div>
       </div>
-      <div class="div lon-div" aria-hidden="true"><span class="hgi"></span></div>
-      <div class="lon-box">
-      <span class="lon-wm" aria-hidden="true"><?php echo ka_icon( 'leaf' ); ?></span>
-      <?php foreach ( $plain as $pl ) : ?>
-      <h3 class="lon-h"><?php echo esc_html( $pl ); ?></h3>
-      <?php endforeach; ?>
-      <?php echo ka_html( 'about_after' ); ?>
-      <p class="lon-cta"><?php echo ka( 'about_lon_cta' ); ?></p>
       </div>
     </div>
   </div>
