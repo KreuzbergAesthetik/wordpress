@@ -4971,3 +4971,7 @@ html:not(#ka)[data-theme="dark"] .chat-window .ctyping i{background:#f2f6fd!impo
 html:not(#ka)[data-theme="dark"] .chat-window .crow:not(.me) .cbub .cbtn-mail,html:not(#ka)[data-theme="dark"] .chat-window .crow:not(.me) .cbub .cbtn-mail *{background:#fff!important;color:#012265!important}
 html:not(#ka)[data-theme="dark"] .chat-window .crow:not(.me) .cbub .cbtn-wa{background:transparent!important;border:1.5px solid #fff!important;color:#fff!important}
 html:not(#ka)[data-theme="dark"] .chat-window .crow:not(.me) .cbub .cbtn-wa *{background:transparent!important;color:#fff!important}
+/* v180: „Zur Liste" – Symbol wird grün, sobald der Knopf beim Scrollen im Bild ist (Klasse ico-on per Skript), nicht erst beim Überfahren */
+html:not(#ka):not([data-theme="dark"]) .lei-btn-main.ico-on :is(.ico,svg){color:#9be8b0!important}
+html:not(#ka)[data-theme="dark"] .lei-btn-main.ico-on :is(.ico,svg){color:#1f8f4f!important}
+html:not(#ka) .lei-btn-main :is(.ico,svg){transition:color .6s ease!important}

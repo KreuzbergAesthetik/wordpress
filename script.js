@@ -640,3 +640,12 @@ document.addEventListener('click',function(e){
   window.addEventListener('hashchange',function(){setTimeout(go,80)});
   if(/^#wert-\d+$/.test(location.hash||'')){window.addEventListener('load',function(){setTimeout(go,150);setTimeout(go,700)})}
 })();
+
+/* „Zur Liste": Das Symbol färbt sich grün, sobald der Knopf beim normalen Scrollen in den Bildschirm kommt (nicht erst beim Überfahren) und wird beim Zurückscrollen wieder hell bzw. dunkelblau */
+(function(){
+  var btn=document.querySelector('.lei-btn-main');if(!btn)return;
+  var tick=false;
+  function check(){tick=false;var r=btn.getBoundingClientRect(),vh=kaVH();if(!r.height)return;btn.classList.toggle('ico-on',r.top<vh*.7&&r.bottom>0)}
+  function req(){if(!tick){tick=true;requestAnimationFrame(check)}}
+  window.addEventListener('scroll',req,{passive:true});window.addEventListener('resize',req);check();
+})();
