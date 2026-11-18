@@ -194,7 +194,7 @@ function ka_view_home() {
         <h3 class="hero-phil-h"><a class="eyebrow phil-pill" href="<?php echo esc_url( ka_url( 'ueber-mich' ) . '#philosophie' ); ?>"><?php echo rtrim( ka( 'hero_phil_h' ), ':' ); ?></a></h3>
         <ul class="hero-vals">
           <?php $vi = array( 'star', 'heart', 'people' ); foreach ( ka_lines( 'hero_vals' ) as $i => $hv ) : ?>
-          <li><?php echo ka_icon( $vi[ $i % 3 ] ); ?><span><?php echo esc_html( $hv ); ?></span></li>
+          <li><a class="hv-link" href="<?php echo esc_url( ka_url( 'ueber-mich' ) . '#wert-' . (int) $i ); ?>"><?php echo ka_icon( $vi[ $i % 3 ] ); ?><span><?php echo esc_html( $hv ); ?></span></a></li>
           <?php endforeach; ?>
         </ul>
       </div>
@@ -287,8 +287,8 @@ function ka_story_blocks( $html, $tl ) {
 	}
 	foreach ( $stems as $i => $set ) { $stems[ $i ] = array_values( array_filter( $set, function ( $x ) use ( $df ) { return 1 === $df[ $x ]; } ) ); }
 	$last = count( $tl ) - 1; $groups = array(); $any = false; $cur = null;
-	foreach ( array_slice( $m[1], 1 ) as $para ) {
-		foreach ( preg_split( '/(?<=[.!?])\s+/u', trim( $para ), -1, PREG_SPLIT_NO_EMPTY ) as $sent ) {
+	foreach ( array_slice( $m[1], 1 ) as $pi => $para ) {
+		foreach ( preg_split( '/(?<=[.!?])\s+/u', trim( $para ), -1, PREG_SPLIT_NO_EMPTY ) as $si => $sent ) {
 			$low = mb_strtolower( wp_strip_all_tags( $sent ) ); $best = 0; $hit = array();
 			foreach ( $stems as $i => $set ) {
 				if ( $i === $last ) { continue; }
@@ -296,19 +296,20 @@ function ka_story_blocks( $html, $tl ) {
 				if ( $sc > $best ) { $best = $sc; $hit = array( $i ); } elseif ( $sc === $best && $sc > 0 ) { $hit[] = $i; }
 			}
 			if ( $hit ) { $any = true; $cur = $hit[0]; }
-			$groups[] = array( null === $cur ? -1 : $cur, $sent );
+			$groups[] = array( null === $cur ? -1 : $cur, $sent, 0 === $si && $pi > 0 );
 		}
 	}
 	if ( ! $any ) { return $html; }
 	$out = ''; $open = null; $buf = '';
-	$flush = function () use ( &$out, &$open, &$buf, $tl ) {
+	$newp = false;
+	$flush = function () use ( &$out, &$open, &$buf, &$newp, $tl ) {
 		if ( '' === $buf ) { return; }
 		if ( null === $open || $open < 0 ) { $out .= '<p>' . trim( $buf ) . '</p>'; }
-		else { $t = str_replace( ' / ', ' ', $tl[ $open ][0] ); $out .= '<div class="st-block" data-st="' . (int) $open . '"><h4 class="st-h">' . esc_html( $t ) . '</h4><p>' . trim( $buf ) . '</p></div>'; }
+		else { $t = str_replace( ' / ', ' ', $tl[ $open ][0] ); $out .= '<div class="st-block' . ( $newp ? ' st-newp' : '' ) . '" data-st="' . (int) $open . '"><h4 class="st-h">' . esc_html( $t ) . '</h4><p>' . trim( $buf ) . '</p></div>'; }
 		$buf = '';
 	};
 	foreach ( $groups as $g ) {
-		if ( $g[0] !== $open ) { $flush(); $open = $g[0]; }
+		if ( $g[0] !== $open ) { $flush(); $open = $g[0]; $newp = $g[2]; }
 		$buf .= $g[1] . ' ';
 	}
 	$flush();
@@ -363,7 +364,7 @@ function ka_view_about() {
       ?>
       <div class="vlist">
         <?php foreach ( $vals as $i => $v ) : ?>
-        <details class="vrow"<?php echo 0 === $i ? ' open' : ''; ?>>
+        <details class="vrow" id="wert-<?php echo (int) $i; ?>"<?php echo 0 === $i ? ' open' : ''; ?>>
           <summary><span class="vrow-ico"><?php echo ka_icon( ka_icon_for( $v['name'] ) ); ?></span><span class="vrow-t"><?php echo esc_html( $v['name'] ); ?></span><i aria-hidden="true"></i></summary>
           <p><?php echo ka_mark( esc_html( $v['text'] ) ); ?></p>
         </details>

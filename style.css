@@ -4894,8 +4894,32 @@ html:not(#ka) section.sum-kon p.sum-contact .btn.btn-wa-ico:hover,html:not(#ka) 
 }
 
 /* v180: Über mich – Werdegang nach Stationen gegliedert; der Abschnitt, dessen Station gerade hinter dem Porträt liegt, ist hervorgehoben. Station füllt sich leise (ohne Pop). */
+/* Gliederung nur ab 701 px (dort gibt es den Zeitstrahl); am Handy hochkant bleibt der Werdegang Fließtext */
+@media (min-width:701px){
+/* Gliederung nur ab 701 px (dort gibt es den Zeitstrahl); am Handy hochkant bleibt der Werdegang Fließtext */
+@media (min-width:701px){
 .st-block{margin:1.1rem 0;padding:.1rem 0 .1rem 1rem;border-left:2px solid rgba(1,34,101,.14);transition:border-color .5s ease,background-color .5s ease}
+}
+}
 .st-block p{margin:.25rem 0 0!important}
+@media (max-width:700px){
+ .st-h{display:none}
+ .st-block{display:inline;margin:0;padding:0;border:0}
+ .st-block p{display:inline!important;margin:0!important}
+ .st-block.st-newp,.st-block.st-last{display:block;margin-top:1rem}
+ .st-block.st-newp p,.st-block.st-last p{display:block!important}
+ .st-block:not(.st-last) p::after{content:" "}
+ .st-block.st-newp p::after{content:none}
+}
+@media (max-width:700px){
+ .st-h{display:none}
+ .st-block{display:inline;margin:0;padding:0;border:0}
+ .st-block p{display:inline!important;margin:0!important}
+ .st-block.st-newp,.st-block.st-last{display:block;margin-top:1rem}
+ .st-block.st-newp p,.st-block.st-last p{display:block!important}
+ .st-block:not(.st-last) p::after{content:" "}
+ .st-block.st-newp p::after{content:none}
+}
 .st-h{margin:0;font:700 .72rem/1.35 Quicksand,"Segoe UI",system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#4d6a96;transition:color .5s ease}
 .st-block.on{border-left-color:#012265}
 .st-block.on .st-h{color:#012265}
@@ -4923,3 +4947,18 @@ html:not(#ka):not([data-theme="dark"]) .chat-window .ctyping i{background:#fff!i
 html:not(#ka):not([data-theme="dark"]) .chat-window .crow:not(.me) .cbub .cbtn-mail,html:not(#ka):not([data-theme="dark"]) .chat-window .crow:not(.me) .cbub .cbtn-mail *{background:#fff!important;color:#012265!important}
 html:not(#ka):not([data-theme="dark"]) .chat-window .crow:not(.me) .cbub .cbtn-wa{background:transparent!important;border:1.5px solid #fff!important;color:#fff!important}
 html:not(#ka):not([data-theme="dark"]) .chat-window .crow:not(.me) .cbub .cbtn-wa *{background:transparent!important;color:#fff!important}
+
+/* v180: „Zur Liste" im Dunkelmodus (weißer Knopf): Symbol zuerst dunkelblau, beim Überfahren grün */
+html:not(#ka)[data-theme="dark"] .lei-btn-main :is(.ico,svg){color:#012265!important;transition:color .3s ease!important}
+html:not(#ka)[data-theme="dark"] .lei-btn-main:hover :is(.ico,svg),html:not(#ka)[data-theme="dark"] .lei-btn-main:focus-visible :is(.ico,svg){color:#1f8f4f!important}
+
+/* v180: „Zur Liste" im Dunkelmodus (weißer Knopf): Symbol zuerst dunkelblau, beim Überfahren grün */
+html:not(#ka)[data-theme="dark"] .lei-btn-main :is(.ico,svg){color:#012265!important;transition:color .3s ease!important}
+html:not(#ka)[data-theme="dark"] .lei-btn-main:hover :is(.ico,svg),html:not(#ka)[data-theme="dark"] .lei-btn-main:focus-visible :is(.ico,svg){color:#1f8f4f!important}
+
+/* v180: Werte im Startbereich sind Links auf den passenden Reiter der Werte-Tabelle bei „Über mich" */
+.hero-vals .hv-link{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:inherit;width:100%;height:100%;color:inherit!important;text-decoration:none!important;font:inherit}
+.hero-vals .hv-link span{text-decoration:underline;text-decoration-color:transparent;text-underline-offset:.25em;transition:text-decoration-color .3s ease}
+html:not(.calm) .hero-vals .hv-link{transition:transform .3s cubic-bezier(.25,.8,.35,1)}
+html:not(.calm) .hero-vals .hv-link:hover,html:not(.calm) .hero-vals .hv-link:focus-visible{transform:scale(1.06)}
+.hero-vals .hv-link:hover span,.hero-vals .hv-link:focus-visible span{text-decoration-color:currentColor}

@@ -442,7 +442,7 @@ try{sessionStorage.setItem('ka_seen','1')}catch(e){}
       var parts=h.slice(1).split('#'),v=parts[0]||'home',anc=parts[1],cur=(location.hash||'#').slice(1)||'home';
       if((v===cur&&!anc)||!document.querySelector('.kview[data-view="'+v+'"]'))return;
       e.preventDefault();busy=true;
-      play(function(){location.hash=v==='home'?'':'#'+v;root.classList.remove('pgt-spin');setTimeout(function(){root.classList.remove('pgt-on');busy=false;var t=anc&&document.getElementById(anc);if(t)window.scrollTo(0,t.getBoundingClientRect().top+(window.pageYOffset||0)-90)},60)});
+      play(function(){location.hash=v==='home'?'':'#'+v;root.classList.remove('pgt-spin');setTimeout(function(){root.classList.remove('pgt-on');busy=false;var t=anc&&document.getElementById(anc);if(t){if(t.tagName==='DETAILS')t.open=true;window.scrollTo(0,t.getBoundingClientRect().top+(window.pageYOffset||0)-90)}},60)});
       return;
     }
     var u;try{u=new URL(a.href,location.href)}catch(x){return}
@@ -627,4 +627,16 @@ document.addEventListener('click',function(e){
   function all(){measure();check()}
   window.addEventListener('scroll',req,{passive:true});window.addEventListener('resize',all);window.addEventListener('hashchange',function(){setTimeout(all,120)});
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(all);window.addEventListener('load',all);setTimeout(all,300);all();
+})();
+
+/* Werte im Startbereich verlinken auf die Werte-Tabelle bei „Über mich": #wert-N öffnet den passenden Reiter und scrollt dorthin (auch beim direkten Aufruf der Adresse) */
+(function(){
+  function go(){
+    var m=/^#wert-(\d+)$/.exec(location.hash||'');if(!m)return;
+    var d=document.getElementById('wert-'+m[1]);if(!d||d.tagName!=='DETAILS')return;
+    d.open=true;
+    var y=d.getBoundingClientRect().top+(window.pageYOffset||0)-110;window.scrollTo(0,y);
+  }
+  window.addEventListener('hashchange',function(){setTimeout(go,80)});
+  if(/^#wert-\d+$/.test(location.hash||'')){window.addEventListener('load',function(){setTimeout(go,150);setTimeout(go,700)})}
 })();
