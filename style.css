@@ -4962,3 +4962,12 @@ html:not(#ka)[data-theme="dark"] .lei-btn-main:hover :is(.ico,svg),html:not(#ka)
 html:not(.calm) .hero-vals .hv-link{transition:transform .3s cubic-bezier(.25,.8,.35,1)}
 html:not(.calm) .hero-vals .hv-link:hover,html:not(.calm) .hero-vals .hv-link:focus-visible{transform:scale(1.06)}
 .hero-vals .hv-link:hover span,.hero-vals .hv-link:focus-visible span{text-decoration-color:currentColor}
+/* v180 (Versuch): Chat im Dunkelmodus – Manuels Antworten dunkler (Praxisblau) mit heller Schrift, mit feinem hellem Rand, damit sie sich vom Hintergrund lösen */
+html:not(#ka)[data-theme="dark"] .chat-window .crow:not(.me) .cbub,html:not(#ka)[data-theme="dark"] .chat-window .cbub.ctyping{background:#012265!important;color:#f2f6fd!important;border:1px solid rgba(170,198,245,.38)!important;box-shadow:0 0 14px rgba(110,150,235,.16)!important}
+html:not(#ka)[data-theme="dark"] .chat-window .crow:not(.me) .cbub :is(p,b,strong,li,td,span,em,h3,h4){color:#f2f6fd!important}
+html:not(#ka)[data-theme="dark"] .chat-window .crow:not(.me) .cbub :is(.cfine,small){color:rgba(242,246,253,.72)!important}
+html:not(#ka)[data-theme="dark"] .chat-window .crow:not(.me) .cbub .cprices td{border-color:rgba(255,255,255,.2)!important}
+html:not(#ka)[data-theme="dark"] .chat-window .ctyping i{background:#f2f6fd!important}
+html:not(#ka)[data-theme="dark"] .chat-window .crow:not(.me) .cbub .cbtn-mail,html:not(#ka)[data-theme="dark"] .chat-window .crow:not(.me) .cbub .cbtn-mail *{background:#fff!important;color:#012265!important}
+html:not(#ka)[data-theme="dark"] .chat-window .crow:not(.me) .cbub .cbtn-wa{background:transparent!important;border:1.5px solid #fff!important;color:#fff!important}
+html:not(#ka)[data-theme="dark"] .chat-window .crow:not(.me) .cbub .cbtn-wa *{background:transparent!important;color:#fff!important}
