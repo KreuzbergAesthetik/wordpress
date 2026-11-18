@@ -4973,3 +4973,12 @@ html:not(#ka)[data-theme="dark"] .chat-window .chat-book{color:#8a6a1c!important
 html:not(#ka)[data-theme="dark"] .chat-window .chat-book :is(.ico,svg){color:#8a6a1c!important}
 html:not(#ka)[data-theme="dark"] .sd-frame{border-color:rgba(223,200,108,.5)!important}
 html:not(#ka)[data-theme="dark"] .hero-rule{background:#dfc86c!important}
+/* v180: Grün und Gold gemischt, in beiden Modi. Grün: Etiketten (Pillen), Werte-Symbole. Gold: Haken der Qualifikationen, Überschriften der Preisgruppen, gestrichelter Rahmen der Ablauf-Seite. Im Dunkelmodus ist das Grün tief und weich (Markengrün als Fläche, kein helles Mint). */
+html:not(#ka)[data-theme="dark"] :is(.eyebrow,p.eyebrow,.sum-kon .eyebrow,.sum-kon p.eyebrow){background:rgba(14,66,48,.9)!important;color:#cfe9da!important;box-shadow:inset 0 0 0 1px rgba(127,181,140,.35)}
+html:not(#ka)[data-theme="dark"] :is(.eyebrow a,.sum-kon .eyebrow a){color:#d4f0df!important;-webkit-text-fill-color:#d4f0df!important;background:transparent!important}
+html:not(#ka)[data-theme="dark"] :is(.hero-vals,.vrow-ico) :is(svg,.ico){color:#7fb58c!important}
+html:not(#ka)[data-theme="dark"] .vrow .ico{color:#7fb58c!important}
+/* Hellmodus: ein paar goldene Details (dunkles Gold, gut lesbar auf hellem Grund) */
+html:not(#ka):not([data-theme="dark"]) ul.quals :is(svg,.ico){color:#8a6a1c!important}
+html:not(#ka):not([data-theme="dark"]) .grp :is(.subgrp-h,.tag){color:#8a6a1c!important}
+html:not(#ka):not([data-theme="dark"]) .sd-frame{border-color:rgba(138,106,28,.55)!important}
