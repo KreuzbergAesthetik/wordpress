@@ -1,6 +1,6 @@
 # Übergabe: Website Kreuzberg Ästhetik (WordPress-Theme)
 
-Stand: 18. November 2026. **Theme-Version 179 wird veröffentlicht** (App-Manifest kommt jetzt von der Startadresse ?ka-manifest=1 mit Gültigkeitsbereich ganze Seite und Anzeige standalone, damit Chrome „Installieren“ anbietet; Logo-Symbole bleiben). Nächste Version: 180.
+Stand: 19. November 2026. **Theme-Version 180 wird veröffentlicht** (Über mich: Longevity-Abschnitt entfernt, Werdegang ab 701 px nach Stationen gegliedert, durchsichtiger Zeitstrahl hinter dem Porträt, Praxis-Absatz ohne Rahmen ans Ende; Werte im Startbereich verlinkt auf den passenden Reiter (#wert-N); Sanduhr dreht gegen den Uhrzeigersinn; „Anfrage“ unterstrichen; „Zur Liste“-Symbol färbt sich beim Scrollen; Chat: Manuel weiß mit dunkler Schrift, Besucher Praxisblau mit heller Schrift; Ablauf-Punkte und -Striche in einer graublauen Farbe mit Pop; Dunkelmodus: kein helles Grün mehr, Symbole auf dunkelgrünen Kreisen). Nächste Version: 181.
 
 ## ZUERST LESEN – Kurzfassung für die neue Sitzung
 
