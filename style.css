@@ -1927,8 +1927,8 @@ html,body{overflow-x:clip}
 .tl li:last-child.hit .logo-w{background-image:url(assets/logo-light.png)!important}
 /* Markengrün #004d17 statt Türkisgrün; auf dunklem Blau eine aufgehellte Stufe desselben Grüns */
 :root,:root[data-theme="light"]{--jade:#004d17}
-:root[data-theme="dark"]{--jade:#dcbd72}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--jade:#dcbd72}}
+:root[data-theme="dark"]{--jade:#dfc86c}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--jade:#dfc86c}}
 .hero-rule{background:#7fb58c!important}
 .hero-v5 .hero-pills .btn.hero-main .ico{color:#004d17!important}
 .hero-v5 .hero-pills .btn.hero-main+.btn.hero-main .ico,.hero-v5 .hero-link .ico{color:#9fcaa9!important}
@@ -4186,7 +4186,7 @@ html:not(.never) .kon-page-btns .btn.btn-wa-ico{width:2.5rem!important;height:2.
 @media (min-width:701px){html:not(.never) .home-page .hero-v5 .hero-portrait{-webkit-mask-image:radial-gradient(ellipse 60% 46% at 52% 34%,#000 58%,rgba(0,0,0,.55) 76%,rgba(0,0,0,.18) 90%,transparent 100%)!important;mask-image:radial-gradient(ellipse 60% 46% at 52% 34%,#000 58%,rgba(0,0,0,.55) 76%,rgba(0,0,0,.18) 90%,transparent 100%)!important;-webkit-mask-composite:source-over;mask-composite:add}
 html:not(.never) .home-page .hero-v5 .hero-portrait::after{display:none!important}}
 /* v162: Dunkelmodus überarbeitet – dunkle Flächen statt heller Hintergründe, gut lesbare Texte */
-:root[data-theme="dark"]{--dk-card:rgba(255,255,255,.06);--dk-line:rgba(229,235,246,.14);--dk-mute:rgba(229,235,246,.72);--dk-green:#dcbd72}
+:root[data-theme="dark"]{--dk-card:rgba(255,255,255,.06);--dk-line:rgba(229,235,246,.14);--dk-mute:rgba(229,235,246,.72);--dk-green:#dfc86c}
 :root[data-theme="dark"],:root[data-theme="dark"] body.home-page{background:var(--bg,#0b1427)!important}
 :root[data-theme="dark"] body.home-page{background:transparent!important}
 :root[data-theme="dark"] .home-page .hero-only{background:none!important}
@@ -4197,7 +4197,7 @@ html:not(.never) .home-page .hero-v5 .hero-portrait::after{display:none!importan
 :root[data-theme="dark"] .hero-act-line .ico,:root[data-theme="dark"] .lei-btn-line .ico,:root[data-theme="dark"] .kon-page-btns .btn .ico{color:var(--dk-green)!important}
 :root[data-theme="dark"] .kon-page-btns .btn.hero-main:not(:first-child) span{color:var(--fg)!important}
 /* Etiketten und grüne Überschriften */
-:root[data-theme="dark"] .eyebrow,:root[data-theme="dark"] p.eyebrow{color:var(--dk-green)!important;background:rgba(220,189,114,.12)!important}
+:root[data-theme="dark"] .eyebrow,:root[data-theme="dark"] p.eyebrow{color:var(--dk-green)!important;background:rgba(223,200,108,.12)!important}
 :root[data-theme="dark"] .grp .tag,:root[data-theme="dark"] .grp .subgrp-h{color:var(--dk-green)!important}
 /* Behandlungskarte auf der Startseite */
 :root[data-theme="dark"] .lei-sum{background:var(--dk-card)!important;border-color:var(--dk-line)!important}
@@ -4231,13 +4231,13 @@ html:not(.never) .home-page .hero-v5 .hero-portrait::after{display:none!importan
 :root[data-theme="dark"]:not(.never) body .sum-about .tl li b{color:var(--fg)!important}
 :root[data-theme="dark"] .home-page .sum-lei,:root[data-theme="dark"] .home-page .sum-abl{background:linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.035) 30%,rgba(255,255,255,.035) 70%,rgba(255,255,255,0) 100%)!important}
 :root[data-theme="dark"] #leistungen details.all>summary{color:var(--head)!important}
-:root[data-theme="dark"] .sum-kon .eyebrow,:root[data-theme="dark"] .sum-kon p.eyebrow{color:#d3f2db!important;background:rgba(220,189,114,.22)!important}
+:root[data-theme="dark"] .sum-kon .eyebrow,:root[data-theme="dark"] .sum-kon p.eyebrow{color:#d3f2db!important;background:rgba(223,200,108,.22)!important}
 :root[data-theme="dark"] .chat-window .chat::before{background:rgba(255,255,255,.05)!important}
 :root[data-theme="dark"] .side-contact .btn-wa-ico,:root[data-theme="dark"] .side .side-contact .btn{border-color:rgba(229,235,246,.55)!important;color:var(--dk-green)!important}
 :root[data-theme="dark"] .side-contact .btn-wa-ico .ico,:root[data-theme="dark"] .side-contact .btn-wa-ico svg{color:var(--dk-green)!important}
 :root[data-theme="dark"] .tinfo-btn,:root[data-theme="dark"] .tinfo-btn .ico,:root[data-theme="dark"] .tinfo-btn svg{color:var(--dk-green)!important;border-color:var(--dk-green)!important}
 :root[data-theme="dark"] .hero-v5 .hero-portrait::after{display:none!important}
-:root[data-theme="dark"] .tinfo-pop{background:#16203f!important;border-color:rgba(220,189,114,.35)!important;border-top-color:var(--dk-green)!important}
+:root[data-theme="dark"] .tinfo-pop{background:#16203f!important;border-color:rgba(223,200,108,.35)!important;border-top-color:var(--dk-green)!important}
 :root[data-theme="dark"] .tinfo-pop,:root[data-theme="dark"] .tinfo-pop p,:root[data-theme="dark"] .tinfo-pop dd,:root[data-theme="dark"] .tinfo-pop .tinfo-what{color:var(--fg)!important}
 :root[data-theme="dark"] .tinfo-pop dt{color:var(--dk-green)!important}
 :root[data-theme="dark"] .tinfo-pop .tinfo-note{color:var(--dk-mute)!important}
@@ -4273,7 +4273,7 @@ html:not(.never) .home-page .hero-only::before{-webkit-mask-image:linear-gradien
 #ueber-mich .pframe{filter:drop-shadow(16px 20px 24px rgba(1,20,70,.30))!important}
 :root[data-theme="dark"] #ueber-mich .pframe{filter:drop-shadow(18px 22px 26px rgba(0,6,30,.55))!important}
 /* v162: Dunkelmodus – Intro-Box dunkel mit heller Schrift, Wasserzeichen sichtbar, Werte-Box ruhiger */
-:root[data-theme="dark"] .kview[data-view=ueber-mich] .about-head + p{background:rgba(255,255,255,.07)!important;color:var(--fg)!important;border-color:rgba(220,189,114,.5)!important}
+:root[data-theme="dark"] .kview[data-view=ueber-mich] .about-head + p{background:rgba(255,255,255,.07)!important;color:var(--fg)!important;border-color:rgba(223,200,108,.5)!important}
 :root[data-theme="dark"] .kview[data-view=ueber-mich] .about-head + p::after{background:#fff!important;opacity:.07!important}
 :root[data-theme="dark"] .lon-box .lon-wm{color:rgba(255,255,255,.07)!important}
 :root[data-theme="dark"] .phil-box{background:rgba(255,255,255,.05)!important;border-color:var(--dk-line)!important}
@@ -4370,7 +4370,7 @@ html:not(.never) .sum-abl .steps li.step-card .sl-t{display:inline-grid!importan
 html:not(.calm):not(.never) .sum-abl .steps li.step-card h3 a.step-link{display:inline-block;transition:transform .3s cubic-bezier(.25,.8,.35,1);transform-origin:center center}
 html:not(.calm):not(.never) .sum-abl .steps li.step-card:hover h3 a.step-link,html:not(.calm):not(.never) .sum-abl .steps li.step-card:focus-within h3 a.step-link{transform:scale(1.08)}
 /* Kontaktband: Etikett wie die anderen, Linien neben der Sanduhr, Knopf-Inhalt mittig */
-:root[data-theme="dark"] .sum-kon .eyebrow,:root[data-theme="dark"] .sum-kon p.eyebrow,:root[data-theme="dark"] .sum-kon .eyebrow a{color:var(--dk-green)!important;background:rgba(220,189,114,.12)!important}
+:root[data-theme="dark"] .sum-kon .eyebrow,:root[data-theme="dark"] .sum-kon p.eyebrow,:root[data-theme="dark"] .sum-kon .eyebrow a{color:var(--dk-green)!important;background:rgba(223,200,108,.12)!important}
 :root[data-theme="dark"] .kon-hg{width:min(560px,80vw)!important;display:flex!important;align-items:center;justify-content:center}
 :root[data-theme="dark"] .kon-hg::before,:root[data-theme="dark"] .kon-hg::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(229,235,246,.35))}
 :root[data-theme="dark"] .kon-hg::after{background:linear-gradient(90deg,rgba(229,235,246,.35),transparent)}
@@ -4381,7 +4381,7 @@ html:not(.never) section.sum-kon p.sum-contact .btn:not(.btn-wa-ico) .bt-in{just
 /* Behandlungsseite: Karten klar abgesetzt, Grün kräftiger */
 :root[data-theme="dark"] article.grp{background:rgba(255,255,255,.07)!important;border:1px solid rgba(229,235,246,.18)!important}
 :root[data-theme="dark"] .grp .subgrp,:root[data-theme="dark"] .grp .subgrp:not(.has-h){background:rgba(255,255,255,.07)!important;border:1px solid rgba(229,235,246,.1)!important}
-:root[data-theme="dark"]{--dk-green:#dcbd72}
+:root[data-theme="dark"]{--dk-green:#dfc86c}
 /* Ablauf: Erstgespräch-Karte sichtbar, FAQ-Plus hell, Kontakt oben rechts */
 :root[data-theme="dark"] .check{background:rgba(255,255,255,.07)!important;border:1px solid rgba(229,235,246,.18)!important}
 :root[data-theme="dark"] .faq details{background:rgba(255,255,255,.06)!important;border-color:rgba(229,235,246,.2)!important}
@@ -4423,14 +4423,14 @@ html:not(.never) .chat-window .chat-top::after{width:60px!important;height:60px!
 html:not(.never) .btn .ico,html:not(.never) .hero-act .ico,html:not(.never) .lei-btn .ico,html:not(.never) .chat-book .ico{color:#004d17!important}
 html:not(.never) .hero-act-main .ico,html:not(.never) .lei-btn-main .ico,html:not(.never) .kon-page-btns .btn.hero-main:first-child .ico{color:#9be8b0!important}
 :root[data-theme="dark"] .hero-act-main .ico,:root[data-theme="dark"] .lei-btn-main .ico,:root[data-theme="dark"] .lei-btn-line .ico,:root[data-theme="dark"] section.sum-kon .btn .ico,:root[data-theme="dark"] .chat-book .ico{color:#004d17!important}
-:root[data-theme="dark"] .hero-act-line .ico,:root[data-theme="dark"] .kon-page-btns .btn.hero-main:not(:first-child) .ico,:root[data-theme="dark"] .kon-page-btns .btn.hero-main:first-child .ico{color:#dcbd72!important}
+:root[data-theme="dark"] .hero-act-line .ico,:root[data-theme="dark"] .kon-page-btns .btn.hero-main:not(:first-child) .ico,:root[data-theme="dark"] .kon-page-btns .btn.hero-main:first-child .ico{color:#dfc86c!important}
 /* Chat-Antwortzeile: Leiste dunkel, Auswahlfeld hell, Auswahl-Knöpfe dunkel mit weißer Schrift und grünem Symbol, Termin hell */
 html:not(.never) .chat-window .chat-input,:root[data-theme="dark"] .chat-window .chat-input{background:#012265!important;border-top-color:#012265!important}
 html:not(.never) .chat-window .chat-chips,:root[data-theme="dark"] .chat-window .chat-chips{background:#e8eef9!important}
 html:not(.never) .chat-window .chat-chips .chat-ph{color:#012265!important;border:0!important;background:transparent!important}
 html:not(.never) .chat-window .chat-chips .cchip,:root[data-theme="dark"] .chat-window .chat-chips .cchip{background:#012265!important;color:#fff!important;border-color:#012265!important}
 html:not(.never) .chat-window .chat-chips .cchip:hover,:root[data-theme="dark"] .chat-window .chat-chips .cchip:hover{background:#0c3079!important}
-html:not(.never) .chat-window .chat-chips .cchip .ico,:root[data-theme="dark"] .chat-window .chat-chips .cchip .ico{color:#dcbd72!important}
+html:not(.never) .chat-window .chat-chips .cchip .ico,:root[data-theme="dark"] .chat-window .chat-chips .cchip .ico{color:#dfc86c!important}
 html:not(.never) .chat-window .chat-book,:root[data-theme="dark"] .chat-window .chat-book{background:#e8eef9!important;color:#012265!important}
 html:not(.never) .chat-window .chat-book .ico,:root[data-theme="dark"] .chat-window .chat-book .ico{color:#004d17!important}
 /* v164: Kontakt-Symbol im Startbereich – Umrandung dunkel, sobald es sich füllt */
@@ -4453,7 +4453,7 @@ html:not(.never) .hero-act svg.fillable.fill-on path.fl{clip-path:inset(0 0 0 0)
 /* v165: Behandlungskarte Startseite (Dunkelmodus) – „Zum Chat“ transparent mit heller Schrift */
 :root[data-theme="dark"] .lei-btn-line{background:transparent!important;color:#fff!important;border-color:rgba(255,255,255,.7)!important}
 :root[data-theme="dark"] .lei-btn-line span{color:#fff!important}
-:root[data-theme="dark"] .lei-btn-line .ico{color:#dcbd72!important}
+:root[data-theme="dark"] .lei-btn-line .ico{color:#dfc86c!important}
 /* v165: Dunkelmodus – alle hellen Knöpfe mit sanftem Leuchten */
 :root[data-theme="dark"] .hero-act-main,:root[data-theme="dark"] .lei-btn-main,:root[data-theme="dark"] section.sum-kon p.sum-contact .btn,:root[data-theme="dark"] .kon-page-btns .btn.hero-main:first-child,:root[data-theme="dark"] .chat-window .chat-book,:root[data-theme="dark"] #wa-float{box-shadow:0 0 18px 3px rgba(170,198,245,.38),0 0 5px rgba(220,232,250,.3)!important}
 :root[data-theme="dark"] .hero-act-line,:root[data-theme="dark"] .lei-btn-line,:root[data-theme="dark"] .kon-page-btns .btn.hero-main:not(:first-child){box-shadow:none!important}
@@ -4511,7 +4511,7 @@ html:not(.calm)[data-theme="dark"] .sum-about .tl li:hover .node{transform:scale
 :root[data-theme="dark"] .chat-window .chat-chips .cchip:hover{background:#fff!important;color:#012265!important}
 :root[data-theme="dark"] .chat-window .chat-chips .cchip .ico{color:#004d17!important}
 :root[data-theme="dark"] .chat-window .chat-book,:root[data-theme="dark"] .chat-window .chat-book:hover,:root[data-theme="dark"] .chat-window .chat-book:focus-visible{background:#012265!important;color:#fff!important;box-shadow:none!important}
-:root[data-theme="dark"] .chat-window .chat-book .ico,:root[data-theme="dark"] .chat-window .chat-book:hover .ico{color:#dcbd72!important}
+:root[data-theme="dark"] .chat-window .chat-book .ico,:root[data-theme="dark"] .chat-window .chat-book:hover .ico{color:#dfc86c!important}
 /* v167: Kontaktseite – nur E-Mail und WhatsApp, gleich groß, Inhalt mittig, WhatsApp transparent */
 html:not(.never) .kon-page-btns .btn.hero-main{flex:0 0 11rem!important;width:11rem!important;justify-content:center!important;text-align:center!important;gap:.55rem!important}
 html:not(.never) .kon-page-btns .btn.hero-main .bt-in{justify-content:center!important;width:100%}
@@ -4519,7 +4519,7 @@ html:not(.never) .kon-page-btns .btn.hero-main.kon-wa{background:transparent!imp
 html:not(.never) .kon-page-btns .btn.hero-main.kon-wa .ico{color:#004d17!important}
 :root[data-theme="dark"] .kon-page-btns .btn.hero-main.kon-wa,:root[data-theme="dark"] .kon-page-btns .btn.hero-main.kon-wa:hover{background:transparent!important;color:#fff!important;border-color:rgba(255,255,255,.7)!important;box-shadow:none!important}
 :root[data-theme="dark"] .kon-page-btns .btn.hero-main.kon-wa span{color:#fff!important}
-:root[data-theme="dark"] .kon-page-btns .btn.hero-main.kon-wa .ico{color:#dcbd72!important}
+:root[data-theme="dark"] .kon-page-btns .btn.hero-main.kon-wa .ico{color:#dfc86c!important}
 :root[data-theme="dark"] .kon-page-btns .btn.hero-main:first-child,:root[data-theme="dark"] .kon-page-btns .btn.hero-main:first-child:hover{background:#fff!important;color:#012265!important;border-color:#fff!important}
 :root[data-theme="dark"] .kon-page-btns .btn.hero-main:first-child span{color:#012265!important}
 :root[data-theme="dark"] .kon-page-btns .btn.hero-main:first-child .ico{color:#004d17!important}
@@ -4528,8 +4528,8 @@ html:not(.never) .kon-page-btns .btn.hero-main.kon-wa .ico{color:#004d17!importa
 :root[data-theme="dark"] #contact-form{background:rgba(255,255,255,.06)!important;border:1px solid rgba(229,235,246,.18)!important}
 :root[data-theme="dark"] #contact-form label{color:#fff!important}
 :root[data-theme="dark"] #contact-form input:not([type=checkbox]),:root[data-theme="dark"] #contact-form textarea{background:rgba(255,255,255,.1)!important;border:1px solid rgba(229,235,246,.45)!important;color:#fff!important}
-:root[data-theme="dark"] #contact-form input:focus,:root[data-theme="dark"] #contact-form textarea:focus{border-color:#dcbd72!important;outline:none;box-shadow:0 0 0 3px rgba(220,189,114,.25)!important}
-:root[data-theme="dark"] #contact-form input[type=checkbox]{accent-color:#dcbd72;border-color:rgba(229,235,246,.7)!important}
+:root[data-theme="dark"] #contact-form input:focus,:root[data-theme="dark"] #contact-form textarea:focus{border-color:#dfc86c!important;outline:none;box-shadow:0 0 0 3px rgba(223,200,108,.25)!important}
+:root[data-theme="dark"] #contact-form input[type=checkbox]{accent-color:#dfc86c;border-color:rgba(229,235,246,.7)!important}
 :root[data-theme="dark"] #contact-form .consent,:root[data-theme="dark"] #contact-form .consent *,:root[data-theme="dark"] #contact-form small,:root[data-theme="dark"] #contact-form p{color:rgba(255,255,255,.85)!important}
 :root[data-theme="dark"] #contact-form a{color:#fff!important}
 /* v167: Heller Modus – Wasserzeichen im Chat-Hintergrund deutlicher */
@@ -4552,11 +4552,11 @@ html:not(.never) .chat-window .cbtn-two .cbtn-wa .ico{color:#004d17!important}
 :root[data-theme="dark"] .chat-window .cbtn-two .cbtn-mail{background:#fff!important;color:#012265!important;border-color:#fff!important}
 :root[data-theme="dark"] .chat-window .cbtn-two .cbtn-mail .ico{color:#004d17!important}
 :root[data-theme="dark"] .chat-window .cbtn-two .cbtn-wa{background:transparent!important;color:#fff!important;border-color:rgba(255,255,255,.7)!important}
-:root[data-theme="dark"] .chat-window .cbtn-two .cbtn-wa .ico{color:#dcbd72!important}
+:root[data-theme="dark"] .chat-window .cbtn-two .cbtn-wa .ico{color:#dfc86c!important}
 :root[data-theme="dark"] .chat-window .crow:not(.me) .cbub .cbtn-mail,:root[data-theme="dark"] .chat-window .crow:not(.me) .cbub .cbtn-mail *{color:#012265!important}
 :root[data-theme="dark"] .chat-window .crow:not(.me) .cbub .cbtn-mail .ico{color:#004d17!important}
 :root[data-theme="dark"] .chat-window .crow:not(.me) .cbub .cbtn-wa,:root[data-theme="dark"] .chat-window .crow:not(.me) .cbub .cbtn-wa *{color:#fff!important}
-:root[data-theme="dark"] .chat-window .crow:not(.me) .cbub .cbtn-wa .ico{color:#dcbd72!important}
+:root[data-theme="dark"] .chat-window .crow:not(.me) .cbub .cbtn-wa .ico{color:#dfc86c!important}
 html:not(.calm) .chat-window .cbtn-two .cbtn{transition:transform .3s cubic-bezier(.25,.8,.35,1)!important}
 html:not(.calm) .chat-window .cbtn-two .cbtn:hover{transform:scale(1.04)}
 html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn{font-size:.9rem!important;letter-spacing:0!important}
@@ -4567,7 +4567,7 @@ html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn-wa .ico,html:not(.neve
 :root[data-theme="dark"]:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn-mail,:root[data-theme="dark"]:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn-mail *{color:#012265!important}
 :root[data-theme="dark"]:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn-mail .ico,:root[data-theme="dark"]:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn-mail .ico *{color:#004d17!important}
 :root[data-theme="dark"]:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn-wa,:root[data-theme="dark"]:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn-wa *{color:#fff!important}
-:root[data-theme="dark"]:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn-wa .ico,:root[data-theme="dark"]:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn-wa .ico *{color:#dcbd72!important}
+:root[data-theme="dark"]:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn-wa .ico,:root[data-theme="dark"]:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn-wa .ico *{color:#dfc86c!important}
 html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn,html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn .bt-in{font-size:14px!important;line-height:1!important}
 html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn{padding:0 .4rem!important}html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn .bt-in{gap:.35rem!important}html:not(.never) .chat-window .crow .cbub .cbtn-two .cbtn .ico{width:15px!important;height:15px!important}
 /* v168: Chat-Termin-Knöpfe ohne Symbol – mehr Luft für die Beschriftung */
@@ -4789,7 +4789,7 @@ html:not(.calm) .hero-name .name-link:hover,html:not(.calm) .hero-name .name-lin
 .calm .hero-name .name-link:hover,.calm .hero-name .name-link:focus-visible{text-decoration-color:currentColor}
 /* v175: „Meine Philosophie:" grün; (Rahmen der Ablauf-Karten wieder entfernt) */
 html:not(#ka):not([data-theme="dark"]) .hero-v5 .hero-phil-h{color:#004d17!important}
-html:not(#ka)[data-theme="dark"] .hero-v5 .hero-phil-h{color:#dcbd72!important}
+html:not(#ka)[data-theme="dark"] .hero-v5 .hero-phil-h{color:#dfc86c!important}
 /* v175: „Meine Philosophie" als grüne Pille wie die anderen Überschriften, verlinkt auf die Philosophie-Box bei „Über mich" (die frühere grüne Textfarbe der Überschrift entfällt) */
 html:not(#ka) .hero-v5 .hero-phil-h{color:inherit!important}
 .hero-phil-h .phil-pill{display:inline-block!important;margin:0!important;padding:.3rem .8rem!important;font-size:.8rem!important;line-height:1.3!important;text-decoration:none!important;white-space:nowrap;transition:transform .3s cubic-bezier(.25,.8,.35,1)}
@@ -4971,5 +4971,5 @@ html:not(#ka) .chat-window .crow.me .cbub *{background:transparent!important}
 html:not(#ka)[data-theme="dark"] .chat-window .chat-badge{background:#f3e6c4!important;color:#6b4f10!important;border-color:rgba(107,79,16,.35)!important}
 html:not(#ka)[data-theme="dark"] .chat-window .chat-book{color:#8a6a1c!important;border-color:#8a6a1c!important}
 html:not(#ka)[data-theme="dark"] .chat-window .chat-book :is(.ico,svg){color:#8a6a1c!important}
-html:not(#ka)[data-theme="dark"] .sd-frame{border-color:rgba(220,189,114,.5)!important}
-html:not(#ka)[data-theme="dark"] .hero-rule{background:#dcbd72!important}
+html:not(#ka)[data-theme="dark"] .sd-frame{border-color:rgba(223,200,108,.5)!important}
+html:not(#ka)[data-theme="dark"] .hero-rule{background:#dfc86c!important}
