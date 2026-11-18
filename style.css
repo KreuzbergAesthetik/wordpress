@@ -4913,3 +4913,13 @@ html:not(#ka) .sum-abl .steps li.step-card h3 a.step-link .sl-t{border-bottom:1.
 /* „Zur Liste" (Behandlungsübersicht, Hellmodus): Symbol zuerst weiß, erst beim Überfahren grün */
 html:not(#ka):not([data-theme="dark"]) .lei-btn-main :is(.ico,svg){color:#fff!important;transition:color .3s ease!important}
 html:not(#ka):not([data-theme="dark"]) .lei-btn-main:hover :is(.ico,svg),html:not(#ka):not([data-theme="dark"]) .lei-btn-main:focus-visible :is(.ico,svg){color:#9be8b0!important}
+/* v180 (Versuch): Chat im Hellmodus – Manuels Antworten in Praxisblau mit weißer Schrift statt grau (Dunkelmodus bleibt) */
+html:not(#ka):not([data-theme="dark"]) .chat-window .crow:not(.me) .cbub,html:not(#ka):not([data-theme="dark"]) .chat-window .cbub.ctyping{background:#012265!important;color:#fff!important;border:0!important}
+html:not(#ka):not([data-theme="dark"]) .chat-window .crow:not(.me) .cbub :is(p,b,strong,li,td,small,span,em,.cfine,.note,h3,h4){color:#fff!important}
+html:not(#ka):not([data-theme="dark"]) .chat-window .crow:not(.me) .cbub :is(.cfine,small){color:rgba(255,255,255,.75)!important}
+html:not(#ka):not([data-theme="dark"]) .chat-window .crow:not(.me) .cbub .cprices td{border-color:rgba(255,255,255,.22)!important}
+html:not(#ka):not([data-theme="dark"]) .chat-window .crow:not(.me) .cbub a:not(.cbtn){color:#fff!important}
+html:not(#ka):not([data-theme="dark"]) .chat-window .ctyping i{background:#fff!important;color:#fff!important}
+html:not(#ka):not([data-theme="dark"]) .chat-window .crow:not(.me) .cbub .cbtn-mail,html:not(#ka):not([data-theme="dark"]) .chat-window .crow:not(.me) .cbub .cbtn-mail *{background:#fff!important;color:#012265!important}
+html:not(#ka):not([data-theme="dark"]) .chat-window .crow:not(.me) .cbub .cbtn-wa{background:transparent!important;border:1.5px solid #fff!important;color:#fff!important}
+html:not(#ka):not([data-theme="dark"]) .chat-window .crow:not(.me) .cbub .cbtn-wa *{background:transparent!important;color:#fff!important}
