@@ -2,7 +2,7 @@
 Theme Name: Kreuzberg Ästhetik
 Description: Website der Privatpraxis Kreuzberg Ästhetik
 Author: Kreuzberg Ästhetik
-Version: 181
+Version: 182
 Requires at least: 6.0
 Requires PHP: 7.4
 Text Domain: kreuzberg-aesthetik
@@ -5025,3 +5025,24 @@ html:not(#ka)[data-theme="dark"] :is(#ablauf,.sum-abl) .steps li{background:line
 @media (max-width:700px){
  #ueber-mich img.portrait{transform:translateX(4.4%)!important;width:92%!important;-webkit-mask-image:linear-gradient(180deg,#000 60%,rgba(0,0,0,.45) 80%,transparent 97%)!important;mask-image:linear-gradient(180deg,#000 60%,rgba(0,0,0,.45) 80%,transparent 97%)!important}
 }
+/* v182: Über mich – Werte-Box über die ganze Seitenbreite unter Text und Porträt (das Porträt endet damit über der Box); die Box in sanftem Blau statt dunkelblau; die drei Werte als Ausklappkarten nebeneinander */
+@media (min-width:701px){
+ .kview[data-view=ueber-mich] .about-values>.phil-box{margin:2.6rem 0 0;padding:2rem 2rem 1.9rem}
+ .kview[data-view=ueber-mich] .phil-box .vlist{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1rem;align-items:start;background:none!important;box-shadow:none!important;border-radius:0;overflow:visible;margin-top:1.5rem}
+ .kview[data-view=ueber-mich] .phil-box .vrow{background:#fff!important;border:1px solid rgba(1,34,101,.1)!important;border-radius:var(--r-small,12px)!important;box-shadow:0 8px 20px -10px rgba(1,34,101,.28)!important;overflow:hidden}
+ .kview[data-view=ueber-mich] .phil-box .vrow:last-child{border-bottom:1px solid rgba(1,34,101,.1)!important}
+ .kview[data-view=ueber-mich] .phil-box .vrow[open]{background:#fff!important}
+ .kview[data-view=ueber-mich] section .phil-box .vrow p{padding:0 1.1rem 1.1rem 1.1rem!important}
+ .kview[data-view=ueber-mich] .phil-box .vrow>summary{padding:1rem 1.1rem}
+}
+/* sanftes Blau statt Marineblau (hell) */
+html:not(#ka):not([data-theme="dark"]) .phil-box{background:linear-gradient(180deg,#e3ecf9 0%,#d6e3f6 100%)!important;border:1px solid rgba(1,34,101,.1)!important}
+html:not(#ka):not([data-theme="dark"]) .phil-box h3.about-h,html:not(#ka):not([data-theme="dark"]) .kview[data-view=ueber-mich] section .phil-box>p{color:#012265!important}
+html:not(#ka):not([data-theme="dark"]) .kview[data-view=ueber-mich] section .phil-box>p{color:#3a4b6a!important}
+/* Dunkelmodus: Werte-Karten wie die Preistabellen */
+@media (min-width:701px){
+ html:not(#ka)[data-theme="dark"] .kview[data-view=ueber-mich] .phil-box .vrow{background:rgba(2,22,78,.45)!important;border:1px solid rgba(190,212,248,.16)!important;box-shadow:none!important}
+ html:not(#ka)[data-theme="dark"] .kview[data-view=ueber-mich] .phil-box .vrow[open]{background:rgba(2,22,78,.55)!important}
+}
+/* Dunkelmodus: Checkliste und Fragen auf der Ablauf-Seite im helleren Blau wie die übrigen Karten */
+html:not(#ka)[data-theme="dark"] :is(.check,.faq details){background:linear-gradient(180deg,#1a45a6 0%,#123a98 100%)!important;border:1px solid rgba(170,198,245,.4)!important;box-shadow:0 0 24px 1px rgba(110,150,235,.2)!important}

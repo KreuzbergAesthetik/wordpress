@@ -1,6 +1,6 @@
 # Übergabe: Website Kreuzberg Ästhetik (WordPress-Theme)
 
-Stand: 19. November 2026. **Theme-Version 181 wird veröffentlicht** (Website-Symbol: neues Logo als Favicon und App-Symbol; Über mich: Zeitleiste direkt neben dem Text und in verblassenden Punkten auslaufend, Kopf am Handy mittig, Originalfoto; Dunkelmodus: Kreise um Werte-Symbole größer, Kategorie-Überschriften als grüne Pillen, Ablauf-Karten im helleren Blau). Nächste Version: 182.
+Stand: 19. November 2026. **Theme-Version 182 wird veröffentlicht** (neues Porträt als Freisteller auf schwarzem Original, ersetzt assets/portrait-hero.webp für Startbereich und Über mich; Über mich: Werte-Box über die volle Breite in eigenem Abschnitt .about-values, sanftes Blau, drei Ausklappkarten nebeneinander; Dunkelmodus: Checkliste und FAQ im helleren Blau). Nächste Version: 183.
 
 ## ZUERST LESEN – Kurzfassung für die neue Sitzung
 
