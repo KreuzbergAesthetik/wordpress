@@ -1,6 +1,6 @@
 # Übergabe: Website Kreuzberg Ästhetik (WordPress-Theme)
 
-Stand: 19. November 2026. **Theme-Version 183 wird veröffentlicht** (Über mich: letzte Zeitleisten-Station = Praxis-Logo mit drehender Sanduhr; Porträt assets/portrait-hero.webp neu: 1800x2458, Kopfposition/-größe wie vorher, Kante geglättet, Ohrringe golden, Hauttextur; Handy-Layout unverändert). Nächste Version 184.
+Stand: 19. November 2026. **Theme-Version 184 wird veröffentlicht** (Porträt assets/portrait-hero.webp wieder das Bild von vor dem Freisteller, 900x1229; Über mich: letzte Zeitleisten-Station = Praxis-Logo mit drehender Sanduhr bleibt). Nächste Version 185.
 
 ## ZUERST LESEN – Kurzfassung für die neue Sitzung
 
