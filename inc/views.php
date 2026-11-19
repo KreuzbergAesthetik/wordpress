@@ -350,6 +350,9 @@ function ka_view_about() {
       <?php $pimg = ka_raw( 'about_practice_img' ); if ( '' !== $pimg ) : ?>
       <figure class="practice-img"><img src="<?php echo esc_url( $pimg ); ?>" alt="Praxis Kreuzberg Ästhetik" loading="lazy"></figure>
       <?php endif; ?>
+      </div>
+  </div>
+  <div class="wrap about-values">
       <div class="phil-box" id="philosophie">
       <h3 class="about-h"><?php echo ka( 'about_values_h' ); ?></h3>
       <p><?php echo ka( 'about_values_intro' ); ?></p>
@@ -371,8 +374,6 @@ function ka_view_about() {
         <?php endforeach; ?>
       </div>
       </div>
-      </div>
-    </div>
   </div>
 </section>
 
