@@ -5156,3 +5156,21 @@ html:not(#ka):not(.calm) .side .side-contact .side-mail:hover{transform:scale(1.
  html:not(#ka) .kview[data-view=ueber-mich] .phil-box .vpanel{border:1px solid rgba(1,34,101,.1)!important;background:#fff!important}
  html:not(#ka)[data-theme="dark"] .kview[data-view=ueber-mich] .phil-box .vpanel{background:rgba(2,22,78,.45)!important;border:1px solid rgba(190,212,248,.16)!important;box-shadow:none!important}
 }
+/* v185: Über mich, Werte – schlichte Registerkarten: aktiver Reiter geht nahtlos in die Karte darunter über, keine Farbakzente, Striche oder Schatten */
+@media (min-width:701px){
+ html:not(#ka) .kview[data-view=ueber-mich] .phil-box .vlist{gap:4px!important;align-items:end!important}
+ html:not(#ka) .kview[data-view=ueber-mich] .phil-box .vrow{opacity:1!important;transform:none!important;box-shadow:none!important;background:rgba(255,255,255,.45)!important;border:1px solid rgba(1,34,101,.14)!important;border-bottom-color:rgba(1,34,101,.14)!important;border-radius:10px 10px 0 0!important;margin-bottom:-1px;position:relative;z-index:0}
+ html:not(#ka) .kview[data-view=ueber-mich] .phil-box .vrow:not([open]):hover{background:rgba(255,255,255,.75)!important}
+ html:not(#ka) .kview[data-view=ueber-mich] .phil-box .vrow[open]{background:#fff!important;border-bottom-color:#fff!important;box-shadow:none!important;z-index:2}
+ html:not(#ka) .kview[data-view=ueber-mich] .phil-box .vrow>summary{height:auto;padding:.8rem 1rem;color:#012265;font-weight:500}
+ html:not(#ka) .kview[data-view=ueber-mich] .phil-box .vrow:not([open])>summary{color:#5b6b8c}
+ html:not(#ka) .kview[data-view=ueber-mich] .phil-box .vrow .vrow-ico svg,html:not(#ka) .kview[data-view=ueber-mich] .phil-box .vrow .vrow-ico .ico{color:currentColor!important;background:none!important;box-shadow:none!important;padding:0!important;border-radius:0!important}
+ html:not(#ka) .kview[data-view=ueber-mich] .phil-box .vpanel{border-radius:0 0 12px 12px!important;box-shadow:none!important;position:relative;z-index:1;margin-top:0!important;border:1px solid rgba(1,34,101,.14)!important}
+ html:not(#ka)[data-theme="dark"] .kview[data-view=ueber-mich] .phil-box .vrow{background:rgba(2,22,78,.35)!important;border:1px solid rgba(190,212,248,.22)!important;border-radius:10px 10px 0 0!important}
+ html:not(#ka)[data-theme="dark"] .kview[data-view=ueber-mich] .phil-box .vrow:not([open]):hover{background:rgba(2,22,78,.55)!important}
+ html:not(#ka)[data-theme="dark"] .kview[data-view=ueber-mich] .phil-box .vrow[open]{background:#0a2670!important;border-bottom-color:#0a2670!important}
+ html:not(#ka)[data-theme="dark"] .kview[data-view=ueber-mich] .phil-box .vrow>summary{color:#f1f6fd}
+ html:not(#ka)[data-theme="dark"] .kview[data-view=ueber-mich] .phil-box .vrow:not([open])>summary{color:#aebfe0}
+ html:not(#ka)[data-theme="dark"] .kview[data-view=ueber-mich] .phil-box .vpanel{background:#0a2670!important;border:1px solid rgba(190,212,248,.22)!important}
+}
+@media (min-width:701px){html:not(#ka)[data-theme="dark"] .kview[data-view=ueber-mich] .phil-box .vrow[open]{box-shadow:none!important}}
