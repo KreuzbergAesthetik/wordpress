@@ -5113,3 +5113,15 @@ html:not(#ka) .side .side-home{position:absolute;left:50%;top:50%;width:96px;hei
 html:not(#ka):root[data-theme="dark"] .side{background:linear-gradient(180deg,#07297a 0%,#052470 55%,#04206a 100%)!important;border-left:0!important;box-shadow:-14px 0 40px rgba(1,10,40,.45)!important}
 /* v185: Sand füllt die Sanduhr auch nach dem Drehen ganz aus – die Kammern sind oben und unten leicht verschieden geformt, deshalb dreht sich die Sandform mit (Verlauf gespiegelt, damit der Sand optisch gleich bleibt) */
 .wmk.fp .ls{transform:rotate(180deg);background:linear-gradient(0deg,transparent var(--a),currentColor var(--a) 32.9%,transparent 32.9% var(--b),currentColor var(--b) 87.5%,transparent 87.5%)}
+/* v185: Schließen-„×“ – im Ruhezustand gedämpft, beim Überfahren poppt es leicht auf und wird heller (dunkel) bzw. kräftiger (hell) */
+html:not(#ka) .side-close{opacity:1!important;transition:color .3s cubic-bezier(.25,.8,.35,1),transform .3s cubic-bezier(.25,.8,.35,1)}
+html:not(#ka):root[data-theme="dark"] .side-close{color:#8fa6d0!important}
+html:not(#ka):root:not([data-theme="dark"]) .side-close{color:#5b6b8c!important}
+html:not(#ka):root[data-theme="dark"] .side-close:hover,html:not(#ka):root[data-theme="dark"] .side-close:focus-visible{color:#ffffff!important}
+html:not(#ka):root:not([data-theme="dark"]) .side-close:hover,html:not(#ka):root:not([data-theme="dark"]) .side-close:focus-visible{color:#012265!important}
+html:not(#ka):not(.calm) .side-close:hover,html:not(#ka):not(.calm) .side-close:focus-visible{transform:translateY(-50%) scale(1.25)!important}
+html:not(#ka):root[data-theme="dark"] .side-close:hover,html:not(#ka):root:not([data-theme="dark"]) .side-close:hover{background:transparent!important;border-color:transparent!important;box-shadow:none!important}
+html:not(#ka):root[data-theme="dark"] .side-close:focus-visible{color:#8fa6d0!important}
+html:not(#ka):root:not([data-theme="dark"]) .side-close:focus-visible{color:#5b6b8c!important}
+html:not(#ka):root[data-theme="dark"] .side-close:hover{color:#fff!important}
+html:not(#ka):root:not([data-theme="dark"]) .side-close:hover{color:#012265!important}
