@@ -676,3 +676,23 @@ document.addEventListener('click',function(e){
   }
   mark();window.addEventListener('hashchange',mark);
 })();
+
+/* Über mich: Werte als Registerkarten – der Text des gewählten Reiters steht in einer Karte darunter (ab 701 px) */
+(function(){
+  var vl=document.querySelector('.vlist');if(!vl)return;
+  var rows=[].slice.call(vl.querySelectorAll('.vrow'));if(!rows.length)return;
+  var panel=document.createElement('div');panel.className='vpanel';panel.setAttribute('role','region');panel.setAttribute('aria-live','polite');
+  vl.parentNode.insertBefore(panel,vl.nextSibling);
+  function sync(){
+    var r=null;rows.forEach(function(x){if(!r&&x.open)r=x});
+    if(!r){panel.innerHTML='';return}
+    var p=r.querySelector('p');panel.innerHTML='<p>'+(p?p.innerHTML:'')+'</p>';
+    panel.classList.remove('in');void panel.offsetWidth;panel.classList.add('in');
+  }
+  rows.forEach(function(r){
+    r.addEventListener('toggle',sync);
+    var s=r.querySelector('summary');
+    if(s)s.addEventListener('click',function(e){if(window.innerWidth>700&&r.open)e.preventDefault()});
+  });
+  sync();
+})();

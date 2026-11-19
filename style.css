@@ -5134,10 +5134,25 @@ html:not(#ka) .side .side-contact .side-mail:hover{background:rgba(1,34,101,.06)
 html:not(#ka):root[data-theme="dark"] .side .side-contact .side-mail:hover{background:rgba(220,232,248,.1)!important;border-color:#dce8f8!important;box-shadow:0 0 14px rgba(170,198,245,.22)!important}
 html:not(#ka):not(.calm) .side .side-contact .side-mail{transition:transform .3s cubic-bezier(.25,.8,.35,1),background-color .3s,border-color .3s,box-shadow .3s}
 html:not(#ka):not(.calm) .side .side-contact .side-mail:hover{transform:scale(1.04)}
-/* v185: Über mich, Werte – Karte etwas schmaler; der geöffnete Reiter nimmt die ganze Breite ein, die geschlossenen teilen sich darunter die Zeile */
+/* v185: Über mich, Werte als Registerkarten – oben die drei Reiter, darunter eine Karte über die ganze Breite mit dem Text des gewählten Reiters; Karte insgesamt etwas schmaler (ab 701 px, am Handy bleiben es Aufklapper) */
+.vpanel{display:none}
 @media (min-width:701px){
  .kview[data-view=ueber-mich] .about-values>.phil-box{max-width:900px;margin-left:auto!important;margin-right:auto!important}
- .kview[data-view=ueber-mich] .phil-box .vlist{display:flex!important;flex-wrap:wrap;align-items:flex-start;gap:1.1rem}
- .kview[data-view=ueber-mich] .phil-box .vrow{flex:1 1 calc(33.333% - 1.1rem);min-width:0}
- .kview[data-view=ueber-mich] .phil-box .vrow[open]{flex:0 0 100%;order:-1}
+ .kview[data-view=ueber-mich] .phil-box .vlist{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:.8rem!important;align-items:stretch}
+ .kview[data-view=ueber-mich] .phil-box .vrow{opacity:.78;transition:opacity .3s cubic-bezier(.25,.8,.35,1),transform .3s cubic-bezier(.25,.8,.35,1),box-shadow .3s}
+ .kview[data-view=ueber-mich] .phil-box .vrow[open]{opacity:1;box-shadow:0 8px 20px -10px rgba(1,34,101,.28),inset 0 -3px 0 #012265!important}
+ .kview[data-view=ueber-mich] .phil-box .vrow:not([open]):hover{opacity:1}
+ html:not(.calm) .kview[data-view=ueber-mich] .phil-box .vrow:not([open]):hover{transform:translateY(-2px)}
+ .kview[data-view=ueber-mich] .phil-box .vrow p{display:none!important}
+ .kview[data-view=ueber-mich] .phil-box .vrow>summary{justify-content:center;text-align:center;cursor:pointer;height:100%}
+ .kview[data-view=ueber-mich] .phil-box .vrow>summary i{display:none!important}
+ .kview[data-view=ueber-mich] .phil-box .vpanel{display:block;margin-top:.8rem;background:#fff;border:1px solid rgba(1,34,101,.1);border-radius:var(--r-small,12px);box-shadow:0 8px 20px -10px rgba(1,34,101,.28);padding:1.2rem 1.5rem}
+ .kview[data-view=ueber-mich] .phil-box .vpanel p{margin:0;text-align:left}
+ html:not(.calm) .kview[data-view=ueber-mich] .phil-box .vpanel.in p{animation:ka-open .35s cubic-bezier(.25,.8,.35,1)}
+ html:not(#ka)[data-theme="dark"] .kview[data-view=ueber-mich] .phil-box .vrow[open]{box-shadow:inset 0 -3px 0 #dce8f8!important}
+ html:not(#ka)[data-theme="dark"] .kview[data-view=ueber-mich] .phil-box .vpanel{background:rgba(2,22,78,.45);border:1px solid rgba(190,212,248,.16);box-shadow:none}
+}
+@media (min-width:701px){
+ html:not(#ka) .kview[data-view=ueber-mich] .phil-box .vpanel{border:1px solid rgba(1,34,101,.1)!important;background:#fff!important}
+ html:not(#ka)[data-theme="dark"] .kview[data-view=ueber-mich] .phil-box .vpanel{background:rgba(2,22,78,.45)!important;border:1px solid rgba(190,212,248,.16)!important;box-shadow:none!important}
 }
