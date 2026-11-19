@@ -85,7 +85,7 @@ function ka_footer() {
   <div class="wmk side-wm" aria-hidden="true"><span class="lg-s"></span><span class="lg-f"></span></div>
   <div class="side-contact">
     <a class="btn btn-wa-ico" href="<?php echo $sms; ?>" aria-label="<?php echo esc_attr( ka_raw( 'msg_label' ) ); ?>"><?php echo ka_icon( 'whatsapp' ); ?></a>
-    <a class="mail" href="<?php echo $mail; ?>"><?php echo ka( 'email' ); ?></a>
+    <a class="btn side-mail" href="<?php echo $mail; ?>"><?php echo ka_icon( 'mail' ); ?><span><?php echo ka( 'email' ); ?></span></a>
   </div>
 </aside>
 <a class="wa" id="wa-float" href="<?php echo $sms; ?>" aria-label="<?php echo esc_attr( ka_raw( 'msg_label' ) ); ?>"><?php echo ka_icon( 'whatsapp' ); ?><span class="wa-t"><?php echo ka( 'msg_label' ); ?></span></a>

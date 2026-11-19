@@ -5125,3 +5125,12 @@ html:not(#ka):root[data-theme="dark"] .side-close:focus-visible{color:#8fa6d0!im
 html:not(#ka):root:not([data-theme="dark"]) .side-close:focus-visible{color:#5b6b8c!important}
 html:not(#ka):root[data-theme="dark"] .side-close:hover{color:#fff!important}
 html:not(#ka):root:not([data-theme="dark"]) .side-close:hover{color:#012265!important}
+/* v185: Seitenmenü – E-Mail als Umriss-Knopf (Pille 36 px) neben dem WhatsApp-Kreis */
+html:not(#ka) .side .side-contact{display:flex!important;align-items:center;justify-content:center;gap:.7rem!important;flex-wrap:nowrap}
+html:not(#ka) .side .side-contact .side-mail{flex:0 1 auto;min-width:0;height:36px!important;padding:0 16px!important;border-radius:999px!important;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--sans);font-size:13.5px!important;font-weight:500!important;line-height:1;background:transparent!important;border:1px solid #012265!important;color:#012265!important;box-shadow:none!important;text-decoration:none!important;white-space:nowrap}
+html:not(#ka) .side .side-contact .side-mail .ico,html:not(#ka) .side .side-contact .side-mail svg{width:17px;height:17px;flex:none;color:inherit!important}
+html:not(#ka):root[data-theme="dark"] .side .side-contact .side-mail{border-color:rgba(220,232,248,.55)!important;color:#eaf1fc!important}
+html:not(#ka) .side .side-contact .side-mail:hover{background:rgba(1,34,101,.06)!important}
+html:not(#ka):root[data-theme="dark"] .side .side-contact .side-mail:hover{background:rgba(220,232,248,.1)!important;border-color:#dce8f8!important;box-shadow:0 0 14px rgba(170,198,245,.22)!important}
+html:not(#ka):not(.calm) .side .side-contact .side-mail{transition:transform .3s cubic-bezier(.25,.8,.35,1),background-color .3s,border-color .3s,box-shadow .3s}
+html:not(#ka):not(.calm) .side .side-contact .side-mail:hover{transform:scale(1.04)}
