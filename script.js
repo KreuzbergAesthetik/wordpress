@@ -602,7 +602,7 @@ document.addEventListener('click',function(e){
   else init();
 })();
 
-/* Über mich: Zeitstrahl hinter dem Porträt. Jede Station sitzt auf der Höhe ihres Textabschnitts. Sobald sie beim Scrollen die Mitte des Porträts erreicht hat (also hinter dem Bild), füllt sich ihr Symbol leise, und ihr Abschnitt wird hervorgehoben. */
+/* Über mich: Zeitstrahl hinter dem Porträt. Jede Station sitzt auf der Höhe ihres Textabschnitts. Sobald sie beim Scrollen die Lesehöhe (etwa 45 % der Bildschirmhöhe) erreicht hat, füllt sich ihr Symbol leise, und ihr Abschnitt wird hervorgehoben. */
 (function(){
   var tl=document.getElementById('about-tl');if(!tl)return;
   var nodes=[].slice.call(tl.querySelectorAll('.about-tl-node')),blocks=[].slice.call(document.querySelectorAll('.st-block')),tick=false,pos=[];
@@ -615,11 +615,14 @@ document.addEventListener('click',function(e){
       else y=(last===null?h*.12:last+Math.max(110,h*.07));
       last=y;pos[i]=y;n.style.top=Math.round(Math.min(y,h-40))+'px';
     });
+    /* Linie nur von der ersten bis zur letzten Station; danach laufen verblassende Punkte aus */
+    var fy=Math.round(pos[0]||0),ly=Math.round(Math.min(pos[pos.length-1]||0,h-40));
+    tl.style.setProperty('--fy',fy+'px');tl.style.setProperty('--ly',ly+'px');
   }
   function check(){
     tick=false;if(!visible())return;
     var pf=tl.parentNode.querySelector('.pframe');if(!pf)return;
-    var r=pf.getBoundingClientRect(),limit=r.top+r.height*.5,act=-1;
+    var limit=kaVH()*.45,act=-1;
     nodes.forEach(function(n,i){var b=n.getBoundingClientRect(),c=b.top+b.height/2,done=c<limit;if(done)act=i;if(done!==n.classList.contains('passed')){n.classList.toggle('passed',done);var sv=n.querySelector('svg.fillable');if(sv)sv.classList.toggle('fill-on',done)}});
     blocks.forEach(function(b){b.classList.toggle('on',+b.getAttribute('data-st')===act)});
   }

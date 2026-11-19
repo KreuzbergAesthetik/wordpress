@@ -71,8 +71,15 @@ add_action( 'template_redirect', function () {
 	), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES );
 	exit;
 }, 0 );
+/* Eigenes Logo als Website-Symbol: ersetzt das WordPress-Standardsymbol (Tab, Google, Lesezeichen, Startbildschirm). */
+remove_action( 'wp_head', 'wp_site_icon', 99 );
+add_filter( 'get_site_icon_url', function () { return get_theme_file_uri( 'assets/favicon-192.png' ); } );
 add_action( 'wp_head', function () {
 	$u = get_theme_file_uri( 'assets/' );
+	echo '<link rel="icon" href="' . esc_url( $u . 'favicon.ico' ) . '" sizes="any">' . "\n";
+	echo '<link rel="icon" type="image/png" sizes="32x32" href="' . esc_url( $u . 'favicon-32.png' ) . '">' . "\n";
+	echo '<link rel="icon" type="image/png" sizes="48x48" href="' . esc_url( $u . 'favicon-48.png' ) . '">' . "\n";
+	echo '<link rel="icon" type="image/png" sizes="192x192" href="' . esc_url( $u . 'favicon-192.png' ) . '">' . "\n";
 	echo '<link rel="apple-touch-icon" sizes="180x180" href="' . esc_url( $u . 'app-icon-180.png' ) . '">' . "\n";
 	echo '<link rel="manifest" href="' . esc_url( home_url( '/?ka-manifest=1' ) ) . '">' . "\n";
 	echo '<meta name="theme-color" content="#012265">' . "\n";

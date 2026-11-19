@@ -1,6 +1,6 @@
 # Übergabe: Website Kreuzberg Ästhetik (WordPress-Theme)
 
-Stand: 19. November 2026. **Theme-Version 180 wird veröffentlicht** (Über mich: Longevity-Abschnitt entfernt, Werdegang ab 701 px nach Stationen gegliedert, durchsichtiger Zeitstrahl hinter dem Porträt, Praxis-Absatz ohne Rahmen ans Ende; Werte im Startbereich verlinkt auf den passenden Reiter (#wert-N); Sanduhr dreht gegen den Uhrzeigersinn; „Anfrage“ unterstrichen; „Zur Liste“-Symbol färbt sich beim Scrollen; Chat: Manuel weiß mit dunkler Schrift, Besucher Praxisblau mit heller Schrift; Ablauf-Punkte und -Striche in einer graublauen Farbe mit Pop; Dunkelmodus: kein helles Grün mehr, Symbole auf dunkelgrünen Kreisen). Nächste Version: 181.
+Stand: 19. November 2026. **Theme-Version 181 wird veröffentlicht** (Website-Symbol: neues Logo als Favicon und App-Symbol; Über mich: Zeitleiste direkt neben dem Text und in verblassenden Punkten auslaufend, Kopf am Handy mittig, Originalfoto; Dunkelmodus: Kreise um Werte-Symbole größer, Kategorie-Überschriften als grüne Pillen, Ablauf-Karten im helleren Blau). Nächste Version: 182.
 
 ## ZUERST LESEN – Kurzfassung für die neue Sitzung
 
@@ -253,3 +253,6 @@ Die Website kreuzberg-aesthetik.de wird per SFTP aktualisiert, ohne ZIP-Upload:
 4. Danach in WordPress den Autoptimize-Cache leeren und „Theme <Version>“ in der Admin-Leiste prüfen.
 
 Wichtig: Der SFTP-Zugang beginnt im Ordner `wp-content`. Das Geheimnis `IONOS_THEME_PATH` lautet deshalb `/themes/kreuzberg-aesthetik`. Weitere Geheimnisse (in der Umgebung `ionos-production`): `IONOS_HOST`, `IONOS_USER`, `IONOS_PASSWORD`, `IONOS_KNOWN_HOSTS`. Hilfsabläufe: **„IONOS Server-Schlüssel abrufen“** und **„IONOS Ordner anzeigen“** (laden nichts hoch). Die Übertragung löscht nichts auf dem Server. Aktiv in WordPress ist der Ordner `kreuzberg-aesthetik`, deshalb ist eine Übertragung sofort live.
+
+## Website-Symbol (seit Version 181)
+Logo (Sanduhr mit „MF“ und Schriftring) in Praxisblau. Dateien in `assets/`: `favicon.ico`, `favicon-32/48/96/192.png` (runde weiße Scheibe), `app-icon-180/192/512.png` (weißer Grund). Eingebunden in `functions.php` (`wp_head`, Priorität 1; das WordPress-Standard-Website-Symbol wird unterdrückt). Das Manifest kommt von `/?ka-manifest=1`. Google zeigt neue Symbole erst nach einiger Zeit.
