@@ -5111,3 +5111,5 @@ html:not(#ka) .side .side-top{position:relative}
 html:not(#ka) .side .side-home{position:absolute;left:50%;top:50%;width:96px;height:96px;transform:translate(-50%,-50%);z-index:3;border-radius:50%;-webkit-tap-highlight-color:transparent}
 /* v185: Seitenmenü dunkel – ruhiger Verlauf im Praxisblau, nur einen Hauch heller als die Seite, ohne Rand */
 html:not(#ka):root[data-theme="dark"] .side{background:linear-gradient(180deg,#07297a 0%,#052470 55%,#04206a 100%)!important;border-left:0!important;box-shadow:-14px 0 40px rgba(1,10,40,.45)!important}
+/* v185: Sand füllt die Sanduhr auch nach dem Drehen ganz aus – die Kammern sind oben und unten leicht verschieden geformt, deshalb dreht sich die Sandform mit (Verlauf gespiegelt, damit der Sand optisch gleich bleibt) */
+.wmk.fp .ls{transform:rotate(180deg);background:linear-gradient(0deg,transparent var(--a),currentColor var(--a) 32.9%,transparent 32.9% var(--b),currentColor var(--b) 87.5%,transparent 87.5%)}
