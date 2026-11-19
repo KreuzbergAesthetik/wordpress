@@ -4990,3 +4990,7 @@ html:not(#ka)[data-theme="dark"] .vrow .ico{color:#e3f3ea!important}
 html:not(#ka)[data-theme="dark"] ul.quals :is(svg,.ico){color:#1f7a49!important}
 html:not(#ka)[data-theme="dark"] ul.quals svg path.fl{fill:#1f7a49!important}
 html:not(#ka)[data-theme="dark"] ul.quals svg path.chkw{stroke:#fff!important;opacity:1!important;clip-path:none!important}
+/* v181: Dunkelmodus – die Kreise um die Werte-Symbole im Startbereich größer */
+html:not(#ka)[data-theme="dark"] .hero-vals svg{width:46px!important;height:46px!important;padding:.2em!important}
+@media (max-width:700px){html:not(#ka)[data-theme="dark"] .hero-vals svg{width:42px!important;height:42px!important}}
+@media (max-width:900px) and (orientation:landscape) and (max-height:500px){html:not(#ka)[data-theme="dark"] .hero-vals svg{width:28px!important;height:28px!important}}
