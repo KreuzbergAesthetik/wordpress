@@ -615,6 +615,9 @@ document.addEventListener('click',function(e){
       else y=(last===null?h*.12:last+Math.max(110,h*.07));
       last=y;pos[i]=y;n.style.top=Math.round(Math.min(y,h-40))+'px';
     });
+    /* Linie nur von der ersten bis zur letzten Station; danach laufen verblassende Punkte aus */
+    var fy=Math.round(pos[0]||0),ly=Math.round(Math.min(pos[pos.length-1]||0,h-40));
+    tl.style.setProperty('--fy',fy+'px');tl.style.setProperty('--ly',ly+'px');
   }
   function check(){
     tick=false;if(!visible())return;
