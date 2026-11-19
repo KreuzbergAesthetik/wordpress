@@ -253,3 +253,6 @@ Die Website kreuzberg-aesthetik.de wird per SFTP aktualisiert, ohne ZIP-Upload:
 4. Danach in WordPress den Autoptimize-Cache leeren und „Theme <Version>“ in der Admin-Leiste prüfen.
 
 Wichtig: Der SFTP-Zugang beginnt im Ordner `wp-content`. Das Geheimnis `IONOS_THEME_PATH` lautet deshalb `/themes/kreuzberg-aesthetik`. Weitere Geheimnisse (in der Umgebung `ionos-production`): `IONOS_HOST`, `IONOS_USER`, `IONOS_PASSWORD`, `IONOS_KNOWN_HOSTS`. Hilfsabläufe: **„IONOS Server-Schlüssel abrufen“** und **„IONOS Ordner anzeigen“** (laden nichts hoch). Die Übertragung löscht nichts auf dem Server. Aktiv in WordPress ist der Ordner `kreuzberg-aesthetik`, deshalb ist eine Übertragung sofort live.
+
+## Website-Symbol (seit Version 181)
+Logo (Sanduhr mit „MF“ und Schriftring) in Praxisblau. Dateien in `assets/`: `favicon.ico`, `favicon-32/48/96/192.png` (runde weiße Scheibe), `app-icon-180/192/512.png` (weißer Grund). Eingebunden in `functions.php` (`wp_head`, Priorität 1; das WordPress-Standard-Website-Symbol wird unterdrückt). Das Manifest kommt von `/?ka-manifest=1`. Google zeigt neue Symbole erst nach einiger Zeit.
