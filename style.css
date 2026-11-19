@@ -4994,3 +4994,19 @@ html:not(#ka)[data-theme="dark"] ul.quals svg path.chkw{stroke:#fff!important;op
 html:not(#ka)[data-theme="dark"] .hero-vals svg{width:46px!important;height:46px!important;padding:.2em!important}
 @media (max-width:700px){html:not(#ka)[data-theme="dark"] .hero-vals svg{width:42px!important;height:42px!important}}
 @media (max-width:900px) and (orientation:landscape) and (max-height:500px){html:not(#ka)[data-theme="dark"] .hero-vals svg{width:28px!important;height:28px!important}}
+/* v181: Über mich – Zeitleiste direkt neben dem Text (in der Lücke zwischen Porträt und Text) statt hinter dem Bild */
+@media (min-width:701px){
+ .kview[data-view=ueber-mich] .wrap.about{column-gap:3.2rem!important}
+ .kview[data-view=ueber-mich] .about-tl{justify-self:end;width:0;margin-right:-1.6rem}
+ .about-tl-line{left:0!important;top:2%!important;bottom:2%!important}
+ .about-tl-node{left:0!important;width:36px!important;height:36px!important;margin:-18px 0 0 -18px!important;opacity:1!important}
+ .about-tl-node svg{width:19px!important;height:19px!important}
+ .st-block{border-left-color:transparent!important;padding-left:.9rem}
+ .st-block.on{border-left-color:#012265!important}
+ :root[data-theme="dark"] .st-block.on{border-left-color:#7fb58c!important}
+}
+/* v181: Symbole in den Kreisen berühren den Kreisrand nicht – genug Innenabstand */
+html:not(#ka)[data-theme="dark"] .hero-vals svg{padding:11px!important}
+@media (max-width:700px){html:not(#ka)[data-theme="dark"] .hero-vals svg{padding:10px!important}}
+@media (max-width:900px) and (orientation:landscape) and (max-height:500px){html:not(#ka)[data-theme="dark"] .hero-vals svg{padding:6px!important}}
+html:not(#ka)[data-theme="dark"] .vrow-ico svg{padding:.28em!important}
