@@ -321,7 +321,7 @@ function ka_story_blocks( $html, $tl ) {
 
 function ka_view_about() {
 	// Über mich: dasselbe Porträt mit Hemd wie im Startbereich
-	$portrait = get_theme_file_uri( 'assets/portrait-upright.webp' );
+	$portrait = get_theme_file_uri( 'assets/portrait-hero.webp' );
 	?>
 <section id="ueber-mich" class="sub-sec">
   <div class="wrap about">
