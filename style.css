@@ -5100,3 +5100,9 @@ html:not(#ka):root[data-theme="dark"] .side .side-wm{color:#fff;opacity:.08}
 html:not(#ka) .side>*:not(.side-wm){position:relative;z-index:1}
 html:not(#ka) .side .side-top{position:relative}
 html:not(#ka):root[data-theme="dark"] .scrim.open{background:rgba(3,12,44,.68)!important;-webkit-backdrop-filter:blur(18px) saturate(.7)!important;backdrop-filter:blur(18px) saturate(.7)!important}
+/* v185: Schließen-Knopf im Seitenmenü ohne Kreis, nur das „×“ */
+html:not(#ka) .side-close,html:not(#ka):root[data-theme="dark"] .side-close,html:not(#ka):root:not([data-theme="dark"]) .side-close{border:0!important;background:transparent!important;box-shadow:none;font-size:1.7rem!important;opacity:.85}
+html:not(#ka) .side-close:hover{opacity:1;box-shadow:none!important;background:transparent!important}
+html:not(#ka):root[data-theme="dark"] .side-close{color:#eaf1fc!important}
+html:not(#ka):root:not([data-theme="dark"]) .side-close{color:#012265!important}
+html:not(#ka) .side-close:focus,html:not(#ka) .side-close:focus-visible,html:not(#ka):root[data-theme="dark"] .side-close:focus-visible,html:not(#ka):root:not([data-theme="dark"]) .side-close:focus-visible{box-shadow:none!important;outline:0!important;opacity:1}
