@@ -57,13 +57,20 @@ function ka_footer() {
 
 <div class="scrim" id="scrim"></div>
 <aside class="side" id="navmenu" role="dialog" aria-modal="true" aria-label="Menü" aria-hidden="true">
-  <div class="side-top"><div class="wmk wmk-side" id="sidehg" aria-hidden="true"><span class="lg-s"></span><span class="lg-f"></span><span class="ls"></span><span class="wst"></span></div><button class="side-close" id="sideclose" type="button" aria-label="Menü schließen">&times;</button></div>
+  <div class="side-top"><div class="wmk wmk-side" id="sidehg" aria-hidden="true"><span class="lg-s"></span><span class="lg-f"></span><span class="ls"></span><span class="wst"></span></div><a class="side-home" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="Zur Startseite"></a><button class="side-close" id="sideclose" type="button" aria-label="Menü schließen">&times;</button></div>
   <nav class="side-links" aria-label="Menü">
-    <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Start</a>
-    <a href="<?php echo esc_url( ka_url( 'leistungen' ) ); ?>"><?php echo ka( 'lei_eyebrow' ); ?></a>
-    <a href="<?php echo esc_url( ka_url( 'ueber-mich' ) ); ?>"><?php echo ka( 'about_eyebrow' ); ?></a>
-    <a href="<?php echo esc_url( ka_url( 'ablauf' ) ); ?>"><?php echo ka( 'abl_eyebrow' ); ?></a>
-    <a href="<?php echo esc_url( ka_url( 'kontakt' ) ); ?>"><?php echo ka( 'kon_eyebrow' ); ?></a>
+    <?php
+    $ka_cur = isset( $GLOBALS['ka_view'] ) ? $GLOBALS['ka_view'] : '';
+    $ka_items = array(
+      array( 'home', home_url( '/' ), 'Start' ),
+      array( 'services', ka_url( 'leistungen' ), ka( 'lei_eyebrow' ) ),
+      array( 'about', ka_url( 'ueber-mich' ), ka( 'about_eyebrow' ) ),
+      array( 'process', ka_url( 'ablauf' ), ka( 'abl_eyebrow' ) ),
+      array( 'contact', ka_url( 'kontakt' ), ka( 'kon_eyebrow' ) ),
+    );
+    foreach ( $ka_items as $it ) :
+      ?><a href="<?php echo esc_url( $it[1] ); ?>"<?php echo ( $ka_cur === $it[0] ) ? ' aria-current="page"' : ''; ?>><?php echo $it[2]; ?></a>
+    <?php endforeach; ?>
   </nav>
   <div class="div side-div" aria-hidden="true"><span class="hgi"></span></div>
   <div class="appearance-control">
@@ -75,9 +82,10 @@ function ka_footer() {
     </select>
   </div>
   <label class="calm-control"><input type="checkbox" id="ka-calm"> <span>Animationen reduzieren</span></label>
+  <div class="wmk side-wm" aria-hidden="true"><span class="lg-s"></span><span class="lg-f"></span></div>
   <div class="side-contact">
     <a class="btn btn-wa-ico" href="<?php echo $sms; ?>" aria-label="<?php echo esc_attr( ka_raw( 'msg_label' ) ); ?>"><?php echo ka_icon( 'whatsapp' ); ?></a>
-    <a class="mail" href="<?php echo $mail; ?>"><?php echo ka( 'email' ); ?></a>
+    <a class="btn side-mail" href="<?php echo $mail; ?>" aria-label="E-Mail schreiben an <?php echo esc_attr( wp_strip_all_tags( ka( 'email' ) ) ); ?>"><?php echo ka_icon( 'mail' ); ?><span>E-Mail</span></a>
   </div>
 </aside>
 <a class="wa" id="wa-float" href="<?php echo $sms; ?>" aria-label="<?php echo esc_attr( ka_raw( 'msg_label' ) ); ?>"><?php echo ka_icon( 'whatsapp' ); ?><span class="wa-t"><?php echo ka( 'msg_label' ); ?></span></a>
