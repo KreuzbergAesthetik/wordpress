@@ -329,7 +329,7 @@ function ka_view_about() {
     <div class="about-tl" id="about-tl" aria-hidden="true">
       <span class="about-tl-line"></span>
       <?php foreach ( $atl as $i => $e ) : ?>
-      <span class="about-tl-node" style="--i:<?php echo (int) $i; ?>;--n:<?php echo (int) count( $atl ); ?>"><?php echo ka_icon( $ati[ $i % count( $ati ) ], 'ico fillable' ); ?></span>
+      <span class="about-tl-node" style="--i:<?php echo (int) $i; ?>;--n:<?php echo (int) count( $atl ); ?>"><?php echo ( $i === count( $atl ) - 1 ) ? '<span class="wmk wmk-node" aria-hidden="true"><span class="lg-s"></span><span class="lg-f"></span></span>' : ka_icon( $ati[ $i % count( $ati ) ], 'ico fillable' ); ?></span>
       <?php endforeach; ?>
     </div>
     <?php endif; ?>
