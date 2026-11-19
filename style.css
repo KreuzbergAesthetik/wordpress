@@ -5051,3 +5051,19 @@ html:not(#ka)[data-theme="dark"] :is(.check,.faq details){background:linear-grad
 .about-tl-node .wmk.wmk-node .lg-f{transition:transform .9s cubic-bezier(.65,0,.3,1)}
 @media (prefers-reduced-motion:reduce){.about-tl-node .wmk.wmk-node .lg-f{transition:none}}
 .calm .about-tl-node .wmk.wmk-node .lg-f{transition:none!important}
+/* v185: Seitenmenü im Dunkelmodus – Panel als helleres Kartenblau mit Leuchtkante, Trennlinien zwischen den Einträgen, Schließen-Knopf lesbar, Eingabefeld und Kontakt im Stil der Karten */
+html:not(#ka):root[data-theme="dark"] .side{background:linear-gradient(180deg,#17409f 0%,#0f338a 55%,#0b2a78 100%)!important;border-left:1px solid rgba(170,198,245,.4)!important;box-shadow:-10px 0 40px rgba(2,12,48,.5),-1px 0 24px rgba(120,160,235,.18)!important}
+html:not(#ka):root[data-theme="dark"] .scrim.open{background:rgba(3,12,44,.6)!important}
+html:not(#ka):root[data-theme="dark"] .side-links a{color:#eaf1fc!important;border-bottom:1px solid rgba(170,198,245,.2)!important;border-top:0!important}
+html:not(#ka):root[data-theme="dark"] .side-links a:first-child{border-top:1px solid rgba(170,198,245,.2)!important}
+html:not(#ka):root[data-theme="dark"] .side-links a:hover{color:#fff!important;background:rgba(170,198,245,.08)!important}
+html:not(#ka):root[data-theme="dark"] .side-close{background:rgba(14,66,48,.92)!important;color:#e3f3ea!important;border:1px solid rgba(127,181,140,.4)!important}
+html:not(#ka):root[data-theme="dark"] .side-close:hover{background:rgba(20,84,60,.95)!important;box-shadow:0 0 16px rgba(127,181,140,.28)}
+html:not(#ka):root[data-theme="dark"] .side .appearance-control label{color:#cfe0f3!important}
+html:not(#ka):root[data-theme="dark"] .side .appearance-control select{background-color:rgba(2,22,78,.42)!important;color:#f1f6fd!important;border:1px solid rgba(170,198,245,.4)!important}
+html:not(#ka):root[data-theme="dark"] .side .appearance-control select:hover{border-color:#dce8f8!important;box-shadow:0 0 14px rgba(170,198,245,.22)}
+html:not(#ka):root[data-theme="dark"] .side .calm-control{color:#eaf1fc!important}
+html:not(#ka):root[data-theme="dark"] .side .calm-control input{background:rgba(2,22,78,.42)!important;border-color:rgba(170,198,245,.55)!important}
+html:not(#ka):root[data-theme="dark"] .side .side-contact .btn-wa-ico{background:rgba(14,66,48,.92)!important;border:1px solid rgba(127,181,140,.4)!important;color:#e3f3ea!important}
+html:not(#ka):root[data-theme="dark"] .side .side-contact .btn-wa-ico .ico,html:not(#ka):root[data-theme="dark"] .side .side-contact .btn-wa-ico svg{color:#e3f3ea!important}
+html:not(#ka):root[data-theme="dark"] .side .side-contact .mail{color:#cfe0f3!important}
