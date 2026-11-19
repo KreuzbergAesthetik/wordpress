@@ -5174,3 +5174,15 @@ html:not(#ka):not(.calm) .side .side-contact .side-mail:hover{transform:scale(1.
  html:not(#ka)[data-theme="dark"] .kview[data-view=ueber-mich] .phil-box .vpanel{background:#0a2670!important;border:1px solid rgba(190,212,248,.22)!important}
 }
 @media (min-width:701px){html:not(#ka)[data-theme="dark"] .kview[data-view=ueber-mich] .phil-box .vrow[open]{box-shadow:none!important}}
+/* v185: Werte-Reiter – etwas mehr Farbe: Symbole in Markengrün (hell) bzw. im dunkelgrünen Kreis (dunkel), sanftes Blau für die inaktiven Reiter, aktiver Reiter und Karte etwas kräftiger */
+@media (min-width:701px){
+ html:not(#ka):root:not([data-theme="dark"]) .kview[data-view=ueber-mich] .phil-box .vrow{background:#d3e0f5!important}
+ html:not(#ka):root:not([data-theme="dark"]) .kview[data-view=ueber-mich] .phil-box .vrow:not([open]):hover{background:#dfe9f8!important}
+ html:not(#ka):root:not([data-theme="dark"]) .kview[data-view=ueber-mich] .phil-box .vrow[open]{background:#fff!important;border-bottom-color:#fff!important}
+ html:not(#ka):root:not([data-theme="dark"]) .kview[data-view=ueber-mich] .phil-box .vrow .vrow-ico svg,html:not(#ka):root:not([data-theme="dark"]) .kview[data-view=ueber-mich] .phil-box .vrow .vrow-ico .ico{color:#004d17!important}
+ html:not(#ka):root:not([data-theme="dark"]) .kview[data-view=ueber-mich] .phil-box .vrow:not([open])>summary{color:#41557f}
+ html:not(#ka)[data-theme="dark"] .kview[data-view=ueber-mich] .phil-box .vrow{background:rgba(2,22,78,.5)!important}
+ html:not(#ka)[data-theme="dark"] .kview[data-view=ueber-mich] .phil-box .vrow[open],html:not(#ka)[data-theme="dark"] .kview[data-view=ueber-mich] .phil-box .vpanel{background:#12399a!important;border-color:rgba(190,212,248,.3)!important}
+ html:not(#ka)[data-theme="dark"] .kview[data-view=ueber-mich] .phil-box .vrow[open]{border-bottom-color:#12399a!important}
+ html:not(#ka)[data-theme="dark"] .kview[data-view=ueber-mich] .phil-box .vrow .vrow-ico svg{box-sizing:border-box;padding:.28em!important;background:rgba(14,66,48,.95)!important;border-radius:50%!important;box-shadow:inset 0 0 0 1px rgba(127,181,140,.4)!important;color:#e3f3ea!important}
+}
