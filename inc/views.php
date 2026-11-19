@@ -82,6 +82,7 @@ function ka_footer() {
     </select>
   </div>
   <label class="calm-control"><input type="checkbox" id="ka-calm"> <span>Animationen reduzieren</span></label>
+  <div class="wmk side-wm" aria-hidden="true"><span class="lg-s"></span><span class="lg-f"></span></div>
   <div class="side-contact">
     <a class="btn btn-wa-ico" href="<?php echo $sms; ?>" aria-label="<?php echo esc_attr( ka_raw( 'msg_label' ) ); ?>"><?php echo ka_icon( 'whatsapp' ); ?></a>
     <a class="mail" href="<?php echo $mail; ?>"><?php echo ka( 'email' ); ?></a>
