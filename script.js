@@ -623,7 +623,7 @@ document.addEventListener('click',function(e){
     tick=false;if(!visible())return;
     var pf=tl.parentNode.querySelector('.pframe');if(!pf)return;
     var limit=kaVH()*.45,act=-1;
-    nodes.forEach(function(n,i){var b=n.getBoundingClientRect(),c=b.top+b.height/2,done=c<limit;if(done)act=i;if(done!==n.classList.contains('passed')){n.classList.toggle('passed',done);var sv=n.querySelector('svg.fillable');if(sv)sv.classList.toggle('fill-on',done)}});
+    nodes.forEach(function(n,i){var b=n.getBoundingClientRect(),c=b.top+b.height/2,done=c<limit;if(done)act=i;if(done!==n.classList.contains('passed')){n.classList.toggle('passed',done);var sv=n.querySelector('svg.fillable');if(sv)sv.classList.toggle('fill-on',done);var lf=n.querySelector('.wmk .lg-f');if(lf&&done){n._ang=(n._ang||0)-180;lf.style.transform='rotate('+n._ang+'deg)'}}});
     blocks.forEach(function(b){b.classList.toggle('on',+b.getAttribute('data-st')===act)});
   }
   function req(){if(!tick){tick=true;requestAnimationFrame(check)}}

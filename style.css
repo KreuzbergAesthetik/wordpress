@@ -5046,3 +5046,8 @@ html:not(#ka):not([data-theme="dark"]) .kview[data-view=ueber-mich] section .phi
 }
 /* Dunkelmodus: Checkliste und Fragen auf der Ablauf-Seite im helleren Blau wie die übrigen Karten */
 html:not(#ka)[data-theme="dark"] :is(.check,.faq details){background:linear-gradient(180deg,#1a45a6 0%,#123a98 100%)!important;border:1px solid rgba(170,198,245,.4)!important;box-shadow:0 0 24px 1px rgba(110,150,235,.2)!important}
+/* v183: Über mich – letzte Station der Zeitleiste ist das Praxis-Logo mit Sanduhr, die sich gegen den Uhrzeigersinn dreht, sobald die Station erreicht ist */
+.about-tl-node .wmk.wmk-node{position:relative;left:auto;top:auto;width:25px;height:25px;transform:none!important;will-change:auto;flex:none;color:inherit;transition:color .5s ease}
+.about-tl-node .wmk.wmk-node .lg-f{transition:transform .9s cubic-bezier(.65,0,.3,1)}
+@media (prefers-reduced-motion:reduce){.about-tl-node .wmk.wmk-node .lg-f{transition:none}}
+.calm .about-tl-node .wmk.wmk-node .lg-f{transition:none!important}
