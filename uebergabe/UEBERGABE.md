@@ -1,6 +1,6 @@
 # Übergabe: Website Kreuzberg Ästhetik (WordPress-Theme)
 
-Stand: 19. November 2026. **Theme-Version 182 wird veröffentlicht** (neues Porträt als Freisteller auf schwarzem Original, ersetzt assets/portrait-hero.webp für Startbereich und Über mich; Über mich: Werte-Box über die volle Breite in eigenem Abschnitt .about-values, sanftes Blau, drei Ausklappkarten nebeneinander; Dunkelmodus: Checkliste und FAQ im helleren Blau). Nächste Version: 183.
+Stand: 19. November 2026. **Theme-Version 183 wird veröffentlicht** (Über mich: letzte Zeitleisten-Station = Praxis-Logo mit drehender Sanduhr; Porträt assets/portrait-hero.webp neu: 1800x2458, Kopfposition/-größe wie vorher, Kante geglättet, Ohrringe golden, Hauttextur; Handy-Layout unverändert). Nächste Version 184.
 
 ## ZUERST LESEN – Kurzfassung für die neue Sitzung
 
