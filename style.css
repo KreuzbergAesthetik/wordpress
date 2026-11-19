@@ -5075,3 +5075,17 @@ html:not(#ka):root:not([data-theme="dark"]) .side-links a[aria-current="page"]{b
 html:not(#ka):root[data-theme="dark"] .side-links a[aria-current="page"]{background:linear-gradient(90deg,rgba(127,181,140,.2),rgba(127,181,140,0) 85%)!important;color:#fff!important}
 html:not(#ka):root[data-theme="dark"] .side-links a[aria-current="page"]::before{background:#7fb58c}
 @media (prefers-reduced-motion:no-preference){html:not(#ka):not(.calm) .side-links a[aria-current="page"]::before{transition:transform .3s cubic-bezier(.25,.8,.35,1)}}
+/* v185: Seitenmenü – Grün reduziert: Schließen-Knopf, WhatsApp-Kreis und Markierung der aktuellen Seite in Blau/Weiß */
+html:not(#ka):root[data-theme="dark"] .side-close{background:transparent!important;color:#eaf1fc!important;border:1px solid rgba(220,232,248,.55)!important}
+html:not(#ka):root[data-theme="dark"] .side-close:hover{background:rgba(220,232,248,.12)!important;border-color:#dce8f8!important;box-shadow:0 0 16px rgba(170,198,245,.28)}
+html:not(#ka):root[data-theme="dark"] .side .side-contact .btn-wa-ico{background:transparent!important;border:1px solid rgba(220,232,248,.55)!important;color:#eaf1fc!important}
+html:not(#ka):root[data-theme="dark"] .side .side-contact .btn-wa-ico .ico,html:not(#ka):root[data-theme="dark"] .side .side-contact .btn-wa-ico svg{color:#eaf1fc!important}
+html:not(#ka):root[data-theme="dark"] .side-links a[aria-current="page"]{background:linear-gradient(90deg,rgba(220,232,248,.16),rgba(220,232,248,0) 85%)!important}
+html:not(#ka):root[data-theme="dark"] .side-links a[aria-current="page"]::before{background:#dce8f8}
+html:not(#ka):root:not([data-theme="dark"]) .side-close,html:not(#ka):root:not([data-theme="dark"]) .side .side-contact .btn-wa-ico{border-color:#012265!important;color:#012265!important}
+html:not(#ka):root:not([data-theme="dark"]) .side .side-contact .btn-wa-ico .ico,html:not(#ka):root:not([data-theme="dark"]) .side .side-contact .btn-wa-ico svg{color:#012265!important}
+html:not(#ka):root:not([data-theme="dark"]) .side-links a[aria-current="page"]{background:linear-gradient(90deg,rgba(1,34,101,.08),rgba(1,34,101,0) 85%)}
+html:not(#ka):root:not([data-theme="dark"]) .side-links a[aria-current="page"]::before{background:#012265}
+html:not(#ka) .side-close{outline:0!important;outline-offset:0!important}
+html:not(#ka):root[data-theme="dark"] .side-close:focus-visible{box-shadow:0 0 0 2px rgba(220,232,248,.75)!important}
+html:not(#ka):root:not([data-theme="dark"]) .side-close:focus-visible{box-shadow:0 0 0 2px rgba(1,34,101,.6)!important}
