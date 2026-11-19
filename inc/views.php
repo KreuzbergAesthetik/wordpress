@@ -57,7 +57,7 @@ function ka_footer() {
 
 <div class="scrim" id="scrim"></div>
 <aside class="side" id="navmenu" role="dialog" aria-modal="true" aria-label="Menü" aria-hidden="true">
-  <div class="side-top"><div class="wmk wmk-side" id="sidehg" aria-hidden="true"><span class="lg-s"></span><span class="lg-f"></span><span class="ls"></span><span class="wst"></span></div><button class="side-close" id="sideclose" type="button" aria-label="Menü schließen">&times;</button></div>
+  <div class="side-top"><div class="wmk wmk-side" id="sidehg" aria-hidden="true"><span class="lg-s"></span><span class="lg-f"></span><span class="ls"></span><span class="wst"></span></div><a class="side-home" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="Zur Startseite"></a><button class="side-close" id="sideclose" type="button" aria-label="Menü schließen">&times;</button></div>
   <nav class="side-links" aria-label="Menü">
     <?php
     $ka_cur = isset( $GLOBALS['ka_view'] ) ? $GLOBALS['ka_view'] : '';

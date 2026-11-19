@@ -5106,3 +5106,8 @@ html:not(#ka) .side-close:hover{opacity:1;box-shadow:none!important;background:t
 html:not(#ka):root[data-theme="dark"] .side-close{color:#eaf1fc!important}
 html:not(#ka):root:not([data-theme="dark"]) .side-close{color:#012265!important}
 html:not(#ka) .side-close:focus,html:not(#ka) .side-close:focus-visible,html:not(#ka):root[data-theme="dark"] .side-close:focus-visible,html:not(#ka):root:not([data-theme="dark"]) .side-close:focus-visible{box-shadow:none!important;outline:0!important;opacity:1}
+/* v185: Logo im Seitenmenü führt zur Startseite */
+html:not(#ka) .side .side-top{position:relative}
+html:not(#ka) .side .side-home{position:absolute;left:50%;top:50%;width:96px;height:96px;transform:translate(-50%,-50%);z-index:3;border-radius:50%;-webkit-tap-highlight-color:transparent}
+/* v185: Seitenmenü dunkel – ruhiger Verlauf im Praxisblau, nur einen Hauch heller als die Seite, ohne Rand */
+html:not(#ka):root[data-theme="dark"] .side{background:linear-gradient(180deg,#07297a 0%,#052470 55%,#04206a 100%)!important;border-left:0!important;box-shadow:-14px 0 40px rgba(1,10,40,.45)!important}
