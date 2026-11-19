@@ -652,3 +652,27 @@ document.addEventListener('click',function(e){
   function req(){if(!tick){tick=true;requestAnimationFrame(check)}}
   window.addEventListener('scroll',req,{passive:true});window.addEventListener('resize',req);check();
 })();
+
+/* Seitenmenü: aktuelle Seite markieren (auch wenn die Vorschau Ansichten per Adresszusatz wechselt) */
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.side-links a'));if(!links.length)return;
+  var known=['ueber-mich','leistungen','ablauf','kontakt'];
+  function cur(){
+    var kv=document.querySelectorAll('.kview[data-view]');
+    var h=(location.hash||'').slice(1).split('#')[0];
+    if(kv.length>1&&h&&document.querySelector('.kview[data-view="'+h+'"]'))return h;
+    if(kv.length>1)return 'home';
+    return kv[0]?kv[0].getAttribute('data-view'):'home';
+  }
+  function slug(a){
+    var h=a.getAttribute('href')||'';
+    if(h.charAt(0)==='#')return h.slice(1).split('#')[0]||'home';
+    var last='';try{last=new URL(a.href,location.href).pathname.replace(/\/+$/,'').split('/').pop()}catch(e){}
+    return known.indexOf(last)>-1?last:'home';
+  }
+  function mark(){
+    var c=cur();
+    links.forEach(function(a){if(slug(a)===c)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+  }
+  mark();window.addEventListener('hashchange',mark);
+})();

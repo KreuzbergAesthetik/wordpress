@@ -5067,3 +5067,11 @@ html:not(#ka):root[data-theme="dark"] .side .calm-control input{background:rgba(
 html:not(#ka):root[data-theme="dark"] .side .side-contact .btn-wa-ico{background:rgba(14,66,48,.92)!important;border:1px solid rgba(127,181,140,.4)!important;color:#e3f3ea!important}
 html:not(#ka):root[data-theme="dark"] .side .side-contact .btn-wa-ico .ico,html:not(#ka):root[data-theme="dark"] .side .side-contact .btn-wa-ico svg{color:#e3f3ea!important}
 html:not(#ka):root[data-theme="dark"] .side .side-contact .mail{color:#cfe0f3!important}
+/* v185: Seitenmenü – größere Einträge in Literata (wie Überschriften, mehr Luft) und die aktuelle Seite mit schmalem grünem Strich und leichter Hinterlegung */
+html:not(#ka) .side-links a{font-family:"Literata",Georgia,serif!important;font-size:1.3rem!important;font-weight:400!important;line-height:1.2!important;padding:.85rem .9rem .85rem 1rem!important;position:relative}
+html:not(#ka) .side-links a[aria-current="page"]{font-weight:500!important}
+html:not(#ka) .side-links a[aria-current="page"]::before{content:"";position:absolute;left:0;top:22%;bottom:22%;width:3px;border-radius:3px;background:#004d17}
+html:not(#ka):root:not([data-theme="dark"]) .side-links a[aria-current="page"]{background:linear-gradient(90deg,rgba(0,77,23,.08),rgba(0,77,23,0) 85%)}
+html:not(#ka):root[data-theme="dark"] .side-links a[aria-current="page"]{background:linear-gradient(90deg,rgba(127,181,140,.2),rgba(127,181,140,0) 85%)!important;color:#fff!important}
+html:not(#ka):root[data-theme="dark"] .side-links a[aria-current="page"]::before{background:#7fb58c}
+@media (prefers-reduced-motion:no-preference){html:not(#ka):not(.calm) .side-links a[aria-current="page"]::before{transition:transform .3s cubic-bezier(.25,.8,.35,1)}}

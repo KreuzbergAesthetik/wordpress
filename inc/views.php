@@ -59,11 +59,18 @@ function ka_footer() {
 <aside class="side" id="navmenu" role="dialog" aria-modal="true" aria-label="Menü" aria-hidden="true">
   <div class="side-top"><div class="wmk wmk-side" id="sidehg" aria-hidden="true"><span class="lg-s"></span><span class="lg-f"></span><span class="ls"></span><span class="wst"></span></div><button class="side-close" id="sideclose" type="button" aria-label="Menü schließen">&times;</button></div>
   <nav class="side-links" aria-label="Menü">
-    <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Start</a>
-    <a href="<?php echo esc_url( ka_url( 'leistungen' ) ); ?>"><?php echo ka( 'lei_eyebrow' ); ?></a>
-    <a href="<?php echo esc_url( ka_url( 'ueber-mich' ) ); ?>"><?php echo ka( 'about_eyebrow' ); ?></a>
-    <a href="<?php echo esc_url( ka_url( 'ablauf' ) ); ?>"><?php echo ka( 'abl_eyebrow' ); ?></a>
-    <a href="<?php echo esc_url( ka_url( 'kontakt' ) ); ?>"><?php echo ka( 'kon_eyebrow' ); ?></a>
+    <?php
+    $ka_cur = isset( $GLOBALS['ka_view'] ) ? $GLOBALS['ka_view'] : '';
+    $ka_items = array(
+      array( 'home', home_url( '/' ), 'Start' ),
+      array( 'services', ka_url( 'leistungen' ), ka( 'lei_eyebrow' ) ),
+      array( 'about', ka_url( 'ueber-mich' ), ka( 'about_eyebrow' ) ),
+      array( 'process', ka_url( 'ablauf' ), ka( 'abl_eyebrow' ) ),
+      array( 'contact', ka_url( 'kontakt' ), ka( 'kon_eyebrow' ) ),
+    );
+    foreach ( $ka_items as $it ) :
+      ?><a href="<?php echo esc_url( $it[1] ); ?>"<?php echo ( $ka_cur === $it[0] ) ? ' aria-current="page"' : ''; ?>><?php echo $it[2]; ?></a>
+    <?php endforeach; ?>
   </nav>
   <div class="div side-div" aria-hidden="true"><span class="hgi"></span></div>
   <div class="appearance-control">
