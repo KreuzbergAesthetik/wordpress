@@ -5298,3 +5298,5 @@ html:not(#ka)[data-theme="dark"] .grp-wm,html:not(#ka) .grp.deep .grp-wm{color:#
 html:not(#ka)[data-theme="dark"] :is(article.grp,article.legal-card,ul.quals,.phil-box,#ablauf .steps li,.sum-abl .steps li,.check,.faq details){background:radial-gradient(380px circle at var(--mx,50%) var(--my,-40%),rgba(255,255,255,var(--ga)),rgba(255,255,255,calc(var(--ga) * .28)) 45%,transparent 72%),linear-gradient(180deg,#1a45a6 0%,#123a98 100%)!important}
 html:not(#ka)[data-theme="dark"] :is(article.grp,article.legal-card,ul.quals,.phil-box,#ablauf .steps li,.sum-abl .steps li,.check,.faq details):hover{--ga:.42}
 html:not(#ka):not(.calm)[data-theme="dark"] :is(article.grp,article.legal-card,ul.quals,.phil-box,#ablauf .steps li,.sum-abl .steps li,.check,.faq details){transition:--ga .25s ease}
+/* v186: Wasserzeichen der Behandlungskarten sitzt im Kopf der Karte (oben rechts neben der Überschrift), nicht unten hinter den Preisen */
+.grp-wm{right:-34px!important;bottom:auto!important;top:-38px!important;width:min(210px,52%)!important}
