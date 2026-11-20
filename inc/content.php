@@ -86,38 +86,38 @@ function ka_fields() {
 	$add( $s, 'chat_topics', 'Themen im Chat', 'area',
 "## Falten und Mimik
 Mimische Falten behandle ich gezielt und sparsam. Wir besprechen erst, welche Zonen Dich stören und was realistisch ist.
-- 1 Zone | ab 169,-
-- 2 Zonen | ab 259,-
-- 3 Zonen | ab 349,-
-- Jede weitere Zone | ab 90,-
+- 1 Zone | ab 189,-
+- 2 Zonen | ab 279,-
+- 3 Zonen | ab 369,-
+- Jede weitere Zone | ab 95,-
 
 ## Hautqualität
 Für eine bessere Hautqualität arbeite ich mit Peelings, Needling und Polynukleotiden. Was sinnvoll ist, hängt von Deiner Haut ab.
-- TCA-Peeling | ab 149,-
+- TCA-Peeling | ab 159,-
 - Retinol-Peeling | ab 199,-
 - Microneedling | ab 249,-
-- Microneedling mit Exosomen | ab 399,-
+- Microneedling mit Exosomen | ab 449,-
 - Mesotherapie (Hyaluron, Vitamine, Aminosäurenkomplex) | ab 249,-
-- Polynukleotide 2 ml | ab 349,-
-- Skinbooster 1 ml | ab 199,-
+- Polynukleotide 2 ml | ab 369,-
+- Skinbooster 1 ml | ab 229,-
 
 ## Volumen und Kontur
 Mit Hyaluron und Biostimulatoren lassen sich Kontur und Volumen sanft anpassen, Kieferlinie und Hals auch mit einem Neuromodulator. Ich wähle das Produkt passend zu Deiner Anatomie und erkläre Dir, warum.
-- Hyaluron-Filler 0,5 ml | ab 249,-
-- Hyaluron-Filler 0,7 ml | ab 299,-
-- Hyaluron-Filler 1,0 ml | ab 349,-
-- Calciumhydroxylapatit 1,5 ml | ab 449,-
-- Poly-L-Milchsäure 1 Vial | ab 599,-
-- Nefertiti (Nofretete-Lift) | ab 399,-
-- Jawline | ab 269,-
-- Platysma (Hals-Straffung) | ab 269,-
-- Trapezius („Barbie-Botox“) | ab 349,-
-- Hyaluronidase (Auflösen von Hyaluron) | ab 149,-
+- Hyaluron-Filler 0,5 ml | ab 269,-
+- Hyaluron-Filler 0,7 ml | ab 329,-
+- Hyaluron-Filler 1,0 ml | ab 389,-
+- Calciumhydroxylapatit 1,5 ml | ab 549,-
+- Poly-L-Milchsäure 1 Vial | ab 699,-
+- Nefertiti (Nofretete-Lift) | ab 429,-
+- Jawline | ab 299,-
+- Platysma (Hals-Straffung) | ab 299,-
+- Trapezius („Barbie-Botox“) | ab 449,-
+- Hyaluronidase (Auflösen von Hyaluron) | ab 169,-
 
 ## Schwitzen oder Zähneknirschen
 Auch dafür gibt es eine Behandlung. Wir klären im Gespräch, ob sie für Dich passt.
-- Hyperhidrose, pro Bereich | ab 499,-
-- Bruxismus / Masseter | ab 299,-
+- Hyperhidrose, pro Bereich | ab 549,-
+- Bruxismus / Masseter | ab 329,-
 
 ## Kleine Fettpölsterchen
 Die Fett-weg-Spritze (Lipolyse) ist für kleine, umschriebene Areale gedacht. Wir schauen gemeinsam, ob sie bei Dir sinnvoll ist.
