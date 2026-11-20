@@ -696,3 +696,14 @@ document.addEventListener('click',function(e){
   });
   sync();
 })();
+
+/* Seitenmenü: Darstellung als drei Knöpfe (Hell, Dunkel, Gerät) – schaltet die ausgeblendete Auswahl, die day-cycle.js ansteuert */
+(function(){
+  var sel=document.getElementById('ka-appearance'),seg=document.querySelector('.seg');if(!sel||!seg)return;
+  var btns=[].slice.call(seg.querySelectorAll('[data-v]'));
+  function sync(){btns.forEach(function(b){var on=b.getAttribute('data-v')===sel.value;b.setAttribute('aria-checked',on?'true':'false');b.classList.toggle('on',on)})}
+  btns.forEach(function(b){b.addEventListener('click',function(){sel.value=b.getAttribute('data-v');sel.dispatchEvent(new Event('change',{bubbles:true}));sync()})});
+  sel.addEventListener('change',sync);window.addEventListener('load',sync);window.addEventListener('storage',function(){setTimeout(sync,0)});
+  var tg=document.getElementById('hbbtn'),lg=document.getElementById('logobtn');[tg,lg].forEach(function(t){if(t)t.addEventListener('click',function(){setTimeout(sync,50)})});
+  sync();setTimeout(sync,300);
+})();

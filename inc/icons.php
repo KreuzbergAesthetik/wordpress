@@ -6,6 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 function ka_icon_paths() {
 	return array(
+		'sun'       => 'M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4',
+		'moon'      => 'M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z',
+		'device'    => 'M4 5h16v11H4zM9 20h6M12 16v4',
 		'bubble'    => 'M4 5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H10l-5 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z',
 		'talk'      => 'M3 5h11a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H8l-3 3v-3H3zM17 9h3a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-1v3l-3-3h-5',
 		'list'      => 'M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01',

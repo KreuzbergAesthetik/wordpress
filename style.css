@@ -5201,3 +5201,63 @@ html:not(#ka):not(.calm) .side .side-contact .side-mail:hover{transform:scale(1.
  html:not(#ka) .kview[data-view=ueber-mich] .phil-box .vrow>summary .vrow-ico{flex:0 0 auto!important;margin:0!important}
 }
 @media (min-width:701px) and (max-width:860px){html:not(#ka) .kview[data-view=ueber-mich] .phil-box .vrow .vrow-ico{display:none}}
+/* v186: Seitenmenü – Panel ohne Rand: die Kante blendet weich aus, die Fläche wechselt die Farbe von oben nach unten; Wasserzeichen dezent und mittig;
+   WhatsApp und E-Mail als gleiche Pillen plus runder Formular-Knopf; Darstellung als drei Knöpfe; Animationen als Schieber An/Aus */
+html:not(#ka) .side{background:none!important;border:0!important;box-shadow:none!important}
+html:not(#ka) .side::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(165deg,#f8fafd 0%,#e8effb 50%,#d3e1f6 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.55) 7%,#000 18%);mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.55) 7%,#000 18%)}
+html:not(#ka):root[data-theme="dark"] .side::before{background:linear-gradient(165deg,#0d3698 0%,#082a7e 45%,#041a58 100%)}
+html:not(#ka) .side .side-wm{top:50%!important;bottom:auto!important;width:110%!important;transform:translate(-50%,-50%)!important;opacity:.035!important}
+html:not(#ka):root[data-theme="dark"] .side .side-wm{opacity:.045!important}
+/* Kontakt: gleiche Pillen, Formular rund */
+html:not(#ka) .side .side-contact{gap:.5rem!important;flex-wrap:wrap}
+html:not(#ka) .side .side-contact .side-mail{padding:0 13px!important;font-size:13px!important;gap:6px}
+html:not(#ka) .side .side-contact .side-form{flex:none}
+html:not(#ka) .side .side-contact .side-wa .ico,html:not(#ka) .side .side-contact .side-wa svg{width:16px;height:16px}
+html:not(#ka) .side .side-contact .side-form .ico,html:not(#ka) .side .side-contact .side-form svg{width:17px;height:17px}
+/* Darstellung: drei Knöpfe */
+html:not(#ka) .side .appearance-control{display:grid;gap:.5rem;border:0!important;padding:.9rem 0 .3rem!important;position:relative;opacity:1!important}
+html:not(#ka) .side .appearance-control .ac-label{font-size:.75rem;line-height:1.4;color:#5b6b8c;font-weight:500}
+html:not(#ka):root[data-theme="dark"] .side .appearance-control .ac-label{color:#cfe0f3}
+html:not(#ka) .side .appearance-control select{position:absolute!important;width:1px!important;height:1px!important;min-height:0!important;padding:0!important;border:0!important;opacity:0!important;pointer-events:none!important;overflow:hidden;clip:rect(0 0 0 0)}
+html:not(#ka) .side .seg{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;padding:3px;border-radius:999px;background:rgba(1,34,101,.07)}
+html:not(#ka):root[data-theme="dark"] .side .seg{background:rgba(2,22,78,.45)}
+html:not(#ka) .side .seg button{display:flex;align-items:center;justify-content:center;gap:6px;height:34px;min-width:0;padding:0 8px;border:0;border-radius:999px;background:transparent;color:#5b6b8c;font:500 13px/1 var(--sans);cursor:pointer;position:relative;transition:background-color .3s cubic-bezier(.25,.8,.35,1),color .3s cubic-bezier(.25,.8,.35,1),transform .3s cubic-bezier(.25,.8,.35,1),box-shadow .3s}
+html:not(#ka) .side .seg button::after{content:"";position:absolute;inset:-5px -1px}
+html:not(#ka) .side .seg button .ico,html:not(#ka) .side .seg button svg{width:16px;height:16px;flex:none;color:inherit}
+html:not(#ka) .side .seg button.on{background:#fff;color:#012265;box-shadow:0 2px 8px -3px rgba(1,34,101,.35)}
+html:not(#ka) .side .seg button:not(.on):hover{color:#012265}
+html:not(#ka):not(.calm) .side .seg button:hover{transform:scale(1.04)}
+html:not(#ka):root[data-theme="dark"] .side .seg button{color:#aebfe0}
+html:not(#ka):root[data-theme="dark"] .side .seg button.on{background:rgba(220,232,248,.18);color:#fff;box-shadow:none}
+html:not(#ka):root[data-theme="dark"] .side .seg button:not(.on):hover{color:#fff}
+html:not(#ka) .side .seg button:focus-visible{outline:2px solid #012265;outline-offset:2px}
+html:not(#ka):root[data-theme="dark"] .side .seg button:focus-visible{outline-color:#dce8f8}
+/* Animationen: Schieber */
+html:not(#ka) .side .calm-control{display:flex!important;align-items:center;justify-content:space-between;gap:.7rem;margin:.4rem 0 0!important;padding:.3rem 0;opacity:1!important;font-size:.875rem!important;font-weight:500;color:#012265;transform:none!important}
+html:not(#ka):root[data-theme="dark"] .side .calm-control{color:#eaf1fc!important}
+html:not(#ka) .side .calm-control .calm-t{flex:1}
+html:not(#ka) .side .calm-control .calm-state{font-size:.75rem;color:#5b6b8c;min-width:1.6em;text-align:right}
+html:not(#ka):root[data-theme="dark"] .side .calm-control .calm-state{color:#cfe0f3}
+html:not(#ka) .side .calm-control input:not(:checked)~.sw~*,html:not(#ka) .side .calm-state::before{content:"An"}
+html:not(#ka) .side .calm-control:has(input:checked) .calm-state::before{content:"Aus"}
+html:not(#ka) .side .calm-sw{position:relative;width:44px;height:26px;flex:none;display:block}
+html:not(#ka) .side .calm-sw input{position:absolute;inset:-6px;width:calc(100% + 12px)!important;height:calc(100% + 12px)!important;margin:0;opacity:0;cursor:pointer;z-index:2;background:none!important;border:0!important}
+html:not(#ka) .side .calm-sw .sw{position:absolute;inset:0;border-radius:999px;background:#012265;transition:background-color .3s cubic-bezier(.25,.8,.35,1)}
+html:not(#ka) .side .calm-sw .sw::after{content:"";position:absolute;top:3px;left:21px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(1,34,101,.35);transition:left .3s cubic-bezier(.25,.8,.35,1)}
+html:not(#ka) .side .calm-sw input:checked+.sw{background:rgba(1,34,101,.22)}
+html:not(#ka) .side .calm-sw input:checked+.sw::after{left:3px}
+html:not(#ka):root[data-theme="dark"] .side .calm-sw .sw{background:#7fa0e6}
+html:not(#ka):root[data-theme="dark"] .side .calm-sw input:checked+.sw{background:rgba(2,22,78,.55)}
+html:not(#ka) .side .calm-sw input:focus-visible+.sw{outline:2px solid #012265;outline-offset:2px}
+html:not(#ka):root[data-theme="dark"] .side .calm-sw input:focus-visible+.sw{outline-color:#dce8f8}
+html:not(#ka) .side{border-radius:0!important}
+html:not(#ka) .side .side-wm{opacity:.03!important}
+html:not(#ka) .side .side-contact .side-form{width:36px!important;height:36px!important;min-width:36px;padding:0!important;display:inline-flex;align-items:center;justify-content:center;border-radius:50%!important;background:transparent!important;border:1px solid #012265!important;color:#012265!important;box-shadow:none!important}
+html:not(#ka):root[data-theme="dark"] .side .side-contact .side-form{border-color:rgba(220,232,248,.55)!important;color:#eaf1fc!important}
+html:not(#ka) .side .side-contact .side-form .ico,html:not(#ka) .side .side-contact .side-form svg{color:inherit!important}
+html:not(#ka) .side .side-contact .side-form:hover{background:rgba(1,34,101,.06)!important}
+html:not(#ka):root[data-theme="dark"] .side .side-contact .side-form:hover{background:rgba(220,232,248,.1)!important;border-color:#dce8f8!important}
+html:not(#ka):not(.calm) .side .side-contact .side-form{transition:transform .3s cubic-bezier(.25,.8,.35,1),background-color .3s,border-color .3s}
+html:not(#ka):not(.calm) .side .side-contact .side-form:hover{transform:scale(1.06)}
+html:not(#ka):root[data-theme="dark"] .side{background:none!important;border:0!important;box-shadow:none!important}
+html:not(#ka):root[data-theme="dark"] .side .side-wm{opacity:.035!important}
