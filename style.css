@@ -5408,3 +5408,6 @@ html:not(#ka):root[data-theme="dark"] .side::before{background:rgba(4,40,120,.6)
 /* v186: Menü – Mitte zwischen durchsichtig und deckend */
 html:not(#ka) .side::before{background:rgba(205,221,246,.78)!important}
 html:not(#ka):root[data-theme="dark"] .side::before{background:rgba(4,40,120,.78)!important}
+/* v186: Menü deckender – damit die Seite (z. B. das Kopfleisten-Logo) nicht in die Sanduhr-Animation im Menü hineinscheint */
+html:not(#ka) .side::before{background:rgba(205,221,246,.95)!important}
+html:not(#ka):root[data-theme="dark"] .side::before{background:rgba(4,40,120,.95)!important}
