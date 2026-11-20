@@ -106,7 +106,7 @@ Mit Hyaluron und Biostimulatoren lassen sich Kontur und Volumen sanft anpassen, 
 - Hyaluron-Filler 0,5 ml | ab 269,-
 - Hyaluron-Filler 0,7 ml | ab 329,-
 - Hyaluron-Filler 1,0 ml | ab 389,-
-- Calciumhydroxylapatit 1,5 ml | ab 479,-
+- Calciumhydroxylapatit 1,5 ml | ab 449,-
 - Poly-L-Milchsäure 1 Vial | ab 649,-
 - Nefertiti (Nofretete-Lift) | ab 399,-
 - Jawline | ab 269,-
@@ -121,7 +121,7 @@ Auch dafür gibt es eine Behandlung. Wir klären im Gespräch, ob sie für Dich 
 
 ## Kleine Fettpölsterchen
 Die Fett-weg-Spritze (Lipolyse) ist für kleine, umschriebene Areale gedacht. Wir schauen gemeinsam, ob sie bei Dir sinnvoll ist.
-- Lipolyse, enzymatisch | ab 499,-
+- Lipolyse, enzymatisch | ab 349,-
 - Lipolyse, chemisch (traditionell) | ab 249,-
 
 ## Longevity
@@ -159,7 +159,7 @@ Für Kontur, Volumen und eine bessere Hautqualität. Ich wähle das Produkt pass
 Polynukleotide 2 ml | ab 349,-
 Skinbooster 1 ml | ab 219,-
 ### Biostimulatoren
-Calciumhydroxylapatit 1,5 ml | ab 479,-
+Calciumhydroxylapatit 1,5 ml | ab 449,-
 Poly-L-Milchsäure 1 Vial | ab 649,-
 ### Korrektur
 Hyaluronidase (Auflösen von Hyaluron) | ab 149,-
@@ -174,7 +174,7 @@ Microneedling | ab 269,-
 Microneedling mit Exosomen | ab 399,-
 Mesotherapie (Hyaluron, Vitamine, Aminosäurenkomplex) | ab 249,-
 ### Lipolyse (Fett-weg-Spritze)
-Enzymatisch | ab 499,-
+Enzymatisch | ab 349,-
 Chemisch (traditionell) | ab 249,-
 
 ## Longevity | Medizin für lange Gesundheit | dunkel
