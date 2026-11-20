@@ -416,7 +416,16 @@ function ka_view_services() {
       <div class="groups">
       <?php $lon_grp = null; foreach ( ka_groups() as $g ) : if ( $g['deep'] && ! $g['rows'] ) { $lon_grp = $g; continue; } ?>
         <article class="grp<?php echo $g['deep'] ? ' deep glow' : ''; ?><?php echo ( $g['wide'] && 'Pakete' !== $g['title'] ) ? ' wide' : ''; ?>">
-          <span class="grp-wmc" aria-hidden="true"><span class="wmk grp-wm"><span class="lg-s"></span><span class="lg-f"></span></span></span>
+          <?php
+          $ka_t = mb_strtolower( $g['title'] );
+          $ka_wi = 'sparkle';
+          if ( false !== strpos( $ka_t, 'filler' ) ) { $ka_wi = 'drop'; }
+          elseif ( false !== strpos( $ka_t, 'neuro' ) ) { $ka_wi = 'wave'; }
+          elseif ( false !== strpos( $ka_t, 'haut' ) ) { $ka_wi = 'leaf'; }
+          elseif ( false !== strpos( $ka_t, 'paket' ) ) { $ka_wi = 'layers'; }
+          $ka_wn = isset( $GLOBALS['ka_wn'] ) ? (int) $GLOBALS['ka_wn'] : 0;
+          $GLOBALS['ka_wn'] = $ka_wn + 1;
+          ?><span class="grp-wmc" aria-hidden="true"><span class="grp-wm grp-wm-<?php echo $ka_wn % 4; ?>"><?php echo ka_icon( $ka_wi, 'ico' ); ?></span></span>
           <span class="tag"><?php echo esc_html( $g['tag'] ); ?></span>
           <h3><?php echo esc_html( $g['title'] ); ?></h3>
           <?php if ( $g['desc'] ) : ?><p class="about-g"><?php echo ka_mark( esc_html( implode( ' ', $g['desc'] ) ) ); ?></p><?php endif; ?>
