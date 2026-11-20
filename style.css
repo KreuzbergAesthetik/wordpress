@@ -5330,3 +5330,16 @@ html:not(#ka)[data-theme="dark"] .glow:hover::after,html:not(#ka)[data-theme="da
 .grp-wm svg circle[fill=none]{fill:none!important}
 .grp-wm{opacity:.17!important}
 html:not(#ka)[data-theme="dark"] .grp-wm,html:not(#ka) .grp.deep .grp-wm{opacity:.2!important}
+/* v186: Körperlinie als eigenes Bild (Maske in der Kartenfarbe) */
+.grp-wm.grp-wm-img{background-color:currentColor;-webkit-mask:var(--wm) center/contain no-repeat;mask:var(--wm) center/contain no-repeat;width:min(170px,46%)!important;aspect-ratio:483/1100!important}
+/* v186: feste Platzierung je Motiv (angeschnitten, aber gut erkennbar) */
+.grp-wm.grp-wm-m-face{left:-7%!important;right:auto!important;top:auto!important;bottom:-9%!important;width:min(300px,76%)!important;transform:rotate(-6deg)!important}
+.grp-wm.grp-wm-m-eye{right:-8%!important;left:auto!important;top:-5%!important;bottom:auto!important;width:min(300px,78%)!important;transform:rotate(8deg)!important}
+.grp-wm.grp-wm-m-body{right:-3%!important;left:auto!important;top:18%!important;bottom:auto!important;width:min(190px,50%)!important;transform:rotate(7deg)!important}
+.grp-wm.grp-wm-m-box{left:-8%!important;right:auto!important;top:6%!important;bottom:auto!important;width:min(300px,78%)!important;transform:rotate(-8deg)!important}
+/* v186: Filler-Wasserzeichen = das vorhandene Symbol „Gesicht mit Funken“, groß und als feine Linie */
+.grp-wm.grp-wm-m-face svg{width:100%;height:100%;fill:none!important;stroke:currentColor;stroke-width:.42;stroke-linecap:round;stroke-linejoin:round}
+.grp-wm.grp-wm-m-face svg *{fill:none!important;stroke:currentColor!important}
+.grp-wm.grp-wm-m-face{width:min(280px,72%)!important}
+.grp-wm.grp-wm-m-face svg{stroke-width:.6}
+.grp-wm.grp-wm-m-face{left:-4%!important;bottom:-5%!important;width:min(300px,78%)!important;transform:rotate(-4deg)!important}
