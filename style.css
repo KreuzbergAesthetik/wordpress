@@ -5300,3 +5300,6 @@ html:not(#ka)[data-theme="dark"] :is(article.grp,article.legal-card,ul.quals,.ph
 html:not(#ka):not(.calm)[data-theme="dark"] :is(article.grp,article.legal-card,ul.quals,.phil-box,#ablauf .steps li,.sum-abl .steps li,.check,.faq details){transition:--ga .25s ease}
 /* v186: Wasserzeichen der Behandlungskarten sitzt im Kopf der Karte (oben rechts neben der Überschrift), nicht unten hinter den Preisen */
 .grp-wm{right:-34px!important;bottom:auto!important;top:-38px!important;width:min(210px,52%)!important}
+/* v186: Wasserzeichen der Behandlungskarten: größer, rechts angeschnitten und hinter der Tabelle (scheint durch die Tabellenflächen) */
+.grp-wm{right:-26%!important;top:34%!important;bottom:auto!important;width:min(380px,92%)!important;opacity:.06!important}
+html:not(#ka)[data-theme="dark"] .grp-wm,html:not(#ka) .grp.deep .grp-wm{opacity:.075!important}
