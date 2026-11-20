@@ -5396,3 +5396,9 @@ html:not(#ka) .side .side-wm{clip-path:inset(0)}
  html:not(#ka) .side::before{background:rgba(205,221,246,.92)}
  html:not(#ka):root[data-theme="dark"] .side::before{background:rgba(4,40,120,.92)}
 }
+/* v186: Verlauf endet am Menürand bei 99 % statt 95 % */
+@media (min-width:701px),(orientation:landscape){
+ html:not(#ka) .side::before{
+  -webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,0) 0,rgba(0,0,0,.3) calc((100% - min(320px,86vw)) * .47),rgba(0,0,0,.6) calc((100% - min(320px,86vw)) * .77),rgba(0,0,0,.99) calc(100% - min(320px,86vw)),rgba(0,0,0,.99) 100%)!important;
+  mask-image:linear-gradient(90deg,rgba(0,0,0,0) 0,rgba(0,0,0,.3) calc((100% - min(320px,86vw)) * .47),rgba(0,0,0,.6) calc((100% - min(320px,86vw)) * .77),rgba(0,0,0,.99) calc(100% - min(320px,86vw)),rgba(0,0,0,.99) 100%)!important}
+}
