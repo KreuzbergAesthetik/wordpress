@@ -5358,3 +5358,5 @@ html:not(#ka) .side::before{opacity:.93;-webkit-mask-image:linear-gradient(90deg
 @media (max-width:700px) and (orientation:portrait){
  html:not(#ka) .side::before{opacity:.95;-webkit-mask-image:linear-gradient(180deg,#000 0,#000 62%,rgba(0,0,0,.7) 80%,rgba(0,0,0,.35) 100%)!important;mask-image:linear-gradient(180deg,#000 0,#000 62%,rgba(0,0,0,.7) 80%,rgba(0,0,0,.35) 100%)!important}
 }
+/* v186: Seitenmenü wieder durchsichtig – keine eigene Farbfläche, nur die abgedunkelte, unscharfe Seite dahinter */
+html:not(#ka) .side::before{content:none!important}
