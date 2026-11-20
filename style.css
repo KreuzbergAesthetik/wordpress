@@ -5346,3 +5346,6 @@ html:not(#ka)[data-theme="dark"] .grp-wm,html:not(#ka) .grp.deep .grp-wm{opacity
 /* v186: Wasserzeichen im Dunkelmodus (und auf dunkelblauen Karten) viel dezenter; Tabellen im Hellmodus ganz leicht transparent, damit das Wasserzeichen schwach durchscheint */
 html:not(#ka)[data-theme="dark"] .grp-wm,html:not(#ka) .grp.deep .grp-wm{opacity:.065!important}
 html:not(#ka):root:not([data-theme="dark"]) .grp:not(.deep) .subgrp,html:not(#ka):root:not([data-theme="dark"]) .grp:not(.deep) .subgrp:not(.has-h){background:rgba(242,246,252,.78)!important}
+/* v186: alle Wasserzeichen sitzen unten rechts in der Karte, angeschnitten */
+.grp-wm.grp-wm-m-face,.grp-wm.grp-wm-m-eye,.grp-wm.grp-wm-m-body,.grp-wm.grp-wm-m-box{left:auto!important;top:auto!important;right:-8%!important;bottom:-8%!important}
+.grp-wm.grp-wm-m-body{right:-2%!important;bottom:-10%!important;width:min(190px,50%)!important}
