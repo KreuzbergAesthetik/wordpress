@@ -5402,3 +5402,6 @@ html:not(#ka) .side .side-wm{clip-path:inset(0)}
   -webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,0) 0,rgba(0,0,0,.3) calc((100% - min(320px,86vw)) * .47),rgba(0,0,0,.6) calc((100% - min(320px,86vw)) * .77),rgba(0,0,0,.99) calc(100% - min(320px,86vw)),rgba(0,0,0,.99) 100%)!important;
   mask-image:linear-gradient(90deg,rgba(0,0,0,0) 0,rgba(0,0,0,.3) calc((100% - min(320px,86vw)) * .47),rgba(0,0,0,.6) calc((100% - min(320px,86vw)) * .77),rgba(0,0,0,.99) calc(100% - min(320px,86vw)),rgba(0,0,0,.99) 100%)!important}
 }
+/* v186: Menü wieder mit Transparenz – Farbe bleibt im Verlauf erkennbar, die Seite scheint durch */
+html:not(#ka) .side::before{background:rgba(205,221,246,.6)!important}
+html:not(#ka):root[data-theme="dark"] .side::before{background:rgba(4,40,120,.6)!important}
