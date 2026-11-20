@@ -5276,3 +5276,14 @@ html:not(#ka) .side .side-contact{justify-content:center!important;gap:.8rem!imp
  html:not(#ka) .side .side-links a{display:flex!important;justify-content:center!important;text-align:center!important;width:100%;box-sizing:border-box}
  html:not(#ka):root:not([data-theme="dark"]) .side .side-links a[aria-current="page"]{background:linear-gradient(90deg,rgba(1,34,101,0),rgba(1,34,101,.08) 25%,rgba(1,34,101,.08) 75%,rgba(1,34,101,0))!important}
 }
+/* v186: hochkant am Handy – das Menü füllt den ganzen Bildschirm, damit alles in der Bildschirmmitte steht */
+@media (max-width:700px) and (orientation:portrait){
+ html:not(#ka) .side{width:100vw!important;max-width:none!important;left:0!important;right:0!important}
+ html:not(#ka) .side::before{-webkit-mask-image:none!important;mask-image:none!important}
+ html:not(#ka) .side .side-contact{justify-content:center!important}
+ html:not(#ka) .side .calm-control{justify-content:center!important;gap:.9rem}
+ html:not(#ka) .side .calm-control .calm-t{flex:0 0 auto!important}
+ html:not(#ka) .side .calm-control .calm-state{min-width:0;text-align:left}
+ html:not(#ka) .side .calm-control .calm-state{order:3}
+ html:not(#ka) .side .calm-control .calm-sw{order:2}
+}
