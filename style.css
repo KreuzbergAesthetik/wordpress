@@ -5411,3 +5411,12 @@ html:not(#ka):root[data-theme="dark"] .side::before{background:rgba(4,40,120,.78
 /* v186: Menü deckender – damit die Seite (z. B. das Kopfleisten-Logo) nicht in die Sanduhr-Animation im Menü hineinscheint */
 html:not(#ka) .side::before{background:rgba(205,221,246,.95)!important}
 html:not(#ka):root[data-theme="dark"] .side::before{background:rgba(4,40,120,.95)!important}
+/* v189: Über mich – alle Fließtext-Absätze gleich (gleicher Zeilenabstand und gleicher Absatzabstand, egal ob sie zu einer Station gehören oder nicht) */
+html:not(#ka) .kview[data-view=ueber-mich] .wrap.about p:not(.eyebrow):not(.about-sub),html:not(#ka) .kview[data-view=ueber-mich] .wrap.about .st-block p{font-size:.9375rem!important;line-height:1.6!important;font-family:inherit}
+html:not(#ka) .kview[data-view=ueber-mich] .wrap.about>div>p,html:not(#ka) .kview[data-view=ueber-mich] .wrap.about .st-block{margin-top:0!important;margin-bottom:0!important}
+html:not(#ka) .kview[data-view=ueber-mich] .wrap.about>div>p+p,html:not(#ka) .kview[data-view=ueber-mich] .wrap.about>div>p+.st-block,html:not(#ka) .kview[data-view=ueber-mich] .wrap.about>div>.st-block+p,html:not(#ka) .kview[data-view=ueber-mich] .wrap.about>div>.st-block+.st-block{margin-top:1rem!important}
+@media (max-width:700px){html:not(#ka) .kview[data-view=ueber-mich] .wrap.about p:not(.eyebrow):not(.about-sub),html:not(#ka) .kview[data-view=ueber-mich] .wrap.about .st-block p{font-size:.9375rem!important}}
+html:not(#ka) .kview[data-view=ueber-mich] .wrap.about .st-block{line-height:1.6!important;font-size:.9375rem!important}
+html:not(#ka) .kview[data-view=ueber-mich] .wrap.about .st-block p{vertical-align:baseline}
+html:not(#ka) .kview[data-view=ueber-mich] .wrap.about>div{line-height:1.6!important;font-size:.9375rem}
+html:not(#ka) .kview[data-view=ueber-mich] .wrap.about>div>.about-head,html:not(#ka) .kview[data-view=ueber-mich] .wrap.about>div>.quals{font-size:revert}
