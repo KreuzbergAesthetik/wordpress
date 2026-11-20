@@ -83,3 +83,35 @@ function ka_icon_for( $label ) {
 	}
 	return 'sparkle';
 }
+
+/** Große Linien-Motive für die Wasserzeichen der Behandlungskarten (200 x 200, nur Strich). */
+function ka_wm_motif( $name ) {
+	$d = '';
+	switch ( $name ) {
+		case 'contour': // Höhenlinien, die sich nach unten glätten
+			for ( $i = 0; $i < 9; $i++ ) {
+				$y = 14 + $i * 21;
+				$a = round( 20 * ( 1 - $i / 8 ), 1 );
+				$d .= '<path d="M-10 ' . $y . ' C 30 ' . ( $y - $a ) . ' 70 ' . ( $y + $a ) . ' 100 ' . $y . ' S 170 ' . ( $y + $a ) . ' 210 ' . $y . '"/>';
+			}
+			break;
+		case 'branch': // Zweig mit Blättern
+			$d .= '<path d="M16 196 C 52 142 98 96 178 22"/>';
+			$leaf = '<path d="M0 0 C 8 -13 28 -15 44 -4 C 28 9 8 11 0 0Z"/><path d="M2 0 L38 -3"/>';
+			foreach ( array( array( 42, 160 ), array( 70, 128 ), array( 100, 99 ), array( 131, 72 ), array( 156, 48 ) ) as $k => $pt ) {
+				$d .= '<g transform="translate(' . $pt[0] . ' ' . $pt[1] . ') rotate(-96) scale(' . ( 1.05 - $k * .08 ) . ')">' . $leaf . '</g>';
+				$d .= '<g transform="translate(' . $pt[0] . ' ' . $pt[1] . ') rotate(12) scale(' . ( 1.05 - $k * .08 ) . ')">' . $leaf . '</g>';
+			}
+			$d .= '<g transform="translate(178 22) rotate(-44)">' . $leaf . '</g>';
+			break;
+		case 'ripple': // Wellenringe um einen Tropfen
+			foreach ( array( 20, 38, 56, 74, 92 ) as $r ) {
+				$d .= '<circle cx="100" cy="108" r="' . $r . '"/>';
+			}
+			$d .= '<path d="M100 76 c 9 11 15 19 15 26 a15 15 0 0 1 -30 0 c0 -7 6 -15 15 -26z"/>';
+			break;
+		default: // ineinandergreifende Kreise
+			$d .= '<circle cx="100" cy="72" r="54"/><circle cx="70" cy="124" r="54"/><circle cx="130" cy="124" r="54"/><circle cx="100" cy="100" r="96" stroke-dasharray="2 6"/>';
+	}
+	return '<svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' . $d . '</svg>';
+}

@@ -5322,3 +5322,5 @@ html:not(#ka)[data-theme="dark"] .grp-wm,html:not(#ka) .grp.deep .grp-wm{opacity
 /* v186: Leuchteffekt der Maus auf den dunkelblauen Karten deutlich zurückgenommen */
 html:not(#ka)[data-theme="dark"] :is(article.grp,article.legal-card,ul.quals,.phil-box,#ablauf .steps li,.sum-abl .steps li,.check,.faq details):hover{--ga:.16}
 html:not(#ka)[data-theme="dark"] .glow:hover::after,html:not(#ka)[data-theme="dark"] .glow:active::after{opacity:.4}
+.grp-wm svg{stroke-width:1.1}
+.grp-wm{width:min(320px,82%)!important}
