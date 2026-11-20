@@ -5349,3 +5349,7 @@ html:not(#ka):root:not([data-theme="dark"]) .grp:not(.deep) .subgrp,html:not(#ka
 /* v186: alle Wasserzeichen sitzen unten rechts in der Karte, angeschnitten */
 .grp-wm.grp-wm-m-face,.grp-wm.grp-wm-m-eye,.grp-wm.grp-wm-m-body,.grp-wm.grp-wm-m-box{left:auto!important;top:auto!important;right:-8%!important;bottom:-8%!important}
 .grp-wm.grp-wm-m-body{right:-2%!important;bottom:-10%!important;width:min(190px,50%)!important}
+/* v186: dunkles Seitenmenü wieder im helleren Kartenblau (ohne Rand, Kante blendet aus) */
+html:not(#ka):root[data-theme="dark"] .side::before{background:linear-gradient(165deg,#1d4cb4 0%,#17409f 45%,#0f338a 100%)}
+/* v186: die Farbfläche des Seitenmenüs wird wirklich gezeichnet (eine ältere Regel hatte das Pseudoelement abgeschaltet) */
+html:not(#ka) .side::before{content:""!important}
