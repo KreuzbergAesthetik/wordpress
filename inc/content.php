@@ -107,7 +107,7 @@ Mit Hyaluron und Biostimulatoren lassen sich Kontur und Volumen sanft anpassen, 
 - Hyaluron-Filler 0,7 ml | ab 329,-
 - Hyaluron-Filler 1,0 ml | ab 389,-
 - Calciumhydroxylapatit 1,5 ml | ab 449,-
-- Poly-L-Milchsäure 1 Vial | ab 649,-
+- Poly-L-Milchsäure 1 Vial | ab 599,-
 - Nefertiti (Nofretete-Lift) | ab 399,-
 - Jawline | ab 269,-
 - Platysma (Hals-Straffung) | ab 269,-
@@ -160,7 +160,7 @@ Polynukleotide 2 ml | ab 349,-
 Skinbooster 1 ml | ab 219,-
 ### Biostimulatoren
 Calciumhydroxylapatit 1,5 ml | ab 449,-
-Poly-L-Milchsäure 1 Vial | ab 649,-
+Poly-L-Milchsäure 1 Vial | ab 599,-
 ### Korrektur
 Hyaluronidase (Auflösen von Hyaluron) | ab 149,-
 
@@ -182,7 +182,7 @@ Chemisch (traditionell) | ab 249,-
 
 ## Pakete | Mehrere Termine, günstigerer Preis
 Wenn mehrere Termine sinnvoll sind, bekommst Du die Behandlungen im Paket zu einem günstigeren Preis.
-2 × PLLA-Behandlung z. B. Sculptra, innerhalb von 6 Monaten | ab 1099,- | 1298,-
+2 × PLLA-Behandlung z. B. Sculptra, innerhalb von 6 Monaten | ab 999,- | 1198,-
 4 × Retinol-Peeling innerhalb von 6 Monaten | ab 699,- | 796,-
 3 × Polynukleotide innerhalb von 6 Monaten | ab 899,- | 1047,-
 Lip-Flip + 0,7 ml Hyaluron (Abstand 2 Wochen) | ab 349,- | 458,-
