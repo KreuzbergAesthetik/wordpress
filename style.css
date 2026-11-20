@@ -5343,3 +5343,6 @@ html:not(#ka)[data-theme="dark"] .grp-wm,html:not(#ka) .grp.deep .grp-wm{opacity
 .grp-wm.grp-wm-m-face{width:min(280px,72%)!important}
 .grp-wm.grp-wm-m-face svg{stroke-width:.6}
 .grp-wm.grp-wm-m-face{left:-4%!important;bottom:-5%!important;width:min(300px,78%)!important;transform:rotate(-4deg)!important}
+/* v186: Wasserzeichen im Dunkelmodus (und auf dunkelblauen Karten) viel dezenter; Tabellen im Hellmodus ganz leicht transparent, damit das Wasserzeichen schwach durchscheint */
+html:not(#ka)[data-theme="dark"] .grp-wm,html:not(#ka) .grp.deep .grp-wm{opacity:.065!important}
+html:not(#ka):root:not([data-theme="dark"]) .grp:not(.deep) .subgrp,html:not(#ka):root:not([data-theme="dark"]) .grp:not(.deep) .subgrp:not(.has-h){background:rgba(242,246,252,.78)!important}
