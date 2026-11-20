@@ -26,7 +26,7 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
     if(e.key==='Tab'){var f=[].slice.call(menu.querySelectorAll('a[href],button,select')),i=f.indexOf(document.activeElement);
       if(e.shiftKey&&i<=0){e.preventDefault();f[f.length-1].focus()}else if(!e.shiftKey&&i===f.length-1){e.preventDefault();f[0].focus()}}
   });
-  document.addEventListener('pointermove',function(e){var t=e.target.closest&&e.target.closest('.glow');if(!t)return;var b=t.getBoundingClientRect();t.style.setProperty('--mx',(e.clientX-b.left)+'px');t.style.setProperty('--my',(e.clientY-b.top)+'px')});
+  document.addEventListener('pointermove',function(e){var t=e.target.closest&&e.target.closest('.glow,article.grp,article.legal-card,ul.quals,.phil-box,.steps li,.check,.faq details');if(!t)return;var b=t.getBoundingClientRect();t.style.setProperty('--mx',(e.clientX-b.left)+'px');t.style.setProperty('--my',(e.clientY-b.top)+'px')});
 
   /* Schalter "Animationen reduzieren" */
   var calmBox=document.getElementById('ka-calm');

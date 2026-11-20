@@ -416,6 +416,7 @@ function ka_view_services() {
       <div class="groups">
       <?php $lon_grp = null; foreach ( ka_groups() as $g ) : if ( $g['deep'] && ! $g['rows'] ) { $lon_grp = $g; continue; } ?>
         <article class="grp<?php echo $g['deep'] ? ' deep glow' : ''; ?><?php echo ( $g['wide'] && 'Pakete' !== $g['title'] ) ? ' wide' : ''; ?>">
+          <span class="grp-wmc" aria-hidden="true"><span class="wmk grp-wm"><span class="lg-s"></span><span class="lg-f"></span></span></span>
           <span class="tag"><?php echo esc_html( $g['tag'] ); ?></span>
           <h3><?php echo esc_html( $g['title'] ); ?></h3>
           <?php if ( $g['desc'] ) : ?><p class="about-g"><?php echo ka_mark( esc_html( implode( ' ', $g['desc'] ) ) ); ?></p><?php endif; ?>

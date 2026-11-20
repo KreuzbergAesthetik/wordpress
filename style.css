@@ -5287,3 +5287,14 @@ html:not(#ka) .side .side-contact{justify-content:center!important;gap:.8rem!imp
  html:not(#ka) .side .calm-control .calm-state{order:3}
  html:not(#ka) .side .calm-control .calm-sw{order:2}
 }
+/* v186: Behandlungskarten mit dezentem Logo-Wasserzeichen; im Dunkelmodus bekommen alle dunkelblauen Karten den Leuchteffekt, der der Maus folgt */
+@property --ga{syntax:"<number>";inherits:false;initial-value:0}
+.grp{position:relative}
+.grp>.grp-wmc{position:absolute;inset:0;overflow:hidden;border-radius:inherit;pointer-events:none;z-index:0}
+.grp>*:not(.grp-wmc){position:relative;z-index:1}
+.grp-wm{position:absolute!important;left:auto!important;top:auto!important;right:-16%;bottom:-24%;width:min(300px,68%)!important;aspect-ratio:1;transform:none!important;will-change:auto;color:#012265;opacity:.045;pointer-events:none}
+.grp-wm .lg-f{transform:none}
+html:not(#ka)[data-theme="dark"] .grp-wm,html:not(#ka) .grp.deep .grp-wm{color:#fff;opacity:.06}
+html:not(#ka)[data-theme="dark"] :is(article.grp,article.legal-card,ul.quals,.phil-box,#ablauf .steps li,.sum-abl .steps li,.check,.faq details){background:radial-gradient(380px circle at var(--mx,50%) var(--my,-40%),rgba(255,255,255,var(--ga)),rgba(255,255,255,calc(var(--ga) * .28)) 45%,transparent 72%),linear-gradient(180deg,#1a45a6 0%,#123a98 100%)!important}
+html:not(#ka)[data-theme="dark"] :is(article.grp,article.legal-card,ul.quals,.phil-box,#ablauf .steps li,.sum-abl .steps li,.check,.faq details):hover{--ga:.42}
+html:not(#ka):not(.calm)[data-theme="dark"] :is(article.grp,article.legal-card,ul.quals,.phil-box,#ablauf .steps li,.sum-abl .steps li,.check,.faq details){transition:--ga .25s ease}
