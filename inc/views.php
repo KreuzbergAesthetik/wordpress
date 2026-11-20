@@ -74,18 +74,24 @@ function ka_footer() {
   </nav>
   <div class="div side-div" aria-hidden="true"><span class="hgi"></span></div>
   <div class="appearance-control">
-    <label for="ka-appearance">Darstellung</label>
-    <select id="ka-appearance" name="ka-appearance">
+    <span class="ac-label" id="ac-label">Darstellung</span>
+    <select id="ka-appearance" name="ka-appearance" aria-labelledby="ac-label" tabindex="-1">
       <option value="auto">Wie auf Deinem Gerät</option>
       <option value="light">Hell</option>
       <option value="dark">Dunkel</option>
     </select>
+    <div class="seg" role="radiogroup" aria-labelledby="ac-label">
+      <button type="button" role="radio" aria-checked="false" data-v="light"><?php echo ka_icon( 'sun' ); ?><span>Hell</span></button>
+      <button type="button" role="radio" aria-checked="false" data-v="dark"><?php echo ka_icon( 'moon' ); ?><span>Dunkel</span></button>
+      <button type="button" role="radio" aria-checked="false" data-v="auto"><?php echo ka_icon( 'device' ); ?><span>Gerät</span></button>
+    </div>
   </div>
-  <label class="calm-control"><input type="checkbox" id="ka-calm"> <span>Animationen reduzieren</span></label>
+  <label class="calm-control"><span class="calm-t">Animationen</span><span class="calm-state" aria-hidden="true"></span><span class="calm-sw"><input type="checkbox" id="ka-calm" aria-label="Animationen reduzieren"><i class="sw" aria-hidden="true"></i></span></label>
   <div class="wmk side-wm" aria-hidden="true"><span class="lg-s"></span><span class="lg-f"></span></div>
   <div class="side-contact">
-    <a class="btn btn-wa-ico" href="<?php echo $sms; ?>" aria-label="<?php echo esc_attr( ka_raw( 'msg_label' ) ); ?>"><?php echo ka_icon( 'whatsapp' ); ?></a>
-    <a class="btn side-mail" href="<?php echo $mail; ?>" aria-label="E-Mail schreiben an <?php echo esc_attr( wp_strip_all_tags( ka( 'email' ) ) ); ?>"><?php echo ka_icon( 'mail' ); ?><span>E-Mail</span></a>
+    <a class="btn btn-wa-ico side-form" href="<?php echo $sms; ?>" aria-label="<?php echo esc_attr( ka_raw( 'msg_label' ) ); ?>"><?php echo ka_icon( 'whatsapp' ); ?></a>
+    <a class="btn btn-wa-ico side-form" href="<?php echo $mail; ?>" aria-label="E-Mail schreiben an <?php echo esc_attr( wp_strip_all_tags( ka( 'email' ) ) ); ?>"><?php echo ka_icon( 'mail' ); ?></a>
+    <a class="btn btn-wa-ico side-form" href="<?php echo esc_url( ka_url( 'kontakt' ) ); ?>" aria-label="Zum Kontaktformular"><?php echo ka_icon( 'document' ); ?></a>
   </div>
 </aside>
 <a class="wa" id="wa-float" href="<?php echo $sms; ?>" aria-label="<?php echo esc_attr( ka_raw( 'msg_label' ) ); ?>"><?php echo ka_icon( 'whatsapp' ); ?><span class="wa-t"><?php echo ka( 'msg_label' ); ?></span></a>
@@ -410,6 +416,16 @@ function ka_view_services() {
       <div class="groups">
       <?php $lon_grp = null; foreach ( ka_groups() as $g ) : if ( $g['deep'] && ! $g['rows'] ) { $lon_grp = $g; continue; } ?>
         <article class="grp<?php echo $g['deep'] ? ' deep glow' : ''; ?><?php echo ( $g['wide'] && 'Pakete' !== $g['title'] ) ? ' wide' : ''; ?>">
+          <?php
+          $ka_t = mb_strtolower( $g['title'] );
+          $ka_wi = 'box';
+          if ( false !== strpos( $ka_t, 'filler' ) ) { $ka_wi = 'face'; }
+          elseif ( false !== strpos( $ka_t, 'neuro' ) ) { $ka_wi = 'eye'; }
+          elseif ( false !== strpos( $ka_t, 'haut' ) ) { $ka_wi = 'body'; }
+          elseif ( false !== strpos( $ka_t, 'paket' ) ) { $ka_wi = 'box'; }
+          $ka_wn = isset( $GLOBALS['ka_wn'] ) ? (int) $GLOBALS['ka_wn'] : 0;
+          $GLOBALS['ka_wn'] = $ka_wn + 1;
+          ?><span class="grp-wmc" aria-hidden="true"><?php if ( 'body' === $ka_wi ) : ?><span class="grp-wm grp-wm-img grp-wm-<?php echo $ka_wn % 4; ?> grp-wm-m-body" style="--wm:url(<?php echo esc_url( get_theme_file_uri( 'assets/wm-woman.webp' ) ); ?>)"></span><?php else : ?><span class="grp-wm grp-wm-<?php echo $ka_wn % 4; ?> grp-wm-m-<?php echo esc_attr( $ka_wi ); ?>"><?php echo ( 'face' === $ka_wi ) ? ka_icon( 'face', 'ico' ) : ka_wm_motif( $ka_wi ); ?></span><?php endif; ?></span>
           <span class="tag"><?php echo esc_html( $g['tag'] ); ?></span>
           <h3><?php echo esc_html( $g['title'] ); ?></h3>
           <?php if ( $g['desc'] ) : ?><p class="about-g"><?php echo ka_mark( esc_html( implode( ' ', $g['desc'] ) ) ); ?></p><?php endif; ?>

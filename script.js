@@ -26,7 +26,7 @@ try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').m
     if(e.key==='Tab'){var f=[].slice.call(menu.querySelectorAll('a[href],button,select')),i=f.indexOf(document.activeElement);
       if(e.shiftKey&&i<=0){e.preventDefault();f[f.length-1].focus()}else if(!e.shiftKey&&i===f.length-1){e.preventDefault();f[0].focus()}}
   });
-  document.addEventListener('pointermove',function(e){var t=e.target.closest&&e.target.closest('.glow');if(!t)return;var b=t.getBoundingClientRect();t.style.setProperty('--mx',(e.clientX-b.left)+'px');t.style.setProperty('--my',(e.clientY-b.top)+'px')});
+  document.addEventListener('pointermove',function(e){var t=e.target.closest&&e.target.closest('.glow,article.grp,article.legal-card,ul.quals,.phil-box,.steps li,.check,.faq details');if(!t)return;var b=t.getBoundingClientRect();t.style.setProperty('--mx',(e.clientX-b.left)+'px');t.style.setProperty('--my',(e.clientY-b.top)+'px')});
 
   /* Schalter "Animationen reduzieren" */
   var calmBox=document.getElementById('ka-calm');
@@ -695,4 +695,15 @@ document.addEventListener('click',function(e){
     if(s)s.addEventListener('click',function(e){if(window.innerWidth>700&&r.open)e.preventDefault()});
   });
   sync();
+})();
+
+/* Seitenmenü: Darstellung als drei Knöpfe (Hell, Dunkel, Gerät) – schaltet die ausgeblendete Auswahl, die day-cycle.js ansteuert */
+(function(){
+  var sel=document.getElementById('ka-appearance'),seg=document.querySelector('.seg');if(!sel||!seg)return;
+  var btns=[].slice.call(seg.querySelectorAll('[data-v]'));
+  function sync(){btns.forEach(function(b){var on=b.getAttribute('data-v')===sel.value;b.setAttribute('aria-checked',on?'true':'false');b.classList.toggle('on',on)})}
+  btns.forEach(function(b){b.addEventListener('click',function(){sel.value=b.getAttribute('data-v');sel.dispatchEvent(new Event('change',{bubbles:true}));sync()})});
+  sel.addEventListener('change',sync);window.addEventListener('load',sync);window.addEventListener('storage',function(){setTimeout(sync,0)});
+  var tg=document.getElementById('hbbtn'),lg=document.getElementById('logobtn');[tg,lg].forEach(function(t){if(t)t.addEventListener('click',function(){setTimeout(sync,50)})});
+  sync();setTimeout(sync,300);
 })();

@@ -2,7 +2,7 @@
 Theme Name: Kreuzberg Ästhetik
 Description: Website der Privatpraxis Kreuzberg Ästhetik
 Author: Kreuzberg Ästhetik
-Version: 185
+Version: 186
 Requires at least: 6.0
 Requires PHP: 7.4
 Text Domain: kreuzberg-aesthetik
@@ -5201,3 +5201,213 @@ html:not(#ka):not(.calm) .side .side-contact .side-mail:hover{transform:scale(1.
  html:not(#ka) .kview[data-view=ueber-mich] .phil-box .vrow>summary .vrow-ico{flex:0 0 auto!important;margin:0!important}
 }
 @media (min-width:701px) and (max-width:860px){html:not(#ka) .kview[data-view=ueber-mich] .phil-box .vrow .vrow-ico{display:none}}
+/* v186: Seitenmenü – Panel ohne Rand: die Kante blendet weich aus, die Fläche wechselt die Farbe von oben nach unten; Wasserzeichen dezent und mittig;
+   WhatsApp und E-Mail als gleiche Pillen plus runder Formular-Knopf; Darstellung als drei Knöpfe; Animationen als Schieber An/Aus */
+html:not(#ka) .side{background:none!important;border:0!important;box-shadow:none!important}
+html:not(#ka) .side::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(165deg,#f8fafd 0%,#e8effb 50%,#d3e1f6 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.55) 7%,#000 18%);mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.55) 7%,#000 18%)}
+html:not(#ka):root[data-theme="dark"] .side::before{background:linear-gradient(165deg,#0d3698 0%,#082a7e 45%,#041a58 100%)}
+html:not(#ka) .side .side-wm{top:50%!important;bottom:auto!important;width:110%!important;transform:translate(-50%,-50%)!important;opacity:.035!important}
+html:not(#ka):root[data-theme="dark"] .side .side-wm{opacity:.045!important}
+/* Kontakt: gleiche Pillen, Formular rund */
+html:not(#ka) .side .side-contact{gap:.5rem!important;flex-wrap:wrap}
+html:not(#ka) .side .side-contact .side-mail{padding:0 13px!important;font-size:13px!important;gap:6px}
+html:not(#ka) .side .side-contact .side-form{flex:none}
+html:not(#ka) .side .side-contact .side-wa .ico,html:not(#ka) .side .side-contact .side-wa svg{width:16px;height:16px}
+html:not(#ka) .side .side-contact .side-form .ico,html:not(#ka) .side .side-contact .side-form svg{width:17px;height:17px}
+/* Darstellung: drei Knöpfe */
+html:not(#ka) .side .appearance-control{display:grid;gap:.5rem;border:0!important;padding:.9rem 0 .3rem!important;position:relative;opacity:1!important}
+html:not(#ka) .side .appearance-control .ac-label{font-size:.75rem;line-height:1.4;color:#5b6b8c;font-weight:500}
+html:not(#ka):root[data-theme="dark"] .side .appearance-control .ac-label{color:#cfe0f3}
+html:not(#ka) .side .appearance-control select{position:absolute!important;width:1px!important;height:1px!important;min-height:0!important;padding:0!important;border:0!important;opacity:0!important;pointer-events:none!important;overflow:hidden;clip:rect(0 0 0 0)}
+html:not(#ka) .side .seg{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;padding:3px;border-radius:999px;background:rgba(1,34,101,.07)}
+html:not(#ka):root[data-theme="dark"] .side .seg{background:rgba(2,22,78,.45)}
+html:not(#ka) .side .seg button{display:flex;align-items:center;justify-content:center;gap:6px;height:34px;min-width:0;padding:0 8px;border:0;border-radius:999px;background:transparent;color:#5b6b8c;font:500 13px/1 var(--sans);cursor:pointer;position:relative;transition:background-color .3s cubic-bezier(.25,.8,.35,1),color .3s cubic-bezier(.25,.8,.35,1),transform .3s cubic-bezier(.25,.8,.35,1),box-shadow .3s}
+html:not(#ka) .side .seg button::after{content:"";position:absolute;inset:-5px -1px}
+html:not(#ka) .side .seg button .ico,html:not(#ka) .side .seg button svg{width:16px;height:16px;flex:none;color:inherit}
+html:not(#ka) .side .seg button.on{background:#fff;color:#012265;box-shadow:0 2px 8px -3px rgba(1,34,101,.35)}
+html:not(#ka) .side .seg button:not(.on):hover{color:#012265}
+html:not(#ka):not(.calm) .side .seg button:hover{transform:scale(1.04)}
+html:not(#ka):root[data-theme="dark"] .side .seg button{color:#aebfe0}
+html:not(#ka):root[data-theme="dark"] .side .seg button.on{background:rgba(220,232,248,.18);color:#fff;box-shadow:none}
+html:not(#ka):root[data-theme="dark"] .side .seg button:not(.on):hover{color:#fff}
+html:not(#ka) .side .seg button:focus-visible{outline:2px solid #012265;outline-offset:2px}
+html:not(#ka):root[data-theme="dark"] .side .seg button:focus-visible{outline-color:#dce8f8}
+/* Animationen: Schieber */
+html:not(#ka) .side .calm-control{display:flex!important;align-items:center;justify-content:space-between;gap:.7rem;margin:.4rem 0 0!important;padding:.3rem 0;opacity:1!important;font-size:.875rem!important;font-weight:500;color:#012265;transform:none!important}
+html:not(#ka):root[data-theme="dark"] .side .calm-control{color:#eaf1fc!important}
+html:not(#ka) .side .calm-control .calm-t{flex:1}
+html:not(#ka) .side .calm-control .calm-state{font-size:.75rem;color:#5b6b8c;min-width:1.6em;text-align:right}
+html:not(#ka):root[data-theme="dark"] .side .calm-control .calm-state{color:#cfe0f3}
+html:not(#ka) .side .calm-control input:not(:checked)~.sw~*,html:not(#ka) .side .calm-state::before{content:"An"}
+html:not(#ka) .side .calm-control:has(input:checked) .calm-state::before{content:"Aus"}
+html:not(#ka) .side .calm-sw{position:relative;width:44px;height:26px;flex:none;display:block}
+html:not(#ka) .side .calm-sw input{position:absolute;inset:-6px;width:calc(100% + 12px)!important;height:calc(100% + 12px)!important;margin:0;opacity:0;cursor:pointer;z-index:2;background:none!important;border:0!important}
+html:not(#ka) .side .calm-sw .sw{position:absolute;inset:0;border-radius:999px;background:#012265;transition:background-color .3s cubic-bezier(.25,.8,.35,1)}
+html:not(#ka) .side .calm-sw .sw::after{content:"";position:absolute;top:3px;left:21px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(1,34,101,.35);transition:left .3s cubic-bezier(.25,.8,.35,1)}
+html:not(#ka) .side .calm-sw input:checked+.sw{background:rgba(1,34,101,.22)}
+html:not(#ka) .side .calm-sw input:checked+.sw::after{left:3px}
+html:not(#ka):root[data-theme="dark"] .side .calm-sw .sw{background:#7fa0e6}
+html:not(#ka):root[data-theme="dark"] .side .calm-sw input:checked+.sw{background:rgba(2,22,78,.55)}
+html:not(#ka) .side .calm-sw input:focus-visible+.sw{outline:2px solid #012265;outline-offset:2px}
+html:not(#ka):root[data-theme="dark"] .side .calm-sw input:focus-visible+.sw{outline-color:#dce8f8}
+html:not(#ka) .side{border-radius:0!important}
+html:not(#ka) .side .side-wm{opacity:.03!important}
+html:not(#ka) .side .side-contact .side-form{width:36px!important;height:36px!important;min-width:36px;padding:0!important;display:inline-flex;align-items:center;justify-content:center;border-radius:50%!important;background:transparent!important;border:1px solid #012265!important;color:#012265!important;box-shadow:none!important}
+html:not(#ka):root[data-theme="dark"] .side .side-contact .side-form{border-color:rgba(220,232,248,.55)!important;color:#eaf1fc!important}
+html:not(#ka) .side .side-contact .side-form .ico,html:not(#ka) .side .side-contact .side-form svg{color:inherit!important}
+html:not(#ka) .side .side-contact .side-form:hover{background:rgba(1,34,101,.06)!important}
+html:not(#ka):root[data-theme="dark"] .side .side-contact .side-form:hover{background:rgba(220,232,248,.1)!important;border-color:#dce8f8!important}
+html:not(#ka):not(.calm) .side .side-contact .side-form{transition:transform .3s cubic-bezier(.25,.8,.35,1),background-color .3s,border-color .3s}
+html:not(#ka):not(.calm) .side .side-contact .side-form:hover{transform:scale(1.06)}
+html:not(#ka):root[data-theme="dark"] .side{background:none!important;border:0!important;box-shadow:none!important}
+html:not(#ka):root[data-theme="dark"] .side .side-wm{opacity:.035!important}
+/* v186: Seitenmenü – Kontakt nur als drei runde Symbolknöpfe (WhatsApp, E-Mail, Formular); hochkant (Handy) Menüschrift zentriert */
+html:not(#ka) .side .side-contact{justify-content:center!important;gap:.8rem!important}
+@media (max-width:700px) and (orientation:portrait){
+ html:not(#ka) .side .side-links a{text-align:center!important;padding:.85rem .5rem!important}
+ html:not(#ka) .side .side-links a::after{background:linear-gradient(90deg,rgba(1,34,101,0),rgba(1,34,101,.22) 20%,rgba(1,34,101,.22) 80%,rgba(1,34,101,0))}
+ html:not(#ka):root[data-theme="dark"] .side .side-links a::after{background:linear-gradient(90deg,rgba(220,232,248,0),rgba(220,232,248,.4) 20%,rgba(220,232,248,.4) 80%,rgba(220,232,248,0))}
+ html:not(#ka) .side .side-links a[aria-current="page"]::before{display:none}
+ html:not(#ka) .side .side-links a[aria-current="page"]{background:linear-gradient(90deg,rgba(1,34,101,0),rgba(1,34,101,.08) 25%,rgba(1,34,101,.08) 75%,rgba(1,34,101,0))}
+ html:not(#ka):root[data-theme="dark"] .side .side-links a[aria-current="page"]{background:linear-gradient(90deg,rgba(220,232,248,0),rgba(220,232,248,.16) 25%,rgba(220,232,248,.16) 75%,rgba(220,232,248,0))!important}
+ html:not(#ka) .side .appearance-control .ac-label{text-align:center}
+}
+@media (max-width:700px) and (orientation:portrait){
+ html:not(#ka) .side .side-links a{display:flex!important;justify-content:center!important;text-align:center!important;width:100%;box-sizing:border-box}
+ html:not(#ka):root:not([data-theme="dark"]) .side .side-links a[aria-current="page"]{background:linear-gradient(90deg,rgba(1,34,101,0),rgba(1,34,101,.08) 25%,rgba(1,34,101,.08) 75%,rgba(1,34,101,0))!important}
+}
+/* v186: hochkant am Handy – das Menü füllt den ganzen Bildschirm, damit alles in der Bildschirmmitte steht */
+@media (max-width:700px) and (orientation:portrait){
+ html:not(#ka) .side{width:100vw!important;max-width:none!important;left:0!important;right:0!important}
+ html:not(#ka) .side::before{-webkit-mask-image:none!important;mask-image:none!important}
+ html:not(#ka) .side .side-contact{justify-content:center!important}
+ html:not(#ka) .side .calm-control{justify-content:center!important;gap:.9rem}
+ html:not(#ka) .side .calm-control .calm-t{flex:0 0 auto!important}
+ html:not(#ka) .side .calm-control .calm-state{min-width:0;text-align:left}
+ html:not(#ka) .side .calm-control .calm-state{order:3}
+ html:not(#ka) .side .calm-control .calm-sw{order:2}
+}
+/* v186: Behandlungskarten mit dezentem Logo-Wasserzeichen; im Dunkelmodus bekommen alle dunkelblauen Karten den Leuchteffekt, der der Maus folgt */
+@property --ga{syntax:"<number>";inherits:false;initial-value:0}
+.grp{position:relative}
+.grp>.grp-wmc{position:absolute;inset:0;overflow:hidden;border-radius:inherit;pointer-events:none;z-index:0}
+.grp>*:not(.grp-wmc){position:relative;z-index:1}
+.grp-wm{position:absolute!important;left:auto!important;top:auto!important;right:-16%;bottom:-24%;width:min(300px,68%)!important;aspect-ratio:1;transform:none!important;will-change:auto;color:#012265;opacity:.045;pointer-events:none}
+.grp-wm .lg-f{transform:none}
+html:not(#ka)[data-theme="dark"] .grp-wm,html:not(#ka) .grp.deep .grp-wm{color:#fff;opacity:.06}
+html:not(#ka)[data-theme="dark"] :is(article.grp,article.legal-card,ul.quals,.phil-box,#ablauf .steps li,.sum-abl .steps li,.check,.faq details){background:radial-gradient(380px circle at var(--mx,50%) var(--my,-40%),rgba(255,255,255,var(--ga)),rgba(255,255,255,calc(var(--ga) * .28)) 45%,transparent 72%),linear-gradient(180deg,#1a45a6 0%,#123a98 100%)!important}
+html:not(#ka)[data-theme="dark"] :is(article.grp,article.legal-card,ul.quals,.phil-box,#ablauf .steps li,.sum-abl .steps li,.check,.faq details):hover{--ga:.42}
+html:not(#ka):not(.calm)[data-theme="dark"] :is(article.grp,article.legal-card,ul.quals,.phil-box,#ablauf .steps li,.sum-abl .steps li,.check,.faq details){transition:--ga .25s ease}
+/* v186: Wasserzeichen der Behandlungskarten sitzt im Kopf der Karte (oben rechts neben der Überschrift), nicht unten hinter den Preisen */
+.grp-wm{right:-34px!important;bottom:auto!important;top:-38px!important;width:min(210px,52%)!important}
+/* v186: Wasserzeichen der Behandlungskarten: größer, rechts angeschnitten und hinter der Tabelle (scheint durch die Tabellenflächen) */
+.grp-wm{right:-26%!important;top:34%!important;bottom:auto!important;width:min(380px,92%)!important;opacity:.06!important}
+html:not(#ka)[data-theme="dark"] .grp-wm,html:not(#ka) .grp.deep .grp-wm{opacity:.075!important}
+/* v186: Wasserzeichen der Behandlungskarten – je Karte ein eigenes Linien-Motiv (Tropfen, Welle, Blatt, Schichten) statt Praxislogo, angeschnitten an wechselnden Positionen */
+.grp-wm{position:absolute!important;width:min(260px,72%)!important;height:auto!important;aspect-ratio:1;opacity:.07!important;color:#012265;pointer-events:none}
+html:not(#ka)[data-theme="dark"] .grp-wm,html:not(#ka) .grp.deep .grp-wm{color:#fff;opacity:.09!important}
+.grp-wm svg{width:100%;height:100%;display:block;stroke-width:.55;overflow:visible}
+.grp-wm svg *{fill:none!important}
+.grp-wm.grp-wm-0{right:-12%!important;top:-9%!important;left:auto!important;bottom:auto!important;transform:rotate(12deg)!important}
+.grp-wm.grp-wm-1{left:-14%!important;bottom:-12%!important;right:auto!important;top:auto!important;transform:rotate(-14deg)!important}
+.grp-wm.grp-wm-2{right:-20%!important;top:34%!important;left:auto!important;bottom:auto!important;transform:rotate(8deg)!important}
+.grp-wm.grp-wm-3{left:-12%!important;top:6%!important;right:auto!important;bottom:auto!important;transform:rotate(-9deg)!important}
+.grp-wm{width:min(300px,78%)!important;opacity:.12!important}
+html:not(#ka)[data-theme="dark"] .grp-wm,html:not(#ka) .grp.deep .grp-wm{opacity:.15!important}
+.grp-wm svg{stroke-width:.75}
+.grp-wm.grp-wm-0{right:-9%!important;top:-4%!important}
+.grp-wm.grp-wm-1{left:-10%!important;bottom:-8%!important}
+.grp-wm.grp-wm-2{right:-15%!important;top:34%!important}
+.grp-wm.grp-wm-3{left:-8%!important;top:8%!important}
+/* v186: Leuchteffekt der Maus auf den dunkelblauen Karten deutlich zurückgenommen */
+html:not(#ka)[data-theme="dark"] :is(article.grp,article.legal-card,ul.quals,.phil-box,#ablauf .steps li,.sum-abl .steps li,.check,.faq details):hover{--ga:.16}
+html:not(#ka)[data-theme="dark"] .glow:hover::after,html:not(#ka)[data-theme="dark"] .glow:active::after{opacity:.4}
+.grp-wm svg{stroke-width:1.1}
+.grp-wm{width:min(320px,82%)!important}
+/* v186: Wasserzeichen als gefüllte, auslaufende Pinselstriche (Gesicht mit Funken, Auge, Körperlinie, Paket mit Blatt) */
+.grp-wm svg{stroke-width:0;fill:currentColor}
+.grp-wm svg *{fill:currentColor!important}
+.grp-wm svg circle[fill=none]{fill:none!important}
+.grp-wm{opacity:.17!important}
+html:not(#ka)[data-theme="dark"] .grp-wm,html:not(#ka) .grp.deep .grp-wm{opacity:.2!important}
+/* v186: Körperlinie als eigenes Bild (Maske in der Kartenfarbe) */
+.grp-wm.grp-wm-img{background-color:currentColor;-webkit-mask:var(--wm) center/contain no-repeat;mask:var(--wm) center/contain no-repeat;width:min(170px,46%)!important;aspect-ratio:483/1100!important}
+/* v186: feste Platzierung je Motiv (angeschnitten, aber gut erkennbar) */
+.grp-wm.grp-wm-m-face{left:-7%!important;right:auto!important;top:auto!important;bottom:-9%!important;width:min(300px,76%)!important;transform:rotate(-6deg)!important}
+.grp-wm.grp-wm-m-eye{right:-8%!important;left:auto!important;top:-5%!important;bottom:auto!important;width:min(300px,78%)!important;transform:rotate(8deg)!important}
+.grp-wm.grp-wm-m-body{right:-3%!important;left:auto!important;top:18%!important;bottom:auto!important;width:min(190px,50%)!important;transform:rotate(7deg)!important}
+.grp-wm.grp-wm-m-box{left:-8%!important;right:auto!important;top:6%!important;bottom:auto!important;width:min(300px,78%)!important;transform:rotate(-8deg)!important}
+/* v186: Filler-Wasserzeichen = das vorhandene Symbol „Gesicht mit Funken“, groß und als feine Linie */
+.grp-wm.grp-wm-m-face svg{width:100%;height:100%;fill:none!important;stroke:currentColor;stroke-width:.42;stroke-linecap:round;stroke-linejoin:round}
+.grp-wm.grp-wm-m-face svg *{fill:none!important;stroke:currentColor!important}
+.grp-wm.grp-wm-m-face{width:min(280px,72%)!important}
+.grp-wm.grp-wm-m-face svg{stroke-width:.6}
+.grp-wm.grp-wm-m-face{left:-4%!important;bottom:-5%!important;width:min(300px,78%)!important;transform:rotate(-4deg)!important}
+/* v186: Wasserzeichen im Dunkelmodus (und auf dunkelblauen Karten) viel dezenter; Tabellen im Hellmodus ganz leicht transparent, damit das Wasserzeichen schwach durchscheint */
+html:not(#ka)[data-theme="dark"] .grp-wm,html:not(#ka) .grp.deep .grp-wm{opacity:.065!important}
+html:not(#ka):root:not([data-theme="dark"]) .grp:not(.deep) .subgrp,html:not(#ka):root:not([data-theme="dark"]) .grp:not(.deep) .subgrp:not(.has-h){background:rgba(242,246,252,.78)!important}
+/* v186: alle Wasserzeichen sitzen unten rechts in der Karte, angeschnitten */
+.grp-wm.grp-wm-m-face,.grp-wm.grp-wm-m-eye,.grp-wm.grp-wm-m-body,.grp-wm.grp-wm-m-box{left:auto!important;top:auto!important;right:-8%!important;bottom:-8%!important}
+.grp-wm.grp-wm-m-body{right:-2%!important;bottom:-10%!important;width:min(190px,50%)!important}
+/* v186: dunkles Seitenmenü wieder im helleren Kartenblau (ohne Rand, Kante blendet aus) */
+html:not(#ka):root[data-theme="dark"] .side::before{background:linear-gradient(165deg,#1d4cb4 0%,#17409f 45%,#0f338a 100%)}
+/* v186: die Farbfläche des Seitenmenüs wird wirklich gezeichnet (eine ältere Regel hatte das Pseudoelement abgeschaltet) */
+html:not(#ka) .side::before{content:""!important}
+/* v186: Seitenmenü – Fläche leicht transparent, Kante blendet breit in die Seite aus (Desktop: nach links, Handy hochkant: nach unten) */
+html:not(#ka) .side::before{opacity:.93;-webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.35) 8%,rgba(0,0,0,.8) 20%,#000 36%)!important;mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.35) 8%,rgba(0,0,0,.8) 20%,#000 36%)!important}
+@media (max-width:700px) and (orientation:portrait){
+ html:not(#ka) .side::before{opacity:.95;-webkit-mask-image:linear-gradient(180deg,#000 0,#000 62%,rgba(0,0,0,.7) 80%,rgba(0,0,0,.35) 100%)!important;mask-image:linear-gradient(180deg,#000 0,#000 62%,rgba(0,0,0,.7) 80%,rgba(0,0,0,.35) 100%)!important}
+}
+/* v186: Seitenmenü wieder durchsichtig – keine eigene Farbfläche, nur die abgedunkelte, unscharfe Seite dahinter */
+html:not(#ka) .side::before{content:none!important}
+/* v186: Seitenmenü dunkel – Abdeckung im Praxisblau statt Nachtblau */
+html:not(#ka):root[data-theme="dark"] .scrim.open{background:rgba(1,34,101,.74)!important}
+/* v186: Bereich hinter dem Menü klar (keine Unschärfe, nur ein Hauch Praxisblau); die Unschärfe und das Praxisblau liegen nur noch auf dem Menü-Panel */
+html:not(#ka) .scrim.open,html:not(#ka):root[data-theme="dark"] .scrim.open{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:rgba(1,34,101,.16)!important}
+html:not(#ka):root:not([data-theme="dark"]) .scrim.open{background:rgba(1,34,101,.1)!important}
+html:not(#ka) .side{-webkit-backdrop-filter:blur(18px) saturate(.8)!important;backdrop-filter:blur(18px) saturate(.8)!important;background:rgba(244,247,252,.78)!important}
+html:not(#ka):root[data-theme="dark"] .side{background:rgba(1,34,101,.78)!important}
+/* v186: Übergang – das Menü ist am rechten Rand unscharf und blendet nach links fließend in die klare Seite aus (Unschärfe, Praxisblau und Deckkraft laufen gemeinsam aus) */
+html:not(#ka) .side,html:not(#ka):root[data-theme="dark"] .side{background:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+html:not(#ka) .side::before{content:""!important;position:absolute;inset:0;z-index:0;pointer-events:none;opacity:1;-webkit-backdrop-filter:blur(20px) saturate(.8);backdrop-filter:blur(20px) saturate(.8);background:linear-gradient(90deg,rgba(244,247,252,0),rgba(244,247,252,.8) 38%,rgba(244,247,252,.86));-webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.25) 10%,rgba(0,0,0,.7) 24%,#000 42%)!important;mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.25) 10%,rgba(0,0,0,.7) 24%,#000 42%)!important}
+html:not(#ka):root[data-theme="dark"] .side::before{background:linear-gradient(90deg,rgba(1,34,101,0),rgba(1,34,101,.78) 38%,rgba(1,34,101,.84))}
+@media (max-width:700px) and (orientation:portrait){
+ html:not(#ka) .side::before{background:rgba(244,247,252,.84);-webkit-mask-image:none!important;mask-image:none!important}
+ html:not(#ka):root[data-theme="dark"] .side::before{background:rgba(1,34,101,.8)}
+}
+/* v186: Unschärfe-Verlauf nach Vorgabe – die Unschärfefläche reicht vom linken Bildschirmrand bis zum Menü: 0 % ganz links, 30 %, 60 %, ab dem Menürand 95 %; Praxisblau läuft mit */
+@media (min-width:701px),(orientation:landscape){
+ html:not(#ka) .side::before{left:calc(100% - 100vw)!important;width:100vw;right:0;
+  -webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,0) 0,rgba(0,0,0,.3) calc((100% - min(320px,86vw)) * .47),rgba(0,0,0,.6) calc((100% - min(320px,86vw)) * .77),rgba(0,0,0,.951) calc(100% - min(320px,86vw)),rgba(0,0,0,.951) 100%)!important;
+  mask-image:linear-gradient(90deg,rgba(0,0,0,0) 0,rgba(0,0,0,.3) calc((100% - min(320px,86vw)) * .47),rgba(0,0,0,.6) calc((100% - min(320px,86vw)) * .77),rgba(0,0,0,.951) calc(100% - min(320px,86vw)),rgba(0,0,0,.951) 100%)!important;
+  background:rgba(244,247,252,.82)}
+ html:not(#ka):root[data-theme="dark"] .side::before{background:rgba(1,34,101,.78)}
+}
+/* v186: Panel schneidet die Unschärfefläche nicht mehr an der Kante ab (sie reicht links bis zum Bildschirmrand); das Wasserzeichen bleibt innerhalb des Panels */
+html:not(#ka) .side{overflow:visible!important;clip-path:inset(-2px -2px -2px calc(-1 * (100vw - min(320px,86vw))))}
+html:not(#ka) .side .side-wm{clip-path:inset(0)}
+@media (max-width:700px) and (orientation:portrait){html:not(#ka) .side{clip-path:none}}
+/* v186: Farbe im Menü-Verlauf etwas deutlicher */
+@media (min-width:701px),(orientation:landscape){
+ html:not(#ka) .side::before{background:rgba(205,221,246,.92)}
+ html:not(#ka):root[data-theme="dark"] .side::before{background:rgba(4,40,120,.94)}
+}
+@media (max-width:700px) and (orientation:portrait){
+ html:not(#ka) .side::before{background:rgba(205,221,246,.92)}
+ html:not(#ka):root[data-theme="dark"] .side::before{background:rgba(4,40,120,.92)}
+}
+/* v186: Verlauf endet am Menürand bei 99 % statt 95 % */
+@media (min-width:701px),(orientation:landscape){
+ html:not(#ka) .side::before{
+  -webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,0) 0,rgba(0,0,0,.3) calc((100% - min(320px,86vw)) * .47),rgba(0,0,0,.6) calc((100% - min(320px,86vw)) * .77),rgba(0,0,0,.99) calc(100% - min(320px,86vw)),rgba(0,0,0,.99) 100%)!important;
+  mask-image:linear-gradient(90deg,rgba(0,0,0,0) 0,rgba(0,0,0,.3) calc((100% - min(320px,86vw)) * .47),rgba(0,0,0,.6) calc((100% - min(320px,86vw)) * .77),rgba(0,0,0,.99) calc(100% - min(320px,86vw)),rgba(0,0,0,.99) 100%)!important}
+}
+/* v186: Menü wieder mit Transparenz – Farbe bleibt im Verlauf erkennbar, die Seite scheint durch */
+html:not(#ka) .side::before{background:rgba(205,221,246,.6)!important}
+html:not(#ka):root[data-theme="dark"] .side::before{background:rgba(4,40,120,.6)!important}
+/* v186: Menü – Mitte zwischen durchsichtig und deckend */
+html:not(#ka) .side::before{background:rgba(205,221,246,.78)!important}
+html:not(#ka):root[data-theme="dark"] .side::before{background:rgba(4,40,120,.78)!important}
+/* v186: Menü deckender – damit die Seite (z. B. das Kopfleisten-Logo) nicht in die Sanduhr-Animation im Menü hineinscheint */
+html:not(#ka) .side::before{background:rgba(205,221,246,.95)!important}
+html:not(#ka):root[data-theme="dark"] .side::before{background:rgba(4,40,120,.95)!important}

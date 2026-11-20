@@ -1,6 +1,6 @@
 # Übergabe: Website Kreuzberg Ästhetik (WordPress-Theme)
 
-Stand: 19. November 2026. **Theme-Version 185 wird veröffentlicht** (Seitenmenü: dunkel ruhiger Praxisblau-Verlauf, größere Einträge in Literata, aktuelle Seite markiert, Haarlinien-Trenner, Logo-Wasserzeichen, Logo verlinkt auf Start, Schließen-× ohne Kreis, E-Mail-Knopf; Sanduhr: Sandform dreht mit (Klasse fp); Über mich: Werte als gleich breite Registerkarten mit Karte darunter, ab 701 px, Text per JS in .vpanel; Porträt unverändert). Nächste Version 186.
+Stand: 20. November 2026. **Theme-Version 186 wird veröffentlicht** (Seitenmenü: Darstellung als drei Knöpfe Hell/Dunkel/Gerät, Animationen als Schieber, Kontakt als drei runde Symbolknöpfe, Logo-Wasserzeichen, hochkant vollflächig und zentriert, Unschärfe-Verlauf 0/30/60/99 % über eine Fläche (.side::before) vom Bildschirmrand bis zum Menü, Praxisblau; Behandlungskarten: Wasserzeichen unten rechts (Box mit Blatt, Körperlinie als Bild assets/wm-woman.webp, Gesicht-mit-Funken-Symbol, Wellenlinien), Leuchteffekt der Maus auf dunkelblauen Karten (reduziert); Sanduhr-Sand dreht mit). Nächste Version 187.
 
 ## ZUERST LESEN – Kurzfassung für die neue Sitzung
 
