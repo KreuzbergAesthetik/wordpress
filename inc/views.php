@@ -89,8 +89,8 @@ function ka_footer() {
   <label class="calm-control"><span class="calm-t">Animationen</span><span class="calm-state" aria-hidden="true"></span><span class="calm-sw"><input type="checkbox" id="ka-calm" aria-label="Animationen reduzieren"><i class="sw" aria-hidden="true"></i></span></label>
   <div class="wmk side-wm" aria-hidden="true"><span class="lg-s"></span><span class="lg-f"></span></div>
   <div class="side-contact">
-    <a class="btn side-mail side-wa" href="<?php echo $sms; ?>" aria-label="<?php echo esc_attr( ka_raw( 'msg_label' ) ); ?>"><?php echo ka_icon( 'whatsapp' ); ?><span>WhatsApp</span></a>
-    <a class="btn side-mail" href="<?php echo $mail; ?>" aria-label="E-Mail schreiben an <?php echo esc_attr( wp_strip_all_tags( ka( 'email' ) ) ); ?>"><?php echo ka_icon( 'mail' ); ?><span>E-Mail</span></a>
+    <a class="btn btn-wa-ico side-form" href="<?php echo $sms; ?>" aria-label="<?php echo esc_attr( ka_raw( 'msg_label' ) ); ?>"><?php echo ka_icon( 'whatsapp' ); ?></a>
+    <a class="btn btn-wa-ico side-form" href="<?php echo $mail; ?>" aria-label="E-Mail schreiben an <?php echo esc_attr( wp_strip_all_tags( ka( 'email' ) ) ); ?>"><?php echo ka_icon( 'mail' ); ?></a>
     <a class="btn btn-wa-ico side-form" href="<?php echo esc_url( ka_url( 'kontakt' ) ); ?>" aria-label="Zum Kontaktformular"><?php echo ka_icon( 'document' ); ?></a>
   </div>
 </aside>
