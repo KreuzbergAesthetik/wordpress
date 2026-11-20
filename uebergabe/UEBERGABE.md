@@ -1,6 +1,6 @@
 # Übergabe: Website Kreuzberg Ästhetik (WordPress-Theme)
 
-Stand: 20. November 2026. **Theme-Version 186 wird veröffentlicht** (Seitenmenü: Darstellung als drei Knöpfe Hell/Dunkel/Gerät, Animationen als Schieber, Kontakt als drei runde Symbolknöpfe, Logo-Wasserzeichen, hochkant vollflächig und zentriert, Unschärfe-Verlauf 0/30/60/99 % über eine Fläche (.side::before) vom Bildschirmrand bis zum Menü, Praxisblau; Behandlungskarten: Wasserzeichen unten rechts (Box mit Blatt, Körperlinie als Bild assets/wm-woman.webp, Gesicht-mit-Funken-Symbol, Wellenlinien), Leuchteffekt der Maus auf dunkelblauen Karten (reduziert); Sanduhr-Sand dreht mit). Nächste Version 187.
+Stand: 20. November 2026. **Theme-Version 187 wird veröffentlicht** (Preisliste und Chat nach Berliner Marktrecherche angepasst: Neuromodulator 1 Zone 179, Skinbooster 219, Microneedling 269, Trapezius 399, PLLA 649, Paket 2x PLLA 1099, Lipolyse enzymatisch 349; Radiesse bleibt 449; Mehrzahl der übrigen Preise unverändert). Hinweis: im Backend unter „Inhalte“ gespeicherte Preise überschreiben die Standardwerte. Nächste Version 188.
 
 ## ZUERST LESEN – Kurzfassung für die neue Sitzung
 
