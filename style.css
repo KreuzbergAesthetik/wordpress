@@ -5387,3 +5387,12 @@ html:not(#ka):root[data-theme="dark"] .side::before{background:linear-gradient(9
 html:not(#ka) .side{overflow:visible!important;clip-path:inset(-2px -2px -2px calc(-1 * (100vw - min(320px,86vw))))}
 html:not(#ka) .side .side-wm{clip-path:inset(0)}
 @media (max-width:700px) and (orientation:portrait){html:not(#ka) .side{clip-path:none}}
+/* v186: Farbe im Menü-Verlauf etwas deutlicher */
+@media (min-width:701px),(orientation:landscape){
+ html:not(#ka) .side::before{background:rgba(205,221,246,.92)}
+ html:not(#ka):root[data-theme="dark"] .side::before{background:rgba(4,40,120,.94)}
+}
+@media (max-width:700px) and (orientation:portrait){
+ html:not(#ka) .side::before{background:rgba(205,221,246,.92)}
+ html:not(#ka):root[data-theme="dark"] .side::before{background:rgba(4,40,120,.92)}
+}
