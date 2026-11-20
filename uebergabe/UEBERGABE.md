@@ -1,6 +1,6 @@
 # Übergabe: Website Kreuzberg Ästhetik (WordPress-Theme)
 
-Stand: 20. November 2026. **Theme-Version 187 wird veröffentlicht** (Preisliste und Chat nach Berliner Marktrecherche angepasst: Neuromodulator 1 Zone 179, Skinbooster 219, Microneedling 269, Trapezius 399, PLLA 649, Paket 2x PLLA 1099, Lipolyse enzymatisch 349; Radiesse bleibt 449; Mehrzahl der übrigen Preise unverändert). Hinweis: im Backend unter „Inhalte“ gespeicherte Preise überschreiben die Standardwerte. Nächste Version 188.
+Stand: 20. November 2026. **Theme-Version 188 wird veröffentlicht** (Sculptra/PLLA wieder 599, Paket 2x PLLA wieder 999 statt 1198; sonstige Preise wie Version 187). Hinweis: im Backend unter „Inhalte“ gespeicherte Preise überschreiben die Standardwerte. Nächste Version 189.
 
 ## ZUERST LESEN – Kurzfassung für die neue Sitzung
 
