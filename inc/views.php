@@ -418,11 +418,11 @@ function ka_view_services() {
         <article class="grp<?php echo $g['deep'] ? ' deep glow' : ''; ?><?php echo ( $g['wide'] && 'Pakete' !== $g['title'] ) ? ' wide' : ''; ?>">
           <?php
           $ka_t = mb_strtolower( $g['title'] );
-          $ka_wi = 'rings';
-          if ( false !== strpos( $ka_t, 'filler' ) ) { $ka_wi = 'ripple'; }
-          elseif ( false !== strpos( $ka_t, 'neuro' ) ) { $ka_wi = 'contour'; }
-          elseif ( false !== strpos( $ka_t, 'haut' ) ) { $ka_wi = 'branch'; }
-          elseif ( false !== strpos( $ka_t, 'paket' ) ) { $ka_wi = 'rings'; }
+          $ka_wi = 'box';
+          if ( false !== strpos( $ka_t, 'filler' ) ) { $ka_wi = 'face'; }
+          elseif ( false !== strpos( $ka_t, 'neuro' ) ) { $ka_wi = 'eye'; }
+          elseif ( false !== strpos( $ka_t, 'haut' ) ) { $ka_wi = 'body'; }
+          elseif ( false !== strpos( $ka_t, 'paket' ) ) { $ka_wi = 'box'; }
           $ka_wn = isset( $GLOBALS['ka_wn'] ) ? (int) $GLOBALS['ka_wn'] : 0;
           $GLOBALS['ka_wn'] = $ka_wn + 1;
           ?><span class="grp-wmc" aria-hidden="true"><span class="grp-wm grp-wm-<?php echo $ka_wn % 4; ?>"><?php echo ka_wm_motif( $ka_wi ); ?></span></span>

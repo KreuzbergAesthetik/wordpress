@@ -5324,3 +5324,9 @@ html:not(#ka)[data-theme="dark"] :is(article.grp,article.legal-card,ul.quals,.ph
 html:not(#ka)[data-theme="dark"] .glow:hover::after,html:not(#ka)[data-theme="dark"] .glow:active::after{opacity:.4}
 .grp-wm svg{stroke-width:1.1}
 .grp-wm{width:min(320px,82%)!important}
+/* v186: Wasserzeichen als gefüllte, auslaufende Pinselstriche (Gesicht mit Funken, Auge, Körperlinie, Paket mit Blatt) */
+.grp-wm svg{stroke-width:0;fill:currentColor}
+.grp-wm svg *{fill:currentColor!important}
+.grp-wm svg circle[fill=none]{fill:none!important}
+.grp-wm{opacity:.17!important}
+html:not(#ka)[data-theme="dark"] .grp-wm,html:not(#ka) .grp.deep .grp-wm{opacity:.2!important}

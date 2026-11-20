@@ -84,34 +84,68 @@ function ka_icon_for( $label ) {
 	return 'sparkle';
 }
 
-/** Große Linien-Motive für die Wasserzeichen der Behandlungskarten (200 x 200, nur Strich). */
+/** Ein auslaufender Pinselstrich entlang einer Kurve (Linsenform: in der Mitte kräftig, an den Enden fein). */
+function ka_tp( $x0, $y0, $x1, $y1, $x2, $y2, $x3, $y3, $w ) {
+	$dx = $x3 - $x0; $dy = $y3 - $y0;
+	$l  = sqrt( $dx * $dx + $dy * $dy );
+	if ( $l < 0.001 ) { return ''; }
+	$nx = -$dy / $l * $w / 2; $ny = $dx / $l * $w / 2;
+	$f  = function ( $v ) { return round( $v, 1 ); };
+	return '<path d="M' . $f( $x0 ) . ' ' . $f( $y0 ) . 'C' . $f( $x1 + $nx ) . ' ' . $f( $y1 + $ny ) . ' ' . $f( $x2 + $nx ) . ' ' . $f( $y2 + $ny ) . ' ' . $f( $x3 ) . ' ' . $f( $y3 ) . 'C' . $f( $x2 - $nx ) . ' ' . $f( $y2 - $ny ) . ' ' . $f( $x1 - $nx ) . ' ' . $f( $y1 - $ny ) . ' ' . $f( $x0 ) . ' ' . $f( $y0 ) . 'Z"/>';
+}
+
+/** Vierzackiger Funke. */
+function ka_spark( $x, $y, $s ) {
+	return '<path d="M' . $x . ' ' . ( $y - $s ) . 'Q' . $x . ' ' . $y . ' ' . ( $x + $s ) . ' ' . $y . 'Q' . $x . ' ' . $y . ' ' . $x . ' ' . ( $y + $s ) . 'Q' . $x . ' ' . $y . ' ' . ( $x - $s ) . ' ' . $y . 'Q' . $x . ' ' . $y . ' ' . $x . ' ' . ( $y - $s ) . 'Z"/>';
+}
+
+/** Große Wasserzeichen-Motive für die Behandlungskarten: elegante Linienzeichnungen mit auslaufenden Strichen (200 x 200). */
 function ka_wm_motif( $name ) {
 	$d = '';
 	switch ( $name ) {
-		case 'contour': // Höhenlinien, die sich nach unten glätten
-			for ( $i = 0; $i < 9; $i++ ) {
-				$y = 14 + $i * 21;
-				$a = round( 20 * ( 1 - $i / 8 ), 1 );
-				$d .= '<path d="M-10 ' . $y . ' C 30 ' . ( $y - $a ) . ' 70 ' . ( $y + $a ) . ' 100 ' . $y . ' S 170 ' . ( $y + $a ) . ' 210 ' . $y . '"/>';
-			}
+		case 'face': // Gesichtsprofil mit Funken
+			$d .= ka_tp( 104, 22, 52, 18, 28, 78, 58, 126, 6 );
+			$d .= ka_tp( 104, 22, 128, 40, 120, 62, 124, 78, 4.5 );
+			$d .= ka_tp( 124, 78, 126, 84, 136, 92, 126, 98, 3.5 );
+			$d .= ka_tp( 126, 98, 123, 106, 131, 108, 124, 114, 3 );
+			$d .= ka_tp( 124, 114, 124, 130, 116, 138, 98, 142, 4 );
+			$d .= ka_tp( 84, 138, 88, 160, 84, 176, 74, 194, 3.5 );
+			$d .= ka_tp( 110, 142, 118, 158, 122, 174, 130, 194, 3.5 );
+			$d .= ka_tp( 102, 68, 107, 62, 114, 62, 119, 67, 2.5 );
+			$d .= ka_spark( 158, 40, 17 ) . ka_spark( 176, 76, 9 ) . ka_spark( 146, 86, 6 );
 			break;
-		case 'branch': // Zweig mit Blättern
-			$d .= '<path d="M16 196 C 52 142 98 96 178 22"/>';
-			$leaf = '<path d="M0 0 C 8 -13 28 -15 44 -4 C 28 9 8 11 0 0Z"/><path d="M2 0 L38 -3"/>';
-			foreach ( array( array( 42, 160 ), array( 70, 128 ), array( 100, 99 ), array( 131, 72 ), array( 156, 48 ) ) as $k => $pt ) {
-				$d .= '<g transform="translate(' . $pt[0] . ' ' . $pt[1] . ') rotate(-96) scale(' . ( 1.05 - $k * .08 ) . ')">' . $leaf . '</g>';
-				$d .= '<g transform="translate(' . $pt[0] . ' ' . $pt[1] . ') rotate(12) scale(' . ( 1.05 - $k * .08 ) . ')">' . $leaf . '</g>';
+		case 'eye': // Auge mit Braue und Wimpern
+			$d .= ka_tp( 30, 112, 60, 72, 140, 72, 172, 112, 6 );
+			$d .= ka_tp( 30, 112, 66, 140, 136, 140, 172, 112, 4 );
+			$d .= ka_tp( 44, 88, 80, 54, 128, 54, 160, 86, 3 );
+			$d .= ka_tp( 22, 54, 70, 20, 130, 18, 182, 48, 7 );
+			foreach ( array( array( 58, 92, 50, 76 ), array( 78, 82, 72, 66 ), array( 101, 78, 101, 60 ), array( 124, 82, 130, 66 ), array( 146, 92, 154, 78 ) ) as $l ) {
+				$d .= ka_tp( $l[0], $l[1], ( $l[0] + $l[2] ) / 2 - 2, ( $l[1] + $l[3] ) / 2, ( $l[0] + $l[2] ) / 2 + 2, ( $l[1] + $l[3] ) / 2, $l[2], $l[3], 2.6 );
 			}
-			$d .= '<g transform="translate(178 22) rotate(-44)">' . $leaf . '</g>';
+			$d .= '<circle cx="101" cy="106" r="21" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="101" cy="106" r="8"/>' . ka_spark( 168, 140, 8 );
 			break;
-		case 'ripple': // Wellenringe um einen Tropfen
-			foreach ( array( 20, 38, 56, 74, 92 ) as $r ) {
-				$d .= '<circle cx="100" cy="108" r="' . $r . '"/>';
-			}
-			$d .= '<path d="M100 76 c 9 11 15 19 15 26 a15 15 0 0 1 -30 0 c0 -7 6 -15 15 -26z"/>';
+		case 'body': // Körperlinie, fließend
+			$d .= ka_tp( 100, 8, 82, 8, 82, 38, 100, 38, 4 ) . ka_tp( 100, 8, 118, 8, 118, 38, 100, 38, 4 );
+			$d .= ka_tp( 74, 56, 58, 80, 94, 96, 76, 120, 6 );
+			$d .= ka_tp( 76, 120, 54, 154, 80, 174, 90, 198, 6 );
+			$d .= ka_tp( 128, 56, 144, 80, 108, 96, 126, 120, 6 );
+			$d .= ka_tp( 126, 120, 150, 154, 122, 176, 112, 198, 6 );
+			$d .= ka_tp( 74, 56, 82, 48, 92, 46, 100, 48, 3 ) . ka_tp( 128, 56, 120, 48, 110, 46, 100, 48, 3 );
+			$d .= ka_tp( 128, 56, 158, 70, 168, 100, 186, 116, 3.5 );
+			$d .= ka_tp( 74, 56, 52, 42, 40, 22, 66, 14, 3.5 );
 			break;
-		default: // ineinandergreifende Kreise
-			$d .= '<circle cx="100" cy="72" r="54"/><circle cx="70" cy="124" r="54"/><circle cx="130" cy="124" r="54"/><circle cx="100" cy="100" r="96" stroke-dasharray="2 6"/>';
+		case 'box': // Paket mit Blatt
+			$d .= ka_tp( 40, 102, 62, 106, 78, 112, 100, 124, 4 ) . ka_tp( 100, 124, 122, 112, 138, 106, 160, 102, 4 );
+			$d .= ka_tp( 40, 102, 40, 128, 40, 150, 40, 168, 4 ) . ka_tp( 160, 102, 160, 128, 160, 150, 160, 168, 4 );
+			$d .= ka_tp( 100, 124, 100, 150, 100, 170, 100, 192, 4 );
+			$d .= ka_tp( 40, 168, 62, 176, 80, 184, 100, 192, 4 ) . ka_tp( 100, 192, 120, 184, 138, 176, 160, 168, 4 );
+			$d .= ka_tp( 40, 102, 30, 90, 24, 82, 20, 76, 3.5 ) . ka_tp( 20, 76, 46, 82, 72, 92, 92, 104, 3.5 );
+			$d .= ka_tp( 160, 102, 170, 90, 176, 82, 180, 76, 3.5 ) . ka_tp( 180, 76, 154, 82, 128, 92, 108, 104, 3.5 );
+			$d .= ka_tp( 100, 104, 68, 74, 70, 34, 110, 18, 4.5 ) . ka_tp( 110, 18, 138, 48, 132, 86, 100, 104, 4.5 );
+			$d .= ka_tp( 100, 104, 103, 78, 107, 52, 110, 24, 2.2 );
+			break;
+		default:
+			$d .= ka_spark( 100, 100, 60 );
 	}
-	return '<svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' . $d . '</svg>';
+	return '<svg viewBox="0 0 200 200" fill="currentColor" stroke="none" aria-hidden="true" focusable="false">' . $d . '</svg>';
 }
