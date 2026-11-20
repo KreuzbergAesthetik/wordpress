@@ -5360,3 +5360,5 @@ html:not(#ka) .side::before{opacity:.93;-webkit-mask-image:linear-gradient(90deg
 }
 /* v186: Seitenmenü wieder durchsichtig – keine eigene Farbfläche, nur die abgedunkelte, unscharfe Seite dahinter */
 html:not(#ka) .side::before{content:none!important}
+/* v186: Seitenmenü dunkel – Abdeckung im Praxisblau statt Nachtblau */
+html:not(#ka):root[data-theme="dark"] .scrim.open{background:rgba(1,34,101,.74)!important}
