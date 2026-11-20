@@ -5405,3 +5405,6 @@ html:not(#ka) .side .side-wm{clip-path:inset(0)}
 /* v186: Menü wieder mit Transparenz – Farbe bleibt im Verlauf erkennbar, die Seite scheint durch */
 html:not(#ka) .side::before{background:rgba(205,221,246,.6)!important}
 html:not(#ka):root[data-theme="dark"] .side::before{background:rgba(4,40,120,.6)!important}
+/* v186: Menü – Mitte zwischen durchsichtig und deckend */
+html:not(#ka) .side::before{background:rgba(205,221,246,.78)!important}
+html:not(#ka):root[data-theme="dark"] .side::before{background:rgba(4,40,120,.78)!important}
