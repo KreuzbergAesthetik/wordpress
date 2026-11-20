@@ -86,7 +86,7 @@ function ka_fields() {
 	$add( $s, 'chat_topics', 'Themen im Chat', 'area',
 "## Falten und Mimik
 Mimische Falten behandle ich gezielt und sparsam. Wir besprechen erst, welche Zonen Dich stören und was realistisch ist.
-- 1 Zone | ab 169,-
+- 1 Zone | ab 179,-
 - 2 Zonen | ab 259,-
 - 3 Zonen | ab 349,-
 - Jede weitere Zone | ab 90,-
@@ -95,33 +95,33 @@ Mimische Falten behandle ich gezielt und sparsam. Wir besprechen erst, welche Zo
 Für eine bessere Hautqualität arbeite ich mit Peelings, Needling und Polynukleotiden. Was sinnvoll ist, hängt von Deiner Haut ab.
 - TCA-Peeling | ab 149,-
 - Retinol-Peeling | ab 199,-
-- Microneedling | ab 249,-
+- Microneedling | ab 269,-
 - Microneedling mit Exosomen | ab 399,-
 - Mesotherapie (Hyaluron, Vitamine, Aminosäurenkomplex) | ab 249,-
 - Polynukleotide 2 ml | ab 349,-
-- Skinbooster 1 ml | ab 199,-
+- Skinbooster 1 ml | ab 219,-
 
 ## Volumen und Kontur
 Mit Hyaluron und Biostimulatoren lassen sich Kontur und Volumen sanft anpassen, Kieferlinie und Hals auch mit einem Neuromodulator. Ich wähle das Produkt passend zu Deiner Anatomie und erkläre Dir, warum.
-- Hyaluron-Filler 0,5 ml | ab 249,-
-- Hyaluron-Filler 0,7 ml | ab 299,-
-- Hyaluron-Filler 1,0 ml | ab 349,-
+- Hyaluron-Filler 0,5 ml | ab 269,-
+- Hyaluron-Filler 0,7 ml | ab 329,-
+- Hyaluron-Filler 1,0 ml | ab 389,-
 - Calciumhydroxylapatit 1,5 ml | ab 449,-
-- Poly-L-Milchsäure 1 Vial | ab 599,-
+- Poly-L-Milchsäure 1 Vial | ab 649,-
 - Nefertiti (Nofretete-Lift) | ab 399,-
 - Jawline | ab 269,-
 - Platysma (Hals-Straffung) | ab 269,-
-- Trapezius („Barbie-Botox“) | ab 349,-
+- Trapezius („Barbie-Botox“) | ab 399,-
 - Hyaluronidase (Auflösen von Hyaluron) | ab 149,-
 
 ## Schwitzen oder Zähneknirschen
 Auch dafür gibt es eine Behandlung. Wir klären im Gespräch, ob sie für Dich passt.
-- Hyperhidrose, pro Bereich | ab 499,-
-- Bruxismus / Masseter | ab 299,-
+- Hyperhidrose, pro Bereich | ab 549,-
+- Bruxismus / Masseter | ab 329,-
 
 ## Kleine Fettpölsterchen
 Die Fett-weg-Spritze (Lipolyse) ist für kleine, umschriebene Areale gedacht. Wir schauen gemeinsam, ob sie bei Dir sinnvoll ist.
-- Lipolyse, enzymatisch | ab 499,-
+- Lipolyse, enzymatisch | ab 349,-
 - Lipolyse, chemisch (traditionell) | ab 249,-
 
 ## Longevity
@@ -136,18 +136,18 @@ Das ist völlig in Ordnung. Dafür ist das Erstgespräch da. Wir sprechen über 
 "## Neuromodulator | Falten, Schwitzen, Kontur
 Für mimische Falten, starkes Schwitzen oder Zähneknirschen. Wir besprechen vorab, welche Zonen sinnvoll sind und was realistisch ist.
 ### Mimische Falten
-1 Zone | ab 169,-
+1 Zone | ab 179,-
 2 Zonen | ab 259,-
 3 Zonen | ab 349,-
 Jede weitere Zone | ab 90,-
 ### Schwitzen und Zähneknirschen
-Hyperhidrose, pro Bereich | ab 499,-
-Bruxismus / Masseter | ab 299,-
+Hyperhidrose, pro Bereich | ab 549,-
+Bruxismus / Masseter | ab 329,-
 ### Kontur
 Nefertiti (Nofretete-Lift) | ab 399,-
 Jawline | ab 269,-
 Platysma (Hals-Straffung) | ab 269,-
-Trapezius („Barbie-Botox“) | ab 349,-
+Trapezius („Barbie-Botox“) | ab 399,-
 
 ## Filler und Booster | Volumen und Hautqualität
 Für Kontur, Volumen und eine bessere Hautqualität. Ich wähle das Produkt passend zu Deiner Anatomie und erkläre Dir, warum.
@@ -157,10 +157,10 @@ Für Kontur, Volumen und eine bessere Hautqualität. Ich wähle das Produkt pass
 1,0 ml | ab 349,-
 ### Booster für die Hautqualität
 Polynukleotide 2 ml | ab 349,-
-Skinbooster 1 ml | ab 199,-
+Skinbooster 1 ml | ab 219,-
 ### Biostimulatoren
 Calciumhydroxylapatit 1,5 ml | ab 449,-
-Poly-L-Milchsäure 1 Vial | ab 599,-
+Poly-L-Milchsäure 1 Vial | ab 649,-
 ### Korrektur
 Hyaluronidase (Auflösen von Hyaluron) | ab 149,-
 
@@ -170,11 +170,11 @@ Peelings, Needling und Mesotherapie für die Haut, dazu Lipolyse für kleine, um
 TCA-Peeling | ab 149,-
 Retinol-Peeling | ab 199,-
 ### Needling und Mesotherapie
-Microneedling | ab 249,-
+Microneedling | ab 269,-
 Microneedling mit Exosomen | ab 399,-
 Mesotherapie (Hyaluron, Vitamine, Aminosäurenkomplex) | ab 249,-
 ### Lipolyse (Fett-weg-Spritze)
-Enzymatisch | ab 499,-
+Enzymatisch | ab 349,-
 Chemisch (traditionell) | ab 249,-
 
 ## Longevity | Medizin für lange Gesundheit | dunkel
@@ -182,7 +182,7 @@ Chemisch (traditionell) | ab 249,-
 
 ## Pakete | Mehrere Termine, günstigerer Preis
 Wenn mehrere Termine sinnvoll sind, bekommst Du die Behandlungen im Paket zu einem günstigeren Preis.
-2 × PLLA-Behandlung z. B. Sculptra, innerhalb von 6 Monaten | ab 999,- | 1198,-
+2 × PLLA-Behandlung z. B. Sculptra, innerhalb von 6 Monaten | ab 1099,- | 1298,-
 4 × Retinol-Peeling innerhalb von 6 Monaten | ab 699,- | 796,-
 3 × Polynukleotide innerhalb von 6 Monaten | ab 899,- | 1047,-
 Lip-Flip + 0,7 ml Hyaluron (Abstand 2 Wochen) | ab 349,- | 458,-
