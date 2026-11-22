@@ -5434,3 +5434,6 @@ html:not(.calm) .kon-page-btns svg.fillable path.fl{transition:clip-path .7s eas
 }
 html:not(#ka) .kon-page-btns .btn svg.fillable.fill-on,html:not(#ka) .kon-page-btns .btn.hero-main svg.fillable.fill-on{color:#004d17!important}
 html:not(#ka) .kon-page-btns .btn svg.fillable{transition:color .6s ease}
+/* v190: Wasserzeichen der Behandlungskarten entfernt; Tabellen im Hellmodus wieder deckend */
+.grp>.grp-wmc,.grp-wm{display:none!important}
+html:not(#ka):root:not([data-theme="dark"]) .grp:not(.deep) .subgrp,html:not(#ka):root:not([data-theme="dark"]) .grp:not(.deep) .subgrp:not(.has-h){background:#f2f6fc!important}

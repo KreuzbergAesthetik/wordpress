@@ -416,16 +416,7 @@ function ka_view_services() {
       <div class="groups">
       <?php $lon_grp = null; foreach ( ka_groups() as $g ) : if ( $g['deep'] && ! $g['rows'] ) { $lon_grp = $g; continue; } ?>
         <article class="grp<?php echo $g['deep'] ? ' deep glow' : ''; ?><?php echo ( $g['wide'] && 'Pakete' !== $g['title'] ) ? ' wide' : ''; ?>">
-          <?php
-          $ka_t = mb_strtolower( $g['title'] );
-          $ka_wi = 'box';
-          if ( false !== strpos( $ka_t, 'filler' ) ) { $ka_wi = 'face'; }
-          elseif ( false !== strpos( $ka_t, 'neuro' ) ) { $ka_wi = 'eye'; }
-          elseif ( false !== strpos( $ka_t, 'haut' ) ) { $ka_wi = 'body'; }
-          elseif ( false !== strpos( $ka_t, 'paket' ) ) { $ka_wi = 'box'; }
-          $ka_wn = isset( $GLOBALS['ka_wn'] ) ? (int) $GLOBALS['ka_wn'] : 0;
-          $GLOBALS['ka_wn'] = $ka_wn + 1;
-          ?><span class="grp-wmc" aria-hidden="true"><?php if ( 'body' === $ka_wi ) : ?><span class="grp-wm grp-wm-img grp-wm-<?php echo $ka_wn % 4; ?> grp-wm-m-body" style="--wm:url(<?php echo esc_url( get_theme_file_uri( 'assets/wm-woman.webp' ) ); ?>)"></span><?php else : ?><span class="grp-wm grp-wm-<?php echo $ka_wn % 4; ?> grp-wm-m-<?php echo esc_attr( $ka_wi ); ?>"><?php echo ( 'face' === $ka_wi ) ? ka_icon( 'face', 'ico' ) : ka_wm_motif( $ka_wi ); ?></span><?php endif; ?></span>
+          
           <span class="tag"><?php echo esc_html( $g['tag'] ); ?></span>
           <h3><?php echo esc_html( $g['title'] ); ?></h3>
           <?php if ( $g['desc'] ) : ?><p class="about-g"><?php echo ka_mark( esc_html( implode( ' ', $g['desc'] ) ) ); ?></p><?php endif; ?>
