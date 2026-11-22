@@ -542,8 +542,8 @@ function ka_view_contact() {
       <h2><?php echo ka( 'kon_h2' ); ?></h2>
       <p><?php echo ka( 'kon_text' ); ?></p>
       <p class="sum-contact kon-page-btns">
-        <a class="btn hero-main" href="<?php echo esc_attr( ka_mail_href() ); ?>"><?php echo ka_icon( 'mail' ); ?><span>E-Mail</span></a>
-        <a class="btn hero-main kon-wa" href="<?php echo $sms; ?>"><?php echo ka_icon( 'whatsapp' ); ?><span>WhatsApp</span></a>
+        <a class="btn hero-main" href="<?php echo esc_attr( ka_mail_href() ); ?>"><?php echo ka_icon( 'mail', 'ico fillable' ); ?><span>E-Mail</span></a>
+        <a class="btn hero-main kon-wa" href="<?php echo $sms; ?>"><?php echo ka_icon( 'whatsapp', 'ico fillable' ); ?><span>WhatsApp</span></a>
       </p>
     </div>
     <div class="div contact-div" aria-hidden="true"><span class="hgi"></span></div>

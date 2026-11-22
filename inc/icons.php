@@ -46,6 +46,7 @@ function ka_icon( $name, $class = 'ico' ) {
 	$fill_d = array(
 		'people' => 'M11.25 6.3a2.6 2.6 0 1 0-5.2 0 2.6 2.6 0 1 0 5.2 0zM3.3 19.8V16a5.35 5.35 0 0 1 10.7 0v3.8zM18.4 6.8a2.4 2.4 0 1 0-4.8 0 2.4 2.4 0 1 0 4.8 0zM14.1 10.6a4.9 4.9 0 0 1 6.7 4.8v4.4h-4.45V16a7.7 7.7 0 0 0-2.25-5.4z',
 		'mail'   => 'M4 6h16v12H4z',
+		'whatsapp' => 'M4.5 19.5l1.2-3.6A8 8 0 1 1 8.4 18.6z',
 	);
 	$cls      = esc_attr( $class ) . ( $fillable ? ' fillable' : '' );
 	$inner    = '';

@@ -5420,3 +5420,17 @@ html:not(#ka) .kview[data-view=ueber-mich] .wrap.about .st-block{line-height:1.6
 html:not(#ka) .kview[data-view=ueber-mich] .wrap.about .st-block p{vertical-align:baseline}
 html:not(#ka) .kview[data-view=ueber-mich] .wrap.about>div{line-height:1.6!important;font-size:.9375rem}
 html:not(#ka) .kview[data-view=ueber-mich] .wrap.about>div>.about-head,html:not(#ka) .kview[data-view=ueber-mich] .wrap.about>div>.quals{font-size:revert}
+/* v190: Kontaktseite – Symbole in den Knöpfen füllen sich beim Scrollen (wie beim Kontakt-Knopf im Startbereich); Wert-Reiter zeigen ihre Symbole auch bei 701 bis 860 px */
+.kon-page-btns svg.fillable path.fl{fill:#b7d6bf!important;fill-opacity:1!important;stroke:none!important;clip-path:inset(0 0 100% 0)!important;opacity:1!important}
+html:not(.calm) .kon-page-btns svg.fillable path.fl{transition:clip-path .7s ease!important}
+.kon-page-btns svg.fillable.fill-on path.fl{clip-path:inset(0 0 0 0)!important}
+.kon-page-btns svg.fillable.fill-on{color:#004d17!important;transition:color .6s ease}
+.calm .kon-page-btns svg.fillable path.fl{clip-path:inset(0 0 0 0)!important}
+.calm .kon-page-btns svg.fillable{color:#004d17!important}
+@media (min-width:701px) and (max-width:860px){
+ html:not(#ka) .kview[data-view=ueber-mich] .phil-box .vrow .vrow-ico{display:inline-flex!important}
+ html:not(#ka) .kview[data-view=ueber-mich] .phil-box .vrow>summary{font-size:12.5px!important;gap:.3rem!important;padding:.8rem .25rem!important}
+ html:not(#ka) .kview[data-view=ueber-mich] .phil-box .vrow-ico svg{width:15px!important;height:15px!important;padding:0!important}
+}
+html:not(#ka) .kon-page-btns .btn svg.fillable.fill-on,html:not(#ka) .kon-page-btns .btn.hero-main svg.fillable.fill-on{color:#004d17!important}
+html:not(#ka) .kon-page-btns .btn svg.fillable{transition:color .6s ease}
