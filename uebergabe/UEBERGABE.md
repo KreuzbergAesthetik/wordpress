@@ -1,6 +1,6 @@
 # Übergabe: Website Kreuzberg Ästhetik (WordPress-Theme)
 
-Stand: 20. November 2026. **Theme-Version 188 wird veröffentlicht** (Sculptra/PLLA wieder 599, Paket 2x PLLA wieder 999 statt 1198; sonstige Preise wie Version 187). Hinweis: im Backend unter „Inhalte“ gespeicherte Preise überschreiben die Standardwerte. Nächste Version 189.
+Stand: 22. November 2026. **Theme-Version 189 wird veröffentlicht** (Über mich: gleiche Schrift- und Zeilenabstände in allen Absätzen, auch am Handy; Preise wie Version 188). Nächste Version 190.
 
 ## ZUERST LESEN – Kurzfassung für die neue Sitzung
 
