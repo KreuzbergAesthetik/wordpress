@@ -417,7 +417,13 @@ function ka_view_services() {
       <?php $lon_grp = null; foreach ( ka_groups() as $g ) : if ( $g['deep'] && ! $g['rows'] ) { $lon_grp = $g; continue; } ?>
         <article class="grp<?php echo $g['deep'] ? ' deep glow' : ''; ?><?php echo ( $g['wide'] && 'Pakete' !== $g['title'] ) ? ' wide' : ''; ?>">
           
-          <span class="tag"><?php echo esc_html( $g['tag'] ); ?></span>
+          <?php
+          $ka_t = mb_strtolower( $g['title'] );
+          $ka_ti = 'layers';
+          if ( false !== strpos( $ka_t, 'filler' ) ) { $ka_ti = 'face'; }
+          elseif ( false !== strpos( $ka_t, 'neuro' ) ) { $ka_ti = 'wave'; }
+          elseif ( false !== strpos( $ka_t, 'haut' ) ) { $ka_ti = 'leaf'; }
+          ?><span class="tag"><?php echo ka_icon( $ka_ti, 'ico tag-ico' ); ?><?php echo esc_html( $g['tag'] ); ?></span>
           <h3><?php echo esc_html( $g['title'] ); ?></h3>
           <?php if ( $g['desc'] ) : ?><p class="about-g"><?php echo ka_mark( esc_html( implode( ' ', $g['desc'] ) ) ); ?></p><?php endif; ?>
           <?php if ( $g['rows'] ) : ?>

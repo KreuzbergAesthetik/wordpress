@@ -5437,3 +5437,11 @@ html:not(#ka) .kon-page-btns .btn svg.fillable{transition:color .6s ease}
 /* v190: Wasserzeichen der Behandlungskarten entfernt; Tabellen im Hellmodus wieder deckend */
 .grp>.grp-wmc,.grp-wm{display:none!important}
 html:not(#ka):root:not([data-theme="dark"]) .grp:not(.deep) .subgrp,html:not(#ka):root:not([data-theme="dark"]) .grp:not(.deep) .subgrp:not(.has-h){background:#f2f6fc!important}
+/* v190: Behandlungskarten – sanfter Verlauf oben in der Karte (hell: helles Blau nach Weiß, dunkel: weicher Lichtschein) und ein kleines Symbol in der Kategorie-Pille */
+html:not(#ka):root:not([data-theme="dark"]) article.grp:not(.deep){background:linear-gradient(180deg,#dfe9fa 0,#f4f8fe 130px,#fff 260px)!important}
+html:not(#ka)[data-theme="dark"] article.grp{background:radial-gradient(120% 150px at 50% 0,rgba(180,205,250,.40),rgba(180,205,250,0) 100%),linear-gradient(180deg,#1a45a6 0%,#123a98 100%)!important}
+.grp .tag{display:inline-flex;align-items:center;gap:6px}
+.grp .tag .tag-ico{width:14px!important;height:14px!important;flex:none;stroke-width:1.8;color:inherit}
+html:not(#ka) article.grp>.tag{display:inline-flex!important;align-items:center!important;gap:7px!important}
+html:not(#ka) article.grp>.tag .tag-ico{margin:0 7px 0 0!important}
+html:not(#ka)[data-theme="dark"] article.grp>.tag .tag-ico{margin:0 7px 0 0!important}
