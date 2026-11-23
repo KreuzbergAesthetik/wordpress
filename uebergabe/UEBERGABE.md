@@ -1,6 +1,6 @@
 # Übergabe: Website Kreuzberg Ästhetik (WordPress-Theme)
 
-Stand: 22. November 2026. **Theme-Version 189 wird veröffentlicht** (Über mich: gleiche Schrift- und Zeilenabstände in allen Absätzen, auch am Handy; Preise wie Version 188). Nächste Version 190.
+Stand: 23. November 2026. **Theme-Version 190 wird veröffentlicht** (Kontaktseite: Symbole in den Knöpfen füllen sich beim Scrollen; Wert-Reiter zeigen Symbole auch im Querformat; Behandlungskarten: Wasserzeichen entfernt, stattdessen sanfter Verlauf oben und Kategorie-Symbol in der Pille). Nächste Version 191.
 
 ## ZUERST LESEN – Kurzfassung für die neue Sitzung
 

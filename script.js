@@ -707,3 +707,15 @@ document.addEventListener('click',function(e){
   var tg=document.getElementById('hbbtn'),lg=document.getElementById('logobtn');[tg,lg].forEach(function(t){if(t)t.addEventListener('click',function(){setTimeout(sync,50)})});
   sync();setTimeout(sync,300);
 })();
+
+/* Kontaktseite: die Symbole in den Knöpfen (E-Mail, WhatsApp) füllen sich nacheinander beim Scrollen */
+(function(){
+  var ic=[].slice.call(document.querySelectorAll('.kon-page-btns svg.fillable')),tick=false;if(!ic.length)return;
+  function check(){tick=false;var vh=window.innerHeight||document.documentElement.clientHeight;
+    ic=ic.filter(function(el,i){var r=el.getBoundingClientRect();if(!r.width)return true;
+      if((window.pageYOffset||0)>30&&r.top+r.height/2<vh*(.82-i*.04)){setTimeout(function(){el.classList.add('fill-on')},i*220);return false}return true});
+    if(!ic.length){window.removeEventListener('scroll',req);window.removeEventListener('resize',req)}}
+  function req(){if(!tick){tick=true;requestAnimationFrame(check)}}
+  window.addEventListener('scroll',req,{passive:true});window.addEventListener('resize',req);window.addEventListener('hashchange',function(){setTimeout(req,60)});
+  req();setTimeout(req,400);
+})();
