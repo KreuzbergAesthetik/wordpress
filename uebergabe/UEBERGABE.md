@@ -1,6 +1,6 @@
 # Übergabe: Website Kreuzberg Ästhetik (WordPress-Theme)
 
-Stand: 23. November 2026. **Theme-Version 190 wird veröffentlicht** (Kontaktseite: Symbole in den Knöpfen füllen sich beim Scrollen; Wert-Reiter zeigen Symbole auch im Querformat; Behandlungskarten: Wasserzeichen entfernt, stattdessen sanfter Verlauf oben und Kategorie-Symbol in der Pille). Nächste Version 191.
+Stand: 23. November 2026. **Theme-Version 191 wird veröffentlicht** (Trapezius ohne „Barbie-Botox“: Schulter-Nacken-Linie mit Off-Label-Hinweis; „Botox“ im Fließtext entfernt, aus Gründen des Heilmittelwerbegesetzes bewusst weggelassen). Nächste Version 192.
 
 ## ZUERST LESEN – Kurzfassung für die neue Sitzung
 
