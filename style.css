@@ -2,7 +2,7 @@
 Theme Name: Kreuzberg Ästhetik
 Description: Website der Privatpraxis Kreuzberg Ästhetik
 Author: Kreuzberg Ästhetik
-Version: 191
+Version: 192
 Requires at least: 6.0
 Requires PHP: 7.4
 Text Domain: kreuzberg-aesthetik
@@ -5445,3 +5445,5 @@ html:not(#ka)[data-theme="dark"] article.grp{background:radial-gradient(120% 150
 html:not(#ka) article.grp>.tag{display:inline-flex!important;align-items:center!important;gap:7px!important}
 html:not(#ka) article.grp>.tag .tag-ico{margin:0 7px 0 0!important}
 html:not(#ka)[data-theme="dark"] article.grp>.tag .tag-ico{margin:0 7px 0 0!important}
+/* v192: Desktop – die schwebende Kopfleiste ist schmaler und sitzt mittig (820 px statt 1048 px); Tablet und Handy unverändert */
+@media (min-width:901px){html:not(#ka) .mastnav,html:not(#ka) .mast .mastnav{--pw:min(820px,calc(100% - 20px))!important}}
