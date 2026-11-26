@@ -5472,3 +5472,13 @@ html:not(#ka)[data-theme="dark"] article.grp>.tag .tag-ico{margin:0 7px 0 0!impo
  html:not(#ka) .side>.side-contact{grid-row:2;align-self:end;justify-content:center!important;margin-bottom:.4rem!important}
  html:not(#ka) .side .side-wm{width:60vh!important;top:55%!important}
 }
+/* v193: Menü überall gleich – Text zentriert, kein Strich vorne; die aktuelle Seite liegt auf einem Halo (hell: weicher Schatten, dunkel: Leuchten) */
+html:not(#ka) .side .side-links a{display:flex!important;justify-content:center!important;text-align:center!important;width:100%;box-sizing:border-box;border-radius:14px!important;transition:background-color .3s cubic-bezier(.25,.8,.35,1),box-shadow .3s cubic-bezier(.25,.8,.35,1)}
+html:not(#ka) .side .side-links a[aria-current="page"]::before{display:none!important}
+html:not(#ka) .side .side-links a::after{background:linear-gradient(90deg,rgba(1,34,101,0),rgba(1,34,101,.22) 20%,rgba(1,34,101,.22) 80%,rgba(1,34,101,0))!important}
+html:not(#ka):root[data-theme="dark"] .side .side-links a::after{background:linear-gradient(90deg,rgba(220,232,248,0),rgba(220,232,248,.4) 20%,rgba(220,232,248,.4) 80%,rgba(220,232,248,0))!important}
+html:not(#ka):root:not([data-theme="dark"]) .side .side-links a[aria-current="page"]{background:rgba(255,255,255,.7)!important;box-shadow:0 8px 22px -8px rgba(1,34,101,.38),0 2px 6px rgba(1,34,101,.12)!important}
+html:not(#ka):root[data-theme="dark"] .side .side-links a[aria-current="page"]{background:rgba(190,212,248,.12)!important;box-shadow:0 0 22px 2px rgba(150,185,245,.34),0 0 6px rgba(190,212,248,.24)!important;color:#fff!important}
+html:not(#ka) .side .side-links a[aria-current="page"]::after{display:none}
+html:not(#ka) .side .appearance-control .ac-label{text-align:center}
+html:not(#ka) .side .side-contact,html:not(#ka) .side .calm-control{justify-content:center!important}
