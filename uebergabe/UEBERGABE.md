@@ -1,6 +1,6 @@
 # Übergabe: Website Kreuzberg Ästhetik (WordPress-Theme)
 
-Stand: 26. November 2026. **Theme-Version 192 wird veröffentlicht** (Desktop: schwebende Kopfleiste 820 px breit und mittig, script.js M.pw passend; neues Porträt assets/portrait-hero.webp 1136x1551, freigestellt aus weißem Hintergrund, Kopfposition und Größe wie das vorige Bild, Ohrringe unverändert silbern). Nächste Version 193.
+Stand: 26. November 2026. **Theme-Version 193 wird veröffentlicht** (Seitenmenü: im Querformat wie im Hochformat vollflächig und zentriert, zweispaltig; überall Text zentriert, aktuelle Seite auf Halo statt Strich (hell Schatten, dunkel Leuchten); Porträt: Freisteller mit Original-Ohrringen in Silber, gezeichnete goldene Ringe verworfen). Nächste Version 194.
 
 ## ZUERST LESEN – Kurzfassung für die neue Sitzung
 
