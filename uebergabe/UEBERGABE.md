@@ -1,6 +1,6 @@
 # Übergabe: Website Kreuzberg Ästhetik (WordPress-Theme)
 
-Stand: 26. November 2026. **Theme-Version 193 wird veröffentlicht** (Seitenmenü: im Querformat wie im Hochformat vollflächig und zentriert, zweispaltig; überall Text zentriert, aktuelle Seite auf Halo statt Strich (hell Schatten, dunkel Leuchten); Porträt: Freisteller mit Original-Ohrringen in Silber, gezeichnete goldene Ringe verworfen). Nächste Version 194.
+Stand: 27. November 2026. **Theme-Version 194 wird veröffentlicht** (Seitenmenü: Querformat wie Desktop (Panel rechts, Übergang unscharf zu klar), Inhalt einspaltig und zentriert, scrollbar bei zu geringer Höhe, Wasserzeichen mittig hinter dem Panel; Hochformat Fläche transparenter (74 %); Halo der aktuellen Seite ohne Kante, hell weiß, dunkel blau; Trennlinien bleiben). Nächste Version 195.
 
 ## ZUERST LESEN – Kurzfassung für die neue Sitzung
 
