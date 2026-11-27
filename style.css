@@ -2,7 +2,7 @@
 Theme Name: Kreuzberg Ästhetik
 Description: Website der Privatpraxis Kreuzberg Ästhetik
 Author: Kreuzberg Ästhetik
-Version: 193
+Version: 194
 Requires at least: 6.0
 Requires PHP: 7.4
 Text Domain: kreuzberg-aesthetik
@@ -5482,3 +5482,59 @@ html:not(#ka):root[data-theme="dark"] .side .side-links a[aria-current="page"]{b
 html:not(#ka) .side .side-links a[aria-current="page"]::after{display:none}
 html:not(#ka) .side .appearance-control .ac-label{text-align:center}
 html:not(#ka) .side .side-contact,html:not(#ka) .side .calm-control{justify-content:center!important}
+/* v194: Handy im Querformat – einspaltig wie im Hochformat (alles untereinander, zentriert), eng gesetzt; wenn die Höhe nicht reicht, lässt sich das Menü scrollen */
+@media (orientation:landscape) and (max-height:500px){
+ html:not(#ka) .side{display:flex!important;flex-direction:column!important;align-items:stretch;justify-content:flex-start;overflow-y:auto!important;overflow-x:hidden!important;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;gap:.15rem!important;padding:.35rem max(1.6rem,env(safe-area-inset-right,0px)) .7rem max(1.6rem,env(safe-area-inset-left,0px))!important;width:100vw!important;max-width:none!important}
+ html:not(#ka) .side>*{grid-column:auto!important;grid-row:auto!important;align-self:stretch!important}
+ html:not(#ka) .side>.side-top{min-height:46px!important;flex:none}
+ html:not(#ka) .side .side-top .wmk-side{transform:scale(.55)!important}
+ html:not(#ka) .side>.side-links{width:min(420px,100%);margin:0 auto!important}
+ html:not(#ka) .side .side-links a{font-size:1.02rem!important;padding:.3rem .5rem!important;line-height:1.15!important}
+ html:not(#ka) .side>.side-div{display:block!important;height:14px;margin:.1rem 0!important}
+ html:not(#ka) .side>.appearance-control{width:min(420px,100%);margin:0 auto!important;padding:.1rem 0 0!important;gap:.25rem}
+ html:not(#ka) .side .seg button{height:30px}
+ html:not(#ka) .side>.calm-control{width:min(420px,100%);margin:.2rem auto 0!important;padding:.1rem 0!important;justify-content:center!important}
+ html:not(#ka) .side>.side-contact{margin:.25rem auto 0!important;justify-content:center!important;flex:none}
+ html:not(#ka) .side .side-wm{width:70vh!important;top:50%!important}
+}
+@media (orientation:landscape) and (max-height:500px){
+ html:not(#ka) .side>.side-div{display:none!important}
+ html:not(#ka) .side>.side-top{min-height:38px!important}
+ html:not(#ka) .side .side-top .wmk-side{transform:scale(.5)!important}
+ html:not(#ka) .side .side-links a{padding:.24rem .5rem!important}
+ html:not(#ka) .side>.appearance-control{margin-top:.25rem!important}
+ html:not(#ka) .side>.side-contact{margin-top:.2rem!important}
+ html:not(#ka) .side .side-contact .side-form{width:34px!important;height:34px!important;min-width:34px}
+}
+/* v194: Halo ohne Pillenform – ein weicher, randloser Schein hinter der aktuellen Seite (hell: sanfter Schatten, dunkel: Leuchten), der an den Enden ausläuft */
+html:not(#ka) .side .side-links a,html:not(#ka) .side .side-links a[aria-current="page"]{border-radius:0!important}
+html:not(#ka):root:not([data-theme="dark"]) .side .side-links a[aria-current="page"]{box-shadow:none!important;background:radial-gradient(ellipse 62% 78% at 50% 50%,rgba(1,34,101,.22) 0,rgba(1,34,101,.11) 45%,rgba(1,34,101,0) 100%)!important}
+html:not(#ka):root[data-theme="dark"] .side .side-links a[aria-current="page"]{box-shadow:none!important;background:radial-gradient(ellipse 62% 78% at 50% 50%,rgba(190,212,250,.42) 0,rgba(160,195,248,.2) 45%,rgba(160,195,248,0) 100%)!important}
+/* v194: Handy im Querformat – das Menü verhält sich wie am Desktop: Panel rechts (320 px), der Übergang von unscharf zu klar läuft über die Seite aus; Inhalt bleibt einspaltig, zentriert, eng gesetzt und scrollbar */
+@media (orientation:landscape) and (max-height:500px){
+ html:not(#ka) .side{width:min(320px,86vw)!important;left:auto!important;right:0!important;max-width:none!important;padding:.35rem 1.3rem .7rem!important;clip-path:inset(-2px -2px -2px calc(-1 * (100vw - min(320px,86vw))))!important;overflow:visible!important}
+ html:not(#ka) .side>*{max-width:100%}
+ html:not(#ka) .side>.side-links,html:not(#ka) .side>.appearance-control,html:not(#ka) .side>.calm-control{width:100%!important}
+ html:not(#ka) .side::before{left:calc(100% - 100vw)!important;width:100vw!important;right:0!important;
+  -webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,0) 0,rgba(0,0,0,.3) calc((100% - min(320px,86vw)) * .47),rgba(0,0,0,.6) calc((100% - min(320px,86vw)) * .77),rgba(0,0,0,.99) calc(100% - min(320px,86vw)),rgba(0,0,0,.99) 100%)!important;
+  mask-image:linear-gradient(90deg,rgba(0,0,0,0) 0,rgba(0,0,0,.3) calc((100% - min(320px,86vw)) * .47),rgba(0,0,0,.6) calc((100% - min(320px,86vw)) * .77),rgba(0,0,0,.99) calc(100% - min(320px,86vw)),rgba(0,0,0,.99) 100%)!important}
+}
+/* v194: Menü ist scrollbar (wenn der Bildschirm zu niedrig ist, z. B. Querformat oder kleine Handys); die Farbfläche mit dem Übergang bleibt dabei fest stehen und deckt den ganzen Bildschirm */
+html:not(#ka) .side{overflow-y:auto!important;overflow-x:hidden!important;clip-path:none!important;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+html:not(#ka) .side::before{position:fixed!important;top:0!important;bottom:0!important;left:0!important;right:0!important;width:auto!important;height:auto!important}
+html:not(#ka) .side>*{position:relative;z-index:1}
+html:not(#ka) .side .side-wm{position:fixed!important;z-index:0}
+/* v194 (Versuch): Wasserzeichen im Querformat und am Desktop mittig hinter dem Menü-Panel rechts; Hochformat: Fläche transparenter und der Schein der aktuellen Seite auch hell als Halo */
+@media (min-width:701px),(orientation:landscape) and (max-height:500px){
+ html:not(#ka) .side .side-wm{left:auto!important;right:calc(min(320px,86vw) / 2)!important;transform:translate(50%,-50%)!important;width:min(300px,78vh)!important}
+}
+@media (max-width:700px) and (orientation:portrait){
+ html:not(#ka) .side::before{background:rgba(205,221,246,.74)!important}
+ html:not(#ka):root[data-theme="dark"] .side::before{background:rgba(4,40,120,.74)!important}
+}
+html:not(#ka):root:not([data-theme="dark"]) .side .side-links a[aria-current="page"]{background:radial-gradient(ellipse 62% 78% at 50% 50%,rgba(255,255,255,.95) 0,rgba(255,255,255,.55) 45%,rgba(255,255,255,0) 100%)!important}
+/* v194: Halo der aktuellen Seite läuft nach allen Seiten weich aus – keine sichtbare Kante oben oder unten mehr (der Schein ragt über die Zeile hinaus statt an ihr abgeschnitten zu werden) */
+html:not(#ka) .side .side-links a[aria-current="page"],html:not(#ka):root:not([data-theme="dark"]) .side .side-links a[aria-current="page"],html:not(#ka):root[data-theme="dark"] .side .side-links a[aria-current="page"]{background:none!important;box-shadow:none!important}
+html:not(#ka) .side .side-links a[aria-current="page"]::after{display:block!important;content:""!important;position:absolute!important;left:-8%!important;right:-8%!important;top:-16px!important;bottom:-16px!important;height:auto!important;z-index:-1;pointer-events:none;border-radius:0}
+html:not(#ka):root:not([data-theme="dark"]) .side .side-links a[aria-current="page"]::after{background:radial-gradient(closest-side,rgba(255,255,255,.95) 0,rgba(255,255,255,.55) 45%,rgba(255,255,255,0) 100%)!important}
+html:not(#ka):root[data-theme="dark"] .side .side-links a[aria-current="page"]::after{background:radial-gradient(closest-side,rgba(190,212,250,.5) 0,rgba(160,195,248,.24) 45%,rgba(160,195,248,0) 100%)!important}
