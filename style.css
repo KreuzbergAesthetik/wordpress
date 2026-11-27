@@ -5524,3 +5524,12 @@ html:not(#ka) .side{overflow-y:auto!important;overflow-x:hidden!important;clip-p
 html:not(#ka) .side::before{position:fixed!important;top:0!important;bottom:0!important;left:0!important;right:0!important;width:auto!important;height:auto!important}
 html:not(#ka) .side>*{position:relative;z-index:1}
 html:not(#ka) .side .side-wm{position:fixed!important;z-index:0}
+/* v194 (Versuch): Wasserzeichen im Querformat und am Desktop mittig hinter dem Menü-Panel rechts; Hochformat: Fläche transparenter und der Schein der aktuellen Seite auch hell als Halo */
+@media (min-width:701px),(orientation:landscape) and (max-height:500px){
+ html:not(#ka) .side .side-wm{left:auto!important;right:calc(min(320px,86vw) / 2)!important;transform:translate(50%,-50%)!important;width:min(300px,78vh)!important}
+}
+@media (max-width:700px) and (orientation:portrait){
+ html:not(#ka) .side::before{background:rgba(205,221,246,.74)!important}
+ html:not(#ka):root[data-theme="dark"] .side::before{background:rgba(4,40,120,.74)!important}
+}
+html:not(#ka):root:not([data-theme="dark"]) .side .side-links a[aria-current="page"]{background:radial-gradient(ellipse 62% 78% at 50% 50%,rgba(255,255,255,.95) 0,rgba(255,255,255,.55) 45%,rgba(255,255,255,0) 100%)!important}
