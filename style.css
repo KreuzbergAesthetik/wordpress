@@ -5482,3 +5482,27 @@ html:not(#ka):root[data-theme="dark"] .side .side-links a[aria-current="page"]{b
 html:not(#ka) .side .side-links a[aria-current="page"]::after{display:none}
 html:not(#ka) .side .appearance-control .ac-label{text-align:center}
 html:not(#ka) .side .side-contact,html:not(#ka) .side .calm-control{justify-content:center!important}
+/* v194: Handy im Querformat – einspaltig wie im Hochformat (alles untereinander, zentriert), eng gesetzt; wenn die Höhe nicht reicht, lässt sich das Menü scrollen */
+@media (orientation:landscape) and (max-height:500px){
+ html:not(#ka) .side{display:flex!important;flex-direction:column!important;align-items:stretch;justify-content:flex-start;overflow-y:auto!important;overflow-x:hidden!important;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;gap:.15rem!important;padding:.35rem max(1.6rem,env(safe-area-inset-right,0px)) .7rem max(1.6rem,env(safe-area-inset-left,0px))!important;width:100vw!important;max-width:none!important}
+ html:not(#ka) .side>*{grid-column:auto!important;grid-row:auto!important;align-self:stretch!important}
+ html:not(#ka) .side>.side-top{min-height:46px!important;flex:none}
+ html:not(#ka) .side .side-top .wmk-side{transform:scale(.55)!important}
+ html:not(#ka) .side>.side-links{width:min(420px,100%);margin:0 auto!important}
+ html:not(#ka) .side .side-links a{font-size:1.02rem!important;padding:.3rem .5rem!important;line-height:1.15!important}
+ html:not(#ka) .side>.side-div{display:block!important;height:14px;margin:.1rem 0!important}
+ html:not(#ka) .side>.appearance-control{width:min(420px,100%);margin:0 auto!important;padding:.1rem 0 0!important;gap:.25rem}
+ html:not(#ka) .side .seg button{height:30px}
+ html:not(#ka) .side>.calm-control{width:min(420px,100%);margin:.2rem auto 0!important;padding:.1rem 0!important;justify-content:center!important}
+ html:not(#ka) .side>.side-contact{margin:.25rem auto 0!important;justify-content:center!important;flex:none}
+ html:not(#ka) .side .side-wm{width:70vh!important;top:50%!important}
+}
+@media (orientation:landscape) and (max-height:500px){
+ html:not(#ka) .side>.side-div{display:none!important}
+ html:not(#ka) .side>.side-top{min-height:38px!important}
+ html:not(#ka) .side .side-top .wmk-side{transform:scale(.5)!important}
+ html:not(#ka) .side .side-links a{padding:.24rem .5rem!important}
+ html:not(#ka) .side>.appearance-control{margin-top:.25rem!important}
+ html:not(#ka) .side>.side-contact{margin-top:.2rem!important}
+ html:not(#ka) .side .side-contact .side-form{width:34px!important;height:34px!important;min-width:34px}
+}
