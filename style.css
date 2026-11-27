@@ -5533,3 +5533,8 @@ html:not(#ka) .side .side-wm{position:fixed!important;z-index:0}
  html:not(#ka):root[data-theme="dark"] .side::before{background:rgba(4,40,120,.74)!important}
 }
 html:not(#ka):root:not([data-theme="dark"]) .side .side-links a[aria-current="page"]{background:radial-gradient(ellipse 62% 78% at 50% 50%,rgba(255,255,255,.95) 0,rgba(255,255,255,.55) 45%,rgba(255,255,255,0) 100%)!important}
+/* v194: Halo der aktuellen Seite läuft nach allen Seiten weich aus – keine sichtbare Kante oben oder unten mehr (der Schein ragt über die Zeile hinaus statt an ihr abgeschnitten zu werden) */
+html:not(#ka) .side .side-links a[aria-current="page"],html:not(#ka):root:not([data-theme="dark"]) .side .side-links a[aria-current="page"],html:not(#ka):root[data-theme="dark"] .side .side-links a[aria-current="page"]{background:none!important;box-shadow:none!important}
+html:not(#ka) .side .side-links a[aria-current="page"]::after{display:block!important;content:""!important;position:absolute!important;left:-8%!important;right:-8%!important;top:-16px!important;bottom:-16px!important;height:auto!important;z-index:-1;pointer-events:none;border-radius:0}
+html:not(#ka):root:not([data-theme="dark"]) .side .side-links a[aria-current="page"]::after{background:radial-gradient(closest-side,rgba(255,255,255,.95) 0,rgba(255,255,255,.55) 45%,rgba(255,255,255,0) 100%)!important}
+html:not(#ka):root[data-theme="dark"] .side .side-links a[aria-current="page"]::after{background:radial-gradient(closest-side,rgba(190,212,250,.5) 0,rgba(160,195,248,.24) 45%,rgba(160,195,248,0) 100%)!important}
