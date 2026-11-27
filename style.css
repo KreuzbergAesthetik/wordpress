@@ -5510,3 +5510,12 @@ html:not(#ka) .side .side-contact,html:not(#ka) .side .calm-control{justify-cont
 html:not(#ka) .side .side-links a,html:not(#ka) .side .side-links a[aria-current="page"]{border-radius:0!important}
 html:not(#ka):root:not([data-theme="dark"]) .side .side-links a[aria-current="page"]{box-shadow:none!important;background:radial-gradient(ellipse 62% 78% at 50% 50%,rgba(1,34,101,.22) 0,rgba(1,34,101,.11) 45%,rgba(1,34,101,0) 100%)!important}
 html:not(#ka):root[data-theme="dark"] .side .side-links a[aria-current="page"]{box-shadow:none!important;background:radial-gradient(ellipse 62% 78% at 50% 50%,rgba(190,212,250,.42) 0,rgba(160,195,248,.2) 45%,rgba(160,195,248,0) 100%)!important}
+/* v194: Handy im Querformat – das Menü verhält sich wie am Desktop: Panel rechts (320 px), der Übergang von unscharf zu klar läuft über die Seite aus; Inhalt bleibt einspaltig, zentriert, eng gesetzt und scrollbar */
+@media (orientation:landscape) and (max-height:500px){
+ html:not(#ka) .side{width:min(320px,86vw)!important;left:auto!important;right:0!important;max-width:none!important;padding:.35rem 1.3rem .7rem!important;clip-path:inset(-2px -2px -2px calc(-1 * (100vw - min(320px,86vw))))!important;overflow:visible!important}
+ html:not(#ka) .side>*{max-width:100%}
+ html:not(#ka) .side>.side-links,html:not(#ka) .side>.appearance-control,html:not(#ka) .side>.calm-control{width:100%!important}
+ html:not(#ka) .side::before{left:calc(100% - 100vw)!important;width:100vw!important;right:0!important;
+  -webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,0) 0,rgba(0,0,0,.3) calc((100% - min(320px,86vw)) * .47),rgba(0,0,0,.6) calc((100% - min(320px,86vw)) * .77),rgba(0,0,0,.99) calc(100% - min(320px,86vw)),rgba(0,0,0,.99) 100%)!important;
+  mask-image:linear-gradient(90deg,rgba(0,0,0,0) 0,rgba(0,0,0,.3) calc((100% - min(320px,86vw)) * .47),rgba(0,0,0,.6) calc((100% - min(320px,86vw)) * .77),rgba(0,0,0,.99) calc(100% - min(320px,86vw)),rgba(0,0,0,.99) 100%)!important}
+}
